@@ -57,6 +57,48 @@ tr.memorized .td-check{opacity:1}
 .td-word.current-play{background:rgba(14,165,233,.25)!important;
   border-radius:6px;outline:2px solid #0ea5e9}
 
+/* ── iPhone 最適化（480px以下） ── */
+@media(max-width:480px){
+  /* テーブルをflexカードに変換 */
+  .vocab-table thead{display:none}
+  .vocab-table tbody{display:block}
+  .vocab-table tr{
+    display:flex;flex-wrap:wrap;align-items:center;
+    padding:8px 10px;gap:0;border-bottom:1px solid var(--border);
+  }
+  .vocab-table tr:last-child{border-bottom:none}
+  /* チェックボックス列 */
+  .td-check{
+    width:36px;flex-shrink:0;display:flex;
+    align-items:center;justify-content:center;padding:0;
+  }
+  /* 単語 */
+  .td-word{
+    flex:1 1 auto;white-space:nowrap;min-width:0;
+    font-size:.88rem;padding:0 6px;
+  }
+  /* 品詞 */
+  .td-pos{
+    flex:0 0 auto;font-size:.72rem;padding:0 4px;
+    align-self:center;
+  }
+  /* 意味：2行目に全幅で表示 */
+  .td-meaning{
+    flex:0 0 100%;
+    font-size:.82rem;padding:5px 6px 5px 40px;
+    line-height:1.55;color:var(--text);
+    white-space:normal;word-break:break-word;
+  }
+  /* プレーヤーをスクロール可能に */
+  .player-wrap{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:8px 10px}
+  .player-wrap::-webkit-scrollbar{height:3px}
+  .player-wrap::-webkit-scrollbar-thumb{background:#475569;border-radius:2px}
+  /* セクション余白 */
+  .section{padding:0 6px}
+  /* TOCをスクロール */
+  .toc{flex-wrap:nowrap;overflow-x:auto;padding:6px 10px}
+  .toc::-webkit-scrollbar{display:none}
+}
 </style>
 </head>
 <body>
