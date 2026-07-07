@@ -345,8 +345,6 @@ function collectWords(){
         const noteEl=clone.querySelector('.note');
         if(noteEl)noteEl.remove();
         meaning=clone.textContent.trim().split('\n')[0].trim();
-        // カッコ内説明が長い場合は前半だけ
-        if(meaning.length>40)meaning=meaning.replace(/（.*?）/g,'').trim();
       }
     }
     allWords.push({word,meaning,el:td});
@@ -382,8 +380,8 @@ function speakSequence(wordObj,onDone){
     // 単語(EN) → 意味(JP) → 単語(EN)
     speakOne(w,'en-US',rate,()=>{
       if(!isPlaying){if(onDone)onDone();return;}
-      // 日本語意味テキスト（長すぎる場合は 50 字に丸める）
-      const rawMeaning=(wordObj.meaning||'').replace(/（[^）]{20,}）/g,'').trim();
+      // 日本語意味テキスト（50字上限・括弧内説明もそのまま読む）
+      const rawMeaning=(wordObj.meaning||'').trim();
       const jp=rawMeaning.slice(0,50)||w;
       const hasJa=!!getVoice('ja-JP');
       // 日本語レート: 常に激速（1.3）固定
