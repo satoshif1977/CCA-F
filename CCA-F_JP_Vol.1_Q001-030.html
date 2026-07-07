@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F JP Vol.1</title>
+<style>:root{--primary:#4f46e5;--bg:#f8fafc;--card-bg:#fff;--correct-bg:#f0fdf4;--correct-border:#16a34a;--exp-bg:#fffbeb;--exp-border:#f59e0b;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:24px}
+.site-header{background:linear-gradient(135deg,#4f46e5,#3730a3);color:white;padding:16px 20px 14px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.site-header h1{font-size:1.05rem;font-weight:700}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:3px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:7px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#4f46e5;color:white;border-color:#4f46e5}
+.cards-container{max-width:820px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);border-left:4px solid #4f46e5;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06);scroll-margin-top:76px}
+.card-header{display:flex;align-items:center;gap:8px;padding:9px 16px;background:#f8fafc;border-bottom:1px solid var(--border)}
+.qnum{font-size:.95rem;font-weight:800;color:#4f46e5}
+.domain-badge{margin-left:auto;background:#f3e8ff;color:#7c3aed;padding:2px 8px;border-radius:10px;font-size:.67rem;font-weight:600}
+.question-text{padding:14px 16px;font-size:.93rem;line-height:1.8;color:var(--text);border-bottom:1px solid var(--border)}
+.answer-section{padding:12px 16px 16px}
+.correct-answer{background:var(--correct-bg);border:1.5px solid var(--correct-border);border-radius:8px;padding:12px}
+.ans-label{font-size:.78rem;font-weight:700;color:#166534;margin-bottom:6px}
+.ans-text{font-size:.92rem;font-weight:600;color:#14532d;line-height:1.6;margin-bottom:6px}
+.ans-exp{font-size:.82rem;color:#166534;line-height:1.65;border-top:1px solid rgba(22,163,74,.2);padding-top:6px}
+.overall-exp{margin-top:10px;background:var(--exp-bg);border:1.5px solid var(--exp-border);border-radius:8px;padding:11px 14px}
+.exp-title{font-size:.8rem;font-weight:700;color:#92400e;margin-bottom:5px}
+.exp-body{font-size:.82rem;line-height:1.7;color:#78350f}
+.ref-link{display:inline-block;margin-top:7px;font-size:.76rem;color:#4f46e5;text-decoration:none}
+.ref-link:hover{text-decoration:underline}
+.q-divider{font-size:.78rem;font-weight:700;color:#94a3b8;padding:2px 10px;background:#f1f5f9;border-radius:6px;margin:0 16px;text-align:center}
+@media(max-width:600px){.question-text{font-size:.88rem}.domain-badge{display:none}}</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCA-F 日本語問題集 | Vol.1（Q1-Q30）</h1>
+  <div class="subtitle">Claude Certified Architect Foundations | 30問 | 全180問中 1-30 / 180</div>
+</header>
+<nav class="jump-nav">
+  <span>Jump:</span>
+  <a class="jump-btn" href="#card-1">Q1</a><a class="jump-btn" href="#card-2">Q2</a><a class="jump-btn" href="#card-3">Q3</a><a class="jump-btn" href="#card-4">Q4</a><a class="jump-btn" href="#card-5">Q5</a><a class="jump-btn" href="#card-6">Q6</a><a class="jump-btn" href="#card-7">Q7</a><a class="jump-btn" href="#card-8">Q8</a><a class="jump-btn" href="#card-9">Q9</a><a class="jump-btn" href="#card-10">Q10</a><a class="jump-btn" href="#card-11">Q11</a><a class="jump-btn" href="#card-12">Q12</a><a class="jump-btn" href="#card-13">Q13</a><a class="jump-btn" href="#card-14">Q14</a><a class="jump-btn" href="#card-15">Q15</a><a class="jump-btn" href="#card-16">Q16</a><a class="jump-btn" href="#card-17">Q17</a><a class="jump-btn" href="#card-18">Q18</a><a class="jump-btn" href="#card-19">Q19</a><a class="jump-btn" href="#card-20">Q20</a><a class="jump-btn" href="#card-21">Q21</a><a class="jump-btn" href="#card-22">Q22</a><a class="jump-btn" href="#card-23">Q23</a><a class="jump-btn" href="#card-24">Q24</a><a class="jump-btn" href="#card-25">Q25</a><a class="jump-btn" href="#card-26">Q26</a><a class="jump-btn" href="#card-27">Q27</a><a class="jump-btn" href="#card-28">Q28</a><a class="jump-btn" href="#card-29">Q29</a><a class="jump-btn" href="#card-30">Q30</a>
+</nav>
+<div class="cards-container">
+<div class="card" id="card-1">
+<div class="card-header">
+  <span class="qnum">Q1</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">3つの異なるソース（交通量CSV・気象記事・規制文書）を統合するスマートシティエージェントが、単一の散文ブロックで出力するため構造と規制要件が失われている。<br>❓ このマルチモーダル情報を適切に表示するための最適なアーキテクチャは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コーディネーターエージェントが各ソースのコンテンツタイプ（&#x27;traffic_table&#x27;, &#x27;weather_report&#x27;, &#x27;regulations&#x27;）を特定するシステムを開発する。その後、この構造化されたデータと、「交通データはMarkdownテーブルとして表示する」「規制要件は番号付きリストとして要約する」といった明示的なレンダリング指示を統合エージェントに渡す。</div>
+    <div class="ans-exp">データの種類を事前に分類し、それぞれに最適な出力形式を指定するオーケストレーションアプローチは、情報の正確性と可読性を両立させるための最も効果的な設計です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">複数の異なる性質のデータを1プロンプトで処理すると「出力の均質化」が起きる。<br>オーケストレーションパターンを採用し、コーディネーターが各データ種別に応じたレンダリング指示（Markdownテーブル・箇条書き等）を後続エージェントに渡す設計が最適。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/structured-outputs" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-2">
+<div class="card-header">
+  <span class="qnum">Q2</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">150ファイルにわたるレガシー医薬品システムを再構築するため、全ファイルのデータフローを理解する必要がある。<br>すべて読み込むとメインのコンテキストウィンドウが枯渇し、再構築作業のスペースがなくなる。<br>❓ このリスクを軽減する最適なアプローチは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">Exploreサブエージェントを使用して冗長な探索出力を分離し、データフローの簡潔な要約のみをメインの会話に返す。</div>
+    <div class="ans-exp">調査専用のサブエージェントを分離して利用することで、メインの会話ウィンドウの消費を最小限に抑えつつ、必要な知見を効率的に統合できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude Codeのサブエージェント（Explore機能）を活用。<br>独立したコンテキストで詳細調査を行い、最終要約のみをメインに返すことで、メイン会話をクリーンに保ちトークンを節約できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-3">
+<div class="card-header">
+  <span class="qnum">Q3</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">ログ分析エージェントがコーディネーター→LogProcessorの構成で動作。<br>ログファイルが800MBでコンテキストウィンドウを超えるため、LogProcessorにはSearchLogsツールでDBへ直接アクセスさせる。<br>❓ コンテキストを圧迫せずLogProcessorに処理対象を把握させるには？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">Task ツールを介して LogProcessor を呼び出す際、データベーススキーマ、特定のテーブル名、および全体的な処理目標をプロンプトに含めて渡すようにコーディネーターを構成する。</div>
+    <div class="ans-exp">エージェントに「データの地図（スキーマ）」と「目的」を提示することで、エージェントはツールを介して必要なデータにのみアクセスでき、コンテキストの消費を最小限に抑えられます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">コンテキストには「データの所在（スキーマ・テーブル名）」と「処理目的」のメタデータのみを渡す。<br>エージェントが自律的にSQLツールで必要範囲のデータのみ取得する設計が定石。<br>数GB規模の大規模データも効率的に処理可能。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-4">
+<div class="card-header">
+  <span class="qnum">Q4</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">Claude APIを使う予約システムで2種のエラーが発生：便番号の形式不正（400 Bad Request）とサーバー過負荷（503 Service Unavailable）。<br>❓ これら2つを適切に処理するロジックの正しい構成は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">両方のエラーで isError: true を返す。400エラーには errorCategory: &quot;validation&quot;、isRetryable: false を設定し、ユーザーに正しい形式での入力を促す。503エラーには errorCategory: &quot;transient&quot;、isRetryable: true を設定し、再試行を提案する。</div>
+    <div class="ans-exp">クライアント側の不備（400）はリトライ不可としてユーザーへ修正を求め、サーバー側の一時的不具合（503）はリトライ可能として処理するのが、信頼性の高いシステムの標準的なエラーハンドリングです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">400系（クライアントエラー）はリトライ無意味→ユーザーに入力修正を求める。<br>503系（一時的サーバーエラー）は指数バックオフでリトライ有効。<br>エラー原因（入力不備 vs 一時障害）で処理を分岐するのがベストプラクティス。</div>
+    <a href="https://docs.anthropic.com/ja/api-reference/errors" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-5">
+<div class="card-header">
+  <span class="qnum">Q5</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">Claude Codeで設計書を自動生成後、同じセッション内で要件との整合性を検証するステップを追加した。<br>しかし明らかな不整合が見逃されることに気づいた。<br>❓ なぜこの現象が起き、どうワークフローを再構成すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">モデルがセッションコンテキストの分離の問題（確証バイアス）を経験しており、自身の直近の出力に対してバイアスがかかるため。検証ステップ用には完全に独立した新しい Claude Code セッションを開始すべきである。</div>
+    <div class="ans-exp">生成と検証を異なるセッションで行うことで、モデルは過去の推論プロセスに束縛されず、独立した第三者の視点から客観的な評価を行えるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">同じセッション内で検証すると「確証バイアス」が生じ、モデルが自分の過去の推論を正当化しようとする。<br>解決策：生成タスクと検証タスクを別セッションに分離し、以前の出力をゼロから独立して検証させる。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-6">
+<div class="card-header">
+  <span class="qnum">Q6</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">追跡エージェントが配送ログの要約を物流戦略エージェントに渡すが、タイムラインの時系列が頻繁に誤り、根拠となるログも提示できない不正確なタイムラインが生成されている。<br>❓ このマルチエージェントワークフローをどう修正すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">追跡エージェントに対し、抽出された事実とともに、正確なタイムスタンプ、送信者/受信者ID、ソースファイル名などのメタデータを明示的に含む構造化JSONを出力させる。</div>
+    <div class="ans-exp">構造化データとしてメタデータを渡すことで、物流戦略エージェントは推測に頼ることなく、確実なデータに基づいて正確な時系列の整理と出典の明記が行えるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">自然言語の要約渡しはメタデータ（日付・ID）が欠落するリスクがある。<br>タイムライン構築や根拠提示が必要な場合は、タイムスタンプ・ログIDを含む構造化JSON形式でエージェント間のデータを受け渡しする。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-7">
+<div class="card-header">
+  <span class="qnum">Q7</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">物流管理エージェントがlist_productsで一覧取得後、各製品にget_product_specを繰り返し実行している。<br>数百回のAPI呼び出しでレート制限に抵触し、繰り返しによって元の目的（適合性判断）も見失ってしまう。<br>❓ 最も効果的なアーキテクチャの変更は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">すべての製品仕様書の事前コンパイルされたカタログを MCP リソースとして公開し、エージェントが探索的なツール呼び出しなしでデータセット全体を直接取り込めるようにする。</div>
+    <div class="ans-exp">MCP リソースを利用してデータを「文脈」として直接提供することで、多数のツール呼び出しによる遅延とレート制限の問題を排除し、エージェントの集中力を分析タスクに維持させることができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">MCPの「リソース（Resources）」機能を活用。<br>探索的なツール呼び出しを省き、データセット全体を読み取り専用コンテキストとして直接取り込む。<br>エージェントが全情報を俯瞰でき、推論精度と効率が向上する。</div>
+    <a href="https://modelcontextprotocol.io/docs/concepts/resources" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-8">
+<div class="card-header">
+  <span class="qnum">Q8</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">市場調査エージェントが競合サイトのスクレイピング中にファイアウォールにIPブロックされた。<br>❓ サブエージェントはコーディネーターに対してどのようにエラーレスポンスを返すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">IPブロックの詳細、試行したURL、およびレジデンシャルプロキシ機能を備えたサブエージェントにタスクを委任するよう提案する構造化エラーを返す。</div>
+    <div class="ans-exp">構造化された詳細なエラー情報と次にとるべき行動の提案を提供することで、システム全体がエラーから自動的に回復し、タスクを継続できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">エラー発生時はサブエージェントが「エラーの具体的内容（IPブロック等）＋回復のための解決策」を構造化データで返すのがベストプラクティス。<br>コーディネーターが原因を正確に把握し、プロキシ使用など別手段への動的な判断が可能になる。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-9">
+<div class="card-header">
+  <span class="qnum">Q9</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">解約手数料免除ポリシー：「家族の不幸または失業が公的に証明できる場合にのみ免除（5,000円）」。<br>❓ ユーザーが「競合他社への乗り換え」を理由に免除を要求した場合、サポートボットはどう対応すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">免除リクエストを自律的に拒否する。顧客の理由は、明示的に許可された例外（家族の不幸や失業）のいずれにも該当しないため。</div>
+    <div class="ans-exp">モデルは与えられたコンテキストとポリシーの境界線を厳格に守り、条件を満たさないリクエストを正しく拒絶する必要があります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">ポリシーが「～のみ許可」と例外を限定定義している場合、記載外の理由はすべて「不許可」。<br>競合乗り換えは例外リストに含まれないため、エスカレーションや追加質問なしに自律的にリクエストを拒否するのが正しい挙動。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-10">
+<div class="card-header">
+  <span class="qnum">Q10</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">Objective-C→Swift移行プロジェクト。<br>変換は明示的に要求された時だけ実行させたい（通常のバグ修正中にSwiftコードを誤生成させたくない）。<br>❓ 変換指示はどこに構成すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">カスタムスキル（例：.claude/skills/translate-swift/SKILL.md）として実装し、オンデマンドでのみ呼び出されるようにする。</div>
+    <div class="ans-exp">カスタムスキルとして定義することで、開発者がそのスキルを明示的にトリガーした時だけ移行ルールが適用されるようになり、通常業務とのコンテキストの分離が可能になります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">CLAUDE.mdの指示は全対話で常に読み込まれるため不適切。<br>「明示的に呼び出した時だけ実行させる」機能は、カスタムスキル（.claude/skills/配下のMarkdown）として実装するのが最適。<br>意図しない言語生成リスクを排除できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/custom-rules" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-11">
+<div class="card-header">
+  <span class="qnum">Q11</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">在庫管理サブエージェントが3拠点のDBを照会中、拠点BのAPIが一時タイムアウト（A・Cは正常）。<br>❓ コーディネーターへ報告する際、最もレジリエンスの高いアプローチは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">サブエージェントは拠点Bに対してローカルでリトライを試みる。それでも失敗する場合は、コーディネーターに「一部成功」の状態を返し、AとCの結果と共にBの失敗詳細を含む構造化メタデータを渡す。</div>
+    <div class="ans-exp">ローカルでの適切なリトライ試行と、最終的な「部分的な成功」の報告は、呼び出し側に最大限の情報を提供しつつシステムを継続させる、最も堅牢で柔軟なエラーハンドリングです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">一部障害でもシステムを停止させない「グレースフル・デグラデーション」設計が重要。<br>取得できた成功データ＋失敗理由のメタデータを構造化して返すことで、上位エージェントが次善策を判断できる。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-12">
+<div class="card-header">
+  <span class="qnum">Q12</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">Java→Go移行エージェントが調査フェーズでカスタムハッシュライブラリを発見したが、数時間後の生成フェーズで標準 crypto/sha256 を使い始めデータ整合性の不一致が発生。<br>❓ カスタム規則を維持させるために必要なアーキテクチャ上の追加は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">調査サブエージェントが独自の計算規則を追記するための共有スクラッチパッドファイルを実装し、メインの生成エージェントが Go コードを記述する前にこのファイルを読み込むよう指示する。</div>
+    <div class="ans-exp">共有の外部記憶（スクラッチパッド）を使用することで、フェーズやエージェントをまたいでも重要な発見を正確に維持し、後続のプロセスに確実に引き継ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">長期ワークフローでは重要な発見がコンテキストから押し出される。<br>解決策：調査サブエージェントが重要仕様を「スクラッチパッド（共有ファイル）」に書き込み、生成エージェントが作業前に読み込む外部状態管理を導入する。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-13">
+<div class="card-header">
+  <span class="qnum">Q13</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">コーディネーターがSolarAgent・MarketDataAgent・DraftAgentの3つに同時ブロードキャスト→DraftAgentが比較完了前に実行してハルシネーション。<br>❓ Coordinatorのオーケストレーションロジックをどう再設計すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">有向非巡回グラフ（DAG）実行モデルを実装する。Coordinator が動的に依存関係を評価し、まず Solar と Market エージェントを呼び出し、その結果を集計して、発電量が平均を下回っている場合のみ DraftAgent を条件付きで呼び出す。</div>
+    <div class="ans-exp">依存関係に基づいた実行順序の制御と、結果に応じた条件付き呼び出しを行うことで、エージェントが不完全な情報で実行されるのを防ぎ、ハルシネーションを抑制できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">依存関係や条件分岐がある場合、全エージェントへの並列ブロードキャストは不適切。<br>DAGワークフローを構築し、独立したデータ取得を並列実行後、その結果に基づいて条件付きで後続タスク（メール作成）を呼び出す設計が最適。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-14">
+<div class="card-header">
+  <span class="qnum">Q14</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">50名エンジニアへのタスク割当にCoTプロンプトを使用。<br>プロンプト末尾の&lt;critique&gt;ブロックで稼働重複確認を指示するが、一貫して重複を見逃し自身の最初のアサインを正当化してしまう。<br>❓ 主なアーキテクチャ上の理由は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">モデルが生成フェーズからの以前の推論コンテキストを保持しているため、同一セッション内で自身の決定に疑問を呈する可能性が低くなっている。</div>
+    <div class="ans-exp">同一の推論パス（CoT）上で生成と批判を行うと、モデルは自身の最初の結論を補完するように思考を続けてしまうため、独立したレビューアーキテクチャを採用してコンテキストを分離する必要があります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">同一CoT内での生成と自己批判は、直前の推論を「正しい」と前提する「確証バイアス」が生じる。<br>解決策：生成エージェントとは別の独立したコンテキストを持つレビュアーエージェントに批判を委任する。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-15">
+<div class="card-header">
+  <span class="qnum">Q15</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">C++コードベース分析で40ターン後、エージェントが調査フェーズで特定したカスタム FastIOLayer クラスを忘れ、標準 std::iostream を提案し始めた。<br>❓ 将来この問題を回避する最適なアーキテクチャ上の解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">エージェントがカスタムクラスのシグネチャやドメインルールを記録するスクラッチパッドファイルを実装し、コード生成前にそのファイルを読み取るよう指示する。</div>
+    <div class="ans-exp">重要な情報を外部の「スクラッチパッド」に書き出し、それを反復的に読み取らせることで、コンテキストの深層にある情報を常に最新の推論ステップに持ち込むことができ、長時間のタスクでも一貫した動作が可能になります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">長期セッションで重要情報がコンテキストに埋没して忘れられる問題。<br>解決策：発見した重要知見（カスタムクラス・ドメインルール）をスクラッチパッドや外部メモリに記録し、新タスク前に必ず参照させる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/long-context-tips" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-16">
+<div class="card-header">
+  <span class="qnum">Q16</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">ITヘルプデスクボットにTaskツールをallowedToolsに設定済みだが、実際にサブエージェントを起動せずテキストで「担当に転送します」と返信するだけ。<br>❓ 最も欠落している可能性が高い設定は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コーディネーターのシステムプロンプトを更新し、セキュリティ問題が検出された場合はTaskツールを使用してSecurityIncidentサブエージェントを起動するよう明示的に指示する必要がある。</div>
+    <div class="ans-exp">ツールをallowedToolsに追加した上で、プロンプトを通じて「いつ」「どのように」そのツールを使うべきかをLLMに明確に指示することが、ツール呼び出しを確実にトリガーするためのベストプラクティスです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">ツールが使用可能でも「いつどの条件で使うべきか」をモデルが知らなければ通常の会話応答を優先する。<br>システムプロンプトに「特定の条件が検出されたら必ずTaskツールで専用サブエージェントを起動せよ」という明示的な実行命令が必要。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-17">
+<div class="card-header">
+  <span class="qnum">Q17</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">ヘルスケアコンプライアンスのツールチップ監査で些細な表現の揺れにも大量の指摘が入り担当者が疲弊。<br>❓ 適合率（Precision）を高め偽陽性を減らす最も効果的なプロンプトの変更は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">指示を「説明されている内容が実際のシステムの動作と明確に矛盾している場合のみ、フラグを立ててください」に変更する。</div>
+    <div class="ans-exp">指摘の対象を「明確な矛盾」という客観的な基準に限定することで、些細な不一致を無視させ、適合率（Precision）を大幅に向上させることができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">主観的な形容詞（「自信がある場合のみ」等）を追加するより、「明らかな矛盾がある場合のみ指摘する」という具体的な論理条件を定義する方が効果的。<br>モデルの判断基準を明確にすることで些細な指摘を抑制できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-18">
+<div class="card-header">
+  <span class="qnum">Q18</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">不動産ポータルでHTML/プレーンテキスト等の多様なメールから割引コードを抽出するが、コードが存在しない場合は捏造またはURLを抽出してしまう。<br>❓ 形式の多様性と捏造防止を同時に解決する最適な戦略は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">様々なメール形式からの正しい抽出例を追加し、特にコードが存在しない場合に期待される null 出力を示す例を含める。</div>
+    <div class="ans-exp">Few-shot 例に多様な構造と、データがない場合の正解例（null）の両方を含めることで、構造への対応力向上とハルシネーション抑制を同時に達成できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">多様な形式への適応と「コードがない場合はnullを返す」挙動をモデルに学習させるにはFew-shotプロンプティングが最適。<br>「コードが存在しない例（ネガティブエグザンプル）」を含めることで捏造を防止できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/few-shot-prompting" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-19">
+<div class="card-header">
+  <span class="qnum">Q19</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">物流最適化コーディネーターが50ステップのチェックリストを使用。<br>道路工事等の想定外の事態に遭遇するとサブエージェントへの不適切な指示で配送失敗。<br>❓ システムの適応性を高める最適な変更は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コーディネーターのプロンプトを再設計し、全体の配送目標、成功基準、および利用可能なサブエージェントを指定して、コーディネーターが戦略を適応的に決定できるようにする。</div>
+    <div class="ans-exp">厳格な手順の代わりに目標と制約、リソースを提示することで、エージェントはリアルタイムの状況変化に基づいて独自の推論を行い、最適な行動を選択できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">詳細な手順（マイクロマネジメント）を強いると未知の状況への適応力が低下する。<br>解決策：具体的手順ではなく「達成すべき目標」「成功基準」「利用可能なリソース」を提示し、エージェントが動的に最適戦略を決定できるようにする。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/agentic-designs/orchestrator-workers" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-20">
+<div class="card-header">
+  <span class="qnum">Q20</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">保険サポートボットが複雑なケースを有人オペレーターにエスカレーション時、これまでの文脈が共有されずオペレーターが最初からヒアリングし直す羽目に。<br>❓ この問題を解決する最適なアーキテクチャパターンは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">エスカレーションの前に、Claudeが「根本原因分析」「試行した手順」「推奨される次の対応」などの必須項目を含むエスカレーションツールを呼び出すステップを実装する。</div>
+    <div class="ans-exp">構造化された情報をエージェントに生成させることで、人間の担当者が状況を即座に把握し、効率的に対応を継続できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Human Handoffの成功には単なる対話履歴ではなく、「要約・試行済みステップ・現在の状況」を構造化して渡すことが重要。<br>Tool Useでエスカレーション時に必須フィールド（根本原因・実施済みアクション・推奨次ステップ）を入力させる。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-21">
+<div class="card-header">
+  <span class="qnum">Q21</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">ドキュメントなしレガシーログ解析の固定パイプライン（メタデータ読取→本文抽出→終端処理）が、識別フラグに応じた全く異なる処理が必要なネストデータに対応できず失敗。<br>❓ ワークフローをどのように再設計すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">動的な適応型分解に移行し、各データ位置で検出されたフラグに基づいて、エージェントが特定の解析サブタスクを動的に生成するようにする。</div>
+    <div class="ans-exp">フラグに基づいて実行時に処理内容（ツール呼び出しやサブプロンプト）を決定する動的なアプローチにより、複雑な分岐やネスト構造を正確かつ効率的に処理できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">固定線形ワークフローはデータ型やフラグによる処理分岐に対応できない。<br>「動的な分解（Dynamic Decomposition）」パターンを採用し、エージェントがコンテキスト（フラグ）を評価して動的に次のステップや専門サブエージェントを決定する設計が適切。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-22">
+<div class="card-header">
+  <span class="qnum">Q22</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">5カテゴリのenum選択肢に当てはまらないサポートチケットをClaudeが誤ったカテゴリに強制分類してしまう。<br>❓ JSONスキーマを厳密に維持しつつ未知の問題タイプをキャプチャする最適なスキーマ変更は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">issue_type の enum 値に &quot;other&quot; を追加し、新しいカテゴリを記録するために issue_type_other_detail という名前の新しいオプションの文字列フィールドを導入する。</div>
+    <div class="ans-exp">既存の構造化されたカテゴリ分類を維持しつつ、未知の問題タイプをスキーマ違反を起こすことなく安全に抽出できる最も確実な設計です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">適切な選択肢がないとモデルが最も近い誤った選択肢を無理に選ぶ。<br>enumに「other」を追加し、詳細記述用のオプション文字列フィールド（例：issue_type_other_detail）を設ける「エスケープハッチ」パターンが有効。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/structured-outputs" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-23">
+<div class="card-header">
+  <span class="qnum">Q23</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">stop_reason=tool_useの際、CoT（thinking）のtextブロックを削除しtool_useブロックのみ会話履歴に保存するトークン節約最適化。<br>❓ このアーキテクチャへの影響は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">Claudeは思考の連鎖（Chain of Thought）のコンテキストを失い、なぜツールを呼び出したのか、またその後の結果をどう解釈すべきかを判断する能力が低下する。</div>
+    <div class="ans-exp">テキストブロックに含まれる推論プロセスは、モデルが複雑なタスクを正しく実行するための重要な文脈情報であり、これを削除することはモデルの『知能』を意図的に制限することに繋がります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">tool_use時のtextブロックはモデルが思考プロセスを整理するChain-of-Thought。<br>削除すると「なぜそのツールを呼び出したか」の論理的文脈を失う。<br>後続ターンで推論能力が低下し不正確な結論を導くリスクが高まる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#best-practices-for-tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-24">
+<div class="card-header">
+  <span class="qnum">Q24</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">調査→SNS投稿→分析レポートの3フェーズを単一エージェントが担当。<br>最終フェーズに近づくにつれ存在しない数値を捏造するようになった。<br>❓ コンテキスト管理をどのように改善すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">フェーズの終了時に重要な発見を要約させ、そのエージェントを終了させる。そして、次のフェーズ用に生成した新しいサブエージェントの初期コンテキストに、その要約のみを注入する。</div>
+    <div class="ans-exp">不要な詳細を捨て、重要な要約のみを新しいクリーンなコンテキストに引き継ぐ（状態の抽出とリセット）ことで、モデルの注意力を最適化し、正確性を維持できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">単一エージェントが長大なマルチステップタスクを実行すると「コンテキスト汚染」が発生する。<br>解決策：各フェーズ終了時に必要情報のみを要約して次エージェントに引き継ぎコンテキストをリセット。<br>クリーンなコンテキストで次フェーズを開始することでハルシネーションを抑制。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-25">
+<div class="card-header">
+  <span class="qnum">Q25</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">船舶検索→倉庫予約の順で実行するが、倉庫予約サブエージェントが誤った日程で検索し続ける。<br>❓ サブエージェントが正しい時間的コンテキスト（日程情報）を受け取るにはどう対処すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">調整役が「船舶検索」の結果から到着日と出発日を明示的に抽出し、Taskツールを介して「倉庫予約」を呼び出す際のプロンプトにそれらを含めるようにする。</div>
+    <div class="ans-exp">オーケストレーター（調整役）の主要な責務は、サブエージェント間の情報の受け渡しを管理することです。<br>先行タスクの結果をパースし、後続タスクに必要な引数として明示的に渡すことで、コンテキストの欠落を防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">各サブエージェントは独立したコンテキストを持つため、あるエージェントの出力を別エージェントが使う場合、コーディネーターが明示的に抽出して次のプロンプトに組み込む「ステート・パッシング」が重要な設計パターン。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-26">
+<div class="card-header">
+  <span class="qnum">Q26</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">ITヘルプデスクボットにTaskツールとAgentDefinitionを設定済みだが、コーディネーターがサブエージェントを起動せず「担当部署に転送します」とテキストで返信。<br>❓ 最も不足している可能性が高い設定は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コーディネーターのシステムプロンプトを更新し、データベースの問題が検出された際に Task ツールを使用して DatabaseExpert サブエージェントを生成（起動）するように明示的に指示する必要がある。</div>
+    <div class="ans-exp">ツールが定義されていても、モデルに使用方法を指示しない限り、モデルは単なる会話として応答してしまいます。<br>システムプロンプトでの指示がエージェントの動作を決定づける重要な要素です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">ツールが利用可能でも「いつどの条件で使うべきか」をモデルが知らなければ通常の会話応答を優先する。<br>システムプロンプトに「特定の課題が検出されたら専門サブエージェントを起動せよ」という具体的な実行命令が必要。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-27">
+<div class="card-header">
+  <span class="qnum">Q27</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">ドキュメントなし・複雑に依存し合うレガシーマイクロサービス群を新クラウドネイティブ基盤へ移行。<br>❓ 「オープンエンド」な課題に対する最適なタスク分解（Task Decomposition）戦略は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">最初に全体の構造と依存関係をマッピングし、クリティカルパスを特定した上で、適応可能な移行プランを生成する。</div>
+    <div class="ans-exp">事前の構造分析（マッピング）と、それに基づいた動的な計画策定（Planning）は、複雑なオープンエンドのタスクを分解するための最も高度で効果的な戦略です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">依存関係が複雑でドキュメントがない場合、まず「計画（Planning）」フェーズが不可欠。<br>エージェントが全体像をマッピングして依存の順序を特定し、状況に応じて適応可能な移行プランを生成するアプローチが最も効果的。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-28">
+<div class="card-header">
+  <span class="qnum">Q28</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">MCP設定で倉庫コード（頻繁変更）とAPIエンドポイント（全社共通・静的URL）の2引数が必要。<br>❓ セキュリティと効率性を両立した .mcp.json の設定方法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">API_ENDPOINT は .mcp.json に直接記述（ハードコード）し、WAREHOUSE_CODE には環境変数の展開 ${WAREHOUSE_CODE} を使用して動的に設定できるようにする。</div>
+    <div class="ans-exp">不変のURLは固定値として提供し、変動するコードのみを環境変数経由にすることで、設定ファイルの管理しやすさと運用の柔軟性を両立できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">静的な共通情報は設定ファイルに直接記述し、動的・機密情報は環境変数展開（${VARIABLE_NAME}形式）を使用するのがベストプラクティス。<br>設定ファイルを書き換えずに実行環境に応じた値を安全に注入できる。</div>
+    <a href="https://modelcontextprotocol.io/docs/learn/architecture" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-29">
+<div class="card-header">
+  <span class="qnum">Q29</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">3つの金融データプロバイダーに対してTaskツールで順次（直列）処理中。<br>❓ 応答時間を最小化するための最適化はどうすべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">1回の出力生成の中で3つの個別のTaskツール呼び出しを行うよう調整役を修正し、オーケストレーション層が3つのサブエージェントを並行して実行できるようにする。</div>
+    <div class="ans-exp">モデルが1回のターンで複数のツール呼び出しブロックを出力し、それをシステム側で同時に（Concurrently）処理することが、マルチエージェント・オーケストレーションにおけるレイテンシ最適化のベストプラクティスです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">1回のモデル応答に複数のツール呼び出しブロックを含める「並列ツール呼び出し」が可能。<br>3プロバイダーへのTask呼び出しを1ターンで同時に行い、バックエンドで並行実行することで全体のレイテンシを大幅削減できる。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-30">
+<div class="card-header">
+  <span class="qnum">Q30</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">3年間の環境センサーデータを1ヶ月チャンクに分割処理。<br>月次異常は正確に検出できるが数年間にわたる長期的なトレンドの矛盾を完全に見逃している。<br>❓ この問題をどう解決すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">各局所チャンクパスからの要約された分析出力を統合し、グローバルな一貫性を評価するためのクロスファイル統合パスを実装する。</div>
+    <div class="ans-exp">分割された分析結果（要約）を最終的に一つのコンテキストに集約して評価する統合ステップを設けることで、局所的な詳細度を維持したまま、全体的な整合性を検証できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">局所処理（Map）だけでは全体を跨ぐ長期文脈を把握できない。<br>各月の分析結果から重要情報を要約・抽出し、それらを統合して全体視点で再評価する「Reduce/Integration」パスをワークフローに追加する必要がある。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/agentic-designs/parallelization" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

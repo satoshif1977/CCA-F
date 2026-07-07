@@ -1,0 +1,9 @@
+*.py
+__pycache__/
+*.pyc
+*.json
+*.xlsx
+*.csv
+tmp_*.html
+handover/
+docs/

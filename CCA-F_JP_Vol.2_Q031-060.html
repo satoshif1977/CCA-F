@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F JP Vol.2</title>
+<style>:root{--primary:#4f46e5;--bg:#f8fafc;--card-bg:#fff;--correct-bg:#f0fdf4;--correct-border:#16a34a;--exp-bg:#fffbeb;--exp-border:#f59e0b;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:24px}
+.site-header{background:linear-gradient(135deg,#4f46e5,#3730a3);color:white;padding:16px 20px 14px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.site-header h1{font-size:1.05rem;font-weight:700}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:3px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:7px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#4f46e5;color:white;border-color:#4f46e5}
+.cards-container{max-width:820px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);border-left:4px solid #4f46e5;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06);scroll-margin-top:76px}
+.card-header{display:flex;align-items:center;gap:8px;padding:9px 16px;background:#f8fafc;border-bottom:1px solid var(--border)}
+.qnum{font-size:.95rem;font-weight:800;color:#4f46e5}
+.domain-badge{margin-left:auto;background:#f3e8ff;color:#7c3aed;padding:2px 8px;border-radius:10px;font-size:.67rem;font-weight:600}
+.question-text{padding:14px 16px;font-size:.93rem;line-height:1.8;color:var(--text);border-bottom:1px solid var(--border)}
+.answer-section{padding:12px 16px 16px}
+.correct-answer{background:var(--correct-bg);border:1.5px solid var(--correct-border);border-radius:8px;padding:12px}
+.ans-label{font-size:.78rem;font-weight:700;color:#166534;margin-bottom:6px}
+.ans-text{font-size:.92rem;font-weight:600;color:#14532d;line-height:1.6;margin-bottom:6px}
+.ans-exp{font-size:.82rem;color:#166534;line-height:1.65;border-top:1px solid rgba(22,163,74,.2);padding-top:6px}
+.overall-exp{margin-top:10px;background:var(--exp-bg);border:1.5px solid var(--exp-border);border-radius:8px;padding:11px 14px}
+.exp-title{font-size:.8rem;font-weight:700;color:#92400e;margin-bottom:5px}
+.exp-body{font-size:.82rem;line-height:1.7;color:#78350f}
+.ref-link{display:inline-block;margin-top:7px;font-size:.76rem;color:#4f46e5;text-decoration:none}
+.ref-link:hover{text-decoration:underline}
+.q-divider{font-size:.78rem;font-weight:700;color:#94a3b8;padding:2px 10px;background:#f1f5f9;border-radius:6px;margin:0 16px;text-align:center}
+@media(max-width:600px){.question-text{font-size:.88rem}.domain-badge{display:none}}</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCA-F 日本語問題集 | Vol.2（Q31-Q60）</h1>
+  <div class="subtitle">Claude Certified Architect Foundations | 30問 | 全180問中 31-60 / 180</div>
+</header>
+<nav class="jump-nav">
+  <span>Jump:</span>
+  <a class="jump-btn" href="#card-31">Q31</a><a class="jump-btn" href="#card-32">Q32</a><a class="jump-btn" href="#card-33">Q33</a><a class="jump-btn" href="#card-34">Q34</a><a class="jump-btn" href="#card-35">Q35</a><a class="jump-btn" href="#card-36">Q36</a><a class="jump-btn" href="#card-37">Q37</a><a class="jump-btn" href="#card-38">Q38</a><a class="jump-btn" href="#card-39">Q39</a><a class="jump-btn" href="#card-40">Q40</a><a class="jump-btn" href="#card-41">Q41</a><a class="jump-btn" href="#card-42">Q42</a><a class="jump-btn" href="#card-43">Q43</a><a class="jump-btn" href="#card-44">Q44</a><a class="jump-btn" href="#card-45">Q45</a><a class="jump-btn" href="#card-46">Q46</a><a class="jump-btn" href="#card-47">Q47</a><a class="jump-btn" href="#card-48">Q48</a><a class="jump-btn" href="#card-49">Q49</a><a class="jump-btn" href="#card-50">Q50</a><a class="jump-btn" href="#card-51">Q51</a><a class="jump-btn" href="#card-52">Q52</a><a class="jump-btn" href="#card-53">Q53</a><a class="jump-btn" href="#card-54">Q54</a><a class="jump-btn" href="#card-55">Q55</a><a class="jump-btn" href="#card-56">Q56</a><a class="jump-btn" href="#card-57">Q57</a><a class="jump-btn" href="#card-58">Q58</a><a class="jump-btn" href="#card-59">Q59</a><a class="jump-btn" href="#card-60">Q60</a>
+</nav>
+<div class="cards-container">
+<div class="card" id="card-31">
+<div class="card-header">
+  <span class="qnum">Q31</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">5交差点のセンサーログを現在直列処理中。<br>❓ Anthropicが推奨するマルチエージェント設計パターンを用いて並行実行にアーキテクチャを再設計するにはどうすればよいか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コーディネーターのシステムプロンプトを変更し、1回の応答ターン内で複数の Task ツール呼び出しを出力させて、5つのサブエージェントを並列に生成（スポーン）する。</div>
+    <div class="ans-exp">Claudeは1回のレスポンスで複数のツールを同時に呼び出す機能（並列ツール呼び出し）をネイティブにサポートしており、これを利用して複数のワーカーエージェントを一度にトリガーするのが、オーケストレーター・ワーカーモデルにおける最も効率的で標準的なパターンです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Anthropicが推奨するオーケストレーター・ワーカーパターンでは「並列ツール呼び出し（Parallel Tool Calling）」を活用。<br>1回の生成ターン内で複数のTaskツール呼び出しを同時に出力させ、アプリケーション側で並行実行することでレイテンシを大幅削減できる。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-32">
+<div class="card-header">
+  <span class="qnum">Q32</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">医療相談エージェントが症状確認前にデータベースを検索することがある。<br>❓ 最初のステップで必ずask_symptomsを実行させ、その後は自由にDB検索できる実装はどうすべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">最初のターンで tool_choice: {&quot;type&quot;: &quot;tool&quot;, &quot;name&quot;: &quot;ask_symptoms&quot;} を設定し、それ以降のターンでは tool_choice: {&quot;type&quot;: &quot;auto&quot;} に切り替える。</div>
+    <div class="ans-exp">APIレベルで最初の挙動を強制し、必要な情報を収集した後に自律モード（auto）へ移行することで、確実なワークフロー制御と柔軟性を両立できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">最初のターンでtool_choiceパラメータで特定ツール（ask_symptoms）を指定して強制実行させ、その結果をコンテキストに含めた後のターンでtool_choice=&#x27;auto&#x27;に切り替える。<br>依存関係のあるタスクを正確な順序で遂行できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#forcing-tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-33">
+<div class="card-header">
+  <span class="qnum">Q33</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">Message Batches API（最大24時間処理）でレビューの感情分析を行う。<br>データクレンジングに6時間固定でかかる。<br>❓ SLA48時間を確実に遵守できるバッチ送信の最大間隔は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">18時間ごとに新しいバッチを送信する。</div>
+    <div class="ans-exp">待機時間18時間 ＋ 前処理6時間 ＋ API処理24時間 ＝ 合計48時間となり、SLAの上限をちょうど満たす最大の間隔です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">計算式：間隔 ＋ 前処理（6時間）＋ API処理（最大24時間）≦ 48時間 → 最大間隔 = 48 - 6 - 24 = 18時間。<br>18時間ごとのバッチ送信がSLAを保証できる最大間隔。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/message-batches" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-34">
+<div class="card-header">
+  <span class="qnum">Q34</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">❓ ECサイトレビューの「期待通りではなかった」等の曖昧なレビューを文脈に応じて複数カテゴリに分類する際、精度を最も効果的に向上させるにはどうすればよいか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">曖昧なシナリオに対して、他の有力な選択肢ではなくなぜそのカテゴリーが選ばれたのかという推論過程（Reasoning）を示す、2〜4個のターゲットを絞った Few-shot 例を作成する。</div>
+    <div class="ans-exp">推論過程を含む Few-shot プロンプティングは、モデルが複雑なニュアンスや判断基準を学習するための最も確実な方法であり、ハルシネーションの抑制と精度の向上に大きく寄与します。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">曖昧なデータの分類精度向上に最も効果的なのは「推論プロセスを含むFew-shotプロンプティング」。<br>正解ペアに加え「なぜそのカテゴリを選んだか」の論理（Chain of Thought）を例示することで、類似の曖昧なケースでも正確な判断が可能になる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/few-shot-prompting" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-35">
+<div class="card-header">
+  <span class="qnum">Q35</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">図書館予約エージェントでプレミアム個室をプラチナ会員以外が予約しようとするとバックエンドの生DBエラー ConstraintViolationException がそのままエージェントに渡される。<br>❓ このシナリオにおけるMCPツールの最適な設計は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">例外をキャッチし、isError: true、errorCategory: &quot;business&quot;、isRetryable: false、および「この個室を予約するにはプラチナ会員資格が必要です。まずは会員ステータスを更新するようユーザーに案内してください」という親切なメッセージを返す。</div>
+    <div class="ans-exp">技術的なエラーをビジネスロジック上のエラーに変換し、具体的な解決策を添えて返すことで、モデルはユーザーに対して正確かつ建設的な案内を行うことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">バックエンドの生例外をそのまま渡さず、「次に何をすべきか」を説明できる人間が理解しやすいメッセージに変換して返す。<br>ビジネスルール上の制約（資格不足）によるエラーはbusinessカテゴリに分類しリトライ不可（false）と定義するのが適切。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-36">
+<div class="card-header">
+  <span class="qnum">Q36</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">1時間2,000件のレビューを同期処理→Message Batches APIへの移行を検討。<br>マーケティングが確認するのは1日1回朝のみ。<br>❓ APIの制限を遵守しつつ最も効率的なリファクタリング戦略は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">1日分48,000件のデータを蓄積し、1日1回、5つの独立したバッチ（例：10,000件を4つ、8,000件を1つ）として送信する。</div>
+    <div class="ans-exp">Message Batches APIは1バッチにつき最大10,000件の制限があるため、48,000件を処理するには最小でも5つのバッチに分割する必要があります。<br>要件（1日1回の確認）を満たしつつ、管理オーバーヘッドを最小限に抑える設計です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Message Batches APIは1バッチ最大10,000件の制限がある。<br>1日あたり48,000件（2,000件×24時間）を処理するため、制限内で最小限のバッチ数に分割して送信し、1日1回の確認頻度に合わせて結果を回収するアーキテクチャが最適。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/message-batches" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-37">
+<div class="card-header">
+  <span class="qnum">Q37</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">技術文書要約エージェントが提供された仕様書を無視して online_lookup ツールで汎用テンプレートを外部検索しようとすることが頻繁にある。<br>❓ この誤用をどのように解決すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">要約エージェントから online_lookup ツールを削除し、規格調査タスクを専用の調査用サブエージェントにルーティングする。</div>
+    <div class="ans-exp">責務を分離することで、要約エージェントは提供された文書のコンテキストを確実に守るようになり、ツールによる「逃げ」を物理的に防ぎつつ、必要な調査機能を保持できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">単一エージェントに強力なツールを持たせると本来のコンテキスト処理よりツール依存になる「オーバーリライアンス」が発生。<br>関心の分離を行い、要約タスクと外部調査タスクを別エージェントに分け、必要時のみ調査サブエージェントを呼び出すオーケストレーションが最適。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-38">
+<div class="card-header">
+  <span class="qnum">Q38</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">deploy_infrastructure ツールが提供されているのにエージェントがそれを使わず、ローカルで直接Terraform/Dockerコマンドを実行しようとして権限不足で失敗。<br>❓ この問題をどのように解決すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">deploy_infrastructure ツールの説明を強化し、インフラ構築と依存関係の管理をすべてツールが処理すること、およびローカルでのスクリプト実行よりも優先して使用すべきであることを明示する。</div>
+    <div class="ans-exp">詳細かつ明確なツールの説明を提供することで、Claude はそのツールが特定のタスクに最適であることを理解し、誤ってローカル環境で不適切なコードを実行するのを防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">エージェントが「コード実行」か「ツール使用」かを判断する最大の根拠はツールの「説明（description）」。<br>deploy_infrastructureの説明文を強化し、具体的なインフラ構築内容と「なぜ手動スクリプトより優先すべきか」を明示することで動作を修正できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp/best-practices" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-39">
+<div class="card-header">
+  <span class="qnum">Q39</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">財務監査エージェントがAPIページネーショントークンの仕様変更により10,000件中1,000件取得した時点でクラッシュ。<br>❓ コーディネーターの意思決定を最適化するために、サブエージェントはどのような形式で応答を返すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">ページネーションの失敗タイプ、試行したトークンフォーマット、正常に取得された1,000件のレコード、および縮小されたサンプルサイズで続行するという提案を含む構造化されたエラーを返す。</div>
+    <div class="ans-exp">部分的な成功データとエラーの詳細、そして代替案（提案）を構造化して返すことで、コーディネーターは現状を正確に把握し、部分的なデータでタスクを継続するなどの柔軟な意思決定が可能になります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">部分的な失敗時は、エラー詳細（原因）＋取得済みの有効データ＋次に可能なアクションの提案を構造化して上位に返す。<br>部分データを破棄したりエラーを隠蔽すると、システム全体の回復力と透明性が低下する。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/agentic-designs/orchestrator-workers" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-40">
+<div class="card-header">
+  <span class="qnum">Q40</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">EHR移行エージェントが最初にローカルフォーマットを正しく特定→1時間後の最終レポートでHL7と誤記し致命的なデータ欠損リスクを見逃した。<br>❓ 根本原因と最適なアーキテクチャ上の解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">エージェントでコンテキストの劣化（context degradation）が発生した。アーキテクチャを更新し、エージェントが重要な発見事項を記録したスクラッチパッドファイルを維持・参照するようにすべきである。</div>
+    <div class="ans-exp">時間の経過とトークンの消費により初期の重要なコンテキストが薄れることはLLMエージェントの一般的な課題です。<br>スクラッチパッドパターンを導入し、エージェントの外部メモリとして機能させることで、最終タスク実行時に重要な事実を正確に引き継ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">長時間処理でLLMが初期の重要発見を忘れる「コンテキストの劣化（Context degradation）」が原因。<br>解決策：エージェントに一時的な記憶領域（スクラッチパッド・外部テキストファイル）を持たせ、重要情報を記録し最終出力前に明示的に参照させる外部メモリ管理パターンを組み込む。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/prompt-engineering/use-xml-tags" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-41">
+<div class="card-header">
+  <span class="qnum">Q41</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">ファイル同期エージェントがネットワーク遅延最適化を優先し、機密顧客データのセキュリティ強度の低いゾーンへの転送禁止ルールを時折無視。<br>❓ データレジデンシー法遵守を「保証」する最適な解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">PreToolCallフックを実装し、ツールの引数を検査してポリシーエンジンで評価し、プロトコルに違反する場合は転送をブロックする。</div>
+    <div class="ans-exp">ツールが実際に実行される前に外部の決定論的なロジックで検証を行うことで、モデルの推論ミスに関わらず物理的な違反を確実に防ぎ、ガバナンスをプログラムレベルで強制することができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">LLMはプロンプト指示だけでは100%のコンプライアンス遵守を保証できない。<br>ツール実行前に引数をインターセプトしポリシーエンジンで検証して違反をブロックする「Pre-tool call validation（実行前検証）」が最も堅牢な防御策。<br>モデルの推論に依存しないガードレールを構築できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-42">
+<div class="card-header">
+  <span class="qnum">Q42</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">融資申請ボットで「税引前年間総売上」を複数回説明・修正依頼するも正しい回答を得られず、最後に納税証明書の写真をアップロードされた。<br>❓ ボットが次にとるべき最も適切な行動は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">会話において有意義な進展が見られないため、人間のエージェントへのエスカレーションをトリガーする。</div>
+    <div class="ans-exp">何度も説明を繰り返しても正しい情報が得られない「デッドロック」状態では、人間に交代することで問題を迅速に解決し、ユーザー体験の低下を防ぎます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">複数回の説明・修正依頼を経ても有意義な進展がない場合、そのままボットだけで対応を続けるとフラストレーションが増大する。<br>速やかに人間のオペレーターにエスカレーションするのがUX設計のベストプラクティス。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-43">
+<div class="card-header">
+  <span class="qnum">Q43</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">開発者が app/core/auth/ で作業中。<br>❓ ユーザーレベル・プロジェクトルート・auth/ ディレクトリに設定ファイルが存在する場合、アクティブな設定階層を最も正確に確認する方法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">app/core/auth/ でターミナルを開き、Claude Code を起動して /memory コマンドを実行し、現在ロードされているコンテキストを確認する。</div>
+    <div class="ans-exp">/memory コマンドは、現在 Claude が保持しているプロジェクトの指示やルール、コンテキストの概要を表示するため、階層的な設定の適用結果を確認するのに最適です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude Codeは複数のCLAUDE.md設定を階層的にマージして読み込む。<br>そのディレクトリでClaude Codeを起動し /memory スラッシュコマンドを使用すると、現在ロードされているルールセットと設定解決の結果を確認できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-44">
+<div class="card-header">
+  <span class="qnum">Q44</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">Map-ReduceアーキテクチャでLLMが50,000件の医学論文を要約。<br>最終的な重要知見は特定されたが、引用元DOIが完全に失われエビデンスとして無価値に。<br>❓ 情報のプロバナンス維持に最も効果的なアーキテクチャの変更は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">Mapステップで {&quot;finding&quot;: text, &quot;source_ids&quot;: [id]} を含むスキーマを出力するように変更する。Reduceステップでも同じスキーマを使用し、知見を統合するたびに source_ids 配列を結合するように指示する。</div>
+    <div class="ans-exp">構造化データを使用してIDを明示的に追跡・結合させることで、情報の圧縮プロセス全体を通じてソースとの紐付けを確実に維持できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">自然言語の要約にIDを埋め込むだけでは再帰的な要約プロセスで情報が脱落する。<br>JSONなどの構造化データとしてDOIを保持し、各Map/Reduceステップでそれらを明示的に結合・伝播させる仕組みを構築するのがベストプラクティス。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/structured-outputs" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-45">
+<div class="card-header">
+  <span class="qnum">Q45</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">VMプロビジョニングでホスト名が重複して作成失敗。<br>ツールが一律のエラー {isError: true, message: &#x27;Creation failed&#x27;} を返す。<br>❓ この詳細を欠いたエラーレスポンスはエージェントの動作にどのような悪影響を及ぼすか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">エージェントはエラーが一時的なネットワークのタイムアウトである可能性があると推測し、完全に同じ重複したホスト名で無駄な再試行を繰り返す原因となる。</div>
+    <div class="ans-exp">エラーの詳細がない場合、エージェントは一時的な不具合と解釈しやすく、問題の根本原因（引数の誤りなど）を修正せずに同じパラメータで無駄なリトライループに陥る可能性が高くなります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">原因不明の一律エラーだとエージェントは自己修正のコンテキストを得られず、同じ引数（重複ホスト名）で無駄なリトライを繰り返す傾向がある。<br>適切なツール設計では「どう修正すべきか」が分かる具体的なエラーメッセージを返す必要がある。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#handling-tool-errors" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-46">
+<div class="card-header">
+  <span class="qnum">Q46</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">Terraform生成後、同セッション内で「今書いたコードに構文エラーや設定漏れがないかレビューして」と指示するが、微細なエラーを「問題なし」と承認してしまう。<br>❓ 微細な問題を確実に検知するためのワークフロー再設計は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">新しい Claude インスタンスを使用して、生成されたスクリプトとレビュー指示のみを受け取り、生成時の推論コンテキストを排除した個別の API コールを実装する。</div>
+    <div class="ans-exp">生成時の文脈を一切持たない新しいセッションで検証を行うことで、モデルはコードをゼロベースで客観的に評価でき、微細な不備を特定する能力が最も高まります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">同セッション内での自己検証は「確証バイアス」により直前の推論を正当化してミスを見逃す。<br>解決策：新しいClaudeインスタンス（独立したAPIコール）を立ち上げ成果物のみを渡すことで、以前のコンテキストから隔離した客観的な検査が可能になる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/monitoring-and-evaluation" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-47">
+<div class="card-header">
+  <span class="qnum">Q47</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">電子カルテ処理。<br>SLA60時間、10%が再試行必要。<br>Batch API最大24時間。<br>❓ すべてのカルテで60時間のSLAを確実に遵守するために設定できる「最大の」バッチ送信間隔は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">12時間ごと</div>
+    <div class="ans-exp">送信間隔を12時間にすることで、最悪のタイミングで到着したデータでも、最初の待ち（12h）＋ 1回目（24h）＋ 2回目（24h）＝ 60h となり、SLAを遵守できます。<br>また、1回目の終了時刻が次の送信タイミングと重なるため、再処理時の待ち時間をゼロに抑えられます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">計算：60時間 - (24時間×2回) = 残り12時間が猶予。<br>最初の待ち時間（最大12時間）＋1回目（24時間）＋2回目（24時間）= 60時間。<br>12時間間隔なら失敗データを即座に次のバッチに含めて再処理開始でき、SLAを満たす最大間隔となる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/batch-api" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-48">
+<div class="card-header">
+  <span class="qnum">Q48</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">frontend/とbackend/に分かれたプロジェクト。<br>ルートから Claude Code を開始するとbackend/CLAUDE.mdのスキーマ規則が読み込まれずハルシネーション。<br>❓ このスコープ問題を調査し解決するには？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">ルートセッションで /memory を実行して backend/CLAUDE.md がロードされているか確認する。ロードされていない場合は、スキーマ規則をルートの .claude/rules/ に移動し、開始ディレクトリに関係なく自動発見されるようにする。</div>
+    <div class="ans-exp">/memory コマンドで現在のコンテキストを確認し、ルールをルート階層（または .claude/rules/）に配置し直すことで、Claude Code の標準的な自動発見プロセスに適合させ、利便性を向上させることができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude Codeはセッション開始ディレクトリから「上方向（親）」に設定を検索するため、ルートからだとサブディレクトリのCLAUDE.mdは自動読み込みされない。<br>プロジェクト共通ルールはルート直下のCLAUDE.mdまたは.claude/rules/に配置することで解決。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-49">
+<div class="card-header">
+  <span class="qnum">Q49</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">50ファイル超のPRレビューで個別ファイルの構文エラーは検出できるが、ファイル間の依存関係問題を見落とし注意力の分散で変数名を混同するハルシネーションが発生。<br>❓ ワークフローをどのように再設計すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">ワークフローを「ファイルごとの局所分析パス」と、それに続く「独立したファイル間統合パス」に分割する。</div>
+    <div class="ans-exp">個別のファイル分析で詳細を詰め、その成果物（要約やメタデータ）を用いて別のステップで全体像を検証する「多段階プロセス」により、ハルシネーションを抑制しながら高度な依存関係チェックを実現できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">多数ファイルを一度に処理すると情報の埋没と注意力の低下が発生。<br>解決策：①各ファイルを個別レビューして要約・インターフェース定義を抽出（Map）→②抽出した高レベル情報のみを統合してファイル間整合性をチェック（Reduce）の2段階構成。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-50">
+<div class="card-header">
+  <span class="qnum">Q50</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">サポートチケットから製品シリアル番号を抽出するが、番号がなくURLのみの場合に捏造またはURLを抽出してしまう。<br>❓ 形式の多様性への対応と捏造防止を同時に解決する最適なプロンプトエンジニアリング手法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">様々なメール形式からの正しい抽出例に加えて、特に「番号が存在しない場合にnullを出力する例」を明示的に含めたfew-shot（少数の例示）を追加する。</div>
+    <div class="ans-exp">多様な入力パターンへの対応力を高めると同時に、期待される「出力なし（null）」のパターンを具体的に例示することで、モデルの勝手な推測やハルシネーションを抑制する最も標準的な解決策です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">多様な形式への適応と「存在しない場合はnullを返す」挙動をモデルに学習させるにはFew-shotプロンプティングが最適。<br>「番号が存在しない例（ネガティブエグザンプル）」を含めることでハルシネーションを劇的に抑制できる。</div>
+    <a href="https://docs.anthropic.com/ja/docs/build-with-claude/prompt-engineering/few-shot-prompting" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-51">
+<div class="card-header">
+  <span class="qnum">Q51</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">ロギングライブラリ移行の3段階ワークフロー：①コードベース全体でのログ使用箇所の探索・収集、②変更計画の策定、③実際のコード修正。<br>❓ 各段階に最適なClaude Codeの機能の組み合わせは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">1) 探索のためにExploreサブエージェント<br>2) 戦略のためにPlanモード<br>3) 実装のために直接実行</div>
+    <div class="ans-exp">3段階のワークフローに合わせてClaude Codeの機能を使い分ける。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">①Exploreサブエージェント：メイン会話履歴を汚さずコードベース全体から情報収集。<br>②Planモード：実際の変更前に設計方針・実装手順を対話的に策定。<br>③標準の直接実行（通常モード）：決定した方針に基づく具体的なコード修正。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-52">
+<div class="card-header">
+  <span class="qnum">Q52</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">ホテルコンシェルジュボットに客室アップグレード・全額返金・総支配人連絡の3つの強力ツールを追加→タオルの追加依頼に総支配人連絡を誤用。<br>❓ エスカレーション処理の最適なアーキテクチャは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">L1ボットから3つの強力なツールを削除して「予約詳細確認」のみを残し、エスカレーションが必要なリクエストは専門のL2エージェントへルーティングする。</div>
+    <div class="ans-exp">高リスクなツールを特定のコンテキスト（L2エージェント）に限定して配置することで、誤用を構造的に防ぎつつ、L1エージェントの処理精度を維持することができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">単一エージェントに多数の強力ツールを集中させると「ツール過負荷」でツール選択を誤る。<br>オーケストレーターパターンを採用し、一般リクエスト処理のフロントエージェント（L1）から強力ツールを分離し、必要に応じて専門サブエージェント（L2）に委譲する設計が最も堅牢。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-53">
+<div class="card-header">
+  <span class="qnum">Q53</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">図面作成エージェントに run_physics_simulation ツールを付与したところ、図面完成前にシミュレーションを実行しようとしてパイプラインエラーが発生。<br>❓ 最も適切なアーキテクチャ上の修正は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">図面作成エージェントのツールセットを図面生成ツールのみに制限し、検証タスクは排他的に構造検証エージェントにルーティングする。</div>
+    <div class="ans-exp">各エージェントが利用できるツールをそれぞれの専門領域に厳密に制限（最小権限の原則）し、エージェント間のルーティングでワークフローを制御することで、時期尚早なツール実行をアーキテクチャレベルで防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">単一エージェントに複数フェーズにまたがるツールアクセス権を与えると役割の境界が曖昧になり時期尚早な実行を引き起こす。<br>「関心の分離（Separation of Concerns）」の原則に従い、各エージェントのツールセットをその本来の役割に厳密に制限する。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/agentic-designs/patterns" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-54">
+<div class="card-header">
+  <span class="qnum">Q54</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">住宅ローン申込みで本人確認（verify_id_docs）前に金利ロック（lock_interest_rate）を禁止したい。<br>❓ 本人確認前の金利ロックを「ゼロ」にする最も強力な保証を提供する実装は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">オーケストレーション層が本人確認の完了を確認するまで、LLMの利用可能なツール配列（tools）からlock_interest_rateツールを完全に排除する。</div>
+    <div class="ans-exp">モデルが物理的にツールを参照・呼び出しできない状態にすることで、事前の実行を確実に（100%）防止できます。<br>これが最も堅牢なアーキテクチャ設計です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">LLMはプロンプト指示だけでは「100%の実行禁止」を保証できない。<br>前提条件が満たされるまでツールをLLMに提示しない（利用可能ツール配列に含めない）というオーケストレーション層での制御が技術的に最も堅牢な防御策。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-55">
+<div class="card-header">
+  <span class="qnum">Q55</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">PRレビュー（開発者が結果を待つ・マージ前に必要）と週次リポジトリ脆弱性スキャン（週1回・即時性不要）の2タスク。<br>❓ 待機時間の短縮とコスト効率を両立するルーティングは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コードレビューを同期APIに、毎週の監査をBatch APIにルーティングする。</div>
+    <div class="ans-exp">リアルタイム性が求められる開発フローには同期APIを、時間に余裕がある大規模タスクにはコストの低いBatch APIを使い分けるのが、体験とコストを最適化する正しい設計です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">PRレビュー（待機必要）→同期API（即時レスポンス・Developer Experience優先）。<br>週次脆弱性スキャン（待機不要・大規模処理）→Message Batches API（コスト50%削減）。<br>タスクの即時性でAPIを使い分けるのがベストプラクティス。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/message-batches" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-56">
+<div class="card-header">
+  <span class="qnum">Q56</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">商品詳細ツールが製造履歴・Base64画像・長文マーケコピー・100件レビューを含む完全データを返すため、3商品確認でコンテキスト制限超過エラーになる。<br>❓ この過剰なトークン消費への最適な対処法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">ツールのAPI側またはミドルウェアで前処理を実装し、product_id、name、stock_status フィールドのみをモデルに返すようにする。</div>
+    <div class="ans-exp">モデルに返却されるペイロードから不要なフィールドを事前に除外し、タスクに必要な最小限の情報のみに絞り込むことで、トークンの消費を劇的に抑え、コンテキスト超過を防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">ツールが不要な大量データを返すとコンテキストウィンドウを無駄に消費する。<br>解決策：モデルにデータを渡す前の段階（API・ミドルウェア層）でフィルタリング・切り詰めを行い、タスク達成に本当に必要な情報のみを返すようツール設計を最適化する。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-57">
+<div class="card-header">
+  <span class="qnum">Q57</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">スマート農業管理エージェントが固定パイプライン（土壌検査→施肥実行→作業記録）を使用。<br>土壌が十分な場合のスキップや予期せぬセンサーエラーへの動的対応が求められる。<br>❓ システムをどのように変更すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">3つすべてのツールを Claude に提供し、アプリケーション側の固定ロジックを削除して、Claude の推論に基づき実行順序やエラー対応を決定する標準的なエージェント・ループを実装する。</div>
+    <div class="ans-exp">エージェント・ループを採用することで、Claude は土壌の状態を見て施肥をスキップしたり、エラー時に別の手段を講じたりといった柔軟な自律制御が可能になります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">固定パイプラインは条件分岐や動的回復が必要なケースに不適。<br>各機能をツールとして提供し、モデルが前ステップの結果に基づいて次のアクションを自律的に決定する「エージェント・ループ（エージェンティック・ワークフロー）」への移行が最適。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-58">
+<div class="card-header">
+  <span class="qnum">Q58</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">法的分析エージェントが複数契約書の条項抽出・要約時に引用元ドキュメントIDを時折落とし、トレーサビリティに欠陥が生じる。<br>❓ 主張と引用元のマッピング維持に最も堅牢なアーキテクチャ上のガードレールは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">エージェントに source_ids 配列を含む synthesized_claims の構造化配列を出力させ、すべての入力IDが含まれているかを検証するスクリプトを実装し、不足があれば自動リトライを行う。</div>
+    <div class="ans-exp">構造化出力とプログラムによる事後検証を組み合わせることで、AIの不確実性をシステム的に補完し、ミッションクリティカルな要件における信頼性を最大化できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">プロンプト指示だけでは引用漏れを完全に防げない。<br>解決策：モデルに構造化JSON出力させ、プログラム（決定論的スクリプト）で入力引用元IDが出力に含まれるかを自動検証し、失敗した場合は自動リトライする仕組みを構築する。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/structured-outputs" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-59">
+<div class="card-header">
+  <span class="qnum">Q59</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">サイバーセキュリティ調査エージェントが大量のログをコンテキストに取り込みトークン制限に近づいている。<br>❓ 推論チェーンを失わずこれまでの調査経緯を保持しながらコンテキストを管理する最適なテクニックは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">プログラムから /compact 操作をトリガーし、調査の核となる経緯や重要な異常値を保持しながら、冗長な診断出力をモデルに要約させる。</div>
+    <div class="ans-exp">コンパクションは、文脈（コンテキスト）の連続性を維持しながら、不要な詳細を削減してトークン効率を高めるための標準的な機能です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">/compact（コンパクション）操作を実行。<br>冗長な詳細情報を要約してトークン消費を抑えつつ、進行中の対話の要点・重要な結論を凝縮して保持する手法。<br>推論の文脈を維持したまま新しい情報を処理するための空きスペースを確保できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-60">
+<div class="card-header">
+  <span class="qnum">Q60</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">農業IoTで収穫量データ取得サブエージェントがAPIの認証仕様変更により取得失敗。<br>❓ コーディネーターがリカバリしワークフローを継続するために、サブエージェントが提供すべき最も効果的なレスポンス戦略は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">失敗の種別、アクセスを試みたエンドポイント、取得済みの部分データ、および代替のアクセス手段を含む構造化された JSON オブジェクトを返す。</div>
+    <div class="ans-exp">失敗の経緯と代替案を詳細に伝えることで、コーディネーターは自律的に問題解決やプランの再編を行うことができ、システムの信頼性が向上します。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">単なるエラー通知だけでなく、失敗の理由・試行した場所・部分的な成果・代替案を構造化JSON形式でコーディネーターに渡すことが重要。<br>コーディネーターが「別のエンドポイントを試す」などの高度な回復措置を取れるようになる。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

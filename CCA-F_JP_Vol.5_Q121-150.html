@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F JP Vol.5</title>
+<style>:root{--primary:#4f46e5;--bg:#f8fafc;--card-bg:#fff;--correct-bg:#f0fdf4;--correct-border:#16a34a;--exp-bg:#fffbeb;--exp-border:#f59e0b;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:24px}
+.site-header{background:linear-gradient(135deg,#4f46e5,#3730a3);color:white;padding:16px 20px 14px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.site-header h1{font-size:1.05rem;font-weight:700}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:3px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:7px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#4f46e5;color:white;border-color:#4f46e5}
+.cards-container{max-width:820px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);border-left:4px solid #4f46e5;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06);scroll-margin-top:76px}
+.card-header{display:flex;align-items:center;gap:8px;padding:9px 16px;background:#f8fafc;border-bottom:1px solid var(--border)}
+.qnum{font-size:.95rem;font-weight:800;color:#4f46e5}
+.domain-badge{margin-left:auto;background:#f3e8ff;color:#7c3aed;padding:2px 8px;border-radius:10px;font-size:.67rem;font-weight:600}
+.question-text{padding:14px 16px;font-size:.93rem;line-height:1.8;color:var(--text);border-bottom:1px solid var(--border)}
+.answer-section{padding:12px 16px 16px}
+.correct-answer{background:var(--correct-bg);border:1.5px solid var(--correct-border);border-radius:8px;padding:12px}
+.ans-label{font-size:.78rem;font-weight:700;color:#166534;margin-bottom:6px}
+.ans-text{font-size:.92rem;font-weight:600;color:#14532d;line-height:1.6;margin-bottom:6px}
+.ans-exp{font-size:.82rem;color:#166534;line-height:1.65;border-top:1px solid rgba(22,163,74,.2);padding-top:6px}
+.overall-exp{margin-top:10px;background:var(--exp-bg);border:1.5px solid var(--exp-border);border-radius:8px;padding:11px 14px}
+.exp-title{font-size:.8rem;font-weight:700;color:#92400e;margin-bottom:5px}
+.exp-body{font-size:.82rem;line-height:1.7;color:#78350f}
+.ref-link{display:inline-block;margin-top:7px;font-size:.76rem;color:#4f46e5;text-decoration:none}
+.ref-link:hover{text-decoration:underline}
+.q-divider{font-size:.78rem;font-weight:700;color:#94a3b8;padding:2px 10px;background:#f1f5f9;border-radius:6px;margin:0 16px;text-align:center}
+@media(max-width:600px){.question-text{font-size:.88rem}.domain-badge{display:none}}</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCA-F 日本語問題集 | Vol.5（Q121-Q150）</h1>
+  <div class="subtitle">Claude Certified Architect Foundations | 30問 | 全180問中 121-150 / 180</div>
+</header>
+<nav class="jump-nav">
+  <span>Jump:</span>
+  <a class="jump-btn" href="#card-121">Q121</a><a class="jump-btn" href="#card-122">Q122</a><a class="jump-btn" href="#card-123">Q123</a><a class="jump-btn" href="#card-124">Q124</a><a class="jump-btn" href="#card-125">Q125</a><a class="jump-btn" href="#card-126">Q126</a><a class="jump-btn" href="#card-127">Q127</a><a class="jump-btn" href="#card-128">Q128</a><a class="jump-btn" href="#card-129">Q129</a><a class="jump-btn" href="#card-130">Q130</a><a class="jump-btn" href="#card-131">Q131</a><a class="jump-btn" href="#card-132">Q132</a><a class="jump-btn" href="#card-133">Q133</a><a class="jump-btn" href="#card-134">Q134</a><a class="jump-btn" href="#card-135">Q135</a><a class="jump-btn" href="#card-136">Q136</a><a class="jump-btn" href="#card-137">Q137</a><a class="jump-btn" href="#card-138">Q138</a><a class="jump-btn" href="#card-139">Q139</a><a class="jump-btn" href="#card-140">Q140</a><a class="jump-btn" href="#card-141">Q141</a><a class="jump-btn" href="#card-142">Q142</a><a class="jump-btn" href="#card-143">Q143</a><a class="jump-btn" href="#card-144">Q144</a><a class="jump-btn" href="#card-145">Q145</a><a class="jump-btn" href="#card-146">Q146</a><a class="jump-btn" href="#card-147">Q147</a><a class="jump-btn" href="#card-148">Q148</a><a class="jump-btn" href="#card-149">Q149</a><a class="jump-btn" href="#card-150">Q150</a>
+</nav>
+<div class="cards-container">
+<div class="card" id="card-121">
+<div class="card-header">
+  <span class="qnum">Q121</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">採用プラットフォームが1万人分のスカウトメールをMessage Batches APIで一括生成した結果、24時間後に全件が期待外れの内容だった。<br>❓ このリスクを防ぐアーキテクチャは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">同期APIを使用して5件のサンプルを生成してユーザーの承認を得てから、残りの9,995件をMessage Batches APIで送信する。</div>
+    <div class="ans-exp">低コストな同期APIで事前に少数の品質を確認し、ユーザーの承認を得てからコスト効率の高いBatch APIで本番処理を行うことで、品質リスクの回避とコスト最適化を最も効率的に両立できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">バッチ処理「一括失敗」リスク：大量処理前にリアルタイムAPIで少量サンプルテスト→品質確認→本番バッチ投入の順で進めるのがベストプラクティス。<br>24時間後に全件失敗する損失を未然に防ぐ。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/message-batches" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-122">
+<div class="card-header">
+  <span class="qnum">Q122</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">金融市場分析AIが毎日財務サイトをスクレイピング。<br>1日目と2日目で同企業の純利益予想が異なり「論理的矛盾」アラートが誤発砲した（実際は予測値の更新）。<br>❓ 根本原因は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">データ取得パイプラインを再設計し、抽出されたすべてのテキストを必須の「data_collection_timestamp」フィールドを含む構造化形式で保存する。統合エージェントはこのタイムスタンプを使用して修正のタイムラインを構築する。</div>
+    <div class="ans-exp">取得時刻をメタデータとして明示し、モデルにタイムラインとして解釈させることで、情報の推移を正しく理解し、矛盾と更新を区別できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">LLMは時間的コンテキスト（データの鮮度）を持たない場合、内容の不一致を論理的矛盾と誤判断する。<br>解決策：データ取得時にタイムスタンプを付与し「〇日時点のデータ」として提示する。<br>値の変化自体は正常と認識させる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-123">
+<div class="card-header">
+  <span class="qnum">Q123</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">調整エージェントが15地域の通関規制ドキュメントをすべて順番に読み込んで処理中、「コンテキスト劣化」（初期情報の消失・捏造混入）が発生。<br>❓ 最適な設計変更は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">各地域ごとに個別のサブエージェントを立ち上げて特定の規制フローを分析させ、各サブエージェントから要約されたプロファイルを返させ、それらの要約のみをメインエージェントのコンテキストに注入する。</div>
+    <div class="ans-exp">詳細な解析をサブエージェントに委譲し、メインエージェントには高密度に要約された情報のみを渡すことで、コンテキストウィンドウを有効活用し、劣化を防ぎながら精度の高い全体像を作成できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">大規模データを単一エージェントで逐次処理するとコンテキスト劣化が生じる。<br>各地域をそれぞれ独立したサブエージェントに並列処理させ、最終集約のみメインが行う「並列マルチエージェント」アーキテクチャが解決策。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-124">
+<div class="card-header">
+  <span class="qnum">Q124</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">医療診断ラボが一般健診(全体の98%)で98%精度を達成。<br>稀な遺伝子検査(全体の2%)も同様に高精度と判断した。<br>❓ 何が問題か？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">特殊遺伝子検査のセグメントを分離し、統計的に有意なサンプルを用いてフィールドレベルの精度を独立して測定し、ビジネス要件を満たしているか確認する。</div>
+    <div class="ans-exp">高リスクな少数セグメントを切り出して個別に評価することで、多数派データに隠れた誤りや精度の不足を正確に把握できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">不均衡データ問題：多数派クラスの高精度は少数派クラスの精度を保証しない。<br>重要な少数派（稀な疾患等）は個別に評価指標（F1スコア・適合率・再現率）を測定する必要がある。<br>全体精度のみを指標にすると重大な見落としが生じる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-125">
+<div class="card-header">
+  <span class="qnum">Q125</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">フィードバック収集ボットがtool_choice: {&quot;type&quot;: &quot;auto&quot;}を使用。<br>ユーザーの短いメッセージではrecord_feedbackツールが実行されないことがある。<br>❓ 確実に実行させるには？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">tool_choice を {&quot;type&quot;: &quot;any&quot;} に変更する。</div>
+    <div class="ans-exp">any を指定することで、Claude は会話だけで返答することを禁止され、定義されたツールの中から必ず1つ以上を呼び出すよう強制されます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">tool_choice: &quot;auto&quot;はモデルがツール使用可否を自律判断するため、短い・曖昧なメッセージではツール実行しない場合がある。<br>確実に実行させるにはtool_choice: {&quot;type&quot;: &quot;tool&quot;, &quot;name&quot;: &quot;record_feedback&quot;}に変更し強制実行させる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#forcing-tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-126">
+<div class="card-header">
+  <span class="qnum">Q126</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">Wi-Fi接続不可のスマートホームデバイス対応ボットが、定義済みの全トラブルシューティング手順（ルーター再起動・工場リセット・帯域変更）を試しても解決しない。<br>❓ 次のアクションは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">問題に対して有意義な進展が見られないため、人間の技術者へのエスカレーションをトリガーする。</div>
+    <div class="ans-exp">AIの限界を認識し、適切なタイミングで人間にバトンタッチすることで、複雑なエッジケースや物理的な故障の可能性に確実に対処できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">定義済みフローをすべて試しても解決しない場合、AIの自動対応を継続してもフラストレーション増大のみ。<br>即座に人間のサポートへエスカレーションすべき。<br>AIは「解決できない限界」を認識し適切に引き渡すことが重要。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-127">
+<div class="card-header">
+  <span class="qnum">Q127</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">科学論文自動レビューパイプライン（文献調査→方法論評価→最終提言の3段階）で全対話履歴を1コンテキストに保持し続けると「コンテキスト腐敗」が発生。<br>❓ 解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">メインの「オーケストレーター」エージェントを使用してフェーズ1のサブエージェントを起動する。そのサブエージェントは調査結果の簡潔な要約を返し、オーケストレーターはそれをフェーズ2を開始する新しいサブエージェントのプロンプトに注入する。このパターンを全フェーズで繰り返す。</div>
+    <div class="ans-exp">このパターンにより、不要な中間ログや試行錯誤の過程を切り捨て、各ステップに必要な成果物のみを伝搬させることができるため、コンテキストの鮮度と精度を最も効果的に維持できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">多段階パイプラインでは各段階ごとに新しいコンテキストを開始し、前段階の「要約された重要情報のみ」を次段階に引き継ぐ設計が最適。<br>全履歴保持はノイズとなり精度低下を招く。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-128">
+<div class="card-header">
+  <span class="qnum">Q128</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">数十種類の抽出タスク（サプライチェーン報告書・安全ログ等）のFew-shot改善例を単一DBにタスク識別子なしで管理中。<br>間違ったタスクの例が混入する問題が頻発。<br>❓ 解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">関連するタスクに対してのみ Few-shot セットが構築されるようにするための、特定のプロンプトまたはタスク識別子（例：&#x27;SafetyLogExtractionV2&#x27;）。</div>
+    <div class="ans-exp">タスク識別子やプロンプトIDを付与することで、収集した修正データを正しいコンテキストで再利用でき、大規模な環境でも自動的かつ正確なプロンプト改善が可能になります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">複数タスクのFew-shot例を一元管理するにはtask_idなどの識別子が必須。<br>識別子なしではどの例がどのタスク用か判別不能で品質が劣化する。<br>各例にタスク種別ラベルを付与し、タスク別にフィルタリングして使用する設計が必要。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-129">
+<div class="card-header">
+  <span class="qnum">Q129</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">30人チームでClaude Codeを導入。<br>❓ 全員が共有するGitHub MCPと、リードエンジニア個人用のプライベートMCPを適切に分離する方法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">GitHub サーバをリポジトリの .mcp.json で構成し、実験的なデプロイ用サーバをリードエンジニアの ~/.claude.json で構成する。</div>
+    <div class="ans-exp">共有ツールはリポジトリの .mcp.json に、個人ツールはユーザーの ~/.claude.json に配置することで、チーム全体の利便性と個人の開発環境を分離できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude Codeは.mcp.json（リポジトリ単位）とユーザー単位の~/.claude.jsonの両方を読み込む。<br>チーム共有MCPはリポジトリの.mcp.jsonにコミット→全員に自動適用。<br>個人専用MCPは~/.claude.jsonに記述→その人だけに適用。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-130">
+<div class="card-header">
+  <span class="qnum">Q130</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">旅行予約エージェントがstop_reason: tool_useで1レスポンスに2つのcheck_availabilityツール呼び出しを返した。<br>❓ 開発者はどう処理すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">すべての tool_use ブロックをループで処理して実行し、各 tool_use_id に対応する複数の tool_result ブロックを格納した1つのユーザーメッセージを作成して返信する。</div>
+    <div class="ans-exp">1つのアシスタントメッセージに含まれるすべてのツール要求に対して、1つのユーザーメッセージにすべての結果をまとめて含めるのが、並列ツール呼び出しの正しい実装方法です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claudeの並列ツール呼び出し（Parallel Tool Calling）では1ターンで複数ツールの実行要求が可能。<br>開発者はすべてのツールを実行し、各結果をtool_resultブロックの配列にまとめて一度に返す必要がある。<br>1件ずつ逐次で返すのは誤り。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#handling-tool-use-and-tool-results-responses" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-131">
+<div class="card-header">
+  <span class="qnum">Q131</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">保険契約書から補償限度額を抽出する際、「付録B」セクションがある形式は成功するが、本文中に埋め込まれた形式では失敗する。<br>❓ 解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">文書構造の多様性に対応した正しい処理方法を示す Few-shot の例（付録形式と本文埋め込み形式の両方）を使用する。</div>
+    <div class="ans-exp">異なるパターンの例をプロンプトに含めることで、Claude は文書の構成に関わらず、どこに情報があるかを学習し、抽出精度を大幅に向上させることができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">特定の文書パターンでのみ失敗する場合はFew-shotプロンプティングが有効。<br>付録形式・本文埋め込み形式の両方の抽出例をプロンプトに含め、モデルに多様な構造への対応方法を具体的に示す。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-132">
+<div class="card-header">
+  <span class="qnum">Q132</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">CLAUDE.mdに「すべての新規関数にDoxygen形式コメント必須」と定義。<br>使い捨てのデータ移行スクリプト作成時も強制される。<br>❓ この問題を解決するには？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">CLAUDE.md は常に読み込まれるユニバーサルな標準として機能し、カスタムスキルを呼び出す際もその指示がコンテキストに含まれるため。</div>
+    <div class="ans-exp">CLAUDE.md の指示はプロジェクト全体で一貫性を保つための永続的なコンテキストであり、スキルの実行中もモデルに提供され続けます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">CLAUDE.mdはプロジェクト全体の「常時適用される憲法」であり例外なく全対話に読み込まれる。<br>用途限定のルール（特定ファイルタイプ・特定状況のみ）は.claude/rules/配下にYAMLフロントマターのpathsフィルターと共に定義するのが適切。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-133">
+<div class="card-header">
+  <span class="qnum">Q133</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">単一コンポーネントファイルの電話番号フィールドに正規表現バリデーションを追加する小さなタスク。<br>Claudeがスコープを大幅に超えた外部スクリプト作成や全体リファクタリングを提案してきた。<br>❓ 原因と対策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">高度なエージェント機能（プログラム的ツール呼び出しや computer use など）を使わず、標準的なチャットインターフェースでコードを生成させるか、既存のシンプルなファイル編集ツールを1回だけ呼び出して正規表現バリデーションを追加するようアドバイスする。</div>
+    <div class="ans-exp">単一ファイル内の数行の変更という限定的なスコープに対しては、KISSの原則（Keep It Simple）に従い、高度なエージェント機能を導入せず、標準的なチャットでコードを生成するか既存のファイル編集ツールを1回呼び出すのが最も適切です。<br>他の選択肢はいずれも単純なタスクに対する過剰設計（アンチパターン）です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">AIの「オーバーエンジニアリング（過剰設計）」問題。<br>対策：プロンプトでスコープを明確に限定し「このファイルのこのフィールドのみを変更する、他は一切触れない」と明示する。<br>AIは大きく考える傾向があるため、制約を明確に指定することが重要。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#best-practices-for-tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-134">
+<div class="card-header">
+  <span class="qnum">Q134</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">不動産ポータルのコーディネーター+3サブエージェント（物件検索・内見予約・契約確認）が、すべてのクエリに対して常に3エージェントを並列実行している。<br>❓ リソース効率を改善するには？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">コーディネーターを再設計し、事前に入力要件を分析して、複雑さに応じて必要なサブエージェントのみを動的に選択・呼び出すようにする。</div>
+    <div class="ans-exp">これはルーティングパターンの適用であり、クエリに最適なリソースのみを割り当てることで、効率と速度を最大化できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">全サブエージェント常時並列実行は単純なクエリに対してリソースの無駄。<br>コーディネーターがユーザーの意図を解析し、必要なサブエージェントのみを選択起動する「動的ルーティング」設計に変更するのが最適。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-135">
+<div class="card-header">
+  <span class="qnum">Q135</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">リポジトリ内のJenkinsfileまたはVagrantfileをClaudeが編集する際、常に特定のフォーマット規則を強制したい。<br>❓ 最適な設定方法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">paths: [&quot;**/Jenkinsfile&quot;, &quot;**/Vagrantfile&quot;]</div>
+    <div class="ans-exp">**/ を使用することで、ディレクトリの階層に関わらず、指定されたファイル名を持つすべてのファイルを正確にターゲットに含めることができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude Codeのカスタムルール（.claude/rules/*.md）ではYAMLフロントマターのglobs/pathsフィールドで対象ファイルパターンを指定できる。<br>「**/Jenkinsfile」「**/Vagrantfile」にマッチするglobを設定することで、対象ファイルの編集時のみルールが適用される。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/custom-rules" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-136">
+<div class="card-header">
+  <span class="qnum">Q136</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">カスタムスキル /process-refund のcurrencyパラメータが、過去の無関係な会話（別国の店舗の話）から誤った通貨を引き継いでしまう「コンテキスト汚染」が発生。<br>❓ 根本原因と解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">返金ロジックを専用のサブエージェントにリファクタリングする。メインエージェントはこのサブエージェントを呼び出し、サブエージェントは独自のクリーンなコンテキストウィンドウを使用して返金タスクを処理する。</div>
+    <div class="ans-exp">専用のサブエージェントを立ち上げてタスクを委譲することで、コンテキストウィンドウが完全にリセットされます。<br>これにより、メインスレッドの過去の会話による干渉（コンテキスト汚染）をアーキテクチャレベルで確実に防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">LLMはコンテキストウィンドウ内の全情報から影響を受けるため、長い会話に矛盾・ノイズがあると指示だけでは汚染を防げない。<br>解決策：スキル呼び出し時は新しいコンテキストを開始するか、必須パラメータを毎回明示的にユーザーに確認する設計にする。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-137">
+<div class="card-header">
+  <span class="qnum">Q137</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">モバイルゲーム開発チームがClaude Codeを使ってテストコードを自動生成。<br>❓ リポジトリ固有のUIテスト基準とカスタムモックを遵守させるための最適な方法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">CLAUDE.md ファイルに、テスト基準、重要なテスト項目、および利用可能なカスタムフィクスチャの情報を記述する。</div>
+    <div class="ans-exp">CLAUDE.md は Claude Code にプロジェクト固有のガイドラインやコンテキストを学習させるための最も標準的かつ効果的な方法です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude CodeはプロジェクトルートのCLAUDE.mdを自動検出・読み込む。<br>テストの命名規則・使用すべきモック・禁止パターンなどをCLAUDE.mdに記述することで、すべてのコード生成に自動的に適用される。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview#customizing-claude-code-behavior-with-claudemd" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-138">
+<div class="card-header">
+  <span class="qnum">Q138</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">医療診断支援エージェントが外部医学文献DBに照会中、一時的なレート制限で「503 Service Unavailable」が返されている。<br>❓ 最適なエラー処理は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">サブエージェント内で指数バックオフによる再試行メカニズムを実装し、すべての再試行を使い果たした場合にのみ、クエリの詳細を含む構造化エラーを伝播させる。</div>
+    <div class="ans-exp">一時的なエラーに対する自動再試行は分散システムの基本原則であり、リソースの効率的な利用と高い可用性を両立させる標準的な設計パターンです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">一時的な障害（Transient failure）への最適な対処は指数バックオフ（Exponential Backoff）付きリトライ。<br>即時リトライは503をさらに増やすだけ。<br>間隔を指数的に延ばしながら（1秒→2秒→4秒）最大リトライ回数を設定する。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-139">
+<div class="card-header">
+  <span class="qnum">Q139</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">複数エージェントが環境調査データを分析。<br>衛星観測と地上観測の気温値が測定基準の違いでわずかに異なる。<br>❓ マルチエージェントシステムはどう処理すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">サブエージェントが、ソース情報と潜在的な競合を注釈として付けた構造化データを出力するように設計する。独立した「コーディネーター」エージェントがこれらをレビューし、競合が検出された場合は、不一致の提示方法に関する指示とともに両方の値を統合エージェントに渡す。</div>
+    <div class="ans-exp">ソース情報を保持し、独立したコーディネーターが競合を管理する設計にすることで、情報の透明性が確保され、モデルによる勝手な解釈や情報の欠落を防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">値の競合が生じた場合、モデルに暗黙的な判断をさせるのではなく、ソース情報（メタデータ）を保持したままコーディネーターに集約させる設計が推奨。<br>コーディネーターが競合を明示的に報告し、最終判断は人間またはビジネスルールに委ねる。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-140">
+<div class="card-header">
+  <span class="qnum">Q140</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">financial報告ボットが最初のターンでtool_choice: {&quot;type&quot;: &quot;tool&quot;, &quot;name&quot;: &quot;verify_tax_code&quot;}を強制実行。<br>❓ ツールがエラーを返した場合、同じターンで別の対応ができるか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">最初の強制ターンの後、それ以降のAPIリクエストでは tool_choice: {&quot;type&quot;: &quot;auto&quot;} を使用するように更新する。</div>
+    <div class="ans-exp">これにより、最初のステップで検証を保証しつつ、エラー発生時にはボットが自由に出力を選択（修正して再試行や人間へのヘルプ要請など）できるようになり、ループを回避できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">tool_choice: {&quot;type&quot;: &quot;tool&quot;, &quot;name&quot;: &quot;...&quot;}で強制実行するとそのターンで必ずそのツールを呼ぶ。<br>エラー時の代替処理（別ツール選択等）は、次のターンでtool_choiceを&quot;auto&quot;に切り替えるか、エラー処理を別フローで対応する設計が必要。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#forcing-tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-141">
+<div class="card-header">
+  <span class="qnum">Q141</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">assign_shipment_taskツールはoperator_id（文字列・単一値）のみ受け付ける。<br>❓ ユーザーが「夜勤チーム全員に割り当てて」と要求した場合、モデルはどう動作すべきか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">ツールの説明に境界条件の説明を追加し、個人の operator_id のみを受け付けることを明記した上で、チームが指定された場合の代替行動を Claude に指示する。</div>
+    <div class="ans-exp">ツールの説明内に制約と代替策を記述することで、モデルがツールの限界を理解し、エラーを出す前にユーザーに必要な情報を求めるなどの適切な制御が可能になります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">ツールの制約（単一IDのみ）とユーザー要求（複数名）が矛盾する場合、ツールの説明文（description）に「単一IDのみ有効・複数人への割り当て不可・代替手順（複数回呼び出し等）」を明記することで、モデルが適切に対応できる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#best-practices-for-tool-definitions" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-142">
+<div class="card-header">
+  <span class="qnum">Q142</span>
+  <span class="domain-badge">Prompt engineering and structured output</span>
+</div>
+<div class="question-text">複数調査機関のエネルギー需要予測を統合中、「現行政策維持」前提と「脱炭素目標完全達成」前提のデータを一律に平均化している。<br>❓ この処理の問題点は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">抽出エージェントに projected_demand と baseline_methodology をキャプチャさせ、合成エージェントには手法ごとにセクションを分け、予測値を平均化せずグループ化して出力するよう指示する。</div>
+    <div class="ans-exp">メタデータ（前提条件）を構造化データとして保持し、それに基づいてレポートをセクション分けすることで、データの背景にある文脈を損なうことなく正確な情報を提示できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">異なる前提条件（ベースライン）を持つデータを単純平均することは意味を失わせる不適切な処理。<br>信頼性の高い統合には、前提条件別にグループ化し「政策シナリオA：〇〇 / シナリオB：〇〇」と並列提示する設計が正しい。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-143">
+<div class="card-header">
+  <span class="qnum">Q143</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">infra/ ディレクトリ内のすべてのTerraformファイル（.tf）にセキュリティプロビジョニング規約を適用したい。<br>❓ .claude/rules/terraform.mdに設定する際の重要なポイントは？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">YAML フロントマターブロックは、マークダウンのコンテンツよりも前の、ファイルの先頭（一番最初）に配置する必要がある。</div>
+    <div class="ans-exp">フロントマターによるパスフィルタリングを機能させるには、ファイルの最初の行が「---」で始まり、その直後に設定を記述する（そして再び「---」で閉じた後にマークダウン本文を続ける）必要があります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude Codeのカスタムルール（.claude/rules/*.md）ではYAMLフロントマターのpaths/globsで「infra/**/*.tf」等のパターンを指定することで、対象ファイルにのみルールが適用される。<br>パターンを指定しないとすべてのファイルに適用される点に注意。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-144">
+<div class="card-header">
+  <span class="qnum">Q144</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">不動産管理アシスタントが「今日内見があったのでXX物件を更新して」という要求に対し、edit_property（物件更新）とadd_visit_log（訪問記録）のどちらを選択すべきかを誤認している。<br>❓ 解決策は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">edit_property を modify_static_property_details に、add_visit_log を record_client_interaction に変更し、それぞれの使い分けを明示的に対比させるよう説明文を更新する。</div>
+    <div class="ans-exp">名称を具体的かつユニークなものにし、説明文で役割の境界線を明確にすることで、モデルがユーザーの意図を正しく解釈し、適切なツールを選択できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claudeはツール名・説明文（description）を基にツールを選択する。<br>「更新」という言葉に反応してedit_propertyを選びがちだが、「内見記録」の文脈ではadd_visit_logが正しい。<br>各ツールのdescriptionに「どの文脈・状況で使うべきか」を明確に記述することで誤選択を防げる。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#best-practices-for-tool-definitions" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-145">
+<div class="card-header">
+  <span class="qnum">Q145</span>
+  <span class="domain-badge">Agent architecture and orchestration</span>
+</div>
+<div class="question-text">Creative_Writing agentにrun_python（単語数計算・テキスト整形）等の技術系ツールを追加したところ、生成する物語のスタイルが変化してしまった。<br>❓ なぜか？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">エージェントの専門分野外のツールを提供すると、そのコンテキストと挙動が汚染される。ツールを削除し、テキストの整形などは専門のユーティリティ・エージェントにルーティングすべきである。</div>
+    <div class="ans-exp">創作エージェントには創作に集中させ、技術的な処理は別個のエージェントに分離することで、物語の質を維持し、コード構文の混入を防ぐことができます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">エージェントに専門外のツールを持たせると、そのツールの定義・使用方法に含まれる技術的文脈（論理的思考・コード的表現など）がエージェントの「思考パターン」に影響を与える。<br>エージェントのツールセットはその役割・専門領域に限定すべき。</div>
+    <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-146">
+<div class="card-header">
+  <span class="qnum">Q146</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">電子カルテ処理パイプラインで「まず診断結果抽出→次にanalyze_resultsツールで分類」の順序を必ず守らせる必要がある。<br>❓ 最も確実な方法は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">最初のターンで tool_choice: {&#x27;type&#x27;: &#x27;tool&#x27;, &#x27;name&#x27;: &#x27;register_patient_data&#x27;} を使用して結果を処理し、その後のターンで {&#x27;type&#x27;: &#x27;auto&#x27;} を許可する。</div>
+    <div class="ans-exp">最初の API 呼び出しで特定のツールを指定して強制実行させ、その実行結果をコンテキストに戻した上で後続のステップを自動にすることで、実行順序を100%保証できます。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">ツール実行順序の強制にはプロンプト指示（自然言語）だけでは不十分な場合がある。<br>APIのtool_choiceパラメータを使い、第1ターンでtool_choice: {&quot;type&quot;: &quot;tool&quot;, &quot;name&quot;: &quot;extract&quot;}を強制し、次のターンでanalyze_resultsを強制するなど、ターンごとにtool_choiceを制御するのが最確実。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use#forcing-tool-use" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-147">
+<div class="card-header">
+  <span class="qnum">Q147</span>
+  <span class="domain-badge">Tool design and MCP integration</span>
+</div>
+<div class="question-text">Claude Code導入で標準的なSalesforceインスタンスと自社開発IoTプラットフォームを統合したい。<br>❓ MCPサーバーの選択方針は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">標準的な Salesforce 統合には既存のコミュニティ MCP サーバーを選択し、カスタム MCP サーバーの開発は独自の IoT プラットフォーム専用に限定する。</div>
+    <div class="ans-exp">汎用的なツールは既存の資産を活用し、独自のビジネスロジックが必要な社内システムにのみ開発リソースを集中させることが、最も時間とコストの効率が良い戦略です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">MCPを選択する際は「再利用性」と「カスタマイズ」のバランスが重要。<br>SalesforceなどのメジャーサービスにはコミュニティMCPを活用（開発コスト削減）、自社独自システムには専用MCPを構築（柔軟なカスタマイズ）という組み合わせが最適。</div>
+    <a href="https://modelcontextprotocol.io/introduction" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-148">
+<div class="card-header">
+  <span class="qnum">Q148</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">300行の古いDockerfileをプラットフォームチームが提供した最新の20行構成に完全に置き換える必要がある。<br>❓ Claude Codeで最適なツールの使い方は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">Writeツールを直接使用して、「Dockerfile」全体を新しい20行の構成で上書きする。</div>
+    <div class="ans-exp">ファイル全体を完全に新しい内容に差し替える場合、Writeツールを使用してファイル全体の内容を一度に書き込むのが最もシンプルかつエラーの少ないアプローチです。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">既存ファイルの部分修正（Edit）ではなく、全く新しい内容で完全置き換える場合はWriteツール（上書き書き込み）を使用する。<br>Editで300行→20行の大規模削除を試みると余分なコードが残るリスクがある。</div>
+    <a href="https://docs.anthropic.com/ja/docs/agents-and-tools/claude-code/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-149">
+<div class="card-header">
+  <span class="qnum">Q149</span>
+  <span class="domain-badge">Context management and reliability</span>
+</div>
+<div class="question-text">オーダーメイド家具注文ボットで、ユーザーが50ターン以上の会話の中で木材・サイズ・仕上げを何度も変更。<br>❓ ボットが以前の矛盾する情報に基づいて回答する問題を解決するには？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">現在合意されている注文内容（木材の種類、寸法、色など）を抽出するバックグラウンドプロセスを実装し、その確定事項ブロックをすべてのプロンプトの先頭に常に挿入するようにする。</div>
+    <div class="ans-exp">最新の状態を要約してプロンプトに注入することで、古い対話履歴に含まれる矛盾した情報を無視し、正確な処理を継続できるようになります。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">長い会話でユーザーが条件変更を繰り返す場合、過去の矛盾情報がコンテキストに残り混乱を招く。<br>解決策：会話から常に「最新の合意済み状態（State）」を抽出・更新し、会話履歴ではなく状態オブジェクトをプロンプトに渡す設計にする。</div>
+    <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+<div class="q-divider">─</div>
+<div class="card" id="card-150">
+<div class="card-header">
+  <span class="qnum">Q150</span>
+  <span class="domain-badge">Claude Code configuration and workflows</span>
+</div>
+<div class="question-text">複数アプリ（決済・在庫・顧客管理）を含む大規模モノリポジトリで、共通テスト規約と各アプリ固有ルールを適切に管理したい。<br>❓ 最適なCLAUDE.mdの構成は？</div>
+<div class="answer-section">
+  <div class="correct-answer">
+    <div class="ans-label">✅ 正解</div>
+    <div class="ans-text">プロジェクトのルートに共通ルール用の CLAUDE.md を配置し、各アプリケーションのディレクトリ内にそれぞれ専用の CLAUDE.md ファイルを配置する。</div>
+    <div class="ans-exp">Claude Code はディレクトリ階層を遡って CLAUDE.md を検索するため、ルートとローカルの指示を適切に組み合わせて利用するこの構成が最も効率的です。</div>
+  </div>
+  <div class="overall-exp">
+    <div class="exp-title">💡 暗記ポイント</div>
+    <div class="exp-body">Claude CodeはCLAUDE.mdの階層構造をネイティブサポート。<br>ルートのCLAUDE.md→全体共通ルール、各アプリ配下（payment/CLAUDE.md等）→そのアプリ固有ルールとして定義する。<br>Claudeは作業中のパスに基づいて適切なCLAUDE.mdを読み込む。</div>
+    <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview#custom-instructions-with-claudemd" target="_blank" class="ref-link">📎 参考</a>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

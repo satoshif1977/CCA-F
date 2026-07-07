@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F BILI Vol.3 Q041-060</title>
+<style>
+:root{--jp-accent:#4f46e5;--jp-bg:#f8fafc;--jp-correct-bg:#f0fdf4;--jp-correct-border:#16a34a;--jp-exp-bg:#fffbeb;--jp-exp-border:#f59e0b;--en-accent:#0d9488;--en-correct-bg:#f0fdfa;--en-correct-border:#0d9488;--en-exp-bg:#f0f9ff;--en-exp-border:#0ea5e9;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:#f1f5f9;color:var(--text);padding-bottom:32px}
+.site-header{background:linear-gradient(135deg,#1e1b4b,#312e81,#0f766e);color:white;padding:18px 20px 15px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.site-header h1{font-size:1.1rem;font-weight:800;letter-spacing:.02em}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:4px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#4f46e5;color:white;border-color:#4f46e5}
+.cards-container{max-width:860px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:20px}
+.question-set{background:white;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);scroll-margin-top:80px}
+.set-header{background:linear-gradient(90deg,#1e1b4b 0%,#312e81 50%,#0f766e 100%);color:white;padding:8px 16px;display:flex;align-items:center;gap:10px}
+.set-num{font-size:1.1rem;font-weight:800;letter-spacing:.05em}
+.set-domain{font-size:.7rem;opacity:.85;margin-left:auto;background:rgba(255,255,255,.15);padding:2px 10px;border-radius:10px}
+.jp-card{border-left:5px solid var(--jp-accent);background:var(--jp-bg)}
+.en-card{border-left:5px solid var(--en-accent);background:#f0fdfa}
+.lang-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:8px 16px 0}
+.lang-label.jp{color:var(--jp-accent)}
+.lang-label.en{color:var(--en-accent)}
+.question-text{padding:10px 16px 12px;font-size:.92rem;line-height:1.85;color:var(--text);border-bottom:1px solid var(--border)}
+.question-text.en{color:#134e4a;background:#f0fdfa}
+.answer-section{padding:11px 16px 14px}
+.correct-answer.jp{background:var(--jp-correct-bg);border:1.5px solid var(--jp-correct-border);border-radius:8px;padding:11px}
+.correct-answer.en{background:var(--en-correct-bg);border:1.5px solid var(--en-correct-border);border-radius:8px;padding:11px}
+.ans-label{font-size:.76rem;font-weight:700;margin-bottom:5px}
+.ans-label.jp{color:#166534}
+.ans-label.en{color:#134e4a}
+.ans-text{font-size:.9rem;font-weight:600;line-height:1.65}
+.ans-text.jp{color:#14532d}
+.ans-text.en{color:#134e4a}
+.overall-exp{margin-top:9px;background:var(--jp-exp-bg);border:1.5px solid var(--jp-exp-border);border-radius:8px;padding:10px 13px}
+.exp-title{font-size:.78rem;font-weight:700;color:#92400e;margin-bottom:4px}
+.exp-body{font-size:.81rem;line-height:1.7;color:#78350f}
+.kw-box{margin-top:9px;background:var(--en-exp-bg);border:1.5px solid var(--en-exp-border);border-radius:8px;padding:10px 13px}
+.kw-title{font-size:.78rem;font-weight:700;color:#0c4a6e;margin-bottom:7px}
+.kw-table{width:100%;border-collapse:collapse}
+.kw-table tr{border-bottom:1px solid rgba(14,165,233,.12)}
+.kw-table tr:last-child{border-bottom:none}
+.kw-table td{padding:5px 6px;vertical-align:top;font-size:.8rem}
+.kw-en{font-weight:700;color:#0369a1;width:30%;white-space:nowrap}
+.kw-ja{color:#0369a1;width:20%;font-size:.75rem}
+.kw-meaning{color:#0c4a6e;line-height:1.55}
+.kw-related{display:inline-block;font-size:.62rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:4px;padding:1px 5px;margin-left:5px;white-space:nowrap;vertical-align:middle}
+.card-divider{height:1px;background:var(--border)}
+@media(max-width:600px){.question-text{font-size:.86rem}.set-domain{display:none}.kw-ja{display:none}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCA-F バイリンガル問題集 | Vol.3（Q41-Q60）</h1>
+  <div class="subtitle">&#127471;&#127477; 日本語カード &#8594; &#127482;&#127480; 英語カード + Key Words 意味付き | Q41-60 / 180</div>
+</header>
+<nav class="jump-nav">
+  <span>Jump:</span>
+  <a class="jump-btn" href="#card-41">Q41</a> <a class="jump-btn" href="#card-42">Q42</a> <a class="jump-btn" href="#card-43">Q43</a> <a class="jump-btn" href="#card-44">Q44</a> <a class="jump-btn" href="#card-45">Q45</a> <a class="jump-btn" href="#card-46">Q46</a> <a class="jump-btn" href="#card-47">Q47</a> <a class="jump-btn" href="#card-48">Q48</a> <a class="jump-btn" href="#card-49">Q49</a> <a class="jump-btn" href="#card-50">Q50</a> <a class="jump-btn" href="#card-51">Q51</a> <a class="jump-btn" href="#card-52">Q52</a> <a class="jump-btn" href="#card-53">Q53</a> <a class="jump-btn" href="#card-54">Q54</a> <a class="jump-btn" href="#card-55">Q55</a> <a class="jump-btn" href="#card-56">Q56</a> <a class="jump-btn" href="#card-57">Q57</a> <a class="jump-btn" href="#card-58">Q58</a> <a class="jump-btn" href="#card-59">Q59</a> <a class="jump-btn" href="#card-60">Q60</a>
+</nav>
+<div class="cards-container">
+<div class="question-set" id="card-41">
+  <div class="set-header"><span class="set-num">Q41</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ファイル同期エージェントがネットワーク遅延最適化を優先し、機密顧客データのセキュリティ強度の低いゾーンへの転送禁止ルールを時折無視。データレジデンシー法遵守を「保証」する最適な解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">PreToolCallフックを実装し、ツールの引数を検査してポリシーエンジンで評価し、プロトコルに違反する場合は転送をブロックする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">LLMはプロンプト指示だけでは100%のコンプライアンス遵守を保証できない。ツール実行前に引数をインターセプトしポリシーエンジンで検証して違反をブロックする「Pre-tool call validation（実行前検証）」が最も堅牢な防御策。モデルの推論に依存しないガードレールを構築できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A file synchronization agent occasionally ignores a security rule that prohibits transferring confidential customer data to lower-security zones, prioritizing network latency optimization instead. The organization must guarantee zero violations to comply with data residency regulations. What is the most robust architectural solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement a PreToolCall hook that inspects the tool's arguments, evaluates them against a policy engine, and blocks the transfer if it violates the protocol.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">PreToolCall hook</td><td class="kw-ja">PreToolCall フック</td><td class="kw-meaning">ツール実行前に引数をインターセプトして検証・ブロックできるフック機構</td></tr>
+<tr><td class="kw-en">policy engine<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ポリシーエンジン</td><td class="kw-meaning">ルール・制約を定義した外部の決定論的モジュール。LLMの推論に依存しない</td></tr>
+<tr><td class="kw-en">data residency<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">データレジデンシー</td><td class="kw-meaning">データを特定の地理的・セキュリティゾーン内に保存・処理する法的要件</td></tr>
+<tr><td class="kw-en">pre-tool call validation</td><td class="kw-ja">実行前検証</td><td class="kw-meaning">ツール呼び出し前に引数を検査してポリシー違反をプログラム的にブロックする設計</td></tr>
+<tr><td class="kw-en">compliance guardrail<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コンプライアンス・ガードレール</td><td class="kw-meaning">モデルの推論に依存せず、外部ロジックでルール遵守を強制する仕組み</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-42">
+  <div class="set-header"><span class="set-num">Q42</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">融資申請ボットで「税引前年間総売上」を複数回説明・修正依頼するも正しい回答を得られず、最後に納税証明書の写真をアップロードされた。ボットが次にとるべき最も適切な行動は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">会話において有意義な進展が見られないため、人間のエージェントへのエスカレーションをトリガーする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">複数回の説明・修正依頼を経ても有意義な進展がない場合、そのままボットだけで対応を続けるとフラストレーションが増大する。速やかに人間のオペレーターにエスカレーションするのがUX設計のベストプラクティス。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A loan application bot has failed to obtain the correct answer for 'pre-tax annual gross revenue' despite multiple explanations and correction requests. The user has just uploaded a photo of a tax certificate instead. What is the most appropriate next action for the bot?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Trigger an escalation to a human agent, as there has been no meaningful progress in the conversation.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">human-in-the-loop escalation</td><td class="kw-ja">人間へのエスカレーション</td><td class="kw-meaning">ボットが行き詰まった際に人間のオペレーターに引き継ぐ設計パターン</td></tr>
+<tr><td class="kw-en">deadlock<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">デッドロック状態</td><td class="kw-meaning">会話が同じループを繰り返し、有意義な進展が得られない状態</td></tr>
+<tr><td class="kw-en">UX design</td><td class="kw-ja">UX 設計</td><td class="kw-meaning">ユーザー体験を損なわないためのエスカレーション戦略を含むシステム設計</td></tr>
+<tr><td class="kw-en">conversation progress</td><td class="kw-ja">会話の進捗</td><td class="kw-meaning">インタラクションが目標に向かって前進しているかの評価基準</td></tr>
+<tr><td class="kw-en">frustration mitigation<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">フラストレーション軽減</td><td class="kw-meaning">対応不可能な状況を速やかに人間に切り替えてユーザーの不満を最小化すること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-43">
+  <div class="set-header"><span class="set-num">Q43</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">開発者が app/core/auth/ で作業中。ユーザーレベル・プロジェクトルート・auth/ ディレクトリに設定ファイルが存在する場合、アクティブな設定階層を最も正確に確認する方法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">app/core/auth/ でターミナルを開き、Claude Code を起動して /memory コマンドを実行し、現在ロードされているコンテキストを確認する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude Codeは複数のCLAUDE.md設定を階層的にマージして読み込む。そのディレクトリでClaude Codeを起動し /memory スラッシュコマンドを使用すると、現在ロードされているルールセットと設定解決の結果を確認できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A developer is working inside app/core/auth/. There are CLAUDE.md configuration files at the user level, the project root, and inside the auth/ directory. What is the correct way to verify the active configuration hierarchy that Claude Code has loaded?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Open a terminal in app/core/auth/, launch Claude Code, and run the /memory command to inspect the currently loaded context.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">/memory command</td><td class="kw-ja">/memory コマンド</td><td class="kw-meaning">Claude Code がロードしている設定・コンテキストの一覧を確認するスラッシュコマンド</td></tr>
+<tr><td class="kw-en">CLAUDE.md hierarchy</td><td class="kw-ja">CLAUDE.md 階層</td><td class="kw-meaning">ユーザーレベル→プロジェクトルート→サブディレクトリの順でマージされる設定構造</td></tr>
+<tr><td class="kw-en">configuration merging</td><td class="kw-ja">設定のマージ</td><td class="kw-meaning">複数階層の CLAUDE.md が統合されてアクティブなルールセットが決定されること</td></tr>
+<tr><td class="kw-en">slash command</td><td class="kw-ja">スラッシュコマンド</td><td class="kw-meaning">Claude Code の / から始まる組み込みコマンド（/memory・/clear・/compact 等）</td></tr>
+<tr><td class="kw-en">working directory context<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">作業ディレクトリコンテキスト</td><td class="kw-meaning">Claude Code 起動時のディレクトリが設定読み込み範囲を決定する</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-44">
+  <div class="set-header"><span class="set-num">Q44</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Map-ReduceアーキテクチャでLLMが50,000件の医学論文を要約。最終的な重要知見は特定されたが、引用元DOIが完全に失われエビデンスとして無価値に。情報のプロバナンス維持に最も効果的なアーキテクチャの変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Mapステップで {"finding": text, "source_ids": [id]} を含むスキーマを出力するように変更する。Reduceステップでも同じスキーマを使用し、知見を統合するたびに source_ids 配列を結合するように指示する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">自然言語の要約にIDを埋め込むだけでは再帰的な要約プロセスで情報が脱落する。JSONなどの構造化データとしてDOIを保持し、各Map/Reduceステップでそれらを明示的に結合・伝播させる仕組みを構築するのがベストプラクティス。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An LLM-based system summarizes 50,000 medical papers using a Map-Reduce architecture. While key findings are correctly identified, the source DOI citations are completely lost during the Reduce phase, rendering the evidence unverifiable. How should the schema be modified to preserve citation traceability throughout the pipeline?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Modify the Map step to output a structured schema containing {"finding": text, "source_ids": [id]}, and use the same schema in the Reduce step to explicitly propagate source IDs every time findings are merged.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Map-Reduce</td><td class="kw-ja">Map-Reduce</td><td class="kw-meaning">分散処理パターン。Map=個別処理、Reduce=集約統合。引用IDはMapで構造化して保持</td></tr>
+<tr><td class="kw-en">source_ids</td><td class="kw-ja">source_ids</td><td class="kw-meaning">引用元 ID を構造化フィールドとして保持するスキーマ設計。自然言語に埋め込むと消失しやすい</td></tr>
+<tr><td class="kw-en">citation traceability<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">引用のトレーサビリティ</td><td class="kw-meaning">主張の根拠となる出典を失わずに追跡できる性質</td></tr>
+<tr><td class="kw-en">structured schema</td><td class="kw-ja">構造化スキーマ</td><td class="kw-meaning">JSON 等の構造化形式で引用IDを明示的に伝播させる設計</td></tr>
+<tr><td class="kw-en">data propagation<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">データの伝播</td><td class="kw-meaning">Reduce フェーズを通じて元データの識別子を失わず引き継ぐこと</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-45">
+  <div class="set-header"><span class="set-num">Q45</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">VMプロビジョニングでホスト名が重複して作成失敗。ツールが一律のエラー {isError: true, message: 'Creation failed'} を返す。この詳細を欠いたエラーレスポンスはエージェントの動作にどのような悪影響を及ぼすか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">エージェントはエラーが一時的なネットワークのタイムアウトである可能性があると推測し、完全に同じ重複したホスト名で無駄な再試行を繰り返す原因となる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">原因不明の一律エラーだとエージェントは自己修正のコンテキストを得られず、同じ引数（重複ホスト名）で無駄なリトライを繰り返す傾向がある。適切なツール設計では「どう修正すべきか」が分かる具体的なエラーメッセージを返す必要がある。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A VM provisioning agent receives a generic error response — {isError: true, message: 'Creation failed'} — when a hostname collision occurs. What is the most likely undesired behavior caused by this vague error?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The agent assumes the error is a transient network timeout and repeatedly retries with the exact same duplicate hostname, wasting resources.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">error specificity</td><td class="kw-ja">エラーの具体性</td><td class="kw-meaning">エラー原因・修正方法を明示した詳細なメッセージをツールが返すことの重要性</td></tr>
+<tr><td class="kw-en">retry loop</td><td class="kw-ja">リトライループ</td><td class="kw-meaning">原因不明エラーでエージェントが同じ引数で再試行を繰り返す望ましくない挙動</td></tr>
+<tr><td class="kw-en">hostname collision<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ホスト名の衝突</td><td class="kw-meaning">既存のリソースと同じホスト名を使用しようとした際の制約違反エラー</td></tr>
+<tr><td class="kw-en">actionable error<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">対処可能なエラー</td><td class="kw-meaning">「ホスト名を変更してください」のように次のアクションが分かるエラーメッセージ</td></tr>
+<tr><td class="kw-en">transient vs permanent error<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">一時的エラー vs 永続的エラー</td><td class="kw-meaning">ネットワーク障害（一時的）とビジネスルール違反（永続的）の区別が重要</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-46">
+  <div class="set-header"><span class="set-num">Q46</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Terraform生成後、同セッション内で「今書いたコードに構文エラーや設定漏れがないかレビューして」と指示するが、微細なエラーを「問題なし」と承認してしまう。微細な問題を確実に検知するためのワークフロー再設計は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">新しい Claude インスタンスを使用して、生成されたスクリプトとレビュー指示のみを受け取り、生成時の推論コンテキストを排除した個別の API コールを実装する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">同セッション内での自己検証は「確証バイアス」により直前の推論を正当化してミスを見逃す。解決策：新しいClaudeインスタンス（独立したAPIコール）を立ち上げ成果物のみを渡すことで、以前のコンテキストから隔離した客観的な検査が可能になる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">After generating a Terraform script, a developer asks Claude in the same session to review it for syntax errors and misconfigurations. Claude approves the script but misses subtle errors. What is the root cause and the optimal architectural fix?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use a new Claude instance that receives only the generated script and review instructions, isolating it from the generation-time reasoning context.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">confirmation bias</td><td class="kw-ja">確証バイアス</td><td class="kw-meaning">自身が生成したコードを検証する際に、先行する推論を正当化しミスを見逃す傾向</td></tr>
+<tr><td class="kw-en">context isolation</td><td class="kw-ja">コンテキストの分離</td><td class="kw-meaning">生成時の推論を含まない独立した新しい API コールで検証することでバイアスを排除</td></tr>
+<tr><td class="kw-en">self-validation problem</td><td class="kw-ja">自己検証の問題</td><td class="kw-meaning">同一セッション内で生成と検証を行うとコンテキストバイアスが生じる設計上の欠点</td></tr>
+<tr><td class="kw-en">independent review<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">独立したレビュー</td><td class="kw-meaning">生成プロセスを知らない別インスタンスが客観的に検査する設計パターン</td></tr>
+<tr><td class="kw-en">context contamination<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コンテキスト汚染</td><td class="kw-meaning">先行する推論・出力が後続の判断に悪影響を与える現象</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-47">
+  <div class="set-header"><span class="set-num">Q47</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">電子カルテ処理。SLA60時間、10%が再試行必要。Batch API最大24時間。すべてのカルテで60時間のSLAを確実に遵守するために設定できる「最大の」バッチ送信間隔は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">12時間ごと</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">計算：60時間 - (24時間×2回) = 残り12時間が猶予。最初の待ち時間（最大12時間）＋1回目（24時間）＋2回目（24時間）= 60時間。12時間間隔なら失敗データを即座に次のバッチに含めて再処理開始でき、SLAを満たす最大間隔となる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An EHR processing system has a strict 60-hour SLA. 10% of records require reprocessing. The Message Batches API takes up to 24 hours, and data cleansing requires a fixed 6 hours before each batch submission. What is the maximum batch submission interval that guarantees the 60-hour SLA for all records?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Every 12 hours.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Message Batches API</td><td class="kw-ja">Message Batches API</td><td class="kw-meaning">非同期で最大10,000件を処理する Anthropic API。処理時間は最大24時間</td></tr>
+<tr><td class="kw-en">SLA calculation</td><td class="kw-ja">SLA 計算</td><td class="kw-meaning">60h - 24h(1st batch) - 24h(retry) = 12h が最大間隔。6h準備+24h処理+24h再処理≤60h</td></tr>
+<tr><td class="kw-en">batch interval</td><td class="kw-ja">バッチ間隔</td><td class="kw-meaning">連続バッチの送信間隔。SLA・処理時間・準備時間から逆算する</td></tr>
+<tr><td class="kw-en">retry budget<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">リトライ予算</td><td class="kw-meaning">再処理に使える残り時間。SLA から全処理時間を引いて算出</td></tr>
+<tr><td class="kw-en">throughput planning<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">スループット計画</td><td class="kw-meaning">SLA・失敗率・処理時間を考慮してバッチ頻度を設計すること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-48">
+  <div class="set-header"><span class="set-num">Q48</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">frontend/とbackend/に分かれたプロジェクト。ルートから Claude Code を開始するとbackend/CLAUDE.mdのスキーマ規則が読み込まれずハルシネーション。このスコープ問題を調査し解決するには？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ルートセッションで /memory を実行して backend/CLAUDE.md がロードされているか確認する。ロードされていない場合は、スキーマ規則をルートの .claude/rules/ に移動し、開始ディレクトリに関係なく自動発見されるようにする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude Codeはセッション開始ディレクトリから「上方向（親）」に設定を検索するため、ルートからだとサブディレクトリのCLAUDE.mdは自動読み込みされない。プロジェクト共通ルールはルート直下のCLAUDE.mdまたは.claude/rules/に配置することで解決。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A project has two separate directories: frontend/ and backend/. When launching Claude Code from the project root, the schema rules in backend/CLAUDE.md are not being applied. What is the correct diagnosis and resolution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Run /memory from the root session to confirm whether backend/CLAUDE.md is loaded. If not, move the schema rules to the root's .claude/rules/ directory so they are available from any starting point.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">CLAUDE.md loading scope</td><td class="kw-ja">CLAUDE.md の読み込み範囲</td><td class="kw-meaning">Claude Code はセッション起動ディレクトリから上方向のみ設定を検索する。下位サブディレクトリは自動読み込みされない</td></tr>
+<tr><td class="kw-en">.claude/rules/</td><td class="kw-ja">.claude/rules/</td><td class="kw-meaning">プロジェクト全体で共有するルールを配置するディレクトリ</td></tr>
+<tr><td class="kw-en">/memory command</td><td class="kw-ja">/memory コマンド</td><td class="kw-meaning">現在ロードされている設定・コンテキストを確認するスラッシュコマンド</td></tr>
+<tr><td class="kw-en">upward traversal<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">上方向への探索</td><td class="kw-meaning">Claude Code が設定ファイルをディレクトリツリーの親方向に向かって検索する動作</td></tr>
+<tr><td class="kw-en">project-wide rules<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">プロジェクト共通ルール</td><td class="kw-meaning">複数サブディレクトリから参照できるよう、ルートに配置された設定</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-49">
+  <div class="set-header"><span class="set-num">Q49</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">50ファイル超のPRレビューで個別ファイルの構文エラーは検出できるが、ファイル間の依存関係問題を見落とし注意力の分散で変数名を混同するハルシネーションが発生。ワークフローをどのように再設計すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ワークフローを「ファイルごとの局所分析パス」と、それに続く「独立したファイル間統合パス」に分割する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">多数ファイルを一度に処理すると情報の埋没と注意力の低下が発生。解決策：①各ファイルを個別レビューして要約・インターフェース定義を抽出（Map）→②抽出した高レベル情報のみを統合してファイル間整合性をチェック（Reduce）の2段階構成。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A PR review agent processes 50+ files and successfully detects per-file syntax errors, but consistently misses cross-file dependency issues and hallucinates variable name confusion due to attention dilution. What workflow redesign best addresses this?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Split the workflow into a 'per-file local analysis pass' followed by an independent 'cross-file integration pass'.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">attention dilution</td><td class="kw-ja">注意力の分散</td><td class="kw-meaning">多数のファイルを同時処理することでモデルの集中が低下し精度が落ちる現象</td></tr>
+<tr><td class="kw-en">Map-Reduce review</td><td class="kw-ja">Map-Reduce レビュー</td><td class="kw-meaning">ファイルごとの局所分析（Map）と統合整合性チェック（Reduce）の2段階</td></tr>
+<tr><td class="kw-en">cross-file dependency<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ファイル間依存</td><td class="kw-meaning">複数ファイルにまたがるインターフェース・型・変数の依存関係</td></tr>
+<tr><td class="kw-en">integration pass</td><td class="kw-ja">統合パス</td><td class="kw-meaning">局所分析の要約を集約してファイル間の一貫性を横断的に検証するフェーズ</td></tr>
+<tr><td class="kw-en">context chunking<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コンテキスト分割</td><td class="kw-meaning">大きなワークロードを扱いやすいサイズに分割してコンテキスト過負荷を防ぐ</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-50">
+  <div class="set-header"><span class="set-num">Q50</span><span class="set-domain">Prompt engineering and structured output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">サポートチケットから製品シリアル番号を抽出するが、番号がなくURLのみの場合に捏造またはURLを抽出してしまう。形式の多様性への対応と捏造防止を同時に解決する最適なプロンプトエンジニアリング手法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">様々なメール形式からの正しい抽出例に加えて、特に「番号が存在しない場合にnullを出力する例」を明示的に含めたfew-shot（少数の例示）を追加する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">多様な形式への適応と「存在しない場合はnullを返す」挙動をモデルに学習させるにはFew-shotプロンプティングが最適。「番号が存在しない例（ネガティブエグザンプル）」を含めることでハルシネーションを劇的に抑制できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A support ticket parser extracts product serial numbers but fabricates values or extracts unrelated URLs when no serial number is present. What is the most effective approach to simultaneously handle format diversity and prevent hallucination?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add few-shot examples covering various email formats, explicitly including a 'negative example' that outputs null when no serial number is present.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">few-shot prompting</td><td class="kw-ja">フューショット・プロンプティング</td><td class="kw-meaning">入出力例を数件プロンプトに含めてモデルの挙動を誘導する手法</td></tr>
+<tr><td class="kw-en">negative example</td><td class="kw-ja">ネガティブ例</td><td class="kw-meaning">「値が存在しない場合は null を返す」という正解例。ハルシネーション抑制に重要</td></tr>
+<tr><td class="kw-en">null output</td><td class="kw-ja">null 出力</td><td class="kw-meaning">情報が存在しない場合に捏造せず null を返す明示的な設計</td></tr>
+<tr><td class="kw-en">hallucination prevention<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ハルシネーション防止</td><td class="kw-meaning">モデルが存在しない情報を生成しないよう Few-shot で明示的に示すこと</td></tr>
+<tr><td class="kw-en">format diversity<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">フォーマット多様性</td><td class="kw-meaning">様々なメール形式・表記ゆれに対応するため多様な例を含める設計</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-51">
+  <div class="set-header"><span class="set-num">Q51</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ロギングライブラリ移行の3段階ワークフロー：①コードベース全体でのログ使用箇所の探索・収集、②変更計画の策定、③実際のコード修正。各段階に最適なClaude Codeの機能の組み合わせは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">1) 探索のためにExploreサブエージェント</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">①Exploreサブエージェント：メイン会話履歴を汚さずコードベース全体から情報収集。②Planモード：実際の変更前に設計方針・実装手順を対話的に策定。③標準の直接実行（通常モード）：決定した方針に基づく具体的なコード修正。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A developer needs to migrate a logging library across a codebase in three stages: ① explore and collect all log usages, ② draft a change plan, ③ implement the actual code changes. What are the optimal Claude Code features for each stage?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">1) Use an Explore sub-agent for discovery, 2) use Plan mode to draft the strategy, 3) use direct execution (normal mode) for the actual code changes.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Explore sub-agent</td><td class="kw-ja">Explore サブエージェント</td><td class="kw-meaning">メインコンテキストを汚染せずコードベース全体を調査するサブエージェント</td></tr>
+<tr><td class="kw-en">Plan mode</td><td class="kw-ja">Plan モード</td><td class="kw-meaning">実際のコード変更前に実装計画を対話的に策定・確認するモード</td></tr>
+<tr><td class="kw-en">direct execution</td><td class="kw-ja">直接実行</td><td class="kw-meaning">計画確定後に通常モードでコード変更を実行すること</td></tr>
+<tr><td class="kw-en">context isolation<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コンテキストの分離</td><td class="kw-meaning">探索フェーズをサブエージェントに委ねてメインセッションを清潔に保つ</td></tr>
+<tr><td class="kw-en">three-stage workflow<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">3段階ワークフロー</td><td class="kw-meaning">探索→計画→実装の分割アプローチ。各段階に最適なClaude Code機能を使い分ける</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-52">
+  <div class="set-header"><span class="set-num">Q52</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ホテルコンシェルジュボットに客室アップグレード・全額返金・総支配人連絡の3つの強力ツールを追加→タオルの追加依頼に総支配人連絡を誤用。エスカレーション処理の最適なアーキテクチャは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">L1ボットから3つの強力なツールを削除して「予約詳細確認」のみを残し、エスカレーションが必要なリクエストは専門のL2エージェントへルーティングする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">単一エージェントに多数の強力ツールを集中させると「ツール過負荷」でツール選択を誤る。オーケストレーターパターンを採用し、一般リクエスト処理のフロントエージェント（L1）から強力ツールを分離し、必要に応じて専門サブエージェント（L2）に委譲する設計が最も堅牢。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A hotel concierge bot is given three powerful tools: room upgrade, full refund, and GM contact. It begins misusing the GM contact tool for simple towel requests. What is the optimal redesign to prevent tool misuse while maintaining escalation capability?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Remove the three powerful tools from the L1 bot, leaving only 'booking detail lookup', and route requests requiring escalation to a specialized L2 agent.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool overload</td><td class="kw-ja">ツール過負荷</td><td class="kw-meaning">単一エージェントに多数の強力ツールを持たせることで選択ミスが起きる現象</td></tr>
+<tr><td class="kw-en">L1 / L2 agent pattern</td><td class="kw-ja">L1 / L2 エージェントパターン</td><td class="kw-meaning">一般対応の L1 フロントエージェントと専門処理の L2 サブエージェントに分割する設計</td></tr>
+<tr><td class="kw-en">tool minimization</td><td class="kw-ja">ツールの最小化</td><td class="kw-meaning">エージェントに与えるツールを本来の役割に必要なものだけに絞ること</td></tr>
+<tr><td class="kw-en">routing</td><td class="kw-ja">ルーティング</td><td class="kw-meaning">リクエストの種類に応じて適切な専門エージェントに処理を振り分けること</td></tr>
+<tr><td class="kw-en">orchestrator pattern<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">オーケストレーターパターン</td><td class="kw-meaning">L1が判断・振り分けを行い、L2が専門処理を担うマルチエージェント構成</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-53">
+  <div class="set-header"><span class="set-num">Q53</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">図面作成エージェントに run_physics_simulation ツールを付与したところ、図面完成前にシミュレーションを実行しようとしてパイプラインエラーが発生。最も適切なアーキテクチャ上の修正は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">図面作成エージェントのツールセットを図面生成ツールのみに制限し、検証タスクは排他的に構造検証エージェントにルーティングする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">単一エージェントに複数フェーズにまたがるツールアクセス権を与えると役割の境界が曖昧になり時期尚早な実行を引き起こす。「関心の分離（Separation of Concerns）」の原則に従い、各エージェントのツールセットをその本来の役割に厳密に制限する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A diagram creation agent is provided with both diagram generation tools and a run_physics_simulation tool. It attempts to run the simulation before the diagram is complete, causing pipeline errors. How should this be resolved?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Restrict the diagram creation agent's toolset to diagram generation tools only, and route all validation tasks exclusively to a structural verification agent.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">separation of concerns</td><td class="kw-ja">関心の分離</td><td class="kw-meaning">各エージェントのツールをその本来の役割に厳密に制限する設計原則</td></tr>
+<tr><td class="kw-en">premature tool execution<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">時期尚早なツール実行</td><td class="kw-meaning">処理フェーズが整う前にツールが実行されてしまう問題</td></tr>
+<tr><td class="kw-en">role-scoped toolset</td><td class="kw-ja">役割に限定されたツールセット</td><td class="kw-meaning">エージェントにその役割外のツールを与えないことで誤用を防ぐ設計</td></tr>
+<tr><td class="kw-en">specialized agent</td><td class="kw-ja">専門化されたエージェント</td><td class="kw-meaning">特定タスクのみを担う、ツールセットを絞ったエージェント</td></tr>
+<tr><td class="kw-en">pipeline integrity<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">パイプラインの完全性</td><td class="kw-meaning">各ステージが正しい順序・前提で実行されることを保証する設計</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-54">
+  <div class="set-header"><span class="set-num">Q54</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">住宅ローン申込みで本人確認（verify_id_docs）前に金利ロック（lock_interest_rate）を禁止したい。本人確認前の金利ロックを「ゼロ」にする最も強力な保証を提供する実装は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">オーケストレーション層が本人確認の完了を確認するまで、LLMの利用可能なツール配列（tools）からlock_interest_rateツールを完全に排除する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">LLMはプロンプト指示だけでは「100%の実行禁止」を保証できない。前提条件が満たされるまでツールをLLMに提示しない（利用可能ツール配列に含めない）というオーケストレーション層での制御が技術的に最も堅牢な防御策。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A mortgage application system must guarantee that lock_interest_rate is never executed before verify_id_docs completes — zero exceptions. What is the most robust technical mechanism to enforce this constraint?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Remove lock_interest_rate from the tools array available to the LLM until the orchestration layer confirms that identity verification is complete.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool array control</td><td class="kw-ja">ツール配列の制御</td><td class="kw-meaning">LLM に渡す tools[] からツールを追加・削除してアクセスをプログラム的に制御する</td></tr>
+<tr><td class="kw-en">orchestration-layer enforcement</td><td class="kw-ja">オーケストレーション層での強制</td><td class="kw-meaning">LLMのプロンプト指示に依存せず、ツールの提示自体を制御する最も堅牢な手法</td></tr>
+<tr><td class="kw-en">prerequisite gate<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">前提条件ゲート</td><td class="kw-meaning">先行する処理の完了を確認してから次のツールを利用可能にする設計パターン</td></tr>
+<tr><td class="kw-en">zero-exception constraint</td><td class="kw-ja">ゼロ例外の制約</td><td class="kw-meaning">プロンプト指示（ソフト制御）ではなく、ツール提示制御（ハード制御）で保証する</td></tr>
+<tr><td class="kw-en">dynamic tool availability<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">動的なツール可用性</td><td class="kw-meaning">実行フェーズに応じて提示するツールセットを変更する設計</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-55">
+  <div class="set-header"><span class="set-num">Q55</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">PRレビュー（開発者が結果を待つ・マージ前に必要）と週次リポジトリ脆弱性スキャン（週1回・即時性不要）の2タスク。待機時間の短縮とコスト効率を両立するルーティングは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">コードレビューを同期APIに、毎週の監査をBatch APIにルーティングする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">PRレビュー（待機必要）→同期API（即時レスポンス・Developer Experience優先）。週次脆弱性スキャン（待機不要・大規模処理）→Message Batches API（コスト50%削減）。タスクの即時性でAPIを使い分けるのがベストプラクティス。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A team runs two Claude tasks: a PR review (developer is waiting; required before merge) and a weekly repository vulnerability scan (runs once per week; no immediate need). What is the optimal API routing strategy to balance wait time reduction and cost efficiency?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Route code reviews to the synchronous API and weekly audits to the Message Batches API.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">synchronous API</td><td class="kw-ja">同期 API</td><td class="kw-meaning">即時レスポンスが必要なリアルタイム処理向けの API。PR レビュー等に最適</td></tr>
+<tr><td class="kw-en">Message Batches API</td><td class="kw-ja">Message Batches API</td><td class="kw-meaning">非同期で大量処理するバッチ API。コスト50%削減・最大24時間処理・週次処理に最適</td></tr>
+<tr><td class="kw-en">API routing strategy</td><td class="kw-ja">API ルーティング戦略</td><td class="kw-meaning">タスクの即時性・コスト・スループット要件に応じて最適な API を選択すること</td></tr>
+<tr><td class="kw-en">latency requirement<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">レイテンシ要件</td><td class="kw-meaning">タスクが許容できる最大応答時間。同期 vs 非同期 API 選択の主要基準</td></tr>
+<tr><td class="kw-en">cost optimization<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コスト最適化</td><td class="kw-meaning">即時性不要のタスクを Batches API に移行してトークンコストを削減すること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-56">
+  <div class="set-header"><span class="set-num">Q56</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">商品詳細ツールが製造履歴・Base64画像・長文マーケコピー・100件レビューを含む完全データを返すため、3商品確認でコンテキスト制限超過エラーになる。この過剰なトークン消費への最適な対処法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ツールのAPI側またはミドルウェアで前処理を実装し、product_id、name、stock_status フィールドのみをモデルに返すようにする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ツールが不要な大量データを返すとコンテキストウィンドウを無駄に消費する。解決策：モデルにデータを渡す前の段階（API・ミドルウェア層）でフィルタリング・切り詰めを行い、タスク達成に本当に必要な情報のみを返すようツール設計を最適化する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A product detail tool returns a full payload including manufacturing history, Base64 images, lengthy marketing copy, and 100 reviews. Querying just 3 products exhausts the context window. What is the most effective design fix to prevent context overload?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement preprocessing on the tool's API side or middleware to return only the product_id, name, and stock_status fields to the model.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">server-side filtering</td><td class="kw-ja">サーバー側フィルタリング</td><td class="kw-meaning">モデルに渡す前の API・ミドルウェア層で必要フィールドのみに絞り込む設計</td></tr>
+<tr><td class="kw-en">context window efficiency</td><td class="kw-ja">コンテキストウィンドウ効率</td><td class="kw-meaning">タスク達成に必要な情報のみを渡してトークンの無駄遣いを防ぐ設計原則</td></tr>
+<tr><td class="kw-en">tool response trimming</td><td class="kw-ja">ツールレスポンスの切り詰め</td><td class="kw-meaning">不要なデータを除去してモデルへの入力量を最小化すること</td></tr>
+<tr><td class="kw-en">over-fetching<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">過剰取得</td><td class="kw-meaning">不要なデータまで取得してコンテキストを圧迫する設計アンチパターン</td></tr>
+<tr><td class="kw-en">minimal data principle<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">最小データ原則</td><td class="kw-meaning">モデルにはタスクに必要な最小限の情報だけを渡す設計思想</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-57">
+  <div class="set-header"><span class="set-num">Q57</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">スマート農業管理エージェントが固定パイプライン（土壌検査→施肥実行→作業記録）を使用。土壌が十分な場合のスキップや予期せぬセンサーエラーへの動的対応が求められる。システムをどのように変更すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">3つすべてのツールを Claude に提供し、アプリケーション側の固定ロジックを削除して、Claude の推論に基づき実行順序やエラー対応を決定する標準的なエージェント・ループを実装する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">固定パイプラインは条件分岐や動的回復が必要なケースに不適。各機能をツールとして提供し、モデルが前ステップの結果に基づいて次のアクションを自律的に決定する「エージェント・ループ（エージェンティック・ワークフロー）」への移行が最適。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A smart farming agent uses a fixed three-step pipeline: soil check → apply fertilizer → log work. The pipeline cannot skip steps when soil is already sufficient or dynamically handle unexpected sensor errors. What is the optimal redesign?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Provide all three tools to Claude, remove the application-side fixed logic, and implement a standard agent loop where Claude determines execution order and error handling based on its reasoning.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">agentic loop</td><td class="kw-ja">エージェント・ループ</td><td class="kw-meaning">モデルが前ステップの結果を見て次のアクションを自律的に決定するサイクル</td></tr>
+<tr><td class="kw-en">dynamic tool selection</td><td class="kw-ja">動的なツール選択</td><td class="kw-meaning">固定パイプラインではなく、状況に応じてモデルが使用するツールを判断すること</td></tr>
+<tr><td class="kw-en">fixed pipeline limitation</td><td class="kw-ja">固定パイプラインの限界</td><td class="kw-meaning">条件分岐・スキップ・動的回復が必要なシナリオに対応できない静的設計の欠点</td></tr>
+<tr><td class="kw-en">tool-based reasoning</td><td class="kw-ja">ツールベースの推論</td><td class="kw-meaning">モデルがツール群を使いながら状況を判断して処理を進める実行モデル</td></tr>
+<tr><td class="kw-en">adaptive workflow<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">適応的ワークフロー</td><td class="kw-meaning">実行時の結果・エラーに応じてステップを変更できる柔軟なフロー</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-58">
+  <div class="set-header"><span class="set-num">Q58</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">法的分析エージェントが複数契約書の条項抽出・要約時に引用元ドキュメントIDを時折落とし、トレーサビリティに欠陥が生じる。主張と引用元のマッピング維持に最も堅牢なアーキテクチャ上のガードレールは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">エージェントに source_ids 配列を含む synthesized_claims の構造化配列を出力させ、すべての入力IDが含まれているかを検証するスクリプトを実装し、不足があれば自動リトライを行う。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">プロンプト指示だけでは引用漏れを完全に防げない。解決策：モデルに構造化JSON出力させ、プログラム（決定論的スクリプト）で入力引用元IDが出力に含まれるかを自動検証し、失敗した場合は自動リトライする仕組みを構築する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A legal analysis agent extracts and summarizes clauses from multiple contracts but occasionally drops the source document ID, breaking traceability. What is the most robust architectural approach to maintain claim-to-source mapping throughout?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Have the agent output a structured array of synthesized_claims including a source_ids array, and implement a script that validates all input IDs are present in the output — retrying automatically if any are missing.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">structured output</td><td class="kw-ja">構造化出力</td><td class="kw-meaning">JSON 等の構造化フォーマットで source_ids を明示的に保持させる出力設計</td></tr>
+<tr><td class="kw-en">source_ids</td><td class="kw-ja">source_ids</td><td class="kw-meaning">各主張に対応する引用元ドキュメント ID を配列として保持するフィールド</td></tr>
+<tr><td class="kw-en">deterministic validation<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">決定論的バリデーション</td><td class="kw-meaning">プログラムで引用IDの存在を検証する。プロンプト指示だけでは保証できない</td></tr>
+<tr><td class="kw-en">auto-retry</td><td class="kw-ja">自動リトライ</td><td class="kw-meaning">バリデーション失敗時に自動的に再生成を要求する仕組み</td></tr>
+<tr><td class="kw-en">traceability<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">トレーサビリティ</td><td class="kw-meaning">主張・発見事項とその根拠となる出典を追跡できる性質</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-59">
+  <div class="set-header"><span class="set-num">Q59</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">サイバーセキュリティ調査エージェントが大量のログをコンテキストに取り込みトークン制限に近づいている。推論チェーンを失わずこれまでの調査経緯を保持しながらコンテキストを管理する最適なテクニックは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">プログラムから /compact 操作をトリガーし、調査の核となる経緯や重要な異常値を保持しながら、冗長な診断出力をモデルに要約させる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">/compact（コンパクション）操作を実行。冗長な詳細情報を要約してトークン消費を抑えつつ、進行中の対話の要点・重要な結論を凝縮して保持する手法。推論の文脈を維持したまま新しい情報を処理するための空きスペースを確保できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A cybersecurity investigation agent has ingested massive logs and is approaching the token limit. The agent must preserve its reasoning chain and key investigation findings while freeing up context capacity. What is the correct approach?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Programmatically trigger a /compact operation to have the model summarize redundant diagnostic outputs while preserving the core investigation thread and key anomalies.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">/compact</td><td class="kw-ja">/compact</td><td class="kw-meaning">Claude Code コマンド。冗長情報を要約してトークンを解放しながら推論の文脈を保持</td></tr>
+<tr><td class="kw-en">context compaction</td><td class="kw-ja">コンテキスト・コンパクション</td><td class="kw-meaning">会話履歴を圧縮して重要な情報を凝縮・保持しながらトークン消費を削減する操作</td></tr>
+<tr><td class="kw-en">reasoning chain preservation</td><td class="kw-ja">推論チェーンの保持</td><td class="kw-meaning">圧縮後も調査経緯・結論・重要な異常値を失わないよう要約する設計</td></tr>
+<tr><td class="kw-en">token limit management<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">トークン上限管理</td><td class="kw-meaning">コンテキストウィンドウの上限に近づいた際にコンパクションで余裕を作る戦略</td></tr>
+<tr><td class="kw-en">programmatic trigger<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">プログラム的なトリガー</td><td class="kw-meaning">アプリケーション側から /compact 等の操作をコードで自動実行すること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-60">
+  <div class="set-header"><span class="set-num">Q60</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">農業IoTで収穫量データ取得サブエージェントがAPIの認証仕様変更により取得失敗。コーディネーターがリカバリしワークフローを継続するために、サブエージェントが提供すべき最も効果的なレスポンス戦略は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">失敗の種別、アクセスを試みたエンドポイント、取得済みの部分データ、および代替のアクセス手段を含む構造化された JSON オブジェクトを返す。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">単なるエラー通知だけでなく、失敗の理由・試行した場所・部分的な成果・代替案を構造化JSON形式でコーディネーターに渡すことが重要。コーディネーターが「別のエンドポイントを試す」などの高度な回復措置を取れるようになる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">In an agricultural IoT system, a harvest data retrieval sub-agent fails due to an API authentication spec change. What format should the sub-agent use when reporting back to the coordinator so it can recover and continue the workflow?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Return a structured JSON object containing the failure type, the endpoint attempted, any partially retrieved data, and alternative access methods.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">structured error response</td><td class="kw-ja">構造化エラーレスポンス</td><td class="kw-meaning">失敗種別・試行エンドポイント・部分データ・代替手段を含む JSON 形式のエラー返却</td></tr>
+<tr><td class="kw-en">partial data</td><td class="kw-ja">部分データ</td><td class="kw-meaning">完全取得に失敗した場合でも取得済みのデータを破棄せず上位に渡すこと</td></tr>
+<tr><td class="kw-en">alternative access</td><td class="kw-ja">代替アクセス手段</td><td class="kw-meaning">メインエンドポイントが失敗した場合にコーディネーターが試みる代替の接続方法</td></tr>
+<tr><td class="kw-en">coordinator recovery</td><td class="kw-ja">コーディネーターの回復</td><td class="kw-meaning">詳細なエラー情報を受け取ることで上位エージェントが高度な回復措置を取れること</td></tr>
+<tr><td class="kw-en">transparency<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">透明性</td><td class="kw-meaning">失敗の詳細を隠蔽せず上位に正確に伝える設計原則。コーディネーターの判断精度を高める</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

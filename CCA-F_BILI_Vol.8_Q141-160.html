@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F BILI Vol.8 Q141-160</title>
+<style>
+:root{--jp-accent:#4f46e5;--jp-bg:#f8fafc;--jp-correct-bg:#f0fdf4;--jp-correct-border:#16a34a;--jp-exp-bg:#fffbeb;--jp-exp-border:#f59e0b;--en-accent:#0d9488;--en-correct-bg:#f0fdfa;--en-correct-border:#0d9488;--en-exp-bg:#f0f9ff;--en-exp-border:#0ea5e9;--text:#1e293b;--text-muted:#64748b;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:#f1f5f9;color:var(--text);padding-bottom:32px}
+.site-header{background:linear-gradient(135deg,#1e1b4b,#312e81,#0f766e);color:white;padding:18px 20px 15px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.site-header h1{font-size:1.1rem;font-weight:800;letter-spacing:.02em}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:4px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#4f46e5;color:white;border-color:#4f46e5}
+.cards-container{max-width:860px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:20px}
+.question-set{background:white;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);scroll-margin-top:80px}
+.set-header{background:linear-gradient(90deg,#1e1b4b 0%,#312e81 50%,#0f766e 100%);color:white;padding:8px 16px;display:flex;align-items:center;gap:10px}
+.set-num{font-size:1.1rem;font-weight:800;letter-spacing:.05em}
+.set-domain{font-size:.7rem;opacity:.85;margin-left:auto;background:rgba(255,255,255,.15);padding:2px 10px;border-radius:10px}
+.jp-card{border-left:5px solid var(--jp-accent);background:var(--jp-bg)}
+.en-card{border-left:5px solid var(--en-accent);background:#f0fdfa}
+.lang-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:8px 16px 0}
+.lang-label.jp{color:var(--jp-accent)}
+.lang-label.en{color:var(--en-accent)}
+.question-text{padding:10px 16px 12px;font-size:.92rem;line-height:1.85;color:var(--text);border-bottom:1px solid var(--border)}
+.question-text.en{color:#134e4a;background:#f0fdfa}
+.answer-section{padding:11px 16px 14px}
+.correct-answer.jp{background:var(--jp-correct-bg);border:1.5px solid var(--jp-correct-border);border-radius:8px;padding:11px}
+.correct-answer.en{background:var(--en-correct-bg);border:1.5px solid var(--en-correct-border);border-radius:8px;padding:11px}
+.ans-label{font-size:.76rem;font-weight:700;margin-bottom:5px}
+.ans-label.jp{color:#166534}
+.ans-label.en{color:#134e4a}
+.ans-text{font-size:.9rem;font-weight:600;line-height:1.65}
+.ans-text.jp{color:#14532d}
+.ans-text.en{color:#134e4a}
+.overall-exp{margin-top:9px;background:var(--jp-exp-bg);border:1.5px solid var(--jp-exp-border);border-radius:8px;padding:10px 13px}
+.exp-title{font-size:.78rem;font-weight:700;color:#92400e;margin-bottom:4px}
+.exp-body{font-size:.81rem;line-height:1.7;color:#78350f}
+.kw-box{margin-top:9px;background:var(--en-exp-bg);border:1.5px solid var(--en-exp-border);border-radius:8px;padding:10px 13px}
+.kw-title{font-size:.78rem;font-weight:700;color:#0c4a6e;margin-bottom:7px}
+.kw-table{width:100%;border-collapse:collapse}
+.kw-table tr{border-bottom:1px solid rgba(14,165,233,.12)}
+.kw-table tr:last-child{border-bottom:none}
+.kw-table td{padding:5px 6px;vertical-align:top;font-size:.8rem}
+.kw-en{font-weight:700;color:#0369a1;width:30%;white-space:nowrap}
+.kw-ja{color:#0369a1;width:20%;font-size:.75rem}
+.kw-meaning{color:#0c4a6e;line-height:1.55}
+.kw-related{display:inline-block;font-size:.62rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:4px;padding:1px 5px;margin-left:5px;white-space:nowrap;vertical-align:middle}
+.card-divider{height:1px;background:var(--border)}
+@media(max-width:600px){.question-text{font-size:.86rem}.set-domain{display:none}.kw-ja{display:none}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCA-F バイリンガル問題集 | Vol.8（Q141-Q160）</h1>
+  <div class="subtitle">&#127471;&#127477; 日本語カード &#8594; &#127482;&#127480; 英語カード + Key Words 意味付き | Q141-160 / 180</div>
+</header>
+<nav class="jump-nav">
+  <span>Jump:</span>
+  <a class="jump-btn" href="#card-141">Q141</a> <a class="jump-btn" href="#card-142">Q142</a> <a class="jump-btn" href="#card-143">Q143</a> <a class="jump-btn" href="#card-144">Q144</a> <a class="jump-btn" href="#card-145">Q145</a> <a class="jump-btn" href="#card-146">Q146</a> <a class="jump-btn" href="#card-147">Q147</a> <a class="jump-btn" href="#card-148">Q148</a> <a class="jump-btn" href="#card-149">Q149</a> <a class="jump-btn" href="#card-150">Q150</a> <a class="jump-btn" href="#card-151">Q151</a> <a class="jump-btn" href="#card-152">Q152</a> <a class="jump-btn" href="#card-153">Q153</a> <a class="jump-btn" href="#card-154">Q154</a> <a class="jump-btn" href="#card-155">Q155</a> <a class="jump-btn" href="#card-156">Q156</a> <a class="jump-btn" href="#card-157">Q157</a> <a class="jump-btn" href="#card-158">Q158</a> <a class="jump-btn" href="#card-159">Q159</a> <a class="jump-btn" href="#card-160">Q160</a>
+</nav>
+<div class="cards-container">
+<div class="question-set" id="card-141">
+  <div class="set-header"><span class="set-num">Q141</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">assign_shipment_taskツールはoperator_id（文字列・単一値）のみ受け付ける。ユーザーが「夜勤チーム全員に割り当てて」と要求した場合、モデルはどう動作すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ツールの説明に境界条件の説明を追加し、個人の operator_id のみを受け付けることを明記した上で、チームが指定された場合の代替行動を Claude に指示する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ツールの制約（単一IDのみ）とユーザー要求（複数名）が矛盾する場合、ツールの説明文（description）に「単一IDのみ有効・複数人への割り当て不可・代替手順（複数回呼び出し等）」を明記することで、モデルが適切に対応できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">The assign_shipment_task tool only accepts a single operator_id string. A user requests 'Assign this to the entire night shift team.' How should the tool description be updated to handle this mismatch?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add a boundary condition explanation to the tool description, explicitly stating that only a single operator_id is accepted, and instruct Claude on the alternative action when a team is specified.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">boundary condition</td><td class="kw-ja">境界条件</td><td class="kw-meaning">ツールが受け付けられる入力の制限・限界。description に明記することが重要</td></tr>
+<tr><td class="kw-en">tool description constraint</td><td class="kw-ja">ツール説明の制約記述</td><td class="kw-meaning">単一IDのみ有効・複数名不可・代替手順をdescriptionに明記する設計</td></tr>
+<tr><td class="kw-en">alternative action guidance</td><td class="kw-ja">代替行動のガイダンス</td><td class="kw-meaning">制約に合わない入力に対してモデルが取るべき代替手順を説明文に含める</td></tr>
+<tr><td class="kw-en">single vs multiple parameter</td><td class="kw-ja">単一 vs 複数パラメータ</td><td class="kw-meaning">ツール設計上の制約（単一値のみ）とユーザー要求（複数名）の不一致への対処</td></tr>
+<tr><td class="kw-en">tool constraint communication<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ツール制約の伝達</td><td class="kw-meaning">ツールの制限をモデルに正確に伝えて適切な代替行動を誘導するdescription設計</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-142">
+  <div class="set-header"><span class="set-num">Q142</span><span class="set-domain">Prompt engineering and structured output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">複数調査機関のエネルギー需要予測を統合中、「現行政策維持」前提と「脱炭素目標完全達成」前提のデータを一律に平均化している。この処理の問題点は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">抽出エージェントに projected_demand と baseline_methodology をキャプチャさせ、合成エージェントには手法ごとにセクションを分け、予測値を平均化せずグループ化して出力するよう指示する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">異なる前提条件（ベースライン）を持つデータを単純平均することは意味を失わせる不適切な処理。信頼性の高い統合には、前提条件別にグループ化し「政策シナリオA：〇〇 / シナリオB：〇〇」と並列提示する設計が正しい。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Multiple research institutes' energy demand forecasts are being integrated, but data assuming 'current policy maintained' and data assuming 'full decarbonization targets achieved' are being averaged together. What is the problem and the correct fix?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Have the extraction agent capture both projected_demand and baseline_methodology fields, then have the synthesis agent present forecasts in separate sections per methodology rather than averaging them.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">baseline methodology</td><td class="kw-ja">ベースライン手法</td><td class="kw-meaning">予測の前提条件・シナリオ（現行政策維持 vs 脱炭素完全達成）を示す分類</td></tr>
+<tr><td class="kw-en">inappropriate averaging</td><td class="kw-ja">不適切な平均化</td><td class="kw-meaning">異なる前提条件を持つデータを単純平均することで意味を失わせる処理の誤り</td></tr>
+<tr><td class="kw-en">scenario-based grouping</td><td class="kw-ja">シナリオ別グループ化</td><td class="kw-meaning">前提条件別にデータを分類してシナリオごとに並列提示する正しい統合手法</td></tr>
+<tr><td class="kw-en">structured extraction</td><td class="kw-ja">構造化抽出</td><td class="kw-meaning">projected_demand と baseline_methodology を別フィールドとして抽出する設計</td></tr>
+<tr><td class="kw-en">apples-to-oranges<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">異質なものの比較</td><td class="kw-meaning">根本的に異なる前提を持つデータを直接比較・統合することの問題</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-143">
+  <div class="set-header"><span class="set-num">Q143</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">infra/ ディレクトリ内のすべてのTerraformファイル（.tf）にセキュリティプロビジョニング規約を適用したい。.claude/rules/terraform.mdに設定する際の重要なポイントは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">YAML フロントマターブロックは、マークダウンのコンテンツよりも前の、ファイルの先頭（一番最初）に配置する必要がある。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude Codeのカスタムルール（.claude/rules/*.md）ではYAMLフロントマターのpaths/globsで「infra/**/*.tf」等のパターンを指定することで、対象ファイルにのみルールが適用される。パターンを指定しないとすべてのファイルに適用される点に注意。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You want to apply security provisioning conventions only to all Terraform files (.tf) inside the infra/ directory. The rule file in .claude/rules/terraform-security.md is not working correctly. What is the most likely cause?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The YAML frontmatter block must be placed at the very beginning of the file — before any markdown content.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">YAML frontmatter position</td><td class="kw-ja">YAML フロントマターの位置</td><td class="kw-meaning">ファイルの先頭（--- ブロック）に配置する必要がある。本文より後ろでは機能しない</td></tr>
+<tr><td class="kw-en">frontmatter parsing</td><td class="kw-ja">フロントマターの解析</td><td class="kw-meaning">Claude Code がファイル冒頭の --- ブロックを設定として解析する仕組み</td></tr>
+<tr><td class="kw-en">infra/**/*.tf glob<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">infra/**/*.tf glob</td><td class="kw-meaning">infra/ ディレクトリ配下の全 .tf ファイルにマッチするパスパターン</td></tr>
+<tr><td class="kw-en">rule file structure</td><td class="kw-ja">ルールファイルの構造</td><td class="kw-meaning">YAML フロントマター（先頭）→ マークダウン本文（後続）の正しい構成</td></tr>
+<tr><td class="kw-en">paths not applying<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">paths が適用されない</td><td class="kw-meaning">フロントマターの位置が間違っていると glob パターンが認識されない問題</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-144">
+  <div class="set-header"><span class="set-num">Q144</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">不動産管理アシスタントが「今日内見があったのでXX物件を更新して」という要求に対し、edit_property（物件更新）とadd_visit_log（訪問記録）のどちらを選択すべきかを誤認している。解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">edit_property を modify_static_property_details に、add_visit_log を record_client_interaction に変更し、それぞれの使い分けを明示的に対比させるよう説明文を更新する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claudeはツール名・説明文（description）を基にツールを選択する。「更新」という言葉に反応してedit_propertyを選びがちだが、「内見記録」の文脈ではadd_visit_logが正しい。各ツールのdescriptionに「どの文脈・状況で使うべきか」を明確に記述することで誤選択を防げる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A property management assistant has two tools — edit_property and add_visit_log — but selects edit_property when a user says 'I had a viewing today, so please update property XX.' How should the tool descriptions be improved?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Rename edit_property to modify_static_property_details and add_visit_log to record_client_interaction, and update the descriptions to clarify which context each tool is for.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool name clarity</td><td class="kw-ja">ツール名の明確さ</td><td class="kw-meaning">ツール名と説明文がその使用場面を正確に反映していることで誤選択を防ぐ</td></tr>
+<tr><td class="kw-en">context-based selection</td><td class="kw-ja">文脈に基づく選択</td><td class="kw-meaning">「更新」等の多義的なワードに対してツールの使用文脈を明確に定義すること</td></tr>
+<tr><td class="kw-en">disambiguation in description</td><td class="kw-ja">説明文での曖昧性解消</td><td class="kw-meaning">似た機能のツールを「いつ・どの文脈で使うか」を description に明記する</td></tr>
+<tr><td class="kw-en">semantic naming<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">意味論的な命名</td><td class="kw-meaning">ツールの名前が処理内容・使用場面を直感的に伝えるよう命名すること</td></tr>
+<tr><td class="kw-en">tool confusion<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ツールの混同</td><td class="kw-meaning">「更新」という語に対して edit_property が優先されてしまう誤選択の問題</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-145">
+  <div class="set-header"><span class="set-num">Q145</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Creative_Writing agentにrun_python（単語数計算・テキスト整形）等の技術系ツールを追加したところ、生成する物語のスタイルが変化してしまった。なぜか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">エージェントの専門分野外のツールを提供すると、そのコンテキストと挙動が汚染される。ツールを削除し、テキストの整形などは専門のユーティリティ・エージェントにルーティングすべきである。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">エージェントに専門外のツールを持たせると、そのツールの定義・使用方法に含まれる技術的文脈（論理的思考・コード的表現など）がエージェントの「思考パターン」に影響を与える。エージェントのツールセットはその役割・専門領域に限定すべき。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Adding technical tools like run_python (for word count and text formatting) to a Creative_Writing agent causes the story generation style to change unexpectedly. What is the root cause and solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Providing tools outside the agent's specialization contaminates its context and behavior. Remove the tools and route text formatting tasks to a dedicated utility agent.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool context contamination</td><td class="kw-ja">ツールによるコンテキスト汚染</td><td class="kw-meaning">専門外ツールの定義・使用方法に含まれる技術的文脈がエージェントの思考パターンに影響する</td></tr>
+<tr><td class="kw-en">agent specialization</td><td class="kw-ja">エージェントの専門化</td><td class="kw-meaning">各エージェントのツールセットをその役割・専門領域に厳密に限定する設計原則</td></tr>
+<tr><td class="kw-en">behavioral drift<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">行動のドリフト</td><td class="kw-meaning">不適切なツールがエージェントの出力スタイル・思考パターンを変化させる現象</td></tr>
+<tr><td class="kw-en">utility agent routing</td><td class="kw-ja">ユーティリティエージェントへのルーティング</td><td class="kw-meaning">技術的処理を専門のユーティリティエージェントに委託する設計</td></tr>
+<tr><td class="kw-en">role-scoped toolset</td><td class="kw-ja">役割限定ツールセット</td><td class="kw-meaning">エージェントに与えるツールを本来の専門役割に関係するものだけに絞ること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-146">
+  <div class="set-header"><span class="set-num">Q146</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">電子カルテ処理パイプラインで「まず診断結果抽出→次にanalyze_resultsツールで分類」の順序を必ず守らせる必要がある。最も確実な方法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">最初のターンで tool_choice: {'type': 'tool', 'name': 'register_patient_data'} を使用して結果を処理し、その後のターンで {'type': 'auto'} を許可する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ツール実行順序の強制にはプロンプト指示（自然言語）だけでは不十分な場合がある。APIのtool_choiceパラメータを使い、第1ターンでtool_choice: {"type": "tool", "name": "extract"}を強制し、次のターンでanalyze_resultsを強制するなど、ターンごとにtool_choiceを制御するのが最確実。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">In an EHR processing pipeline, the order 'first extract diagnosis results → then classify with analyze_results tool' must always be strictly enforced. What is the most reliable method?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use tool_choice: {'type': 'tool', 'name': 'register_patient_data'} on the first turn, then switch to force analyze_results on the subsequent turn.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">turn-by-turn tool_choice control</td><td class="kw-ja">ターンごとの tool_choice 制御</td><td class="kw-meaning">各ターンで tool_choice を切り替えて複数ツールの実行順序を強制する設計</td></tr>
+<tr><td class="kw-en">sequential tool enforcement</td><td class="kw-ja">逐次ツール強制</td><td class="kw-meaning">プロンプト指示だけでなく tool_choice API パラメータで実行順序を確実に保証する</td></tr>
+<tr><td class="kw-en">pipeline order guarantee</td><td class="kw-ja">パイプライン順序保証</td><td class="kw-meaning">処理ステップの実行順序をプログラム的に保証する最も確実な方法</td></tr>
+<tr><td class="kw-en">forced execution per turn</td><td class="kw-ja">ターンごとの強制実行</td><td class="kw-meaning">1ターン目は extract、2ターン目は analyze と tool_choice で各ターンのツールを強制</td></tr>
+<tr><td class="kw-en">prompt instruction insufficiency<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">プロンプト指示の不十分さ</td><td class="kw-meaning">実行順序の保証はプロンプト自然言語では不十分。tool_choice で技術的に強制が必要</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-147">
+  <div class="set-header"><span class="set-num">Q147</span><span class="set-domain">Tool design and MCP integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude Code導入で標準的なSalesforceインスタンスと自社開発IoTプラットフォームを統合したい。MCPサーバーの選択方針は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">標準的な Salesforce 統合には既存のコミュニティ MCP サーバーを選択し、カスタム MCP サーバーの開発は独自の IoT プラットフォーム専用に限定する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">MCPを選択する際は「再利用性」と「カスタマイズ」のバランスが重要。SalesforceなどのメジャーサービスにはコミュニティMCPを活用（開発コスト削減）、自社独自システムには専用MCPを構築（柔軟なカスタマイズ）という組み合わせが最適。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A team wants to integrate Claude Code with a standard Salesforce instance and a proprietary in-house IoT platform. What is the optimal MCP server selection strategy?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Select an existing community MCP server for the standard Salesforce integration, and limit custom MCP server development to the proprietary IoT platform only.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">community MCP server</td><td class="kw-ja">コミュニティ MCP サーバー</td><td class="kw-meaning">メジャーサービス向けに公開されている既存の MCP 実装。開発コストを大幅削減</td></tr>
+<tr><td class="kw-en">custom MCP server</td><td class="kw-ja">カスタム MCP サーバー</td><td class="kw-meaning">自社独自システム専用に開発する MCP サーバー。標準化されていないサービスに必要</td></tr>
+<tr><td class="kw-en">reuse vs custom</td><td class="kw-ja">再利用 vs カスタム開発</td><td class="kw-meaning">標準サービスにはコミュニティ MCP を流用し、独自システムのみカスタム開発するバランス</td></tr>
+<tr><td class="kw-en">MCP selection strategy</td><td class="kw-ja">MCP 選択戦略</td><td class="kw-meaning">開発コスト・柔軟性・保守性を考慮した MCP サーバーの選択指針</td></tr>
+<tr><td class="kw-en">IoT platform integration<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">IoT プラットフォーム統合</td><td class="kw-meaning">独自プロトコル・APIを持つカスタムシステムへの MCP 統合は専用開発が必要</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-148">
+  <div class="set-header"><span class="set-num">Q148</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">300行の古いDockerfileをプラットフォームチームが提供した最新の20行構成に完全に置き換える必要がある。Claude Codeで最適なツールの使い方は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Writeツールを直接使用して、「Dockerfile」全体を新しい20行の構成で上書きする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">既存ファイルの部分修正（Edit）ではなく、全く新しい内容で完全置き換える場合はWriteツール（上書き書き込み）を使用する。Editで300行→20行の大規模削除を試みると余分なコードが残るリスクがある。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A 300-line legacy Dockerfile needs to be completely replaced with a new 20-line configuration provided by the platform team. What is the optimal Claude Code tool usage?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use the Write tool directly to overwrite the entire Dockerfile with the new 20-line configuration.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Write tool</td><td class="kw-ja">Write ツール</td><td class="kw-meaning">ファイル全体を新しい内容で上書きするツール。完全置き換えに使用する</td></tr>
+<tr><td class="kw-en">Edit tool limitation</td><td class="kw-ja">Edit ツールの限界</td><td class="kw-meaning">大規模な削除（300行→20行）を Edit で行うと余分なコードが残るリスクがある</td></tr>
+<tr><td class="kw-en">full replacement vs partial edit</td><td class="kw-ja">完全置き換え vs 部分編集</td><td class="kw-meaning">既存コンテンツを完全に置き換える場合は Edit ではなく Write が適切</td></tr>
+<tr><td class="kw-en">overwrite pattern</td><td class="kw-ja">上書きパターン</td><td class="kw-meaning">新しいコンテンツでファイル全体を上書きする際の適切なツール選択</td></tr>
+<tr><td class="kw-en">tool selection for task<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">タスクに合ったツール選択</td><td class="kw-meaning">部分修正は Edit、完全置き換えは Write という Claude Code のツール使い分け</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-149">
+  <div class="set-header"><span class="set-num">Q149</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">オーダーメイド家具注文ボットで、ユーザーが50ターン以上の会話の中で木材・サイズ・仕上げを何度も変更。ボットが以前の矛盾する情報に基づいて回答する問題を解決するには？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">現在合意されている注文内容（木材の種類、寸法、色など）を抽出するバックグラウンドプロセスを実装し、その確定事項ブロックをすべてのプロンプトの先頭に常に挿入するようにする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">長い会話でユーザーが条件変更を繰り返す場合、過去の矛盾情報がコンテキストに残り混乱を招く。解決策：会話から常に「最新の合意済み状態（State）」を抽出・更新し、会話履歴ではなく状態オブジェクトをプロンプトに渡す設計にする。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">In a custom furniture order bot, users modify wood type, size, and finish multiple times across 50+ turns, causing the bot to occasionally answer based on contradictory earlier information. What is the optimal solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement a background process that extracts the currently agreed order details (wood type, dimensions, color, etc.) and always inserts that confirmed state block at the top of every prompt.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">state object</td><td class="kw-ja">状態オブジェクト</td><td class="kw-meaning">会話の最新の合意済み状態を表す構造化データ。会話履歴の代わりにプロンプトに渡す</td></tr>
+<tr><td class="kw-en">confirmed state injection</td><td class="kw-ja">確定状態の注入</td><td class="kw-meaning">全プロンプトの先頭に最新の合意済み状態を挿入して矛盾を防ぐ設計</td></tr>
+<tr><td class="kw-en">conversation state tracking</td><td class="kw-ja">会話状態の追跡</td><td class="kw-meaning">長い会話でユーザーが変更を繰り返す場合に最新状態のみを管理・保持すること</td></tr>
+<tr><td class="kw-en">context contradiction<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コンテキストの矛盾</td><td class="kw-meaning">会話履歴に矛盾する古い情報が残り誤った回答の原因になる問題</td></tr>
+<tr><td class="kw-en">state-based prompt design<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">状態ベースのプロンプト設計</td><td class="kw-meaning">全履歴ではなく抽出した最新状態をプロンプトに渡す設計パターン</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-150">
+  <div class="set-header"><span class="set-num">Q150</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">複数アプリ（決済・在庫・顧客管理）を含む大規模モノリポジトリで、共通テスト規約と各アプリ固有ルールを適切に管理したい。最適なCLAUDE.mdの構成は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">プロジェクトのルートに共通ルール用の CLAUDE.md を配置し、各アプリケーションのディレクトリ内にそれぞれ専用の CLAUDE.md ファイルを配置する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude CodeはCLAUDE.mdの階層構造をネイティブサポート。ルートのCLAUDE.md→全体共通ルール、各アプリ配下（payment/CLAUDE.md等）→そのアプリ固有ルールとして定義する。Claudeは作業中のパスに基づいて適切なCLAUDE.mdを読み込む。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A large monorepo containing payment, inventory, and customer management apps needs to manage both shared test conventions and app-specific rules. What is the optimal CLAUDE.md architecture?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Place a CLAUDE.md with shared rules at the project root, and place dedicated CLAUDE.md files inside each application's directory.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">CLAUDE.md hierarchy</td><td class="kw-ja">CLAUDE.md 階層構造</td><td class="kw-meaning">ルート（共通ルール）→ サブディレクトリ（アプリ固有ルール）の多階層設計</td></tr>
+<tr><td class="kw-en">root CLAUDE.md</td><td class="kw-ja">ルートの CLAUDE.md</td><td class="kw-meaning">プロジェクト全体の共通ルール・規約を定義する最上位の設定ファイル</td></tr>
+<tr><td class="kw-en">app-specific CLAUDE.md</td><td class="kw-ja">アプリ固有の CLAUDE.md</td><td class="kw-meaning">各アプリのディレクトリに配置するそのアプリ専用のルールファイル</td></tr>
+<tr><td class="kw-en">hierarchical rule loading</td><td class="kw-ja">階層的ルール読み込み</td><td class="kw-meaning">作業パスに基づいて上位から下位の CLAUDE.md を順に読み込み・マージする仕組み</td></tr>
+<tr><td class="kw-en">monorepo configuration<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">モノリポ設定</td><td class="kw-meaning">複数アプリを含む大規模リポジトリでの CLAUDE.md 設計パターン</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-151">
+  <div class="set-header"><span class="set-num">Q151</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">500以上のファイルがある大規模Eコマースリポジトリで税計算ロジックを修正するタスク。後輩が「'tax'を含むファイルをすべて読み込もう」と提案。最適なアプローチは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">一度に大量のファイルを読み込むとコンテキストウィンドウが飽和し、精度が低下するため却下します。代わりに Grep で計算の開始点を特定し、そこから Read を使用してインポートを順次辿るべきです。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">関連しそうなファイルを闇雲に全読み込みするとトークンを無駄に消費し、重要情報がノイズに埋もれる。正しいアプローチ：ファイル検索ツールやGrepで「税計算処理の中心ファイル」を特定し、エントリポイントから依存関係を辿って必要なファイルのみを読み込む。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">For a tax calculation logic fix in a 500+ file e-commerce repo, a junior developer suggests 'let's load all files containing the word tax'. Why is this a bad idea, and what is the correct approach?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Reject it because loading too many files saturates the context window and degrades accuracy. Instead, use Grep to identify the calculation entry point, then follow imports with Read to load only the necessary files.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">targeted file loading</td><td class="kw-ja">ターゲットを絞ったファイル読み込み</td><td class="kw-meaning">Grep で起点を特定し、インポートを辿って必要なファイルのみを読み込む効率的な手法</td></tr>
+<tr><td class="kw-en">context window saturation</td><td class="kw-ja">コンテキストウィンドウの飽和</td><td class="kw-meaning">関連しそうなファイルを大量に読み込むとトークンが無駄に消費され精度が低下する</td></tr>
+<tr><td class="kw-en">entry point navigation</td><td class="kw-ja">エントリポイントからのナビゲーション</td><td class="kw-meaning">処理の中心ファイルを特定してそこからインポートを辿って必要なファイルを探索する</td></tr>
+<tr><td class="kw-en">grep-then-read pattern</td><td class="kw-ja">grep → read パターン</td><td class="kw-meaning">検索で対象ファイルを絞り込んでから必要なファイルのみを読み込む Claude Code の推奨手法</td></tr>
+<tr><td class="kw-en">noise vs signal<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ノイズ vs シグナル</td><td class="kw-meaning">大量の無関係なファイルを読み込むと重要情報がノイズに埋もれる問題</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-152">
+  <div class="set-header"><span class="set-num">Q152</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">EコマースサポートチャットボットがAPIのステートレス性を考慮せず実装されており、2〜3ターン前に回答済みの質問を繰り返す。根本原因と解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">以降のAPIリクエストにおいて、完全な会話履歴（ユーザーとアシスタントのメッセージを交互に配置したもの）を渡す。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ClaudeのAPIはステートレス（状態を持たない）。過去のやり取りを自動記憶しないため、会話の文脈維持はアプリケーション側の責任。解決策：ユーザーとアシスタントのメッセージ履歴をmessages配列に累積して毎回リクエストに含めること。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An e-commerce support chatbot is not passing conversation history to the API, causing it to repeat questions that were already answered 2–3 turns earlier. What is the root cause and fix?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Pass the complete conversation history — alternating user and assistant messages — in all subsequent API requests.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">stateless API</td><td class="kw-ja">ステートレス API</td><td class="kw-meaning">Claude API は状態を持たない。会話文脈の維持はアプリケーション側の責任</td></tr>
+<tr><td class="kw-en">conversation history</td><td class="kw-ja">会話履歴</td><td class="kw-meaning">ユーザーとアシスタントのメッセージを交互に並べた messages 配列</td></tr>
+<tr><td class="kw-en">messages array</td><td class="kw-ja">messages 配列</td><td class="kw-meaning">API リクエストに含めるすべての会話ターンを格納する配列。毎回累積して渡す</td></tr>
+<tr><td class="kw-en">context persistence</td><td class="kw-ja">コンテキストの永続化</td><td class="kw-meaning">ステートレスな API で会話の文脈を維持するためにアプリ側で履歴を管理すること</td></tr>
+<tr><td class="kw-en">repeated question bug<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">繰り返し質問バグ</td><td class="kw-meaning">会話履歴を渡さないことで以前の回答をモデルが参照できなくなる実装ミス</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-153">
+  <div class="set-header"><span class="set-num">Q153</span><span class="set-domain">Agent architecture and orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">助成金申請書作成システムのコーディネーターがProposalWriterサブエージェントに書き方の細かい手順を指示しすぎたところ、文章の説得力が低下。なぜか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">全体的な執筆戦略、想定される審査員、および説得力に関する品質基準を指定するようにコーディネーターのプロンプトを再設計し、特定の文脈に最適な構造アプローチをサブエージェント自身に決定させる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">コーディネーターが「方法」を細かく指示しすぎると、モデル本来の推論能力・文脈に応じた表現力が制限される。コーディネーターは「目的（何を達成すべきか）」「制約（文字数・対象読者）」のみを指定し、実装の自由度はサブエージェントに委ねる設計が品質向上につながる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A coordinator over-specifies detailed writing steps to a ProposalWriter sub-agent, and the persuasiveness of the output declines. Why, and how should the coordinator be redesigned?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Redesign the coordinator's prompt to specify the overall writing strategy, intended reviewers, and quality criteria for persuasiveness, letting the sub-agent determine the optimal structural approach for the specific context.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">over-specification</td><td class="kw-ja">過剰な指定</td><td class="kw-meaning">「方法」を細かく指示しすぎてモデル本来の推論能力・表現力を制限する問題</td></tr>
+<tr><td class="kw-en">what vs how</td><td class="kw-ja">何を vs どのように</td><td class="kw-meaning">コーディネーターは「何を達成するか」を指定し、「どうやるか」はサブエージェントに委ねる</td></tr>
+<tr><td class="kw-en">sub-agent autonomy</td><td class="kw-ja">サブエージェントの自律性</td><td class="kw-meaning">実装の自由度をサブエージェントに与えることで文脈に最適な出力が得られる</td></tr>
+<tr><td class="kw-en">goal-based instruction</td><td class="kw-ja">目標ベースの指示</td><td class="kw-meaning">手順ではなく目的・制約・品質基準を指定するコーディネーター設計のベストプラクティス</td></tr>
+<tr><td class="kw-en">coordinator over-control<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">コーディネーターの過剰制御</td><td class="kw-meaning">細かすぎる指示がサブエージェントの能力を制限してしまう設計アンチパターン</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-154">
+  <div class="set-header"><span class="set-num">Q154</span><span class="set-domain">Context management and reliability</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">金融監査でClaude がtransactions.csvを分析中、外部システムがファイルをローテーション（別名に変更）した。Claudeが引き続き存在しない古いファイルパスを参照し続ける問題は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">セッションを再開し、ファイル構成の変更について Claude に明示的に伝え、現在は空になっている transactions.csv ではなく transactions_backup.csv を解析するよう指示する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ClaudeはAPIの各ターンで「その時点でコンテキストに含まれる情報」のみを参照する。外部ファイルシステムの変化をリアルタイムで監視しない。解決策：ファイルパスではなくファイルの内容をコンテキストに渡すか、呼び出しごとに最新のファイル情報を再取得する設計にする。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">During a financial audit, Claude is analyzing transactions.csv, but an external system renames the file during the session. Claude continues referencing the now-nonexistent old filename. What is the correct resolution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Restart the session and explicitly inform Claude about the file structure change, directing it to use transactions_backup.csv instead of the now-empty transactions.csv.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">stale file reference</td><td class="kw-ja">古いファイル参照</td><td class="kw-meaning">コンテキスト内に記録されたファイルパスが外部変更で無効になった状態</td></tr>
+<tr><td class="kw-en">external state change</td><td class="kw-ja">外部状態の変化</td><td class="kw-meaning">Claude はファイルシステムの変化をリアルタイムで監視しない。セッション内の情報のみを参照</td></tr>
+<tr><td class="kw-en">explicit context update</td><td class="kw-ja">明示的なコンテキスト更新</td><td class="kw-meaning">ファイル構成の変化をユーザーが明示的に伝えることで Claude の参照を正しく更新する</td></tr>
+<tr><td class="kw-en">file path vs content<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">ファイルパス vs コンテンツ</td><td class="kw-meaning">パス参照の代わりにファイルの内容をコンテキストに渡す設計で外部変化に強くなる</td></tr>
+<tr><td class="kw-en">session restart<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">セッション再起動</td><td class="kw-meaning">外部状態が大きく変化した場合は新しいクリーンなセッションで再開するのが安全</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-155">
+  <div class="set-header"><span class="set-num">Q155</span><span class="set-domain">Prompt engineering and structured output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">カスタムログ解析ツールで100個のユニットテスト中90個合格、複数行ログ処理で10個失敗。Claudeに「失敗した」とだけ伝えてデバッグを依頼するとなぜ効率が悪いか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">「期待される出力」と「実際の出力」の比較を含む、10個の具体的な失敗結果を提示し、それに基づいてコードを修正するよう依頼する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">AIへのデバッグ依頼では「失敗した」だけでは不十分。最も効果的な方法は、具体的な「期待される出力（Expected）」と「実際の出力（Actual）」の差分と、失敗したテストケースのサンプルを提示すること。モデルが問題の本質を正確に把握できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Asking Claude to debug a custom log parser by only saying 'it failed' (90 of 100 unit tests pass, 10 fail on multi-line logs) is inefficient. What is the most effective way to present the problem?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Present all 10 specific failure results — including expected vs. actual output comparisons — and ask Claude to fix the code based on those.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">expected vs actual</td><td class="kw-ja">期待値 vs 実際の値</td><td class="kw-meaning">デバッグ依頼で最も重要な情報。「期待される出力」と「実際の出力」の差分を提示する</td></tr>
+<tr><td class="kw-en">specific failure cases</td><td class="kw-ja">具体的な失敗ケース</td><td class="kw-meaning">「失敗した」だけでなく失敗したテストケースの具体的な入出力を提示すること</td></tr>
+<tr><td class="kw-en">vague bug report</td><td class="kw-ja">曖昧なバグ報告</td><td class="kw-meaning">「失敗した」だけの説明では Claude が問題の本質を把握できず効率が悪い</td></tr>
+<tr><td class="kw-en">targeted debugging</td><td class="kw-ja">ターゲットを絞ったデバッグ</td><td class="kw-meaning">具体的な失敗パターンを提示することでモデルが誤りの原因を正確に特定できる</td></tr>
+<tr><td class="kw-en">test failure feedback<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">テスト失敗フィードバック</td><td class="kw-meaning">失敗したテスト結果の詳細を提示して修正方向を明確に示すデバッグ手法</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-156">
+  <div class="set-header"><span class="set-num">Q156</span><span class="set-domain">Prompt engineering and structured output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">料理レシピアプリでスキャンデータからingredientsリストをJSON抽出中、特定のドキュメントでバリデーションエラーが発生した。Claudeを使ったリカバリ方法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">必要な情報は元のドキュメントに存在しており、エラーフィードバックがモデルを導いて構造的な出力エラーを修正させるため、再試行は成功する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">LLMが一度構造化出力に失敗した場合、バリデーションエラーの詳細（「期待されるスキーマ」と「実際の出力」の差分）をプロンプトにフィードバックして再生成を依頼する。モデルは自分の誤りを認識し、再試行で正しい出力を生成できることが多い。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A recipe app's JSON extraction from scanned data produces a validation error on a specific document. Is retrying with the validation error feedback likely to succeed?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Yes — retrying will succeed because the required information exists in the source document, and the error feedback guides the model to correct the structural output error.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">validation error feedback</td><td class="kw-ja">検証エラーのフィードバック</td><td class="kw-meaning">期待スキーマと実際の出力の差分をプロンプトにフィードバックして再生成を依頼する</td></tr>
+<tr><td class="kw-en">self-correction</td><td class="kw-ja">自己修正</td><td class="kw-meaning">バリデーションエラーを渡すとモデルが自分の誤りを認識して正しく再生成する能力</td></tr>
+<tr><td class="kw-en">retry with error context</td><td class="kw-ja">エラーコンテキスト付きリトライ</td><td class="kw-meaning">失敗の詳細情報を含めて再試行することで成功率が高まるパターン</td></tr>
+<tr><td class="kw-en">information existence check</td><td class="kw-ja">情報の存在確認</td><td class="kw-meaning">ソースドキュメントに情報が存在すれば再試行で成功する可能性が高い判断基準</td></tr>
+<tr><td class="kw-en">structured output recovery<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">構造化出力のリカバリ</td><td class="kw-meaning">構造エラー時に差分フィードバックで再生成させる標準的な回復パターン</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-157">
+  <div class="set-header"><span class="set-num">Q157</span><span class="set-domain">Claude Code configuration and workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">/fix-typoスキル（コメントの誤字修正のみを行うはず）でClaude が「依存関係の不整合」を誤認（ハルシネーション）し、意図しないパッケージ変更を実行した。どう防ぐか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">SKILL.md のフロントマターで allowed-tools: [ReadFile, WriteFile] を構成し、シェル実行（Bash 等）の機能を明示的に許可しない。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude Codeでエージェントの行動を物理的に制限する最も確実な方法はツールの許可リスト（Allowlist）制御。スキルの定義ファイルでallowed_tools: [EditFile]のみに制限することで、パッケージ管理コマンド等を物理的に実行不可にできる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">The /fix-typo skill (intended only for fixing comment typos) hallucinates 'dependency inconsistencies' and executes unintended package changes. What is the most reliable way to prevent this?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Configure allowed_tools: [ReadFile, WriteFile] in the SKILL.md frontmatter, explicitly not allowing shell execution (Bash, etc.).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">allowed_tools allowlist</td><td class="kw-ja">allowed_tools ホワイトリスト</td><td class="kw-meaning">スキルが使用できるツールを明示的に列挙して許可外の操作を物理的にブロックする</td></tr>
+<tr><td class="kw-en">shell execution block</td><td class="kw-ja">シェル実行のブロック</td><td class="kw-meaning">Bash ツールを allowed_tools から除外してパッケージ管理コマンド等を実行不可にする</td></tr>
+<tr><td class="kw-en">hallucination-triggered action</td><td class="kw-ja">ハルシネーション起因のアクション</td><td class="kw-meaning">モデルが存在しない問題を「発見」して意図しない変更を実行してしまう問題</td></tr>
+<tr><td class="kw-en">skill scope enforcement</td><td class="kw-ja">スキルスコープの強制</td><td class="kw-meaning">ツール制限でスキルの実行範囲をその本来の目的に物理的に制限する設計</td></tr>
+<tr><td class="kw-en">frontmatter tool restriction</td><td class="kw-ja">フロントマターのツール制限</td><td class="kw-meaning">SKILL.md フロントマターの allowed_tools で許可ツールを明示的に列挙する方法</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-158">
+  <div class="set-header"><span class="set-num">Q158</span><span class="set-domain">Prompt engineering and structured output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ホテル宿泊管理アシスタントのissue_room_upgradeツールには「宿泊実績2年以上かつ今年未取得者のみ」という条件があるが、システムプロンプトのペルソナ指示が優先され条件外の顧客にも発行してしまう。解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">システムプロンプト内のペルソナ指示がツールの制約を上書きしています。システムプロンプトをポリシーと整合するように修正する必要があります。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">モデルは強力なペルソナ・役割定義の指示をツールの制約より優先することがある。解決策：ツールの説明文に条件を記述するだけでなく、システムプロンプト内にも「tool descriptionの制約は絶対に遵守すること」を明記し、ペルソナとの矛盾を排除する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">The issue_room_upgrade tool for a hotel management assistant has conditions ('2+ years stay history, no upgrade this year'), but the system prompt's persona instruction causes eligible customers to be rejected. What is the root cause and fix?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The persona instruction in the system prompt is overriding the tool's constraints. The system prompt must be revised to align with the policy.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">persona-policy conflict</td><td class="kw-ja">ペルソナとポリシーの競合</td><td class="kw-meaning">強力なペルソナ指示がツール説明の制約より優先されてしまう問題</td></tr>
+<tr><td class="kw-en">system prompt alignment</td><td class="kw-ja">システムプロンプトの整合性</td><td class="kw-meaning">ペルソナ指示とビジネスルール・ツール制約が矛盾しないよう整合させる設計</td></tr>
+<tr><td class="kw-en">tool constraint override</td><td class="kw-ja">ツール制約の上書き</td><td class="kw-meaning">モデルがシステムプロンプトの強い指示に従いツール説明の条件を無視する現象</td></tr>
+<tr><td class="kw-en">explicit constraint reinforcement</td><td class="kw-ja">制約の明示的な強化</td><td class="kw-meaning">「tool description の制約は絶対に遵守せよ」とシステムプロンプトにも記述する</td></tr>
+<tr><td class="kw-en">instruction hierarchy conflict<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">指示の階層的な競合</td><td class="kw-meaning">システムプロンプト vs ツール説明の優先順位競合。上位の指示が制約を上書きする</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-159">
+  <div class="set-header"><span class="set-num">Q159</span><span class="set-domain">Prompt engineering and structured output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">受信した問い合わせを特定のJSON形式（customer_region、main_issue等のキーを持つ）に変換させる際、Claudeが正しい形式で出力することを確実に保証したい。最も強力な手法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">アシスタントの応答が { n "customer_region": で始まるようにハードコードする「事前入力（Prefill）」技術を実装し、モデルに残りのスキーマを完成させる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude に特定構造のJSONを確実に生成させる最強の手法は「応答の事前入力（Prefilling）」。アシスタントの返信の最初を{"customer_region":のように事前に入力しておくことで、Claudeはその続きを必ず指定の構造で生成する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Converting incoming inquiries into a specific JSON format — with keys like customer_region and main_issue — requires Claude to consistently use the correct structure. What is the most reliable technique?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement 'prefilling' — hardcoding the start of the assistant's response as {"customer_region": — so the model is forced to complete the remaining schema.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">response prefilling</td><td class="kw-ja">レスポンス・プレフィリング</td><td class="kw-meaning">アシスタントの返答の冒頭を事前に記述してモデルにその続きを生成させる手法</td></tr>
+<tr><td class="kw-en">prefill JSON start</td><td class="kw-ja">JSON 冒頭のプレフィリング</td><td class="kw-meaning">{ "customer_region": のように JSON の開始を事前入力して構造を強制する</td></tr>
+<tr><td class="kw-en">forced schema completion</td><td class="kw-ja">スキーマ補完の強制</td><td class="kw-meaning">プレフィリングでモデルに指定した JSON スキーマを必ず完成させる</td></tr>
+<tr><td class="kw-en">structured output guarantee</td><td class="kw-ja">構造化出力の保証</td><td class="kw-meaning">プレフィリングは JSON スキーマ準拠を保証する最も強力な手法の一つ</td></tr>
+<tr><td class="kw-en">assistant turn injection<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">アシスタントターンへの注入</td><td class="kw-meaning">messages 配列の最後に role: assistant のメッセージを追加してプレフィルを実現</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-160">
+  <div class="set-header"><span class="set-num">Q160</span><span class="set-domain">Code generation and iteration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">分散型レート制限ミドルウェア（競合状態処理・厳格なパフォーマンス閾値）の実装とテストをClaudeに同時に生成させたところ、誤ったロジックに合わせてテストが書かれ欠陥を見逃した。どうすべきだったか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">まずエッジケースとパフォーマンス要件を網羅する包括的なテストスイートを作成し、それをClaudeの初期実装に対して実行し、テストの失敗結果を共有して改善を導く。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">LLMに実装とテストを同時に書かせると、誤った実装に合わせてテストを生成する「テストの共謀」が生じる。対策：TDD（テスト駆動開発）の手法でまず要件に基づくテストを先に書き、その後実装を生成させること。客観的な評価基準を先に定義することが重要。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Asking Claude to simultaneously generate both the implementation and tests for a complex distributed rate limiting middleware causes tests to be written around incorrect logic. What is the most effective approach?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">First create a comprehensive test suite covering all edge cases and performance requirements, run it against Claude's initial implementation, then share the test failures to guide improvements.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">test-driven development (TDD)</td><td class="kw-ja">テスト駆動開発 (TDD)</td><td class="kw-meaning">テストを先に書いて実装を後から生成させる手法。実装とテストの共謀を防ぐ</td></tr>
+<tr><td class="kw-en">test collusion</td><td class="kw-ja">テストの共謀</td><td class="kw-meaning">実装とテストを同時に生成させると誤ったロジックに合わせてテストが書かれる問題</td></tr>
+<tr><td class="kw-en">tests-first approach</td><td class="kw-ja">テスト先行アプローチ</td><td class="kw-meaning">要件に基づくテストを先に定義してから実装を生成させる客観的な評価基準の確立</td></tr>
+<tr><td class="kw-en">test failure feedback</td><td class="kw-ja">テスト失敗のフィードバック</td><td class="kw-meaning">実装の問題点を示すテスト失敗結果を Claude に渡して改善を誘導するサイクル</td></tr>
+<tr><td class="kw-en">objective evaluation criteria<span class="kw-related">&#x203B; 関連概念</span></td><td class="kw-ja">客観的な評価基準</td><td class="kw-meaning">テストスイートが実装の正しさを独立して評価する客観的な指標となる</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
