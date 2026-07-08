@@ -287,6 +287,7 @@ let allWords=[];  // {word, meaning, el}
 let curGroup=0,curSpeed=1,curIdx=0;
 let repeatMode=false,isPlaying=false,isPaused=false,speakMode=0;
 let playTimer=null;
+let synthKeepAlive=null;
 
 function loadVoices(){voices=speechSynthesis.getVoices()}
 loadVoices();
@@ -449,11 +450,15 @@ function playNext(){
 
 function startPlay(){
   if(isPaused){
-    isPaused=false;isPlaying=true;updatePlayerUI();playNext();return;
+    isPaused=false;isPlaying=true;updatePlayerUI();playNext();
+    synthKeepAlive=setInterval(()=>{if(speechSynthesis.speaking){speechSynthesis.pause();speechSynthesis.resume();}},10000);
+    return;
   }
   if(allWords.length===0)collectWords();
   isPlaying=true;isPaused=false;
   curIdx=GROUPS[curGroup][0];
+  clearInterval(synthKeepAlive);
+  synthKeepAlive=setInterval(()=>{if(speechSynthesis.speaking){speechSynthesis.pause();speechSynthesis.resume();}},10000);
   updatePlayerUI();playNext();
 }
 
@@ -461,12 +466,14 @@ function pausePlay(){
   if(!isPlaying)return;
   isPlaying=false;isPaused=true;
   speechSynthesis.cancel();clearTimeout(playTimer);
+  clearInterval(synthKeepAlive);synthKeepAlive=null;
   updatePlayerUI();
 }
 
 function stopPlay(){
   isPlaying=false;isPaused=false;
   speechSynthesis.cancel();clearTimeout(playTimer);
+  clearInterval(synthKeepAlive);synthKeepAlive=null;
   curIdx=GROUPS[curGroup][0];
   document.querySelectorAll('.td-word.current-play').forEach(e=>e.classList.remove('current-play'));
   document.getElementById('play-prog').textContent='0 / '+getGroupSize();
