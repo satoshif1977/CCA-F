@@ -9,3 +9,8 @@ handover/
 docs/
 CCA-F_EN_Vol.*.html
 CCA-F_JP_Vol.*.html
+
+# 試験ガイド原文（著作権配慮）
+classmethod/
+vocab_complete.txt
+vocab_list.txt
