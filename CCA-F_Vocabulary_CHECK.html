@@ -126,7 +126,7 @@ tr.memorized .td-check{opacity:1}
     <option value="1">📖 1〜100語</option>
     <option value="2">📖 101〜200語</option>
     <option value="3">📖 201〜300語</option>
-    <option value="4">📖 301〜345語</option><option value="5">📖 346〜382語</option>
+    <option value="4">📖 301〜382語</option>
   </select>
   <button class="btn-play"  id="btn-play"  onclick="startPlay()">▶ 再生</button>
   <button class="btn-pause" id="btn-pause" onclick="pausePlay()" disabled>⏸ 一時停止</button>
@@ -305,7 +305,7 @@ function generateNewVocab(){
 }
 
 // ════ Web Speech API ════
-const GROUPS=[[0,381],[0,99],[100,199],[200,299],[300,344],[345,381]];
+const GROUPS=[[0,381],[0,99],[100,199],[200,299],[300,381]];
 // gap: 単語のみモード用の次の語までの間隔(ms)
 const SPEEDS=[{rate:0.9,gap:2800},{rate:1.1,gap:1800},{rate:1.3,gap:1200}];
 let voices=[];
