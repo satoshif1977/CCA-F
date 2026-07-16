@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CCAO-F BILI Vol.1 Q001-020</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--border:#334155;--text:#e2e8f0;--muted:#94a3b8;
+      --jp:#1e3a5f;--en:#1a3320;--jp-b:#3b82f6;--en-b:#22c55e;
+      --kw:#1c1a2e;--accent:#a78bfa;--dom:#0f766e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+     background:var(--bg);color:var(--text);padding-bottom:48px;line-height:1.7}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a5f,#065f46);
+      color:#fff;padding:28px 20px 24px;text-align:center}
+.hero h1{font-size:1.35rem;font-weight:800}
+.hero p{font-size:.82rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border-radius:20px;
+        padding:3px 12px;font-size:.72rem;margin-top:10px}
+.container{max-width:780px;margin:0 auto;padding:16px}
+.qblock{background:var(--card);border:1px solid var(--border);border-radius:14px;
+         padding:20px;margin-bottom:24px}
+.qnum{font-size:1rem;font-weight:800;color:var(--accent);margin-bottom:10px}
+.domain-tag{font-size:.72rem;font-weight:700;background:var(--dom);color:#99f6e4;
+             border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+.lang-block{border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.lang-block.jp{background:var(--jp);border-left:3px solid var(--jp-b)}
+.lang-block.en{background:var(--en);border-left:3px solid var(--en-b)}
+.lang-label{font-size:.7rem;font-weight:700;color:var(--muted);margin-bottom:8px;letter-spacing:.05em}
+.question{font-size:.93rem;line-height:1.75}
+.answer-box{margin-top:12px}
+.answer-box summary{cursor:pointer;font-size:.82rem;color:var(--accent);font-weight:700;padding:4px 0}
+.answer{margin-top:10px;font-size:.88rem;line-height:1.7;color:#bae6fd}
+.explanation{margin-top:8px;font-size:.85rem;line-height:1.75;color:var(--muted);
+              border-top:1px solid var(--border);padding-top:8px}
+.kw-section{background:var(--kw);border-radius:10px;padding:12px 14px;margin-top:10px}
+.kw-label{font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:.05em}
+.kw-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.kw-table th{background:#1e1b3a;color:var(--muted);font-weight:700;padding:5px 8px;
+              border-bottom:1px solid var(--border);text-align:left}
+.kw-table td{padding:5px 8px;border-bottom:1px solid #1e293b;vertical-align:top}
+.kw-en{color:#a5b4fc;font-weight:700;white-space:nowrap;min-width:130px}
+.kw-jp{color:#86efac;min-width:100px}
+.kw-desc{color:var(--muted)}
+.back-link{display:inline-block;margin:16px 0 8px;color:var(--accent);font-size:.85rem;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:12px;
+      padding:14px 16px;margin-bottom:20px}
+.toc-title{font-size:.8rem;font-weight:800;color:var(--accent);margin-bottom:8px}
+.toc-links{display:flex;flex-wrap:wrap;gap:6px}
+.toc-links a{font-size:.75rem;color:var(--muted);text-decoration:none;background:#0f172a;
+              border:1px solid var(--border);border-radius:6px;padding:2px 8px}
+.toc-links a:hover{color:var(--text)}
+.footer{text-align:center;margin-top:32px;font-size:.72rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>CCAO-F BILI Vol.1</h1>
+  <p>Claude Certified Associate – Foundations<br>バイリンガル問題集 Q001–020</p>
+  <span class="badge">20問 / 7ドメイン対応</span>
+  <span class="badge">Output Evaluation・Workflow・Governance・Prompting</span>
+</div>
+<div class="container">
+  <a class="back-link" href="index.html">← 教材一覧に戻る</a>
+  <div class="toc">
+    <div class="toc-title">問題一覧</div>
+    <div class="toc-links">
+      <a href="#q001">Q01</a><a href="#q002">Q02</a><a href="#q003">Q03</a><a href="#q004">Q04</a><a href="#q005">Q05</a><a href="#q006">Q06</a><a href="#q007">Q07</a><a href="#q008">Q08</a><a href="#q009">Q09</a><a href="#q010">Q10</a><a href="#q011">Q11</a><a href="#q012">Q12</a><a href="#q013">Q13</a><a href="#q014">Q14</a><a href="#q015">Q15</a><a href="#q016">Q16</a><a href="#q017">Q17</a><a href="#q018">Q18</a><a href="#q019">Q19</a><a href="#q020">Q20</a>
+    </div>
+  </div>
+
+<div class="qblock" id="q001">
+  <div class="qnum">Q01 <span class="domain-tag">Output Evaluation and Validation</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">コンプライアンス担当のアソシエイトが Claude を使って新しい業界規制の要約を作成した。要約には「第 12 条第 3 項により、報告期限は取引日から 5 営業日以内」という具体的な条項番号と数値が含まれており、Claude の文体は非常に自信に満ちている。この要約を経営陣に送付する前に最も適切な行動はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>要約に含まれる条項番号・期限・数値を、規制機関が公開している公式の規制原文（authoritative source）と照合してから共有する。Claude が自信ありげな文体で述べていること自体は、正確性のシグナルにはならない。</div>
+      <div class="explanation"><strong>解説：</strong>CCAO-F の最頻出型。「具体的な条項番号・日付・URL を含む自信ありげな出力 → 原典と照合してから共有」が正解パターン。誤答の型：① Claude 自身に自信度を採点させる（自己申告の自信度は信頼できない）② 文体を堅くして送る（正しさには対処しない）③ as-is でそのまま送る（検証なし）。ハルシネーションはもっともらしい詳細を捏造するため、文体の自信度は正確性と無関係。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A compliance associate used Claude to summarize a new industry regulation. The summary includes specific article numbers and deadlines such as 'Article 12(3) requires reporting within 5 business days of the transaction date,' written in a highly confident tone. What is the most appropriate action before sharing this summary with leadership?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Cross-reference the article numbers, deadlines, and figures in the summary against the official regulatory text (authoritative source) before sharing. Claude's confident tone is not a reliable indicator of accuracy.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">hallucination</td><td class="kw-jp">ハルシネーション</td><td class="kw-desc">AIがもっともらしい詳細（条項番号・統計・URL等）を捏造する現象</td></tr><tr><td class="kw-en">authoritative source</td><td class="kw-jp">権威ある原典</td><td class="kw-desc">規制機関・公的機関が公開する公式文書。ファクトチェックの最終基準</td></tr><tr><td class="kw-en">accuracy</td><td class="kw-jp">正確性</td><td class="kw-desc">出力内容が事実と一致しているか。自信ありげな文体とは独立</td></tr><tr><td class="kw-en">fact-checking</td><td class="kw-jp">ファクトチェック</td><td class="kw-desc">引用・数値・固有名詞を一次情報源と照合して正確性を確認すること</td></tr><tr><td class="kw-en">confident tone</td><td class="kw-jp">自信ありげな文体</td><td class="kw-desc">正確性のシグナルではない。ハルシネーションも自信満々に出力される</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q002">
+  <div class="qnum">Q02 <span class="domain-tag">Output Evaluation and Validation</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">マーケティングマネージャーが Claude を使って競合分析レポートを作成した。レポートには市場シェアの数値・競合各社の収益データ・業界成長率が記載されている。このレポートを社外のクライアントに提案資料として送付する前に必要なステップはどれか？（2 つ選べ）</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>① 市場シェア・収益・成長率の数値を業界調査レポートや各社の公式 IR 資料などの一次情報源と照合する。② 数値・主張に矛盾がないか（inconsistency）をレポート内でも確認し、人間によるレビューを経てから送付する。</div>
+      <div class="explanation"><strong>解説：</strong>対外発信物はファクトチェック＋人間レビューが必須。誤答パターン：「Claude が自信を持っていたのでそのまま送った」「出力を Claude に再確認させた（自己検証は信頼できない）」。数値系データは特にハルシネーションリスクが高く、元情報源との照合が不可欠。複数選択問題では「原典照合」と「人間レビュー」の両方が正解になることが多い。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A marketing manager used Claude to create a competitive analysis report containing market share figures, competitor revenue data, and industry growth rates. What steps are necessary before submitting this report as a proposal to an external client? (Select TWO)</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>① Cross-reference the market share, revenue, and growth rate figures against primary sources such as industry research reports and official investor relations materials. ② Check the report internally for inconsistencies and ensure it goes through human review before submission.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">inconsistency</td><td class="kw-jp">不整合</td><td class="kw-desc">同一出力内または複数出力間で数値・主張が矛盾している欠陥</td></tr><tr><td class="kw-en">human review</td><td class="kw-jp">人間レビュー</td><td class="kw-desc">AI出力を送付・公開する前に人間が検証するステップ。対外発信で必須</td></tr><tr><td class="kw-en">primary source</td><td class="kw-jp">一次情報源</td><td class="kw-desc">IR資料・公式レポートなど直接の発信元。ファクトチェックの拠り所</td></tr><tr><td class="kw-en">completeness</td><td class="kw-jp">網羅性</td><td class="kw-desc">出力が必要な情報をすべてカバーしているか。accuracy と並ぶ評価の2軸</td></tr><tr><td class="kw-en">external communication</td><td class="kw-jp">対外発信</td><td class="kw-desc">社外向けの発信物。人間レビューとファクトチェックが特に重要</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q003">
+  <div class="qnum">Q03 <span class="domain-tag">Output Evaluation and Validation</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">プロジェクトマネージャーが Claude に長文プロジェクト計画書を作成させた。経営層への報告用としては要点を先出しした 1 ページのサマリーが必要で、チームメンバーには手順の詳細が必要だ。出力形式として最も適切な選択はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Claude が生成した計画書を Artifacts として作成し、読み手（経営層 vs チーム）ごとに別バージョンに編集・調整する。Artifacts は反復編集・共有・再利用に最適な独立した成果物であり、同じベース文書から異なる読者向けに派生させやすい。</div>
+      <div class="explanation"><strong>解説：</strong>出力形式の 3 択（Artifacts / inline / structured data）の使い分けが頻出。Artifacts：文書・表・コードなど反復編集・共有・再利用する成果物。inline：会話内の短い回答・即答。structured data：後工程（スプレッドシートや他システム）に渡す表・CSV・JSON。「経営層向け要点先出し＋チーム向け手順詳細」という異なる読者ニーズには、Artifacts として独立成果物を作り、想定読者に合わせて adapt / refine するのが正解。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A project manager had Claude write a lengthy project plan. For the executive report, a one-page summary with key points upfront is needed; for team members, detailed step-by-step instructions are required. Which output format choice is most appropriate?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Create the plan as an Artifact and edit/adapt it into separate versions for each audience (executives vs. team). Artifacts are ideal for iterative editing, sharing, and reuse, making it easy to derive different audience-specific versions from the same base document.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">Artifacts</td><td class="kw-jp">アーティファクト</td><td class="kw-desc">会話とは別パネルに生成される独立した成果物。反復編集・共有・再利用向け</td></tr><tr><td class="kw-en">intended audience</td><td class="kw-jp">想定読者</td><td class="kw-desc">出力の送り先。経営層・チーム・顧客など。形式・分量・トーンを変える基準</td></tr><tr><td class="kw-en">inline</td><td class="kw-jp">インライン</td><td class="kw-desc">会話内の回答。短い即答・議論の途中経過に適した形式</td></tr><tr><td class="kw-en">structured data</td><td class="kw-jp">構造化データ</td><td class="kw-desc">表・CSV・JSONなど後工程に渡すデータ形式</td></tr><tr><td class="kw-en">adapt</td><td class="kw-jp">適応・調整</td><td class="kw-desc">同じ内容を異なる読者・目的向けに編集・最適化すること</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q004">
+  <div class="qnum">Q04 <span class="domain-tag">Output Evaluation and Validation</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">人事アソシエイトが Claude を使って社員の業績評価フィードバックの下書きを作成した。ある社員 A さんのフィードバックを確認すると、前半では「目標を超える成果を達成した」と書かれているが、後半では「目標達成に課題がある」と相反する記述が含まれている。この状況で最も適切な対応はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>出力内の矛盾（inconsistency）を特定し、A さんの実際の評価データ・上司のコメントを参照してどちらの記述が正確か判断したうえで、該当箇所を修正してから最終送付する。</div>
+      <div class="explanation"><strong>解説：</strong>出力評価の 3 欠陥（hallucination / inconsistency / bias）のうち inconsistency（矛盾）の典型問題。誤答パターン：「矛盾を発見したが Claude が生成したので信じた」「Claude に自己チェックさせた（自己検証は不可）」「そのまま送った（as-is）」。人事・法務・財務など高リスク領域の出力は必ず人間レビューを経ること。矛盾があれば実際のデータで正否を判断し修正するのが正解。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">An HR associate used Claude to draft performance review feedback. Upon reviewing feedback for employee A, the first half states 'exceeded targets,' but the second half says 'has challenges meeting goals' — a direct contradiction. What is the most appropriate response?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Identify the inconsistency in the output, consult actual evaluation data and manager comments to determine which statement is accurate, correct the discrepancy, and then send the final version.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">inconsistency</td><td class="kw-jp">矛盾・不整合</td><td class="kw-desc">出力の前半と後半、または複数回答間で内容が相反している欠陥</td></tr><tr><td class="kw-en">bias</td><td class="kw-jp">バイアス</td><td class="kw-desc">特定の立場や視点への偏り。評価系タスクで特に注意が必要</td></tr><tr><td class="kw-en">high-risk domain</td><td class="kw-jp">高リスク領域</td><td class="kw-desc">人事・法務・医療・財務。誤りのコストが高く人間レビューが必須</td></tr><tr><td class="kw-en">human oversight</td><td class="kw-jp">人間の監督</td><td class="kw-desc">AIの最終出力に対して人間が検証・承認するプロセス</td></tr><tr><td class="kw-en">output quality</td><td class="kw-jp">出力品質</td><td class="kw-desc">accuracyとcompletenessの両面で評価するAI出力の信頼性</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q005">
+  <div class="qnum">Q05 <span class="domain-tag">Output Evaluation and Validation</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">リサーチアナリストが Claude に市場動向レポートの調査を依頼したところ、最新の業界統計・引用付きの論文データ・専門家の見解が網羅された詳細なレポートが生成された。このレポートを社内ナレッジベースに登録する前の最善の検証アプローチはどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>research mode（出典付き検索モード）を使って生成した場合は引用元の URL を確認し実在を検証する。通常の chat で生成した場合は、引用された論文・統計・専門家の発言を個別に原典と照合し、実在・正確性を確認してから登録する。</div>
+      <div class="explanation"><strong>解説：</strong>「網羅性が高い＝正確性が高い」は誤り。ハルシネーションは詳細で正確に見える情報を生成する。Research mode は Web 検索付きで引用元を示すため通常 chat より信頼性が高いが、引用の実在確認は依然必要。通常 chat の場合は全引用を一次情報源と照合する必要がある。条件反射：「出典付きの最新情報調査」→ research mode。「生成後の検証」→ 引用元の実在確認。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A research analyst asked Claude to create a market trends report. The output included the latest industry statistics, cited research papers, and expert opinions in extensive detail. What is the best verification approach before adding this report to the internal knowledge base?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>If generated using research mode, verify that each cited URL exists and the content matches. If generated via regular chat, individually cross-reference each cited paper, statistic, and expert quote against the primary source to confirm existence and accuracy before registering.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">research mode</td><td class="kw-jp">リサーチモード</td><td class="kw-desc">Web等を横断する出典付きの深い調査機能。最新情報・裏付けが必要な時に使う</td></tr><tr><td class="kw-en">citation verification</td><td class="kw-jp">引用検証</td><td class="kw-desc">AIが示した引用・URLが実在し正確かを確認すること</td></tr><tr><td class="kw-en">knowledge base</td><td class="kw-jp">ナレッジベース</td><td class="kw-desc">組織の参照情報を蓄積するデータベース。誤情報の混入を防ぐ検証が重要</td></tr><tr><td class="kw-en">completeness</td><td class="kw-jp">網羅性</td><td class="kw-desc">情報の量が多いことと正確性は別物。両面から評価する</td></tr><tr><td class="kw-en">cross-check</td><td class="kw-jp">クロスチェック</td><td class="kw-desc">複数の情報源を照合して正確性を確認する検証手法</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q006">
+  <div class="qnum">Q06 <span class="domain-tag">Workflow Integration and Solution Design</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">製品企画アソシエイトが、毎週行う競合製品調査のワークフローを改善したい。現在は各担当者が手動でウェブサイトを巡回してメモを取り、Excel にまとめるまでに 4 時間かかっている。担当者の既存の手順を大幅に変えずに Claude で効率化するには、どのアプローチが最も適切か？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>既存のワークフローを保ったまま Claude を補助ツールとして組み込む augment（拡張）アプローチを採用する。具体的には、各担当者が収集した情報を Claude に渡して要約・整形させ、Excel への転記を支援させる。プロセス全体の再設計は行わない。</div>
+      <div class="explanation"><strong>解説：</strong>augment vs redesign の使い分けが頻出。augment：既存プロセスを保ちつつ、人の作業を Claude が補助（下書き・要約・整形）。redesign：プロセス全体を Claude 前提に組み替える。問題文が「既存の手順を大幅に変えずに」→ augment が正解。問題文が「プロセスを見直して根本から変える」→ redesign を選ぶ。今回は担当者のワークフローを維持しつつ Claude を補助ツールとして使うシナリオ。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A product planning associate wants to improve a weekly competitive product research workflow. Currently, each team member manually browses websites and takes notes, taking 4 hours to compile into Excel. Which approach best uses Claude to improve efficiency without significantly changing existing procedures?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Adopt an augment approach — keep the existing workflow intact and integrate Claude as a support tool. Specifically, have team members pass their collected information to Claude for summarization and formatting to assist with Excel compilation. Do not redesign the entire process.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">augment</td><td class="kw-jp">拡張</td><td class="kw-desc">既存プロセスを保ちつつClaudeを補助ツールとして組み込むアプローチ</td></tr><tr><td class="kw-en">redesign</td><td class="kw-jp">再設計</td><td class="kw-desc">プロセス全体をClaude前提に組み替えること。大きな変革が必要な場合</td></tr><tr><td class="kw-en">workflow integration</td><td class="kw-jp">ワークフロー統合</td><td class="kw-desc">既存業務フローにAIを組み込んで効率化すること</td></tr><tr><td class="kw-en">process optimization</td><td class="kw-jp">プロセス最適化</td><td class="kw-desc">業務手順を改善して効率・品質を向上させること</td></tr><tr><td class="kw-en">efficiency</td><td class="kw-jp">効率性</td><td class="kw-desc">同じ成果をより少ない時間・労力で達成すること</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q007">
+  <div class="qnum">Q07 <span class="domain-tag">Workflow Integration and Solution Design</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">業務改革担当のアソシエイトが、部門の Claude 導入計画を部長に提案するプレゼンを準備している。Claude の活用メリットを最大限に伝えて承認を得るため、最も適切なプレゼンの内容はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Claude の価値（作業効率化・品質向上・コスト削減の具体的な効果）と限界（ハルシネーションの可能性・コンテキストの制約・機密データの取り扱いに関する制限）の両方を誠実に伝える。価値だけを強調して限界を隠すプレゼンは誤り。</div>
+      <div class="explanation"><strong>解説：</strong>ステークホルダーコミュニケーションの鉄則：「価値 AND 限界の両方を伝える」。ガイドが AI の限界として明示する 3 点：ハルシネーション・コンテキストの制約・データの機微性。誤答パターン：「AI がすべて自動化します（過大な約束）」「限界については質問されたら答える（先に開示しないと信頼を失う）」。Associate に求められるのは Claude を正確に評価・説明できる判断力。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A business transformation associate is preparing a presentation to their department head proposing Claude adoption. To best convey the benefits and gain approval, what is the most appropriate content for the presentation?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Honestly communicate both the value (specific efficiency, quality, and cost reduction benefits) and the limitations (risk of hallucination, context constraints, restrictions on handling sensitive data). Presenting only the benefits while hiding limitations is incorrect.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">stakeholder communication</td><td class="kw-jp">ステークホルダーコミュニケーション</td><td class="kw-desc">AIの価値と限界の両方を誠実に伝えること。価値だけの売り込みは誤答</td></tr><tr><td class="kw-en">hallucination risk</td><td class="kw-jp">ハルシネーションリスク</td><td class="kw-desc">AI限界の1つ。ステークホルダーへの説明で必ず言及すべき</td></tr><tr><td class="kw-en">context constraints</td><td class="kw-jp">コンテキストの制約</td><td class="kw-desc">AI限界の1つ。1回の会話で扱える情報量に上限がある</td></tr><tr><td class="kw-en">data sensitivity</td><td class="kw-jp">データの機微性</td><td class="kw-desc">AI限界の1つ。機密・個人情報の取り扱いには組織ポリシーが必要</td></tr><tr><td class="kw-en">over-promising</td><td class="kw-jp">過大な約束</td><td class="kw-desc">「AIが全部自動化」などの誇大表現。誤答の典型パターン</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q008">
+  <div class="qnum">Q08 <span class="domain-tag">Workflow Integration and Solution Design</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">オペレーション部門のアソシエイトが、社内の複数システム（CRM・ERP・ITSM）を Claude と連携させてデータを自動収集・分析するソリューションを構築したいと考えている。このシナリオで Associate が取るべき最も適切な行動はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>API 統合・複数システムとの連携・自動化パイプラインの構築は Claude Developer（開発者）または Claude Architect（アーキテクト）の守備範囲であるため、適切な技術担当者にエスカレーションする。Associate は claude.ai のビルトイン機能を使った業務効率化が担当範囲。</div>
+      <div class="explanation"><strong>解説：</strong>CCAO-F の核心テーマ：「限界を認識してエスカレーションする」ことが Associate に求められる能力。エスカレーション先の定義：API 開発 → Developer / エージェンティックシステム設計・企業規模アーキテクチャ → Architect。誤答パターン：「自分で API ドキュメントを読んで実装しようとした」「外部コンサルを雇った（適切な社内エスカレーション先がある）」。条件反射：「API 統合・エージェント設計・企業規模アーキテクチャ」→ Developer/Architect にエスカレーション。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">An operations associate wants to build a solution connecting Claude with multiple internal systems (CRM, ERP, ITSM) for automated data collection and analysis. What is the most appropriate action for this Associate?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Escalate to Claude Developers or Claude Architects, as API integration, multi-system connectivity, and automated pipeline development fall within their scope. Associates are responsible for workflow efficiency using built-in claude.ai features.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">escalation</td><td class="kw-jp">エスカレーション</td><td class="kw-desc">自分の範囲を超えた要件を適切な専門家（Developer/Architect）に引き継ぐこと</td></tr><tr><td class="kw-en">scope boundary</td><td class="kw-jp">担当範囲の境界</td><td class="kw-desc">AssociateはビルトインUI機能が守備範囲。API/エージェント設計は範囲外</td></tr><tr><td class="kw-en">API integration</td><td class="kw-jp">API統合</td><td class="kw-desc">外部システムをAPIで連携すること。Developer/Architectの領域</td></tr><tr><td class="kw-en">agentic system</td><td class="kw-jp">エージェンティックシステム</td><td class="kw-desc">自律的に複数タスクを実行するAIシステム。Architectの設計領域</td></tr><tr><td class="kw-en">built-in features</td><td class="kw-jp">ビルトイン機能</td><td class="kw-desc">claude.aiが提供する組み込み機能（Projects・Artifacts・research mode等）</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q009">
+  <div class="qnum">Q09 <span class="domain-tag">Workflow Integration and Solution Design</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">イベント担当のアソシエイトが Claude に「来年の全社カンファレンス（500 名・2 日間・3 都市候補）の企画書を一括で作成して」と依頼したが、生成された企画書は表面的で具体性に欠けていた。品質を高めるために最も効果的なアプローチはどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>複雑な依頼をステップに分解（task decomposition）し、段階ごとに確認しながら進める。例：① 開催要件の整理 → ② 会場候補の条件定義 → ③ 各都市のメリット・デメリット比較 → ④ タイムラインと予算の概算 → ⑤ 最終企画書の統合。各ステップで出力を評価し、不足があれば具体的に補足して反復改善する。</div>
+      <div class="explanation"><strong>解説：</strong>「複雑な依頼が一度でうまくいかない」→ タスク分解 + 反復改善が正解。一度に全部を頼むと文脈が不足し表面的な出力になる。段階ごとに確認しながら進むことで品質を制御できる。誤答パターン：「同じプロンプトを再実行した（改善しない）」「プロンプトをもっと長くして全部詰め込んだ（曖昧さは量で解決しない）」。反復改善のポイント：「何が足りないかを具体的に伝えて」修正させること。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">An event associate asked Claude to 'create a complete conference plan for next year's all-company event (500 people, 2 days, 3 candidate cities)' in one request, but the result was superficial and lacked detail. What is the most effective approach to improve quality?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Decompose the complex request into steps (task decomposition) and proceed with validation at each stage: ① Clarify requirements → ② Define venue criteria → ③ Compare pros/cons of each city → ④ Estimate timeline and budget → ⑤ Integrate into final plan. Evaluate output at each step and iterate with specific feedback when something is missing.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">task decomposition</td><td class="kw-jp">タスク分解</td><td class="kw-desc">複雑な依頼をステップに分けて構造化し、段階ごとに確認しながら進める</td></tr><tr><td class="kw-en">iteration</td><td class="kw-jp">反復改善</td><td class="kw-desc">出力を評価→具体的フィードバック→修正のループを回すこと</td></tr><tr><td class="kw-en">solution design</td><td class="kw-jp">ソリューション設計</td><td class="kw-desc">要件を整理しステップを設計してClaudeを活用するアプローチ</td></tr><tr><td class="kw-en">context</td><td class="kw-jp">文脈・背景</td><td class="kw-desc">タスクの背景・目的・制約。充分な文脈がないと表面的な出力になる</td></tr><tr><td class="kw-en">specificity</td><td class="kw-jp">具体性</td><td class="kw-desc">プロンプトで成功条件・形式・分量を具体的に指定することの重要性</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q010">
+  <div class="qnum">Q10 <span class="domain-tag">Governance, Risk, and Responsible Use</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">顧客サービスのアソシエイトが、Claude を使って顧客アンケートデータを分析しようとしている。データには顧客の氏名・メールアドレス・電話番号・購買履歴が含まれており、組織の AI 利用ポリシーでは「個人を特定できる情報（PII）は AI ツールにアップロード禁止」と定められている。最も適切な対応はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>アップロード前に氏名・メールアドレス・電話番号などの個人識別子を削除または匿名化（仮名化）した上でデータを分析する。ポリシーと業務の両立を図るためにデータを加工するのが正解であり、分析を取りやめる必要はない。</div>
+      <div class="explanation"><strong>解説：</strong>CCAO-F の最頻出型（サンプル問題 3 の型）。PII 処理の正解パターン：「アップロード前に削除・匿名化」。誤答パターン：① 社内向けだから as-is でアップロード（ポリシー違反）② Claude に「保持しないで」と指示してアップロード（Claude への指示は組織的統制の代替にならない）③ 分析を取りやめる（匿名化すれば実施できる以上、不要な放棄）。原則：ポリシーと業務が衝突したら、ポリシーに沿ってタスクを実現する方法を探す。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A customer service associate wants to use Claude to analyze customer survey data. The data includes customer names, email addresses, phone numbers, and purchase history. The organization's AI usage policy states 'do not upload personally identifiable information (PII) to AI tools.' What is the most appropriate response?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Remove or anonymize (pseudonymize) personal identifiers such as names, email addresses, and phone numbers from the data before uploading for analysis. The goal is to comply with policy while still completing the task — canceling the analysis entirely is unnecessary.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">PII</td><td class="kw-jp">個人を特定できる情報</td><td class="kw-desc">氏名・メールアドレス・電話番号など個人を識別できる情報</td></tr><tr><td class="kw-en">anonymization</td><td class="kw-jp">匿名化</td><td class="kw-desc">個人識別子を削除・仮名化してPIIを除去する前処理</td></tr><tr><td class="kw-en">AI usage policy</td><td class="kw-jp">AI利用ポリシー</td><td class="kw-desc">組織が定めるAIツールの利用ルール。個人の判断で迂回してはならない</td></tr><tr><td class="kw-en">redact</td><td class="kw-jp">削除・墨消し</td><td class="kw-desc">機密情報や個人識別子をデータから除去すること</td></tr><tr><td class="kw-en">compliance</td><td class="kw-jp">コンプライアンス</td><td class="kw-desc">法令・規制・組織ポリシーへの準拠。AI利用においても最優先事項</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q011">
+  <div class="qnum">Q11 <span class="domain-tag">Governance, Risk, and Responsible Use</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">法務部のアソシエイトが Claude に「この契約書の法的リスクを評価して、締結可否を判断してほしい」と依頼し、Claude から詳細な評価と「締結を推奨しない」という結論を受け取った。次のステップとして最も適切な行動はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Claude の出力はあくまで参考情報として活用し、契約締結可否の最終判断は担当弁護士または法務責任者に委ねる。法的・医療・財務などの高リスク判断は検証なしで AI 出力をそのまま使う（as-is）のは不適切。</div>
+      <div class="explanation"><strong>解説：</strong>「高リスク領域（法的・医療・財務・人事）の判断を Claude に委ねてそのまま使う」→ 不適切なユースケース。Claude は分析・下書き・情報整理を補助するが、最終判断の責任は人間にある。誤答パターン：「Claude が詳細な評価をしたので締結しなかった（人間レビューなし）」「Claude に確認させて再評価してもらった（自己検証は不可）」。人間の監督（human oversight）が常に必要なシナリオの典型。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A legal associate asked Claude to 'evaluate the legal risks of this contract and determine whether to execute it.' Claude provided a detailed assessment and recommended not executing. What is the most appropriate next step?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Use Claude's output as reference information only, and delegate the final decision on contract execution to the responsible attorney or legal manager. High-risk decisions in legal, medical, or financial domains should never be acted on based on AI output alone without human review.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">inappropriate use case</td><td class="kw-jp">不適切なユースケース</td><td class="kw-desc">検証なしの高リスク判断をAIに委ねること。法的・医療・財務が典型</td></tr><tr><td class="kw-en">human oversight</td><td class="kw-jp">人間の監督</td><td class="kw-desc">最終判断の責任は人間にある。AIは補助ツール。重要判断で必須</td></tr><tr><td class="kw-en">appropriate use</td><td class="kw-jp">適切なユースケース</td><td class="kw-desc">下書き・要約・ブレスト・分析補助。人間の検証を前提とする活用</td></tr><tr><td class="kw-en">legal domain</td><td class="kw-jp">法務領域</td><td class="kw-desc">高リスク領域の一つ。Claude出力は参考情報として活用し専門家に最終判断を委ねる</td></tr><tr><td class="kw-en">final decision</td><td class="kw-jp">最終判断</td><td class="kw-desc">AIは推薦できるが最終権限は常に人間が保持する</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q012">
+  <div class="qnum">Q12 <span class="domain-tag">Governance, Risk, and Responsible Use</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">採用担当のアソシエイトが Claude を使って応募者の CV を評価し、面接候補者を絞り込むリストを作成した。この活用方法について倫理的観点から最も重要な考慮事項はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>AI が採用基準にバイアスを持ち込む可能性を認識し、最終候補者リストは採用担当者と人事マネージャーが内容を確認・検証する。AI による絞り込みはあくまで補助であり、採用という重要な意思決定への説明責任（accountability）は人間にある。また AI を使ったことの透明性（transparency）も組織内で確保する。</div>
+      <div class="explanation"><strong>解説：</strong>倫理的含意（ethical implications）の 3 本柱：① バイアス（AI 出力の偏りが意思決定に影響）② 透明性（AI を使ったことの開示）③ 説明責任と人間の監督（最終責任は人間にある）。採用という不可逆的・高リスクな意思決定で AI 出力をそのまま使うと、バイアスが組織の採用に体系的に混入する危険がある。Claude を補助ツールとして使い、必ず人間が最終検証するプロセスが必要。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A recruiting associate used Claude to evaluate applicant CVs and create a shortlist of interview candidates. From an ethical standpoint, what is the most important consideration regarding this use?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Recognize the risk that AI may introduce bias into the evaluation criteria, and have the hiring associate and HR manager review and validate the shortlist. AI screening is only an aid — humans bear accountability for this significant employment decision. Transparency about AI usage should also be ensured within the organization.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">bias</td><td class="kw-jp">バイアス</td><td class="kw-desc">AI出力が特定の属性・立場に偏る危険性。採用・評価タスクで特に重要</td></tr><tr><td class="kw-en">transparency</td><td class="kw-jp">透明性</td><td class="kw-desc">AIを使ったことを組織内外に適切に開示すること</td></tr><tr><td class="kw-en">accountability</td><td class="kw-jp">説明責任</td><td class="kw-desc">AIが出力しても最終的な責任は人間（組織）が負う</td></tr><tr><td class="kw-en">ethical implications</td><td class="kw-jp">倫理的含意</td><td class="kw-desc">AI利用が人・組織・社会に与える倫理的影響を考慮すること</td></tr><tr><td class="kw-en">irreversible decision</td><td class="kw-jp">不可逆的な判断</td><td class="kw-desc">採用・解雇など取り消しが難しい決定。人間レビューが必須</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q013">
+  <div class="qnum">Q13 <span class="domain-tag">Prompting and Task Execution</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">マーケティングアソシエイトが Claude に「SNS 投稿を書いて」と依頼したが、生成された投稿は長すぎ、ターゲット層にも合っていなかった。同じ失敗を繰り返さないために、次回のプロンプトに最低限含めるべき要素はどれか？（3 つ選べ）</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>① 想定読者（ターゲット層：20-30 代の IT 関心層など）② 出力形式と分量（文字数上限・ハッシュタグの有無など）③ トーン（フレンドリー・プロフェッショナルなど）。これらを明示することで Claude が成功条件を理解し、期待に沿った出力を生成できる。</div>
+      <div class="explanation"><strong>解説：</strong>効果的なプロンプトの構成要素：文脈（背景・目的）・明確なタスク・出力形式と分量・想定読者・制約・（必要なら）例。SNS 投稿の場合、「長すぎる」→ 文字数を指定、「ターゲット層に合わない」→ 読者を明示、「トーンが違う」→ トーンを指定するのが直接的な解決策。「良い感じに」ではなく「IT 関心層の 20-30 代向け・フレンドリーなトーン・140 字以内・ハッシュタグ 3 つ」が具体的なプロンプト例。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A marketing associate asked Claude to 'write an SNS post,' but the result was too long and didn't fit the target audience. What are the minimum elements to include in the next prompt to avoid repeating this failure? (Select THREE)</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>① Target audience (e.g., IT-interested 20-30s) ② Output format and length (character limit, hashtag requirements, etc.) ③ Tone (friendly, professional, etc.). Specifying these elements allows Claude to understand success criteria and generate output that meets expectations.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">prompt components</td><td class="kw-jp">プロンプトの構成要素</td><td class="kw-desc">文脈・タスク・形式・読者・制約・例。有効なプロンプトに含める要素</td></tr><tr><td class="kw-en">intended audience</td><td class="kw-jp">想定読者</td><td class="kw-desc">出力を受け取る対象者。トーン・語彙・分量の調整基準</td></tr><tr><td class="kw-en">output format</td><td class="kw-jp">出力形式</td><td class="kw-desc">文字数・箇条書き・ハッシュタグなど。明示することで期待に近い出力を得る</td></tr><tr><td class="kw-en">tone</td><td class="kw-jp">トーン</td><td class="kw-desc">フレンドリー・プロフェッショナルなど文体・感情的なスタンス</td></tr><tr><td class="kw-en">specificity</td><td class="kw-jp">具体性</td><td class="kw-desc">「良い感じに」ではなく成功条件を具体的に書くことで品質が上がる</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q014">
+  <div class="qnum">Q14 <span class="domain-tag">Prompting and Task Execution</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">教育担当のアソシエイトが Claude に「新入社員向けの 3 日間研修プログラムのカリキュラムを作って。対象者は文系卒・IT 経験なし・30 名。会社のシステム・業務フロー・コンプライアンス研修を含めて」と一度に依頼した。出力のクオリティを最大化するための最善のアプローチはどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>依頼をタスク分解して段階的に進める。例：① 研修ゴールと優先度の整理 → ② 各日のテーマと大枠の決定 → ③ 各セッションの詳細コンテンツ作成 → ④ 評価方法・フォローアップ計画。各ステップで出力を確認し、具体的なフィードバックで反復改善する。</div>
+      <div class="explanation"><strong>解説：</strong>「複雑な依頼が一度でうまくいかない」→ タスク分解 + 反復が正解。研修設計のような多くの変数が絡む依頼は、一度に全部頼むと文脈不足で表面的な出力になる。段階ごとに確認することで品質制御が可能。ブレインストーミングと実装の段階を分ける（評価・絞り込みは後段の別ステップ）のもポイント。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A training associate asked Claude all at once to 'create a 3-day onboarding curriculum. Target: 30 liberal arts graduates with no IT experience. Include company systems, business flow, and compliance training.' What is the best approach to maximize output quality?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Decompose the request into steps and proceed incrementally: ① Clarify training goals and priorities → ② Determine daily themes and overall structure → ③ Create detailed content for each session → ④ Plan evaluation and follow-up. Review output at each step and iterate with specific feedback.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">task decomposition</td><td class="kw-jp">タスク分解</td><td class="kw-desc">複雑な依頼をステップに分けて段階的に進める手法</td></tr><tr><td class="kw-en">brainstorming</td><td class="kw-jp">ブレインストーミング</td><td class="kw-desc">まず量と多様性を求め、評価・絞り込みは後段で行う</td></tr><tr><td class="kw-en">iteration</td><td class="kw-jp">反復改善</td><td class="kw-desc">出力を評価し具体的なフィードバックで改善するループ</td></tr><tr><td class="kw-en">analysis</td><td class="kw-jp">分析タスク</td><td class="kw-desc">データ・評価基準・観点を明示して根拠も求めるプロンプト戦略</td></tr><tr><td class="kw-en">drafting</td><td class="kw-jp">下書きタスク</td><td class="kw-desc">読み手・トーン・形式・分量を指定し参考例を渡すプロンプト戦略</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q015">
+  <div class="qnum">Q15 <span class="domain-tag">Prompting and Task Execution</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">広報担当のアソシエイトが Claude に会社の新製品リリースのプレスリリースを依頼し、最初の出力を確認した。内容は概ね良いが、導入部が弱く、製品の主要な差別化ポイントが明確に伝わっていないと感じた。最も効果的な改善のアプローチはどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>具体的に何が不足しているかを伝えてフォローアップする：「導入部を書き直して。最初の 2 文で製品の最大の差別化ポイント（○○）を明示して、読者に続きを読ませる hook を入れて」。ゼロから依頼し直すより、差分のフィードバックで詰める方が効率的。</div>
+      <div class="explanation"><strong>解説：</strong>反復改善の実践：「何が足りないかを具体的に伝えて修正させる」が正解。誤答パターン：「もう一度同じプロンプトで再実行した（改善しない）」「全部作り直した（効率的でない）」「Claude に自分で評価させた（自己検証は不可）」。差分フィードバック（何がよくて何が足りないか）を具体的に伝えることで、次の出力の精度が向上する。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A PR associate asked Claude for a press release for a new product launch. After reviewing the output, the content is generally good, but the introduction is weak and the product's key differentiator is not clearly communicated. What is the most effective improvement approach?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Provide specific follow-up feedback: 'Rewrite the introduction. In the first two sentences, explicitly state the product's key differentiator (X), and include a hook to make readers continue.' Providing delta feedback is more efficient than starting from scratch.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">iterate</td><td class="kw-jp">反復改善</td><td class="kw-desc">何が不足かを具体的に伝えて修正させるループ。再実行より効率的</td></tr><tr><td class="kw-en">delta feedback</td><td class="kw-jp">差分フィードバック</td><td class="kw-desc">良い点と改善点を具体的に伝えて次の出力精度を上げる</td></tr><tr><td class="kw-en">hook</td><td class="kw-jp">フック</td><td class="kw-desc">読者の興味を引く導入部の書き方。プロンプトで具体的に指定できる</td></tr><tr><td class="kw-en">drafting</td><td class="kw-jp">下書き</td><td class="kw-desc">読み手・トーン・形式・分量を指定して参考例を渡すタスク種別</td></tr><tr><td class="kw-en">prompt refinement</td><td class="kw-jp">プロンプト改善</td><td class="kw-desc">最初のプロンプトに具体的な指示を追加して品質を向上させること</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q016">
+  <div class="qnum">Q16 <span class="domain-tag">Product and Model Selection</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">カスタマーサポートチームが Claude を使って、1 日に届く 500 件の短い問い合わせメール（1 通あたり平均 2-3 行）に対する返信テンプレートを大量生成したい。最もコスト効率の良いモデル選択はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Haiku（最速・最安モデル）を選択する。短く単純なタスクを大量処理する場合は、高性能だがコストの高い Sonnet や Opus を使う必要はなく、高速・低コストのモデルで十分な品質が得られる。最上位モデルは複雑な推論のために取っておく（reserve）。</div>
+      <div class="explanation"><strong>解説：</strong>モデル選択の鉄則：タスク要件（cost / speed / quality）に整合させる。3 択の使い分け：Haiku（最速・最安、単純・大量タスク）/ Sonnet（バランス、日常業務の標準）/ Opus（最高性能・最高コスト、複雑な推論・難しい分析）。誤答パターン：「常に Opus を使う（コストとレイテンシの浪費）」「Haiku では品質不足（単純タスクなら十分）」。条件反射：「速度とコストが品質より重要・単純・大量」→ Haiku。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A customer support team wants to use Claude to mass-generate reply templates for 500 short inquiry emails received daily (averaging 2-3 lines each). Which model selection is most cost-efficient?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Select Haiku (fastest, lowest cost model). For high-volume tasks involving short, simple requests, there is no need to use the more expensive Sonnet or Opus — the fast, low-cost model provides sufficient quality. Reserve higher-tier models for complex reasoning tasks.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">Haiku</td><td class="kw-jp">ハイク</td><td class="kw-desc">最速・最安モデル。単純で量の多いタスク（短い返信の大量生成等）に最適</td></tr><tr><td class="kw-en">Sonnet</td><td class="kw-jp">ソネット</td><td class="kw-desc">性能とコストのバランスモデル。日常業務の標準選択</td></tr><tr><td class="kw-en">Opus</td><td class="kw-jp">オーパス</td><td class="kw-desc">最高性能・最高コスト。複雑な推論・難しい分析のために取っておく</td></tr><tr><td class="kw-en">model selection</td><td class="kw-jp">モデル選択</td><td class="kw-desc">コスト・速度・品質のトレードオフに基づいて適切なモデルを選ぶ判断</td></tr><tr><td class="kw-en">cost optimization</td><td class="kw-jp">コスト最適化</td><td class="kw-desc">タスクに見合ったモデルを選ぶことでAPI利用コストを最小化する</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q017">
+  <div class="qnum">Q17 <span class="domain-tag">Product and Model Selection</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">戦略企画のアソシエイトが、自社の 5 年間の財務データと市場調査レポートを参照しながら競合優位性分析を行いたい。この作業は毎週繰り返し発生し、毎回同じ財務データと社内規程を参照する必要がある。最も効率的な claude.ai の機能選択はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Claude Projects を設定し、財務データ・市場調査レポート・社内規程をナレッジソースとして登録する。カスタム指示に分析の役割・トーン・出力形式を設定することで、毎回同じ文書を手動でアップロードする手間をなくし、一貫した品質の分析を繰り返し実施できる。</div>
+      <div class="explanation"><strong>解説：</strong>プロダクト機能 4 択の使い分け：chat（単発・即答）/ Projects（継続的ワークスペース・繰り返し業務・共通文脈が必要）/ research mode（出典付き最新情報調査）/ Artifacts（反復編集・共有・再利用する成果物）。「繰り返し行う業務 + 毎回同じ資料を参照」→ Projects が正解。毎回手動でアップロードするのは非効率。条件反射：「繰り返し使う指示 + 参照資料」→ Projects を設定。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A strategic planning associate wants to conduct competitive advantage analysis while referencing 5 years of internal financial data and market research reports. This task recurs weekly, requiring the same financial data and internal documents each time. Which claude.ai feature is most efficient?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Set up a Claude Project and register the financial data, market research reports, and internal policies as knowledge sources. Configure custom instructions with the analysis role, tone, and output format to eliminate the need to manually upload the same documents each time and enable consistent, repeatable analysis.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">Projects</td><td class="kw-jp">プロジェクト</td><td class="kw-desc">指示＋ナレッジソースを備えた継続的なワークスペース。繰り返し業務に最適</td></tr><tr><td class="kw-en">knowledge sources</td><td class="kw-jp">ナレッジソース</td><td class="kw-desc">Projectに登録する参照文書（社内規程・製品資料・過去成果物等）</td></tr><tr><td class="kw-en">custom instructions</td><td class="kw-jp">カスタム指示</td><td class="kw-desc">Projectで毎回有効な役割・トーン・ルールを設定する機能</td></tr><tr><td class="kw-en">research mode</td><td class="kw-jp">リサーチモード</td><td class="kw-desc">出典付きWeb調査向け。社内文書参照には向かない</td></tr><tr><td class="kw-en">Artifacts</td><td class="kw-jp">アーティファクト</td><td class="kw-desc">成果物の反復編集・共有向け。文書保管機能ではない</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q018">
+  <div class="qnum">Q18 <span class="domain-tag">Configuration and Knowledge Management</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">人事部の担当者が、採用活動で毎回 Claude に「あなたは採用担当者です。JD を基に候補者評価レポートを作成してください。書式は以下の通りです……」と長い指示を書き直している。効率的に解決するための最も適切な方法はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Claude Projects を作成し、システムレベルの指示に「採用担当者としての役割・評価レポートの書式・トーン・評価基準」を登録する。ナレッジソースには採用基準書・JD テンプレート・過去の高評価レポートを追加する。以降は同じ指示を毎回書かなくても、一貫した品質の評価レポートが得られる。</div>
+      <div class="explanation"><strong>解説：</strong>「毎回繰り返している指示」→ Projects のシステムレベル指示として昇格させるのが正解。システムレベル指示に書くべき内容：役割・トーン・共通ルール・出力規範（個別の依頼内容ではなく常に効かせたい規範）。誤答パターン：「毎回プロンプトに書き続ける（非効率）」「Memory に入れる（Memory は個人的なメモ向け・Projects とは異なる）」。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">An HR associate rewrites the same long instruction every time when using Claude for recruiting: 'You are a recruiter. Based on the JD, create a candidate evaluation report using the following format...' What is the most appropriate way to solve this efficiently?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Create a Claude Project and register the role, report format, tone, and evaluation criteria as system-level instructions. Add the hiring criteria, JD templates, and past high-quality reports as knowledge sources. Going forward, consistent evaluation reports can be produced without rewriting instructions each time.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">system-level instructions</td><td class="kw-jp">システムレベル指示</td><td class="kw-desc">Projectで毎回有効な役割・トーン・制約を設定する。個別依頼内容ではなく規範を書く</td></tr><tr><td class="kw-en">Projects</td><td class="kw-jp">プロジェクト</td><td class="kw-desc">指示＋ナレッジを備えた継続ワークスペース。繰り返し業務の指示を昇格させる場所</td></tr><tr><td class="kw-en">knowledge management</td><td class="kw-jp">ナレッジ管理</td><td class="kw-desc">参照資料をProjectに登録し毎回手動でアップロードする手間をなくすこと</td></tr><tr><td class="kw-en">workflow efficiency</td><td class="kw-jp">ワークフロー効率</td><td class="kw-desc">繰り返しタスクをProject化してプロンプト作成の手間を削減する</td></tr><tr><td class="kw-en">configuration</td><td class="kw-jp">設定・構成</td><td class="kw-desc">Projectの指示・ナレッジ・コネクタを適切に設定して活用すること</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q019">
+  <div class="qnum">Q19 <span class="domain-tag">Configuration and Knowledge Management</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">営業部門が Claude Project を使って製品提案書の作成を効率化していたが、先月の価格改定でナレッジソースに登録した価格表が古くなった。Claude が古い価格で提案書を生成していることに気づいた担当者が取るべき最も適切な対応はどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>Project のナレッジソースから古い価格表を削除し、最新の価格表に入れ替える（更新する）。ナレッジと指示は定期的にレビューし、情報が変わったら速やかに更新することが効果的な Project 管理の基本。</div>
+      <div class="explanation"><strong>解説：</strong>「Project の回答が古い情報に基づいている」→ ナレッジソースの更新が正解。inform / maintain / update：情報が変わったらナレッジと指示を更新する。古い文書の入れ替え・陳腐化した指示の見直しまでが出題目標。誤答パターン：「毎回のチャットで正しい価格を補足した（根本解決でない）」「Project を作り直した（必要以上）」。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A sales team was using a Claude Project to efficiently create product proposals, but last month's price revision made the price list in the knowledge sources outdated. Claude is now generating proposals with old prices. What is the most appropriate response?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Remove the outdated price list from the Project knowledge sources and replace it with the current price list. Regularly reviewing and promptly updating knowledge and instructions when information changes is the foundation of effective Project management.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">knowledge update</td><td class="kw-jp">ナレッジ更新</td><td class="kw-desc">情報が変わったらProjectのナレッジソースを速やかに入れ替えること</td></tr><tr><td class="kw-en">maintain</td><td class="kw-jp">維持・管理</td><td class="kw-desc">Projectの指示・ナレッジを最新状態に保つ継続的な管理活動</td></tr><tr><td class="kw-en">stale information</td><td class="kw-jp">陳腐化した情報</td><td class="kw-desc">古いナレッジが正しくない出力を引き起こす原因</td></tr><tr><td class="kw-en">connectors</td><td class="kw-jp">コネクタ</td><td class="kw-desc">Google Drive・Gmail等の外部ソースをProjectに接続する機能</td></tr><tr><td class="kw-en">configuration management</td><td class="kw-jp">設定管理</td><td class="kw-desc">指示・ナレッジを定期レビューして最新性を維持するプロセス</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="qblock" id="q020">
+  <div class="qnum">Q20 <span class="domain-tag">Troubleshooting and Optimization</span></div>
+  <div class="lang-block jp">
+    <div class="lang-label">🇯🇵 日本語</div>
+    <div class="question">調達担当のアソシエイトが Claude に「ベンダー A と B を比較してコスト削減の提案をして」と依頼したが、出力が表面的で具体性に欠けていた。出力品質の問題を診断するための最も系統的なアプローチはどれか？</div>
+    <details class="answer-box">
+      <summary>解答・解説を見る</summary>
+      <div class="answer"><strong>解答：</strong>原因を切り分けて診断する：① 指示が曖昧か（比較軸・評価基準を明示していない）→ 具体化 ② 必要な情報を渡していないか（各社の見積書・仕様・契約条件）→ 背景情報の追加 ③ タスクが大きすぎるか → 分解して段階的に進める ④ 長い会話で品質が低下したか → 新しいチャットで再開。原因が特定できたら、対処法を一つずつ試す。</div>
+      <div class="explanation"><strong>解説：</strong>トラブルシューティングの系統的アプローチ：曖昧な指示 → 具体化 / 文脈不足 → 情報追加 / タスク過大 → 分解 / 長い会話 → 新規チャット / 機能・モデル不一致 → 切り替え。誤答パターン：「同じプロンプトをもう一度送った（改善しない）」「より詳しい回答を求めて同じ依頼を繰り返した」。adjust approach based on feedback and results：何が悪いかを特定して対処することが最適化の本質。</div>
+    </details>
+  </div>
+  <div class="lang-block en">
+    <div class="lang-label">🇺🇸 English</div>
+    <div class="question">A procurement associate asked Claude to 'compare Vendor A and B and suggest cost savings,' but the output was superficial and lacked specifics. What is the most systematic approach to diagnosing the output quality issue?</div>
+    <details class="answer-box">
+      <summary>Show Answer</summary>
+      <div class="answer"><strong>Answer: </strong>Diagnose by isolating the cause: ① Is the instruction ambiguous (comparison axes and evaluation criteria not specified)? → Clarify ② Is necessary information missing (quotes, specs, contract terms)? → Add context ③ Is the task too broad? → Decompose it ④ Has a long conversation degraded quality? → Start a new chat. Once the cause is identified, address one factor at a time.</div>
+    </details>
+  </div>
+  <div class="kw-section">
+    <div class="kw-label">📖 Key Vocabulary</div>
+    <table class="kw-table"><thead><tr><th>Term</th><th>日本語</th><th>解説</th></tr></thead><tbody><tr><td class="kw-en">troubleshooting</td><td class="kw-jp">トラブルシューティング</td><td class="kw-desc">質の低い出力の原因を切り分けて系統的に診断・対処すること</td></tr><tr><td class="kw-en">ambiguous instruction</td><td class="kw-jp">曖昧な指示</td><td class="kw-desc">比較軸・評価基準・形式が不明確。具体化することで品質が向上する</td></tr><tr><td class="kw-en">context</td><td class="kw-jp">文脈・背景情報</td><td class="kw-desc">必要な資料（見積書・仕様・契約条件等）が不足すると表面的な出力になる</td></tr><tr><td class="kw-en">optimization</td><td class="kw-jp">最適化</td><td class="kw-desc">繰り返し依頼はテンプレート化・Project化して効率と品質を向上させること</td></tr><tr><td class="kw-en">adjust approach</td><td class="kw-jp">アプローチ調整</td><td class="kw-desc">同じプロンプト再実行ではなく、原因特定→対処法変更が効果的</td></tr></tbody></table>
+  </div>
+</div>
+  <div class="footer">CCAO-F BILI Vol.1 — Claude Certified Associate Foundations<br>GitHub Pages で公開中</div>
+</div>
+</body>
+</html>
