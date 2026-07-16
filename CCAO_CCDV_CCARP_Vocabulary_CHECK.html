@@ -4,53 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>CCAO+CCDV+CCARP Vocabulary 170語</title>
-<style>
-:root{--primary:#4f46e5;--bg:#f8fafc;--text:#1e293b;--border:#e2e8f0;--text-muted:#64748b}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:32px}
-.site-header{background:linear-gradient(135deg,#1d4ed8,#1e1b4b);color:white;padding:16px 20px}
-.site-header h1{font-size:1.1rem;font-weight:700}
-.subtitle{font-size:.78rem;opacity:.85;margin-top:3px}
-.toc{background:white;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px}
-.toc a{font-size:.7rem;color:#4f46e5;text-decoration:none;background:#eef2ff;padding:3px 8px;border-radius:10px}
-.toc a:hover{background:#4f46e5;color:white}
-.section{max-width:860px;margin:16px auto 0;padding:0 16px;content-visibility:auto;contain-intrinsic-size:0 480px}
-.section-title{font-size:.9rem;font-weight:800;color:white;padding:7px 14px;border-radius:8px 8px 0 0;margin-top:16px}
-.vocab-table{width:100%;border-collapse:collapse;background:white;border-radius:0 8px 8px 8px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06)}
-.vocab-table tr{border-bottom:1px solid var(--border)}
-.vocab-table tr:last-child{border-bottom:none}
-.vocab-table tr:hover{background:#fafafa}
-.td-word{font-weight:700;font-size:.88rem;padding:9px 12px;white-space:nowrap;min-width:150px;color:#1e1b4b;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s}
-.td-word:active{opacity:.75}
-.td-word.speaking{background:rgba(34,197,94,.2)!important;border-radius:6px}
-.td-word.current-play{background:rgba(14,165,233,.25)!important;border-radius:6px;outline:2px solid #0ea5e9}
-.td-pos{font-size:.75rem;color:#6366f1;font-style:italic;padding:9px 8px;white-space:nowrap}
-.td-meaning{font-size:.83rem;padding:9px 12px;line-height:1.5;color:var(--text)}
-.note{display:block;font-size:.76rem;color:#b45309;margin-top:3px;background:#fffbeb;padding:2px 6px;border-radius:4px;border-left:2px solid #f59e0b}
-.note-ok{display:block;font-size:.76rem;color:#166534;margin-top:3px;background:#dcfce7;padding:2px 8px;border-radius:4px;border-left:3px solid #16a34a;font-weight:700}
-.note-ng{display:block;font-size:.76rem;color:#991b1b;margin-top:3px;background:#fee2e2;padding:2px 8px;border-radius:4px;border-left:3px solid #dc2626;font-weight:700}
-.count-badge{font-size:.72rem;background:rgba(255,255,255,.25);padding:1px 6px;border-radius:8px;margin-left:8px}
-.tag{display:inline-block;font-size:.62rem;padding:1px 5px;border-radius:3px;margin-left:4px;font-weight:700;vertical-align:middle;line-height:1.3}
-.tag-dv{background:#dbeafe;color:#1d4ed8}
-.tag-p{background:#fce7f3;color:#9d174d}
-.tag-shared{background:#d1fae5;color:#065f46}
+<style>:root{--primary:#818cf8;--bg:#0f172a;--text:#e2e8f0;--border:#334155;--text-muted:#94a3b8}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:32px}.site-header{background:linear-gradient(135deg,#4f46e5,#3730a3);color:white;padding:16px 20px}.site-header h1{font-size:1.1rem;font-weight:700}.subtitle{font-size:.78rem;opacity:.85;margin-top:3px}.toc{background:#1e293b;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px}.toc a{font-size:.7rem;color:#a5b4fc;text-decoration:none;background:#1e1654;padding:3px 8px;border-radius:10px}.toc a:hover{background:#4f46e5;color:white}.section{max-width:860px;margin:16px auto 0;padding:0 16px}.section-title{font-size:.9rem;font-weight:800;color:white;padding:7px 14px;border-radius:8px 8px 0 0;margin-top:16px}.vocab-table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:0 8px 8px 8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.5)}.vocab-table tr{border-bottom:1px solid var(--border)}.vocab-table tr:last-child{border-bottom:none}.vocab-table tr:hover{background:#263348}.td-word{font-weight:700;font-size:.95rem;padding:9px 12px;white-space:nowrap;min-width:130px;color:#a5b4fc;letter-spacing:.01em}.td-pos{font-size:.75rem;color:#67e8f9;font-style:italic;padding:9px 8px;white-space:nowrap}.td-meaning{font-size:.83rem;padding:9px 12px;line-height:1.5;color:var(--text)}.note{display:block;font-size:.76rem;color:#fcd34d;margin-top:3px;font-style:normal;background:#1c1207;padding:2px 6px;border-radius:4px;border-left:2px solid #f59e0b}.count-badge{font-size:.72rem;background:rgba(255,255,255,.25);padding:1px 6px;border-radius:8px;margin-left:8px}@media(max-width:600px){.td-word{min-width:90px;font-size:.9rem}.td-meaning{font-size:.82rem}.section{padding:0 8px}}
+/* ── チェックボックス ── */
 .td-check{width:36px;text-align:center;padding:5px 4px;vertical-align:middle}
 .vocab-check{width:20px;height:20px;cursor:pointer;accent-color:#16a34a;border-radius:4px}
 tr.memorized .td-pos,tr.memorized .td-meaning{opacity:.3;text-decoration:line-through}
 tr.memorized .td-word{opacity:.3}
 tr.memorized .td-check{opacity:1}
-.progress-wrap{background:#f0f9ff;border-bottom:2px solid #bfdbfe;padding:8px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.prog-stat{font-size:.82rem;color:#1e293b}
-.prog-num{font-weight:800;color:#0369a1;font-size:1rem}
-.prog-bar-outer{flex:1;min-width:150px;background:#dbeafe;border-radius:99px;height:10px;overflow:hidden}
-.prog-bar-inner{height:100%;background:linear-gradient(90deg,#16a34a,#4ade80);border-radius:99px;transition:width .3s}
-.action-btn{background:#0369a1;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap}
+/* ── 進捗バー ── */
+.progress-wrap{background:#1e293b;border-bottom:2px solid #1e40af;
+  padding:8px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.prog-stat{font-size:.82rem;color:var(--text)}
+.prog-num{font-weight:800;color:#38bdf8;font-size:1rem}
+.prog-bar-outer{flex:1;min-width:150px;background:#1e3a5f;border-radius:99px;
+  height:10px;overflow:hidden}
+.prog-bar-inner{height:100%;background:linear-gradient(90deg,#16a34a,#4ade80);
+  border-radius:99px;transition:width .3s}
+.action-btn{background:#0369a1;color:#fff;border:none;border-radius:8px;
+  padding:8px 14px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap}
 .action-btn:hover{filter:brightness(1.15)}
 .action-btn.danger{background:#dc2626}
 .action-btn.green{background:#16a34a}
-.player-wrap{background:#1e293b;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:2px solid #334155;position:sticky;top:0;z-index:1000}
-.player-wrap select,.player-wrap button{font-size:.8rem;border-radius:8px;border:none;cursor:pointer;padding:7px 12px;font-weight:700;pointer-events:auto}
-.player-wrap select{background:#334155;color:#e2e8f0;min-width:120px}
+/* ── スマホ最適化 ── */
+.section{content-visibility:auto;contain-intrinsic-size:0 480px}
+/* ── 自動再生コントロール ── */
+.player-wrap{background:#1e293b;padding:10px 14px;display:flex;
+  flex-wrap:wrap;gap:8px;align-items:center;border-bottom:2px solid #334155;
+  position:sticky;top:0;z-index:1000}
+.player-wrap select,.player-wrap button{
+  font-size:.8rem;border-radius:8px;border:none;cursor:pointer;
+  padding:7px 12px;font-weight:700;pointer-events:auto}
+.player-wrap select{background:#334155;color:#e2e8f0;min-width:110px}
 .btn-play{background:#22c55e;color:#fff}
 .btn-play:disabled{background:#4b5563;color:#9ca3af;cursor:not-allowed}
 .btn-pause{background:#f59e0b;color:#fff}
@@ -66,29 +50,58 @@ tr.memorized .td-check{opacity:1}
 .btn-speed.active{background:#0ea5e9;color:#fff}
 .btn-mode{background:#334155;color:#94a3b8;border:1px solid #475569!important;font-size:.78rem!important}
 .btn-mode.on{background:#d97706;color:#fff;border-color:#d97706!important}
-@media(max-width:600px){.td-word{min-width:110px;font-size:.82rem}.td-meaning{font-size:.78rem}.section{padding:0 8px}}
+/* ── 読み上げ中ハイライト ── */
+.td-word{cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s}
+.td-word:active{opacity:.75}
+.td-word.speaking{background:rgba(34,197,94,.2)!important;border-radius:6px}
+.td-word.current-play{background:rgba(14,165,233,.25)!important;
+  border-radius:6px;outline:2px solid #0ea5e9}
+
+/* ── iPhone 最適化（480px以下） ── */
 @media(max-width:480px){
-  .vocab-table thead{display:none}.vocab-table tbody{display:block}
-  .vocab-table tr{display:flex;flex-wrap:wrap;align-items:center;padding:8px 10px;gap:0;border-bottom:1px solid var(--border)}
+  /* テーブルをflexカードに変換 */
+  .vocab-table thead{display:none}
+  .vocab-table tbody{display:block}
+  .vocab-table tr{
+    display:flex;flex-wrap:wrap;align-items:center;
+    padding:8px 10px;gap:0;border-bottom:1px solid var(--border);
+  }
   .vocab-table tr:last-child{border-bottom:none}
-  .td-check{width:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0}
-  .td-word{flex:1 1 auto;white-space:nowrap;min-width:0;font-size:.88rem;padding:0 6px}
-  .td-pos{flex:0 0 auto;font-size:.72rem;padding:0 4px;align-self:center}
-  .td-meaning{flex:0 0 100%;font-size:.82rem;padding:5px 6px 5px 40px;line-height:1.55;white-space:normal;word-break:break-word}
+  /* チェックボックス列 */
+  .td-check{
+    width:36px;flex-shrink:0;display:flex;
+    align-items:center;justify-content:center;padding:0;
+  }
+  /* 単語 */
+  .td-word{
+    flex:1 1 auto;white-space:nowrap;min-width:0;
+    font-size:.92rem;padding:0 6px;
+  }
+  /* 品詞 */
+  .td-pos{
+    flex:0 0 auto;font-size:.72rem;padding:0 4px;
+    align-self:center;
+  }
+  /* 意味：2行目に全幅で表示 */
+  .td-meaning{
+    flex:0 0 100%;
+    font-size:.82rem;padding:5px 6px 5px 40px;
+    line-height:1.55;color:var(--text);
+    white-space:normal;word-break:break-word;
+  }
+  /* プレーヤーをスクロール可能に */
   .player-wrap{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:8px 10px}
   .player-wrap::-webkit-scrollbar{height:3px}
   .player-wrap::-webkit-scrollbar-thumb{background:#475569;border-radius:2px}
+  /* セクション余白 */
+  .section{padding:0 6px}
+  /* TOCをスクロール */
   .toc{flex-wrap:nowrap;overflow-x:auto;padding:6px 10px}
   .toc::-webkit-scrollbar{display:none}
 }
-@media print{.player-wrap,.progress-wrap,.action-btn{display:none}.section{padding:0}}
-
-/* ── 試験バッジ ── */
-.bdg{display:inline-block;font-size:.62rem;font-weight:700;padding:1px 5px;border-radius:4px;font-style:normal;vertical-align:middle;margin-left:4px;letter-spacing:.02em}
-.bdg-dv {background:#1e3a8a;color:#93c5fd}
-.bdg-p  {background:#14532d;color:#86efac}
-.bdg-ao {background:#78350f;color:#fcd34d}
-.bdg-com{background:#1e293b;color:#94a3b8;border:1px solid #334155}
+/* ── シグナル注記 ── */
+.note-ok{display:block;font-size:.76rem;color:#166534;margin-top:3px;background:#dcfce7;padding:2px 8px;border-radius:4px;border-left:3px solid #16a34a;font-weight:700}
+.note-ng{display:block;font-size:.76rem;color:#991b1b;margin-top:3px;background:#fee2e2;padding:2px 8px;border-radius:4px;border-left:3px solid #dc2626;font-weight:700}
 
 /* ── 試験バッジ ── */
 .bdg{display:inline-block;font-size:.62rem;font-weight:700;
