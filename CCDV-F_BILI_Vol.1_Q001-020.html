@@ -74,11 +74,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
     <div class="answer-section">
       <div class="correct-answer jp">
         <div class="ans-label jp">&#10003; 正解</div>
-        <div class="ans-text jp">Message Batches API（バッチ API）を使用する。通常の Synchronous API と比べて最大 50% のコスト削減が可能で、24 時間以内の応答が保証されるため夜間バッチ処理に最適。1 リクエストに最大 10,000 件を含めることができ、80,000 件を 8 バッチに分割して送信する。</div>
+        <div class="ans-text jp">Message Batches API（バッチ API）を使用する。通常の Synchronous API と比べて最大 50% のコスト削減が可能で、24 時間以内の応答が保証されるため夜間バッチ処理に最適。1 バッチに最大 100,000 リクエストまたは 256 MB まで含めることができるため、80,000 件は 1 バッチで送信可能。</div>
       </div>
       <div class="overall-exp">
         <div class="exp-title">&#128161; 暗記ポイント</div>
-        <div class="exp-body">Message Batches API はバルク・非同期処理向けに設計されており、通常料金の半額で利用できる。リアルタイム性が不要で大量処理が必要な夜間バッチに最適。Streaming は即時表示用・Synchronous は単発リクエスト向けであり、コスト最小化には不向き。</div>
+        <div class="exp-body">Message Batches API はバルク・非同期処理向けに設計されており、通常料金の半額で利用できる。上限は 100,000 リクエストまたは 256 MB/バッチ。結果は 29 日間保持され、custom_id で各結果を突き合わせる。リアルタイム性が不要で大量処理が必要な夜間バッチに最適。条件反射：「大量＋急がない＋コスト最優先」→ Batches API。</div>
       </div>
     </div>
   </div>
@@ -89,7 +89,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
     <div class="answer-section">
       <div class="correct-answer en">
         <div class="ans-label en">&#10003; Correct Answer</div>
-        <div class="ans-text en">Use the Message Batches API. It provides up to 50% cost reduction compared to synchronous requests and guarantees responses within 24 hours, making it ideal for overnight batch processing. Up to 10,000 requests can be included per batch, so the 80,000 tickets can be split into 8 batches.</div>
+        <div class="ans-text en">Use the Message Batches API. It provides up to 50% cost reduction compared to synchronous requests and guarantees responses within 24 hours. Each batch supports up to 100,000 requests or 256 MB, so all 80,000 tickets can be sent in a single batch. Results are retained for 29 days and matched via custom_id.</div>
       </div>
       <div class="kw-box">
         <div class="kw-title">&#128273; Key Words</div>
@@ -378,11 +378,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
     <div class="answer-section">
       <div class="correct-answer jp">
         <div class="ans-label jp">&#10003; 正解</div>
-        <div class="ans-text jp">Extended Thinking（拡張思考モード）を有効にした Claude Sonnet または Opus を使用する。thinking: {type: "enabled", budget_tokens: 10000} を設定し、モデルが内部で複数の仮説を検討・検証してから最終診断候補を出力する。医療判断における多段階推論の精度が大幅に向上する。</div>
+        <div class="ans-text jp">拡張思考機能を有効にした Claude Sonnet または Opus を使用する。新世代モデル（claude-sonnet-4-6 等）では thinking: {type: "adaptive"} を設定して Adaptive Thinking を使う（モデルがタスクに応じて思考量を自律調整）。旧世代モデルでは thinking: {type: "enabled", budget_tokens: 10000} で思考トークン上限を明示指定する（Extended Thinking）。いずれもモデルが内部で仮説を検討・検証してから回答を出力する。</div>
       </div>
       <div class="overall-exp">
         <div class="exp-title">&#128161; 暗記ポイント</div>
-        <div class="exp-body">Extended Thinking はモデルが「考える時間」を確保し、複雑な多段階推論の精度を向上させる機能。budget_tokens で思考に使うトークン上限を指定（多いほど深く考えるが、コスト増）。医療・法律・数学など高い推論精度が必要なタスクに有効。通常の会話タスクには不要。</div>
+        <div class="exp-body">Thinking 機能は 2 種類ある：① Extended Thinking（旧）= budget_tokens で思考トークン上限を明示指定 ② Adaptive Thinking（新・4.6+ 推奨）= thinking: {type: "adaptive"} でモデルが必要な思考量を自律決定。対応可否はモデルによって異なる（Haiku 4.5 は adaptive 非対応）。医療・法律・数学など複雑な推論タスクに有効。</div>
       </div>
     </div>
   </div>
@@ -393,15 +393,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
     <div class="answer-section">
       <div class="correct-answer en">
         <div class="ans-label en">&#10003; Correct Answer</div>
-        <div class="ans-text en">Use Claude Sonnet or Opus with Extended Thinking enabled. Set thinking: {type: "enabled", budget_tokens: 10000} to allow the model to internally consider and validate multiple hypotheses before outputting final diagnosis candidates, significantly improving multi-step reasoning accuracy for medical decisions.</div>
+        <div class="ans-text en">Use Claude Sonnet or Opus with thinking enabled. For new-generation models (e.g., claude-sonnet-4-6), set thinking: {type: "adaptive"} for Adaptive Thinking, where the model autonomously determines the amount of reasoning needed. For older models, use thinking: {type: "enabled", budget_tokens: 10000} (Extended Thinking) to explicitly set the thinking token budget.</div>
       </div>
       <div class="kw-box">
         <div class="kw-title">&#128273; Key Words</div>
-        <table class="kw-table"><tr><td class="kw-en">Extended Thinking</td><td class="kw-ja">拡張思考モード</td><td class="kw-meaning">モデルが内部思考プロセスを経てから回答する機能。複雑な推論タスクに有効</td></tr>
-<tr><td class="kw-en">budget_tokens</td><td class="kw-ja">思考トークン予算</td><td class="kw-meaning">拡張思考で使用できるトークンの上限。多いほど深い推論が可能</td></tr>
+        <table class="kw-table"><tr><td class="kw-en">Adaptive Thinking</td><td class="kw-ja">アダプティブシンキング</td><td class="kw-meaning">新世代モデル（4.6+）の推奨。thinking: {type:'adaptive'} でモデルが思考量を自律調整</td></tr>
+<tr><td class="kw-en">Extended Thinking</td><td class="kw-ja">拡張思考モード</td><td class="kw-meaning">旧世代方式。budget_tokens で思考トークン上限を明示指定する</td></tr>
+<tr><td class="kw-en">budget_tokens</td><td class="kw-ja">思考トークン予算</td><td class="kw-meaning">Extended Thinkingで使用できるトークンの上限。budget < max_tokensが必要</td></tr>
 <tr><td class="kw-en">differential diagnosis</td><td class="kw-ja">鑑別診断</td><td class="kw-meaning">複数の疾患候補を列挙し、証拠に基づいて絞り込む医療診断のプロセス</td></tr>
-<tr><td class="kw-en">multi-step reasoning</td><td class="kw-ja">多段階推論</td><td class="kw-meaning">複数の推論ステップを経て最終結論を導くプロセス</td></tr>
-<tr><td class="kw-en">Claude Opus</td><td class="kw-ja">Claude Opus</td><td class="kw-meaning">最高インテリジェンスモデル。最も複雑なタスク向けだが最もコストが高い</td></tr>
+<tr><td class="kw-en">multi-step reasoning</td><td class="kw-ja">多段階推論</td><td class="kw-meaning">複数の推論ステップを経て最終結論を導くプロセス。Thinking機能で精度向上</td></tr>
 </table>
       </div>
     </div>
@@ -561,7 +561,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-14">
-  <div class="set-header"><span class="set-num">Q14</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="set-header"><span class="set-num">Q14</span><span class="set-domain">Agents and Workflows</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">在庫管理エージェントに search_products ツールを定義している。ツールの description と parameters の設計について、Claude が最も正確にツールを使用するためのベストプラクティスはどれか？</div>
@@ -599,7 +599,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-15">
-  <div class="set-header"><span class="set-num">Q15</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="set-header"><span class="set-num">Q15</span><span class="set-domain">Agents and Workflows</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">旅行予約エージェントが複数のAPIを呼び出してフライト・ホテル・レンタカーの空き状況を確認する。現在は順次呼び出しているため全チェックに 9 秒かかる。最も効率よく改善する方法はどれか？</div>
@@ -637,7 +637,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-16">
-  <div class="set-header"><span class="set-num">Q16</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="set-header"><span class="set-num">Q16</span><span class="set-domain">Agents and Workflows</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">自律エージェントがループ内でツールを繰り返し呼び出す設計になっている。本番環境で無限ループが発生し、API コストが急増した。このリスクを防ぐためのベストプラクティスはどれか？</div>
@@ -675,7 +675,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-17">
-  <div class="set-header"><span class="set-num">Q17</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="set-header"><span class="set-num">Q17</span><span class="set-domain">Agents and Workflows</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">医療記録入力エージェントが患者情報を電子カルテシステムに書き込む前に、医師の確認を必要とする仕組みを実装したい。Claude Claude API のエージェント設計でどのように実現するか？</div>
@@ -713,7 +713,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-18">
-  <div class="set-header"><span class="set-num">Q18</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="set-header"><span class="set-num">Q18</span><span class="set-domain">Agents and Workflows</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">デバッグ支援エージェントがツール実行中にエラーを返した。エラー内容：「FileNotFoundError: config.yaml が見つかりません」。エージェントがこのエラーを適切に処理して問題解決を継続するために、tool_result をどのように設計すべきか？</div>
@@ -751,7 +751,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-19">
-  <div class="set-header"><span class="set-num">Q19</span><span class="set-domain">MCP Integration</span></div>
+  <div class="set-header"><span class="set-num">Q19</span><span class="set-domain">Tools and MCPs</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">開発チームが社内の PostgreSQL データベースを Claude に接続するため MCP（Model Context Protocol）サーバーを構築している。MCP サーバーが提供すべき機能の種類と、セキュリティ設計のベストプラクティスはどれか？</div>
@@ -789,7 +789,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 </div>
 
 <div class="question-set" id="card-20">
-  <div class="set-header"><span class="set-num">Q20</span><span class="set-domain">MCP Integration</span></div>
+  <div class="set-header"><span class="set-num">Q20</span><span class="set-domain">Tools and MCPs</span></div>
   <div class="jp-card">
     <div class="lang-label jp">&#127471;&#127477; Japanese</div>
     <div class="question-text">MCP サーバーを開発中。ファイルシステムへのアクセスを提供する際に、ファイルの読み取り（静的コンテンツ）と、ファイルの作成・削除（アクション実行）をそれぞれどのプリミティブ（tools / resources / prompts）に実装すべきか？</div>
