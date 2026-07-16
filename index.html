@@ -30,6 +30,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 .acc-en{background:linear-gradient(180deg,#0ea5e9,#38bdf8)}
 .acc-bili{background:linear-gradient(180deg,#10b981,#34d399)}
 .acc-vocab{background:linear-gradient(180deg,#f59e0b,#fbbf24)}
+.acc-remain{background:linear-gradient(180deg,#8b5cf6,#a78bfa)}
+.acc-others{background:linear-gradient(180deg,#0891b2,#22d3ee)}
 .card-vocab{grid-column:1/-1;padding:18px 16px;display:flex;align-items:center;gap:14px}
 .card-vocab .card-body{flex:1}
 .card-vocab .card-title{font-size:1rem}
@@ -43,25 +45,46 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","No
 <div class="hero">
   <h1>CCA-F 学習教材</h1>
   <p>Claude Certified Architect – Foundations<br>問題集 &amp; 語彙帳</p>
-  <span class="badge">180問 / 419語</span>
-  <span class="badge">BILI 問題集 / 語彙帳</span>
+  <span class="badge">180問 / BILI 問題集</span>
+  <span class="badge">CCAR-F 368語 / 他試験 170語</span>
 </div>
 
 <div class="container">
 
-  <!-- 語彙帳 -->
+  <!-- CCAR-F 語彙帳 -->
   <div class="section">
     <div class="section-header">
       <span class="section-icon">📚</span>
-      <span class="section-title">語彙帳（単語チェック）</span>
+      <span class="section-title">CCAR-F 語彙帳</span>
+      <span class="section-sub">未記憶語 368語</span>
     </div>
     <div class="cards">
-      <a class="card card-vocab" href="CCA-F_Vocabulary_CHECK.html">
-        <div class="card-accent acc-vocab"></div>
+      <a class="card card-vocab" href="CCA-F_Vocab_remain_clean.html">
+        <div class="card-accent acc-remain"></div>
         <div class="card-body">
-          <div class="card-label">Vocabulary</div>
-          <div class="card-title">CCA-F 単語帳 CHECK</div>
-          <div class="vocab-stat">419語 ・ チェック &amp; 自動読み上げ付き</div>
+          <div class="card-label">Vocabulary – Remain</div>
+          <div class="card-title">CCA-F 単語帳 残り</div>
+          <div class="vocab-stat">368語 ・ チェック &amp; 自動読み上げ付き</div>
+        </div>
+        <span class="arrow">›</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 他試験 語彙帳 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🎓</span>
+      <span class="section-title">他試験 語彙帳</span>
+      <span class="section-sub">CCAO-F / CCDV-F / CCAR-P</span>
+    </div>
+    <div class="cards">
+      <a class="card card-vocab" href="CCAO_CCDV_CCARP_Vocabulary_CHECK.html">
+        <div class="card-accent acc-others"></div>
+        <div class="card-body">
+          <div class="card-label">Vocabulary – Others</div>
+          <div class="card-title">CCAO + CCDV + CCAR-P 単語帳</div>
+          <div class="vocab-stat">170語 ・ 試験バッジ付き ・ 自動読み上げ付き</div>
         </div>
         <span class="arrow">›</span>
       </a>
