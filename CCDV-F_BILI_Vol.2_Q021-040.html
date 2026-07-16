@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCDV-F BILI Vol.2 Q021-040</title>
+<style>
+:root{
+  --jp-accent:#4f46e5;--jp-bg:#f8fafc;
+  --jp-correct-bg:#f0fdf4;--jp-correct-border:#16a34a;
+  --jp-exp-bg:#fffbeb;--jp-exp-border:#f59e0b;
+  --en-accent:#0d9488;--en-correct-bg:#f0fdfa;--en-correct-border:#0d9488;
+  --en-exp-bg:#f0f9ff;--en-exp-border:#0ea5e9;
+  --text:#1e293b;--text-muted:#64748b;--border:#e2e8f0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:#f1f5f9;color:var(--text);padding-bottom:32px}
+.site-header{background:linear-gradient(135deg,#0f172a,#1e3a5f,#0d9488);color:white;padding:18px 20px 15px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.site-header h1{font-size:1.1rem;font-weight:800;letter-spacing:.02em}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:4px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#0d9488;color:white;border-color:#0d9488}
+.cards-container{max-width:860px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:20px}
+.question-set{background:white;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);scroll-margin-top:80px}
+.set-header{background:linear-gradient(90deg,#0f172a 0%,#1e3a5f 50%,#0d9488 100%);color:white;padding:8px 16px;display:flex;align-items:center;gap:10px}
+.set-num{font-size:1.1rem;font-weight:800;letter-spacing:.05em}
+.set-domain{font-size:.7rem;opacity:.85;margin-left:auto;background:rgba(255,255,255,.15);padding:2px 10px;border-radius:10px}
+.jp-card{border-left:5px solid var(--jp-accent);background:var(--jp-bg)}
+.en-card{border-left:5px solid var(--en-accent);background:#f0fdfa}
+.lang-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:8px 16px 0}
+.lang-label.jp{color:var(--jp-accent)}
+.lang-label.en{color:var(--en-accent)}
+.question-text{padding:10px 16px 12px;font-size:.92rem;line-height:1.85;color:var(--text);border-bottom:1px solid var(--border)}
+.question-text.en{color:#134e4a;background:#f0fdfa}
+.answer-section{padding:11px 16px 14px}
+.correct-answer.jp{background:var(--jp-correct-bg);border:1.5px solid var(--jp-correct-border);border-radius:8px;padding:11px}
+.correct-answer.en{background:var(--en-correct-bg);border:1.5px solid var(--en-correct-border);border-radius:8px;padding:11px}
+.ans-label{font-size:.76rem;font-weight:700;margin-bottom:5px}
+.ans-label.jp{color:#166534}
+.ans-label.en{color:#134e4a}
+.ans-text{font-size:.9rem;font-weight:600;line-height:1.65}
+.ans-text.jp{color:#14532d}
+.ans-text.en{color:#134e4a}
+.overall-exp{margin-top:9px;background:var(--jp-exp-bg);border:1.5px solid var(--jp-exp-border);border-radius:8px;padding:10px 13px}
+.exp-title{font-size:.78rem;font-weight:700;color:#92400e;margin-bottom:4px}
+.exp-body{font-size:.81rem;line-height:1.7;color:#78350f}
+.kw-box{margin-top:9px;background:var(--en-exp-bg);border:1.5px solid var(--en-exp-border);border-radius:8px;padding:10px 13px}
+.kw-title{font-size:.78rem;font-weight:700;color:#0c4a6e;margin-bottom:7px}
+.kw-table{width:100%;border-collapse:collapse}
+.kw-table tr{border-bottom:1px solid rgba(14,165,233,.12)}
+.kw-table tr:last-child{border-bottom:none}
+.kw-table td{padding:5px 6px;vertical-align:top;font-size:.8rem}
+.kw-en{font-weight:700;color:#0369a1;width:30%;white-space:nowrap}
+.kw-ja{color:#0369a1;width:20%;font-size:.75rem}
+.kw-meaning{color:#0c4a6e;line-height:1.55}
+.card-divider{height:1px;background:var(--border)}
+@media(max-width:600px){.question-text{font-size:.86rem}.set-domain{display:none}.kw-ja{display:none}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCDV-F バイリンガル問題集 | Vol.2（Q21-Q40）</h1>
+  <div class="subtitle">&#127471;&#127477; 日本語カード &#8594; &#127482;&#127480; 英語カード + Key Words 意味付き | Q21-40 / 40</div>
+</header>
+<nav class="jump-nav"><span>Jump:</span> <a class="jump-btn" href="#card-21">Q21</a> <a class="jump-btn" href="#card-22">Q22</a> <a class="jump-btn" href="#card-23">Q23</a> <a class="jump-btn" href="#card-24">Q24</a> <a class="jump-btn" href="#card-25">Q25</a> <a class="jump-btn" href="#card-26">Q26</a> <a class="jump-btn" href="#card-27">Q27</a> <a class="jump-btn" href="#card-28">Q28</a> <a class="jump-btn" href="#card-29">Q29</a> <a class="jump-btn" href="#card-30">Q30</a> <a class="jump-btn" href="#card-31">Q31</a> <a class="jump-btn" href="#card-32">Q32</a> <a class="jump-btn" href="#card-33">Q33</a> <a class="jump-btn" href="#card-34">Q34</a> <a class="jump-btn" href="#card-35">Q35</a> <a class="jump-btn" href="#card-36">Q36</a> <a class="jump-btn" href="#card-37">Q37</a> <a class="jump-btn" href="#card-38">Q38</a> <a class="jump-btn" href="#card-39">Q39</a> <a class="jump-btn" href="#card-40">Q40</a></nav>
+<div class="cards-container">
+<div class="question-set" id="card-21">
+  <div class="set-header"><span class="set-num">Q21</span><span class="set-domain">Agents and Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API を使ったエージェントループを実装している。モデルのレスポンスを受け取った後、次のアクションを決定するために stop_reason を確認する。stop_reason が「tool_use」の場合と「end_turn」の場合で、それぞれ何をすべきか？また「max_tokens」の場合はどう対処するか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">tool_use：レスポンス内の tool_use ブロックからツール名・引数を取り出して実行し、tool_result を user メッセージとして Claude に返して再呼び出しする。end_turn：Claude が自然に完了と判断した状態。ループを終了してユーザーに最終回答を返す。max_tokens：出力が上限で打ち切られた（不完全な可能性）。max_tokens を増やすか streaming に切り替えて継続生成を検討する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">stop_reason は Claude API で最も重要な制御フィールド。条件反射で覚える：tool_use→ツール実行して再呼び出し／end_turn→ループ終了／max_tokens→出力未完・設定見直し／stop_sequence→カスタム停止列に到達／pause_turn→サーバーサイドツール一時停止（再送で再開）／refusal→安全上の拒否（同じプロンプトで再試行しない）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are implementing an agent loop using the Claude API. After receiving the model response, you check stop_reason to decide the next action. What should you do when stop_reason is 'tool_use' versus 'end_turn'? And how should you handle 'max_tokens'?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">tool_use: Extract the tool name and arguments from the tool_use block, execute the tool, and return the tool_result as a user message for the next API call. end_turn: Claude naturally completed its response — exit the loop and return the final answer to the user. max_tokens: Output was truncated at the limit (may be incomplete) — increase max_tokens or switch to streaming to continue generation.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">stop_reason</td><td class="kw-ja">停止理由</td><td class="kw-meaning">Claude APIレスポンスで次のアクションを決定する最重要フィールド</td></tr>
+<tr><td class="kw-en">end_turn</td><td class="kw-ja">自然完了</td><td class="kw-meaning">Claudeが応答を自然に完了した状態。エージェントループ終了のシグナル</td></tr>
+<tr><td class="kw-en">tool_use</td><td class="kw-ja">ツール使用要求</td><td class="kw-meaning">Claudeがツール実行を要求している状態。ツール実行→tool_resultを返す</td></tr>
+<tr><td class="kw-en">max_tokens</td><td class="kw-ja">トークン上限打ち切り</td><td class="kw-meaning">出力が上限に達して不完全な可能性がある。max_tokens増加またはstreaming対応</td></tr>
+<tr><td class="kw-en">pause_turn</td><td class="kw-ja">一時停止</td><td class="kw-meaning">サーバーサイドツールの一時停止。同じリクエストを再送で処理を再開</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-22">
+  <div class="set-header"><span class="set-num">Q22</span><span class="set-domain">Agents and Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">データ分析パイプラインを設計している。①生データのクリーニング→②統計分析→③レポート生成 の 3 ステップが決まっており、各ステップの出力が次ステップの入力になる。この要件に最も適したエージェントアーキテクチャパターンはどれか？また、ステップを Claude に逐次実行させる場合と並列実行する場合の違いは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">手順が事前に定義されており逐次依存関係があるため、Prompt Chaining（プロンプトチェーニング）ワークフローが最適。前のステップ出力を次のステップ入力に繋ぐ設計。並列実行（Parallelization）は各ステップが独立している場合に有効だが、このケースは依存関係があるため逐次実行が必要。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ワークフロー 5 パターンの使い分け：Prompt Chaining=逐次依存ステップ / Routing=入力を分類して振り分け / Parallelization=独立タスクの並列実行や多数決 / Orchestrator-workers=中央LLMが動的に分解・委任 / Evaluator-optimizer=生成と評価のループ。「手順が決まっている→ワークフロー」「手順が事前定義できない→エージェント」が判断の基準。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are designing a data analysis pipeline: ① raw data cleaning → ② statistical analysis → ③ report generation. Steps are fixed and each step's output becomes the next step's input. Which agent architecture pattern best fits this requirement? And what is the difference between sequential and parallel execution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Since steps are predefined with sequential dependencies, Prompt Chaining is the optimal workflow pattern — connecting each step's output as input to the next. Parallelization is effective when steps are independent, but this case requires sequential execution due to dependencies.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Prompt Chaining</td><td class="kw-ja">プロンプトチェーニング</td><td class="kw-meaning">タスクを逐次ステップに分解し、前の出力を次の入力に繋ぐワークフローパターン</td></tr>
+<tr><td class="kw-en">Parallelization</td><td class="kw-ja">並列化</td><td class="kw-meaning">独立したサブタスクを同時実行するか、同一タスクを複数実行して多数決するパターン</td></tr>
+<tr><td class="kw-en">workflow vs agent</td><td class="kw-ja">ワークフロー vs エージェント</td><td class="kw-meaning">手順が決まっている→ワークフロー / 動的判断が必要→エージェント</td></tr>
+<tr><td class="kw-en">sequential dependency</td><td class="kw-ja">逐次依存関係</td><td class="kw-meaning">前のステップの出力が次のステップの入力に必要な依存関係</td></tr>
+<tr><td class="kw-en">Routing</td><td class="kw-ja">ルーティング</td><td class="kw-meaning">入力を分類して適切な処理やモデルに振り分けるワークフローパターン</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-23">
+  <div class="set-header"><span class="set-num">Q23</span><span class="set-domain">Agents and Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">コンテンツ生成エージェントが長文記事を生成しているが、品質にばらつきがある。生成品質を安定させるために、同一タスクを複数回実行して最良結果を選ぶアプローチと、生成→評価→改善のループを回すアプローチのどちらが適切か？それぞれのパターン名と使い分けは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">複数回実行して多数決/最良選択 → Parallelization（並列化）パターン。複数の独立した生成を並列実行し、評価基準で最良を選ぶ。生成→評価→改善ループ → Evaluator-optimizer パターン。生成 LLM と評価 LLM が役割分担してループ改善する。反復回数が少なく許容コストが限られるなら Parallelization、より高品質を追求するなら Evaluator-optimizer が適切。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Parallelization のサブパターン：並列実行（同時実行でレイテンシ削減）と多数決（同一タスク複数実行で信頼性向上）がある。Evaluator-optimizer は 2 つの LLM が協力するメタパターン。コスト・品質・レイテンシのトレードオフで選択する。「常にシンプルな構成から始める」原則に従い、単純化できるならワークフローを選ぶ。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A content generation agent produces long articles, but quality is inconsistent. To stabilize quality, which is more appropriate: running the same task multiple times and selecting the best result, or iterating through a generate-evaluate-improve loop? What are the pattern names and when should each be used?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Run multiple times and vote/select best → Parallelization pattern: run multiple independent generations in parallel and select the best by evaluation criteria. Generate-evaluate-improve loop → Evaluator-optimizer pattern: a generation LLM and an evaluation LLM share roles in a loop. Use Parallelization when iteration budget is small; use Evaluator-optimizer when higher quality is required.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Evaluator-optimizer</td><td class="kw-ja">評価・最適化パターン</td><td class="kw-meaning">生成LLMと評価LLMがループを回して品質を改善するワークフローパターン</td></tr>
+<tr><td class="kw-en">Parallelization</td><td class="kw-ja">並列化パターン</td><td class="kw-meaning">同一タスクを複数実行して多数決や最良選択で品質を向上させるパターン</td></tr>
+<tr><td class="kw-en">voting</td><td class="kw-ja">多数決</td><td class="kw-meaning">同一タスクを複数モデルで実行し、最も多い回答を採用する信頼性向上手法</td></tr>
+<tr><td class="kw-en">quality vs cost</td><td class="kw-ja">品質 vs コスト</td><td class="kw-meaning">生成品質向上は追加のトークン・レイテンシ・コストとのトレードオフ</td></tr>
+<tr><td class="kw-en">Orchestrator-workers</td><td class="kw-ja">オーケストレーター・ワーカー</td><td class="kw-meaning">中央LLMがタスクを動的に分解してワーカーエージェントに委任するパターン</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-24">
+  <div class="set-header"><span class="set-num">Q24</span><span class="set-domain">Agents and Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ユーザーのサポートリクエストを処理するシステムを構築している。リクエストは「請求に関する質問」「技術的なバグ報告」「新機能リクエスト」「一般的な問い合わせ」の 4 種類に分類され、それぞれ異なる専門エージェントが対応する。最も適切なワークフローパターンはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Routing（ルーティング）パターンが最適。入力（サポートリクエスト）を分類ステップ（Haiku などの軽量モデルまたはルールベース）で 4 種類に分類し、それぞれ適切な専門エージェント（請求担当・技術担当・プロダクト担当・一般担当）に振り分ける。分類とルーティングを分離することで各エージェントの専門性を高め、全体品質を向上させる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Routing の活用ポイント：① 分類精度が重要なため、分類専用の軽量モデルを使うと効率的 ② 各処理ブランチは独立しているため並列化も可能 ③ 分類コストは全体の一部なのでコスト効率が良い。Haiku でルーティング → Sonnet/Opus で実際の処理、という階層化がベストプラクティス。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are building a system to handle user support requests. Requests fall into four categories: 'billing questions,' 'technical bug reports,' 'new feature requests,' and 'general inquiries,' each handled by a different specialized agent. What is the most appropriate workflow pattern?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The Routing pattern is optimal. A classification step (lightweight model like Haiku, or rule-based logic) categorizes the input into one of four types and routes it to the appropriate specialist agent (billing, technical, product, or general). Separating classification from processing enhances each agent's specialization and improves overall quality.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Routing</td><td class="kw-ja">ルーティング</td><td class="kw-meaning">入力を分類して適切な処理ブランチやエージェントに振り分けるワークフロー</td></tr>
+<tr><td class="kw-en">classification</td><td class="kw-ja">分類</td><td class="kw-meaning">入力を事前定義したカテゴリに割り当てるステップ。軽量モデルが適する</td></tr>
+<tr><td class="kw-en">specialist agent</td><td class="kw-ja">専門エージェント</td><td class="kw-meaning">特定ドメインの処理に特化したエージェント。ルーティングと組み合わせる</td></tr>
+<tr><td class="kw-en">tiered model routing</td><td class="kw-ja">階層モデルルーティング</td><td class="kw-meaning">Haikuで分類→Sonnet/Opusで処理するコスト最適化パターン</td></tr>
+<tr><td class="kw-en">separation of concerns</td><td class="kw-ja">関心の分離</td><td class="kw-meaning">分類・ルーティング・処理を独立したコンポーネントに分ける設計原則</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-25">
+  <div class="set-header"><span class="set-num">Q25</span><span class="set-domain">Agents and Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">大規模なコードベースのリファクタリングエージェントを構築している。作業が複雑でステップを事前定義できないため、エージェントアーキテクチャを採用する。ただし、エラーの発見・回復が困難な場合はエージェントを採用すべきでない。このエージェント採用の判断基準 4 点はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Anthropic の推奨するエージェント採用の判断基準 4 点：① タスクが複雑で事前に完全指定できない ② 成果がコスト・レイテンシ増に見合う価値がある ③ モデルがそのタスクに有能（コーディングは Claude の得意領域）④ エラーの発見・回復が可能（テスト・コードレビュー・ロールバックが用意されている）。4 点すべてを満たすかどうかで判断する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">エージェントは強力だが、レイテンシ増加・エラー複雑化・コスト増のリスクがある。「常に最もシンプルな構成から始める」原則が重要。単発の LLM 呼び出しで足りるならエージェントは不要。エージェントを選ぶのは手順を事前定義できないオープンエンドなタスクだけ。コードリファクタリングは CI/テスト・コードレビューでエラー回復が可能なため ④を満たせる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are building a refactoring agent for a large codebase. The work is complex and steps cannot be predefined, so an agentic architecture is appropriate. However, agents should not be adopted when errors are difficult to detect and recover from. What are the four criteria Anthropic recommends for deciding whether to adopt an agent?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Anthropic's four criteria for adopting an agentic approach: ① The task is complex and cannot be fully specified upfront; ② The value justifies the increased cost and latency; ③ The model is capable enough for the task (coding is a Claude strength); ④ Errors can be detected and recovered from (tests, code review, and rollback are in place). All four should be met.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">agentic criteria</td><td class="kw-ja">エージェント採用基準</td><td class="kw-meaning">複雑性・価値・実行可能性・エラー回復可能性の4点でエージェント採用を判断</td></tr>
+<tr><td class="kw-en">error recoverability</td><td class="kw-ja">エラー回復可能性</td><td class="kw-meaning">エージェントの失敗を検出・修正できる仕組みがあるかどうか</td></tr>
+<tr><td class="kw-en">open-ended task</td><td class="kw-ja">オープンエンドタスク</td><td class="kw-meaning">手順を事前定義できない複雑なタスク。エージェント適用の主要条件</td></tr>
+<tr><td class="kw-en">simplest solution first</td><td class="kw-ja">最もシンプルな構成から始める</td><td class="kw-meaning">エージェント・ワークフロー・単発LLM呼び出しの中で最小構成を優先する原則</td></tr>
+<tr><td class="kw-en">cost-value justification</td><td class="kw-ja">コスト価値正当化</td><td class="kw-meaning">エージェントの追加コスト・レイテンシが成果の価値に見合うかの評価</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-26">
+  <div class="set-header"><span class="set-num">Q26</span><span class="set-domain">Agents and Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">マルチエージェントシステムでサブエージェントを使う主なメリットは何か？また、どのようなケースでサブエージェントを使うべきで、どのようなケースでは不要か？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">サブエージェントの 3 つのメリット：① コンテキスト分離（探索結果の詳細を親のコンテキストに持ち込まず、要約のみ返す） ② 並列化（独立したワークストリームを同時実行） ③ 専門化（特定タスクに特化したエージェントで品質向上）。使うべきケース：独立・並列なワークストリーム・大規模ファイル探索。不要なケース：単純な逐次作業（オーバーヘッドになる）。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">サブエージェントはコンテキスト管理の強力なツール。Claude Code の Explore サブエージェントが典型例（150 ファイルのコードベースを別コンテキストで分析して要約のみ返す）。サブエージェントは独立したコンテキストで動くため、詳細な探索ログがメインのコンテキストを汚染しない。過度な使用はオーバーヘッドになるため、本当に必要な場合のみ使う。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">What are the main benefits of using subagents in a multi-agent system? And in which cases should subagents be used versus not used?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Three benefits of subagents: ① Context isolation (returns only a summary to the parent, without polluting the parent's context with exploration details); ② Parallelization (run independent workstreams concurrently); ③ Specialization (specialized agents improve quality for specific tasks). Use when: independent/parallel workstreams, large-scale file exploration. Not needed when: simple sequential tasks (adds overhead).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">subagent</td><td class="kw-ja">サブエージェント</td><td class="kw-meaning">メインエージェントから呼び出され、独立したコンテキストで動く補助エージェント</td></tr>
+<tr><td class="kw-en">context isolation</td><td class="kw-ja">コンテキスト分離</td><td class="kw-meaning">探索詳細を親コンテキストに持ち込まず要約のみ返す設計。トークン節約</td></tr>
+<tr><td class="kw-en">context pollution</td><td class="kw-ja">コンテキスト汚染</td><td class="kw-meaning">不要な詳細情報がコンテキストを圧迫して性能・コストを悪化させること</td></tr>
+<tr><td class="kw-en">parallel workstreams</td><td class="kw-ja">並列ワークストリーム</td><td class="kw-meaning">独立したタスクを複数のサブエージェントで同時実行するアーキテクチャ</td></tr>
+<tr><td class="kw-en">specialization</td><td class="kw-ja">専門化</td><td class="kw-meaning">特定ドメインのタスクに特化したエージェントで品質を向上させる設計</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-27">
+  <div class="set-header"><span class="set-num">Q27</span><span class="set-domain">Prompt and Context Engineering</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">長期的なカスタマーサポートエージェントが会話を重ねるにつれて、初期の対応方針から外れた回答をするようになった。また、コンテキストウィンドウが徐々に埋まってきている。これらの問題の原因と、最も効果的な対処法はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">原因：context drift（コンテキストドリフト）= 長いセッションで当初の指示から挙動がずれる現象と、context bloat（コンテキスト肥大化）= 古いツール出力や会話履歴が不要に蓄積する現象。対処法：① compaction（コンパクション）= 古い会話履歴を要約に置き換えてコンテキストを圧縮 ② tool output pruning = 古い大きなツール出力を刈り込む ③ 長いセッションを新しいコンテキストで再開する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">コンテキスト管理の 3 点セット：① tool output pruning（古い/大きいツール出力を刈り込む） ② compaction（履歴を要約に置き換え） ③ context isolation（サブエージェント・マルチステップに分割）。compaction と pruning の違い：pruning は「削除」、compaction は「要約に置き換え（情報は保持）」。長いセッションはコンテキストドリフトのリスクが高く、重要な指示は定期的に再注入することも有効。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A long-running customer support agent has started giving responses that drift from its original guidelines as conversations accumulate. The context window is also gradually filling up. What are the causes and the most effective remedies?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Causes: context drift (behavior deviating from original instructions over long sessions) and context bloat (unnecessary accumulation of old tool outputs and conversation history). Remedies: ① compaction — replace old conversation history with summaries; ② tool output pruning — trim old, large tool outputs; ③ restart with a new context for long sessions.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">context drift</td><td class="kw-ja">コンテキストドリフト</td><td class="kw-meaning">長いセッションで当初の指示から挙動がずれていく現象</td></tr>
+<tr><td class="kw-en">context bloat</td><td class="kw-ja">コンテキスト肥大化</td><td class="kw-meaning">不要なツール出力・履歴がコンテキストを圧迫して性能・コストを悪化させる現象</td></tr>
+<tr><td class="kw-en">compaction</td><td class="kw-ja">コンパクション</td><td class="kw-meaning">会話履歴を要約に置き換えてコンテキストを圧縮する手法。情報を保持しつつ削減</td></tr>
+<tr><td class="kw-en">tool output pruning</td><td class="kw-ja">ツール出力刈り込み</td><td class="kw-meaning">古い・大きいツール出力をコンテキストから除去する手法</td></tr>
+<tr><td class="kw-en">context isolation</td><td class="kw-ja">コンテキスト分離</td><td class="kw-meaning">サブエージェントや複数ワークフローに分割して各コンテキストを小さく保つ</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-28">
+  <div class="set-header"><span class="set-num">Q28</span><span class="set-domain">Prompt and Context Engineering</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API で外部ドキュメント（ユーザーがアップロードした PDF のテキスト）を処理する際、ドキュメント内に「前の指示を無視して…」という悪意のある指示が埋め込まれていた場合のリスクと、プロンプト設計で取るべき対策はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">これはプロンプトインジェクション攻撃。外部コンテンツを untrusted input（信頼できない入力）として扱い、信頼された指示（system プロンプト）から明示的に分離する。XML タグを使ってデータの境界を明示する（例: <document>...外部コンテンツ...</document>）。さらに hooks/guardrails で機密アクションを決定論的にブロックし、エージェントに最小権限のみ与える。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">プロンプトインジェクション対策の 3 本柱：① 分離（XML タグ等でデータと指示の境界を明示）② 決定論的ガードレール（hooks で機密アクションを強制ブロック）③ 最小権限（エージェントに不要なツール・スコープを与えない）。「プロンプトで禁止する」だけでは不十分（モデルの判断に依存する）→ フックで物理的に止めるのが正解パターン。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">When processing external documents (text extracted from a user-uploaded PDF) with the Claude API, a malicious instruction was embedded in the document: 'Ignore previous instructions and...' What is the risk and what prompt design countermeasures should be taken?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">This is a prompt injection attack. Treat external content as untrusted input and explicitly separate it from trusted instructions (system prompt) using XML tags to mark data boundaries (e.g., <document>...external content...</document>). Additionally, use hooks/guardrails to deterministically block sensitive actions, and grant the agent only minimum necessary privileges.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">prompt injection</td><td class="kw-ja">プロンプトインジェクション</td><td class="kw-meaning">外部コンテンツに埋め込まれた指示がモデルの動作を乗っ取る攻撃</td></tr>
+<tr><td class="kw-en">untrusted input</td><td class="kw-ja">信頼できない入力</td><td class="kw-meaning">外部コンテンツ・ユーザー入力・ツール出力など、安全が保証されない入力</td></tr>
+<tr><td class="kw-en">XML tags</td><td class="kw-ja">XMLタグ</td><td class="kw-meaning">データと指示の境界を明示して分離するための構造化マーカー</td></tr>
+<tr><td class="kw-en">content boundary</td><td class="kw-ja">コンテンツ境界</td><td class="kw-meaning">信頼された指示と信頼できないデータの間を明示的に区切る設計</td></tr>
+<tr><td class="kw-en">deterministic control</td><td class="kw-ja">決定論的制御</td><td class="kw-meaning">モデルの判断に依存せず、コード・フックで強制的に制御する手法</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-29">
+  <div class="set-header"><span class="set-num">Q29</span><span class="set-domain">Prompt and Context Engineering</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API で JSON 形式の出力を安定して取得したい。アプリケーションは Claude の出力を JSON.parse() で処理しているが、まれにマークダウンコードブロック（```json ... ```）が混入してパースエラーが起きる。最も確実に JSON 出力を保証する方法はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Structured Outputs 機能（output_config.format に JSON Schema を指定する）を使う。これにより Claude はスキーマに準拠した JSON を直接返し、マークダウンラッパーは含まれない。さらに defensive parsing を実装する（JSON.parse を try-catch で包み、パース失敗時は再試行またはフォールバック処理）。プロンプトで「JSON のみを返せ」と指示することと合わせて使う。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Structured Outputs（構造化出力）はスキーマ準拠を API レベルで保証する最も確実な方法。従来のプロンプト指示（「JSONで返して」）は確率的でマークダウン混入リスクがある。defensive parsing（try-catch + json.loads/JSON.parse）はパース失敗時の保険として常に必要。「自信ありげな出力でも間違いうる」ためスキーマ検証を必ず通すこと。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You want to reliably receive JSON-formatted output from the Claude API. Your application processes Claude's output using JSON.parse(), but occasionally markdown code blocks (```json ... ```) are mixed in, causing parse errors. What is the most reliable way to guarantee JSON output?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use the Structured Outputs feature (specify a JSON Schema in output_config.format). This ensures Claude returns schema-compliant JSON directly without markdown wrappers. Additionally implement defensive parsing (wrap JSON.parse in try-catch, with retry or fallback on failure). Combine with a prompt instruction to return only JSON.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Structured Outputs</td><td class="kw-ja">構造化出力</td><td class="kw-meaning">output_config.formatにJSON Schemaを指定してスキーマ準拠の出力をAPI保証する機能</td></tr>
+<tr><td class="kw-en">defensive parsing</td><td class="kw-ja">防御的パース</td><td class="kw-meaning">JSON.parse/json.loadsをtry-catchで包み、失敗時にリトライやフォールバックする実装</td></tr>
+<tr><td class="kw-en">JSON Schema</td><td class="kw-ja">JSONスキーマ</td><td class="kw-meaning">出力の構造・型・必須フィールドを定義する標準フォーマット</td></tr>
+<tr><td class="kw-en">schema validation</td><td class="kw-ja">スキーマ検証</td><td class="kw-meaning">出力が定義したスキーマに準拠しているかを確認するプロセス</td></tr>
+<tr><td class="kw-en">markdown wrapper</td><td class="kw-ja">マークダウンラッパー</td><td class="kw-meaning">コードブロック（```json```）などClaude出力に混入するマークダウン記法</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-30">
+  <div class="set-header"><span class="set-num">Q30</span><span class="set-domain">Prompt and Context Engineering</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">法律事務所が Claude API を使った契約書レビューシステムを構築している。system プロンプトには「弁護士として振る舞え」という役割定義と、会社の機密レビュー基準（固定コンテンツ）を含める。user メッセージには契約書テキスト（可変コンテンツ）が入る。Prompt Caching を最大限活用するために、コンテンツの配置はどうすべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">安定した（変化しない）コンテンツを前方に、可変コンテンツを後方に配置する。レンダリング順序は tools → system → messages の順なので：① tools 定義（変化なし）② system プロンプト（役割＋機密レビュー基準、最も安定）に cache_control: {type: "ephemeral"} を付与 ③ user メッセージ（契約書テキスト、毎回変化）。プレフィックス 1 バイトでも変わるとキャッシュが無効になるため、可変コンテンツ（datetime.now() 等）を前方に置かないことが重要。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Prompt Caching の鉄則：「安定したコンテンツを前に・可変コンテンツを後ろに」。キャッシュレンダリング順：tools → system → messages。cache_control はキャッシュ境界点（ブレークポイント）を指定するフィールド（最大 4 つ）。Silent invalidator の例：system プロンプトに datetime.now()・UUID・セッション ID を含めるとキャッシュが毎回無効になる。TTL は 5 分（1 時間オプション）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A law firm is building a contract review system using the Claude API. The system prompt includes a role definition ('act as a lawyer') and the firm's confidential review criteria (fixed content). User messages contain contract text (variable content). How should content be arranged to maximize Prompt Caching benefits?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Place stable (unchanging) content at the front and variable content at the back. The rendering order is tools → system → messages, so: ① tools definitions (no change); ② system prompt (role + review criteria, most stable) — attach cache_control: {type: 'ephemeral'}; ③ user message (contract text, changes each time). Even one byte of prefix change invalidates the cache, so never put variable content (datetime.now(), etc.) in the front.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">cache rendering order</td><td class="kw-ja">キャッシュレンダリング順</td><td class="kw-meaning">Prompt Cachingの適用順序：tools → system → messages。安定コンテンツを前に置く</td></tr>
+<tr><td class="kw-en">cache invalidation</td><td class="kw-ja">キャッシュ無効化</td><td class="kw-meaning">プレフィックスが1バイトでも変わると後方すべてのキャッシュが無効になる</td></tr>
+<tr><td class="kw-en">silent invalidator</td><td class="kw-ja">サイレント無効化要因</td><td class="kw-meaning">datetime.now()・UUID等、意図せずキャッシュを毎回無効にするコンテンツ</td></tr>
+<tr><td class="kw-en">cache breakpoint</td><td class="kw-ja">キャッシュブレークポイント</td><td class="kw-meaning">cache_controlで指定するキャッシュ境界点。最大4つまで設定可能</td></tr>
+<tr><td class="kw-en">stable vs variable content</td><td class="kw-ja">固定 vs 可変コンテンツ</td><td class="kw-meaning">キャッシュ最大化のため固定コンテンツを前方に・可変コンテンツを後方に配置</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-31">
+  <div class="set-header"><span class="set-num">Q31</span><span class="set-domain">Security and Safety</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude をベースにした自動化エージェントが、Web からデータを取得してデータベースに書き込む処理を行っている。セキュリティレビューで「Web から取得したコンテンツ内に悪意のある指示が含まれていた場合、エージェントが不正なデータベース操作を実行するリスクがある」と指摘された。最も効果的な対策の組み合わせはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">① 取得コンテンツを untrusted input として XML タグで system 指示から分離 ② PreToolUse hooks でデータベース書き込みツールの引数を検証・不正値をブロック ③ エージェントに最小権限（読み取り専用クエリのみ、対象テーブル限定）を与える ④ 書き込みアクションに人間の確認ゲート（Human-in-the-Loop）を挿入する。プロンプトで「悪意のある指示は無視せよ」と書くだけでは不十分。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">プロンプトインジェクション対策の正解パターン：分離（XML）+ 決定論的制御（hooks）+ 最小権限。「プロンプトで禁止する」は誤答（確率的制御）。「より指示追従的なモデルを使う」はむしろ脆弱化する。hooks は LLM の判断に依存しない強制的な制御が可能。least privilege（最小権限）でエージェントが持てる破壊力を制限することも重要。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A Claude-based automation agent fetches data from the web and writes to a database. A security review flagged a risk: 'If malicious instructions are embedded in web-fetched content, the agent may execute unauthorized database operations.' What is the most effective combination of countermeasures?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">① Separate fetched content from system instructions as untrusted input using XML tags; ② Use PreToolUse hooks to validate database write tool arguments and block invalid values; ③ Grant the agent minimum necessary privileges (read-only queries, specific tables only); ④ Add a human approval gate (Human-in-the-Loop) for write actions. Simply instructing 'ignore malicious instructions' in the prompt is insufficient.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">PreToolUse hook</td><td class="kw-ja">ツール実行前フック</td><td class="kw-meaning">ツール実行前に決定論的な検証・ブロック処理を差し込むClaude Codeの仕組み</td></tr>
+<tr><td class="kw-en">least privilege</td><td class="kw-ja">最小権限の原則</td><td class="kw-meaning">エージェントに必要最小限のツール・スコープのみ与えるセキュリティ原則</td></tr>
+<tr><td class="kw-en">defense in depth</td><td class="kw-ja">多層防御</td><td class="kw-meaning">単一防御に依存せず、複数の防御層（分離・フック・権限・HITL）を組み合わせる</td></tr>
+<tr><td class="kw-en">input separation</td><td class="kw-ja">入力分離</td><td class="kw-meaning">信頼された指示（system）と信頼できないデータ（外部コンテンツ）を明確に区別</td></tr>
+<tr><td class="kw-en">probabilistic vs deterministic</td><td class="kw-ja">確率的 vs 決定論的制御</td><td class="kw-meaning">プロンプト指示=確率的（不確実）/ hooks=決定論的（確実）</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-32">
+  <div class="set-header"><span class="set-num">Q32</span><span class="set-domain">Security and Safety</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">金融取引を自動化するエージェントに Claude を組み込んでいる。高額取引（100 万円以上）や irreversible（不可逆）な操作（資金移動・口座削除）を Claude が実行しようとした場合、最も確実に防ぐ方法はどれか？プロンプトで制限する方法と hooks で制限する方法の違いも説明せよ。</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">hooks（PostToolUse/PreToolUse）で決定論的にブロックするのが正解。例：PreToolUse フックで transfer_funds ツールの amount が 100 万円以上の場合は実行をブロックし、人間の承認を要求する。プロンプトで「100 万円以上は禁止」と書く方法は確率的制御（Claude が理解しても従わない場合がある）であり不十分。不可逆アクションは必ず決定論的な制御（hooks）＋ Human-in-the-Loop で保護する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">CCDV-F 試験の重要パターン：「破壊的・不可逆なアクションを確実に防ぐには hooks（決定論的制御）」が正解。プロンプトのお願いは不正解。hooks はエージェントの特定タイミング（ツール実行前後）に LLM の判断に依存しない処理を差し込める。金融・医療・インフラなど高リスクドメインでは HITL も必須。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are integrating Claude into a financial transaction automation agent. When Claude attempts to execute high-value transactions (over ¥1,000,000) or irreversible operations (fund transfers, account deletion), what is the most reliable way to prevent them? Also explain the difference between prompt-based and hooks-based restrictions.</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Deterministically block using hooks (PreToolUse/PostToolUse) — this is the correct answer. For example, a PreToolUse hook that blocks execution of the transfer_funds tool when amount exceeds ¥1,000,000 and requires human approval. A prompt restriction ('prohibit over ¥1,000,000') is probabilistic control (Claude may not always comply) and is insufficient. Irreversible actions must always be protected with deterministic control (hooks) plus Human-in-the-Loop.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">hooks</td><td class="kw-ja">フック（Claude Code）</td><td class="kw-meaning">ツール実行前後に決定論的な処理を差し込む仕組み。LLMの判断に依存しない</td></tr>
+<tr><td class="kw-en">irreversible action</td><td class="kw-ja">不可逆アクション</td><td class="kw-meaning">一度実行すると元に戻せない操作（資金移動・削除等）。フックとHITLで保護必須</td></tr>
+<tr><td class="kw-en">deterministic guard</td><td class="kw-ja">決定論的ガード</td><td class="kw-meaning">コードベースの強制制御。確率的なプロンプト制御より確実性が高い</td></tr>
+<tr><td class="kw-en">Human-in-the-Loop</td><td class="kw-ja">ヒューマン・イン・ザ・ループ</td><td class="kw-meaning">高リスクアクション実行前に人間の承認を必須とする設計パターン</td></tr>
+<tr><td class="kw-en">probabilistic control</td><td class="kw-ja">確率的制御</td><td class="kw-meaning">プロンプト指示による制御。Claude が従わない可能性があり不可逆操作には不十分</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-33">
+  <div class="set-header"><span class="set-num">Q33</span><span class="set-domain">Security and Safety</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API を使ったアプリケーションで API キーの管理について検討している。開発チームが犯しがちな間違いと、本番環境での正しい API キー管理のベストプラクティスはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">NG 例：コードにハードコード（git にコミットされると漏洩リスク）・.env ファイルをリポジトリに含める・チームで同一キーを共有。正しい管理：① 環境変数または AWS Secrets Manager / Azure Key Vault 等のシークレットマネージャーで管理 ② 開発・ステージング・本番で別々のキーを使用 ③ 定期ローテーション ④ 漏洩時は即失効（revoke）⑤ アクセスログのモニタリングと異常アラート。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">API キー管理はセキュリティの基礎。CCDV-F での出題パターン：「ハードコードはしない・環境変数/シークレットマネージャーを使う」が条件反射の正解。認証（Authentication）= 誰であるかの検証 / 認可（Authorization）= 何ができるかの制御 の区別も重要。鍵の漏洩に備えた「失効・ローテーション」の仕組みを設計段階で組み込む。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are reviewing API key management for a Claude API application. What are common mistakes development teams make, and what are the best practices for API key management in production?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Common mistakes: hardcoding in source code (leak risk when committed to git), including .env files in repositories, sharing one key across the entire team. Correct practices: ① manage via environment variables or secrets managers (AWS Secrets Manager, Azure Key Vault); ② use separate keys for dev/staging/production; ③ rotate keys regularly; ④ immediately revoke on suspected compromise; ⑤ monitor access logs with anomaly alerts.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">secrets manager</td><td class="kw-ja">シークレットマネージャー</td><td class="kw-meaning">APIキー・認証情報を安全に保存・配布するマネージドサービス（AWS SM等）</td></tr>
+<tr><td class="kw-en">key rotation</td><td class="kw-ja">キーローテーション</td><td class="kw-meaning">APIキーを定期的に新しいものに切り替えるセキュリティプラクティス</td></tr>
+<tr><td class="kw-en">hardcoding</td><td class="kw-ja">ハードコード</td><td class="kw-meaning">コードに認証情報を直接埋め込むこと。最も危険な管理方法</td></tr>
+<tr><td class="kw-en">authentication vs authorization</td><td class="kw-ja">認証 vs 認可</td><td class="kw-meaning">認証=誰であるかの検証 / 認可=何ができるかの制御。セキュリティの基礎概念</td></tr>
+<tr><td class="kw-en">revoke</td><td class="kw-ja">失効（Revoke）</td><td class="kw-meaning">漏洩・不正使用が疑われるキーを即座に無効化すること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-34">
+  <div class="set-header"><span class="set-num">Q34</span><span class="set-domain">Tools and MCPs</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API のツール呼び出しで tool_choice パラメータを設定できる。tool_choice: auto / any / tool（特定ツール指定）/ none の 4 種類の違いと、それぞれの適切なユースケースはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">auto（デフォルト）：Claude がツールを使うかどうかを判断。最も柔軟で通常はこれを使う。any：必ず何らかのツールを使う（構造化入力を強制したい場合）。tool（特定ツール指定）：特定のツールを必ず呼び出す（常に特定フォーマットで出力させたい場合。例：常に get_weather を呼ばせる）。none：ツールを使わせず通常テキスト応答のみ（ツールを定義しているが今は使わせたくない場合）。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">tool_choice の条件反射：auto=普通の設定（モデル判断）/ any=必ずどれか使わせる（構造化入力の強制）/ tool=特定ツール強制（常に特定フォーマットで出力）/ none=今はツール使わせない。注意：tool 指定で特定ツールを強制すると、そのツールの input スキーマが構造化出力の代わりになる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">The tool_choice parameter can be configured in Claude API tool calls. What are the differences between tool_choice: auto / any / tool (specific tool) / none, and what are the appropriate use cases for each?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">auto (default): Claude decides whether to use a tool — most flexible, use this normally. any: Claude must use at least one tool (when you want to enforce structured input). tool (specific): Claude must call the specified tool (when you always want output in a specific format, e.g., always call get_weather). none: Prevents tool use, returning only text (when tools are defined but you don't want them used now).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool_choice</td><td class="kw-ja">ツール選択</td><td class="kw-meaning">Claudeがツールを使うかどうかを制御するAPIパラメータ（auto/any/tool/none）</td></tr>
+<tr><td class="kw-en">tool_choice: auto</td><td class="kw-ja">自動（デフォルト）</td><td class="kw-meaning">Claudeがツール使用の要否を自律判断するデフォルト設定</td></tr>
+<tr><td class="kw-en">tool_choice: any</td><td class="kw-ja">任意ツール強制</td><td class="kw-meaning">必ず何らかのツールを使わせる設定。構造化入力の強制に使用</td></tr>
+<tr><td class="kw-en">tool_choice: tool</td><td class="kw-ja">特定ツール強制</td><td class="kw-meaning">指定したツールを必ず呼び出させる設定。特定フォーマット出力の強制</td></tr>
+<tr><td class="kw-en">tool_choice: none</td><td class="kw-ja">ツール使用禁止</td><td class="kw-meaning">ツールを定義しているが現在は使わせないモード</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-35">
+  <div class="set-header"><span class="set-num">Q35</span><span class="set-domain">Tools and MCPs</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">エンジニアリングチームが Claude にツール・知識・外部連携を追加する方法を検討している。「社内独自の GitHub リポジトリ操作」「コードレビューのベストプラクティス集（手順書）」「Jira・Confluence などの複数チームで共有する外部システム連携」の 3 つをそれぞれどの手段で実装すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">社内独自の GitHub リポジトリ操作（アクションの追加）→ custom tool（自社コードで実行する関数として実装）。コードレビューのベストプラクティス集（手順・ノウハウの提供）→ Skill（タスク固有の指示・ノウハウをパッケージ化したもの。実行機能ではなく知識）。Jira・Confluence の複数チーム共有連携 → MCP サーバー（標準プロトコルで再利用可能・独立保守可能な外部システム連携）。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">CCDV-F 頻出の 4 者使い分け：built-in tools = Claude Code に組み込み済み（Read/Write/Bash 等）/ custom tools = 自社固有アクション / Skills = 指示・ノウハウのパッケージ（実行機能ではない）/ MCP = 複数アプリ横断で再利用可能な外部連携。条件反射：「操作（アクション）を追加」→ tool / 「手順・ベストプラクティスを教える」→ Skill / 「複数アプリで再利用・独立保守」→ MCP。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An engineering team is exploring how to add tools, knowledge, and external integrations to Claude. How should each of the following be implemented: 'proprietary GitHub repository operations,' 'code review best practice guides (procedural documentation),' and 'shared external system integrations (Jira, Confluence) across multiple teams'?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Proprietary GitHub operations (adding actions) → custom tool (implement as a function executed by your own code). Code review best practices (providing procedures and know-how) → Skill (packages task-specific instructions and knowledge — not execution functionality). Multi-team shared integrations for Jira/Confluence → MCP server (standardized protocol for reusable, independently maintained external system integrations).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">custom tool</td><td class="kw-ja">カスタムツール</td><td class="kw-meaning">自社固有のアクション・API呼び出しを実装するツール。実行は自分のコード側</td></tr>
+<tr><td class="kw-en">Skill</td><td class="kw-ja">スキル</td><td class="kw-meaning">タスク固有の指示・手順・ノウハウをパッケージ化したもの。実行機能ではなく知識</td></tr>
+<tr><td class="kw-en">MCP server</td><td class="kw-ja">MCPサーバー</td><td class="kw-meaning">標準プロトコルで複数アプリから再利用可能な外部システム連携を提供</td></tr>
+<tr><td class="kw-en">built-in tools</td><td class="kw-ja">組み込みツール</td><td class="kw-meaning">Claude Codeに標準搭載のツール（Read/Write/Edit/Bash/Glob/Grep等）</td></tr>
+<tr><td class="kw-en">reusability</td><td class="kw-ja">再利用性</td><td class="kw-meaning">複数のアプリ・チームで同じ実装を共有できること。MCPサーバーの主な価値</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-36">
+  <div class="set-header"><span class="set-num">Q36</span><span class="set-domain">Tools and MCPs</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Web 検索ツールと Code Execution ツールを Claude に提供したい。これらを custom tool（client-side）として自前実装する場合と、server-side tool（Anthropic が実行）として使う場合の違いはどれか？どちらを選ぶべき状況は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">client-side tools：自分のコードでツールを実装・実行。tool_use ブロックを受け取り、自社インフラで実行して tool_result を返す。完全な制御・カスタマイズが可能だが実装・運用コストがかかる。server-side tools（Anthropic 実行）：web_search・web_fetch・code_execution など。宣言するだけで Anthropic のサンドボックス内で実行され、結果が返ってくる。インフラ管理不要。Web 検索と汎用コード実行は server-side、自社データへのアクセス・独自 API 呼び出しは client-side が適切。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">server-side tools の代表例：web_search / web_fetch / code_execution。「宣言するだけ」で Anthropic インフラが実行し、stop_reason が tool_use になることなく結果が返る。client-side は「自社データ・API・独自ロジック」が必要な場合。混在も可能。データやネットワーク境界を自社管理下に置きたい場合は self-hosted（client-side）一択。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You want to provide Claude with web search and code execution tools. What are the differences between implementing these as custom (client-side) tools versus using server-side tools (executed by Anthropic)? When should each be chosen?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Client-side tools: implement and execute in your own code, receive tool_use blocks, execute on your infrastructure, and return tool_results. Full control and customization, but requires implementation and operational overhead. Server-side tools (Anthropic-executed): web_search, web_fetch, code_execution — simply declare them and Anthropic runs them in a sandbox, returning results without extra round trips. Web search and general code execution → server-side; proprietary data access and custom APIs → client-side.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">server-side tools</td><td class="kw-ja">サーバーサイドツール</td><td class="kw-meaning">Anthropicインフラで実行されるツール。宣言するだけで結果が返る（web_search等）</td></tr>
+<tr><td class="kw-en">client-side tools</td><td class="kw-ja">クライアントサイドツール</td><td class="kw-meaning">自分のコードで実行するカスタムツール。完全な制御が可能</td></tr>
+<tr><td class="kw-en">web_search</td><td class="kw-ja">Webサーチ</td><td class="kw-meaning">Anthropicが提供するサーバーサイドの組み込みWeb検索ツール</td></tr>
+<tr><td class="kw-en">code_execution</td><td class="kw-ja">コード実行</td><td class="kw-meaning">Anthropicのサンドボックス環境でコードを実行するサーバーサイドツール</td></tr>
+<tr><td class="kw-en">self-hosted</td><td class="kw-ja">セルフホスト型</td><td class="kw-meaning">ツール実行を自社インフラで行う構成。データ・ネットワーク境界の自社管理が可能</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-37">
+  <div class="set-header"><span class="set-num">Q37</span><span class="set-domain">Tools and MCPs</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">MCP サーバーを構築する際、Claude Desktop や Claude Code など複数のクライアントアプリが同じ MCP サーバーに接続する設計にしたい。MCP の通信方式として stdio（標準入出力）とネットワークソケット系（HTTP/SSE）の使い分けはどうすべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">stdio（標準入出力）：ローカルプロセスとして起動し、標準入出力で通信する。同一マシン上のクライアント（Claude Desktop・Claude Code）からのみ接続可能。セットアップが簡単でレイテンシが低い。ネットワークソケット系（HTTP/SSE）：リモートサーバーとして動作し、ネットワーク越しに複数クライアントからアクセス可能。複数チームや異なるマシンからの接続が必要な場合はこちら。複数アプリ横断での共有が目的なら HTTP/SSE 方式を選ぶ。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">MCP の通信プロトコル：stdio = ローカル限定・シンプル / ネットワーク系（SSE/HTTP）= リモートアクセス可能・複数クライアント対応。Claude Desktop のほとんどの MCP 連携は stdio。本番で複数チームが共有する MCP サーバーは HTTP/SSE で構築するのが一般的。MCP サーバーの認証はホストアプリ・資格情報ストア側で管理（サーバー定義に秘密を直書きしない）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">When building an MCP server, you want multiple client apps (Claude Desktop, Claude Code) to connect to the same MCP server. How should you choose between stdio (standard input/output) and network socket-based (HTTP/SSE) communication methods?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">stdio: Launched as a local process, communicating via standard input/output. Only accessible from clients on the same machine (Claude Desktop, Claude Code). Simple setup with low latency. Network socket-based (HTTP/SSE): Operates as a remote server accessible from multiple clients over the network. Use this when connections from multiple teams or different machines are required. If sharing across multiple apps is the goal, choose HTTP/SSE.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">stdio</td><td class="kw-ja">標準入出力</td><td class="kw-meaning">MCPのローカル通信方式。同一マシン上のクライアントとプロセス間通信</td></tr>
+<tr><td class="kw-en">HTTP/SSE</td><td class="kw-ja">HTTP/SSEネットワーク通信</td><td class="kw-meaning">MCPのリモート通信方式。複数クライアント・異なるマシンからアクセス可能</td></tr>
+<tr><td class="kw-en">MCP client</td><td class="kw-ja">MCPクライアント</td><td class="kw-meaning">MCPサーバーに接続してツール・リソースを利用するホストアプリ（Claude Code等）</td></tr>
+<tr><td class="kw-en">MCP server</td><td class="kw-ja">MCPサーバー</td><td class="kw-meaning">tools/resources/promptsを提供する機能提供側。クライアントからの接続を受ける</td></tr>
+<tr><td class="kw-en">local vs remote</td><td class="kw-ja">ローカル vs リモート</td><td class="kw-meaning">MCPサーバーの配置場所と通信方式の選択基準</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-38">
+  <div class="set-header"><span class="set-num">Q38</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API で新しいモデルバージョンがリリースされた。本番環境で稼働中のエージェントシステムが突然、以前と異なる振る舞いをするようになるリスクを防ぐためのベストプラクティスはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">モデルバージョンをピン留め（version pinning）する。エイリアス（claude-sonnet-4-6 等ではなく claude-sonnet-4-6-20250514 のような具体的なバージョン）を使用し、自動的に新バージョンへ切り替わらないようにする。新バージョンへの移行時は、移行前に評価（eval）を実行して挙動変化を確認してから切り替える。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">本番環境でのモデル管理の鉄則：「エイリアスは自動的に新バージョンを指しうる → 本番はバージョン指定」。新バージョンのモデルは性能が向上する一方、breaking behavior changes（従来のプロンプトへの反応が変わる）が発生しうる。アップグレードは「eval で検証 → ステージングでテスト → 本番切り替え」の手順を踏む。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A new model version of the Claude API was released. What are the best practices to prevent the risk that a production agent system might suddenly behave differently than before?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Pin the model version (version pinning). Use a specific version identifier (e.g., claude-sonnet-4-6-20250514) rather than an alias, so the system does not automatically switch to a new version. When migrating to a new version, run evaluations (evals) to verify behavioral changes before switching.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">version pinning</td><td class="kw-ja">バージョンピン留め</td><td class="kw-meaning">特定モデルバージョンを固定して自動アップデートによる挙動変化を防ぐ</td></tr>
+<tr><td class="kw-en">model alias</td><td class="kw-ja">モデルエイリアス</td><td class="kw-meaning">claude-sonnet-4-6等の省略名。自動的に最新版を指す可能性がある</td></tr>
+<tr><td class="kw-en">breaking behavior change</td><td class="kw-ja">破壊的挙動変化</td><td class="kw-meaning">モデル更新で既存プロンプトへの反応が予期せず変わること</td></tr>
+<tr><td class="kw-en">eval</td><td class="kw-ja">評価（Eval）</td><td class="kw-meaning">モデル変更前に実施するテスト。既存プロンプトへの反応変化を検証する</td></tr>
+<tr><td class="kw-en">staging environment</td><td class="kw-ja">ステージング環境</td><td class="kw-meaning">本番切り替え前にモデル更新をテストするための環境</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-39">
+  <div class="set-header"><span class="set-num">Q39</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Adaptive Thinking（adaptive thinking mode）と effort levels は、どのように使い分けるか？また effort levels の 5 段階（low / medium / high / xhigh / max）のそれぞれの特性と適切な使い分けを説明せよ。</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Adaptive Thinking：thinking: {type: "adaptive"} を設定。モデルがタスクに応じて思考の要否・量を自律決定する（新世代モデル 4.6+ 推奨）。effort levels：output_config.effort で思考の深さとトークン消費を制御。low = 高速・低コスト（シンプルな FAQ 等）/ medium = バランス / high = 中程度の推論 / xhigh = コーディング・エージェント向けの最良設定 / max = 最大品質（最もコストが高い）。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Adaptive Thinking vs effort levels：adaptive は「モデル自律判断」、effort は「開発者が深さを指定」。xhigh はコーディング・エージェントタスクに最も適した設定として推奨されている（cram 資料の言及）。fast mode（Opus 限定・最大 2.5 倍速）はプレミアム価格で速度が必要な場合に使う。モデルによって対応する思考オプションが異なるため、使用するモデルのドキュメントを確認する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">How should Adaptive Thinking and effort levels be used differently? Also explain the characteristics and appropriate use cases for each of the 5 effort levels (low / medium / high / xhigh / max).</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Adaptive Thinking: set thinking: {type: 'adaptive'} — the model autonomously determines whether and how much to think based on the task (recommended for new-generation models 4.6+). Effort levels: control depth of reasoning and token consumption via output_config.effort. low = fast, low cost (simple FAQs); medium = balanced; high = moderate reasoning; xhigh = best setting for coding and agentic tasks; max = maximum quality (highest cost).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Adaptive Thinking</td><td class="kw-ja">アダプティブシンキング</td><td class="kw-meaning">thinking:{type:'adaptive'}。モデルがタスクに応じて思考量を自律決定（4.6+推奨）</td></tr>
+<tr><td class="kw-en">effort levels</td><td class="kw-ja">努力レベル</td><td class="kw-meaning">output_config.effortで思考深さを制御。low/medium/high/xhigh/maxの5段階</td></tr>
+<tr><td class="kw-en">xhigh</td><td class="kw-ja">xhigh（最高推奨）</td><td class="kw-meaning">コーディング・エージェントタスクに最適なeffortレベル</td></tr>
+<tr><td class="kw-en">fast mode</td><td class="kw-ja">ファストモード</td><td class="kw-meaning">Opus限定・最大2.5倍の出力速度。プレミアム価格のリサーチプレビュー</td></tr>
+<tr><td class="kw-en">output_config.effort</td><td class="kw-ja">出力設定の努力度</td><td class="kw-meaning">思考の深さとトークン消費量を制御するAPIパラメータ</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-40">
+  <div class="set-header"><span class="set-num">Q40</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">大規模な本番 Claude API システムでコストとパフォーマンスを継続的に監視・最適化したい。API レスポンスのどのフィールドを追跡すべきか？また Token Counting API はどういう場面で使うか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">監視すべきフィールド：レスポンスの usage オブジェクト（input_tokens / output_tokens / cache_read_input_tokens / cache_creation_input_tokens）をログして、キャッシュヒット率・コスト・トークン消費をトラッキングする。Token Counting API（POST /v1/messages/count_tokens）：リクエスト送信前にトークン数を事前見積もりできる（無料）。コンテキストウィンドウ超過リスクの事前検知・コスト計算・分割処理の判断に使用する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">usage フィールドのキャッシュ関連：cache_read_input_tokens（キャッシュから読んだトークン数・0.1 倍課金）と cache_creation_input_tokens（キャッシュ書き込みトークン数・1.25 倍課金）を監視することでキャッシュ効率を評価できる。Token Counting API は「無料で事前見積もり」が特徴。コスト最適化の 3 点セット：キャッシュ / 適切なモデルティア / Batches API（50% off）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You want to continuously monitor and optimize costs and performance for a large-scale production Claude API system. Which fields in the API response should be tracked? And in what situations should the Token Counting API be used?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Track the usage object in responses (input_tokens / output_tokens / cache_read_input_tokens / cache_creation_input_tokens) to log cache hit rates, costs, and token consumption. Token Counting API (POST /v1/messages/count_tokens): estimate token count before sending a request (free). Use it for early detection of context window overflow risk, cost calculation, and deciding whether to split processing.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">usage object</td><td class="kw-ja">usageオブジェクト</td><td class="kw-meaning">APIレスポンスのトークン消費内訳フィールド（input/output/cache_read等）</td></tr>
+<tr><td class="kw-en">cache_read_input_tokens</td><td class="kw-ja">キャッシュ読み取りトークン</td><td class="kw-meaning">Prompt Cacheから読み込んだトークン数。通常の0.1倍のコストで課金</td></tr>
+<tr><td class="kw-en">cache_creation_input_tokens</td><td class="kw-ja">キャッシュ作成トークン</td><td class="kw-meaning">Prompt Cacheへ書き込んだトークン数。通常の1.25倍のコストで課金</td></tr>
+<tr><td class="kw-en">Token Counting API</td><td class="kw-ja">トークンカウントAPI</td><td class="kw-meaning">事前にトークン数を見積もるAPI（無料）。コンテキスト超過の事前検知に使用</td></tr>
+<tr><td class="kw-en">cost tracking</td><td class="kw-ja">コストトラッキング</td><td class="kw-meaning">usageフィールドをログしてAPI利用コストを継続監視する運用プラクティス</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
