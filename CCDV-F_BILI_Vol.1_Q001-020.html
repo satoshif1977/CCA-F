@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCDV-F BILI Vol.1 Q001-020</title>
+<style>
+:root{
+  --jp-accent:#4f46e5;--jp-bg:#f8fafc;
+  --jp-correct-bg:#f0fdf4;--jp-correct-border:#16a34a;
+  --jp-exp-bg:#fffbeb;--jp-exp-border:#f59e0b;
+  --en-accent:#0d9488;--en-correct-bg:#f0fdfa;--en-correct-border:#0d9488;
+  --en-exp-bg:#f0f9ff;--en-exp-border:#0ea5e9;
+  --text:#1e293b;--text-muted:#64748b;--border:#e2e8f0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;background:#f1f5f9;color:var(--text);padding-bottom:32px}
+.site-header{background:linear-gradient(135deg,#0f172a,#1e3a5f,#0d9488);color:white;padding:18px 20px 15px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.site-header h1{font-size:1.1rem;font-weight:800;letter-spacing:.02em}
+.subtitle{font-size:.78rem;opacity:.85;margin-top:4px}
+.jump-nav{background:white;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.jump-nav span{font-size:.72rem;color:var(--text-muted);margin-right:4px}
+.jump-btn{background:#f1f5f9;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.7rem;cursor:pointer;color:var(--text-muted);text-decoration:none;transition:all .15s}
+.jump-btn:hover{background:#0d9488;color:white;border-color:#0d9488}
+.cards-container{max-width:860px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:20px}
+.question-set{background:white;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);scroll-margin-top:80px}
+.set-header{background:linear-gradient(90deg,#0f172a 0%,#1e3a5f 50%,#0d9488 100%);color:white;padding:8px 16px;display:flex;align-items:center;gap:10px}
+.set-num{font-size:1.1rem;font-weight:800;letter-spacing:.05em}
+.set-domain{font-size:.7rem;opacity:.85;margin-left:auto;background:rgba(255,255,255,.15);padding:2px 10px;border-radius:10px}
+.jp-card{border-left:5px solid var(--jp-accent);background:var(--jp-bg)}
+.en-card{border-left:5px solid var(--en-accent);background:#f0fdfa}
+.lang-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:8px 16px 0}
+.lang-label.jp{color:var(--jp-accent)}
+.lang-label.en{color:var(--en-accent)}
+.question-text{padding:10px 16px 12px;font-size:.92rem;line-height:1.85;color:var(--text);border-bottom:1px solid var(--border)}
+.question-text.en{color:#134e4a;background:#f0fdfa}
+.answer-section{padding:11px 16px 14px}
+.correct-answer.jp{background:var(--jp-correct-bg);border:1.5px solid var(--jp-correct-border);border-radius:8px;padding:11px}
+.correct-answer.en{background:var(--en-correct-bg);border:1.5px solid var(--en-correct-border);border-radius:8px;padding:11px}
+.ans-label{font-size:.76rem;font-weight:700;margin-bottom:5px}
+.ans-label.jp{color:#166534}
+.ans-label.en{color:#134e4a}
+.ans-text{font-size:.9rem;font-weight:600;line-height:1.65}
+.ans-text.jp{color:#14532d}
+.ans-text.en{color:#134e4a}
+.overall-exp{margin-top:9px;background:var(--jp-exp-bg);border:1.5px solid var(--jp-exp-border);border-radius:8px;padding:10px 13px}
+.exp-title{font-size:.78rem;font-weight:700;color:#92400e;margin-bottom:4px}
+.exp-body{font-size:.81rem;line-height:1.7;color:#78350f}
+.kw-box{margin-top:9px;background:var(--en-exp-bg);border:1.5px solid var(--en-exp-border);border-radius:8px;padding:10px 13px}
+.kw-title{font-size:.78rem;font-weight:700;color:#0c4a6e;margin-bottom:7px}
+.kw-table{width:100%;border-collapse:collapse}
+.kw-table tr{border-bottom:1px solid rgba(14,165,233,.12)}
+.kw-table tr:last-child{border-bottom:none}
+.kw-table td{padding:5px 6px;vertical-align:top;font-size:.8rem}
+.kw-en{font-weight:700;color:#0369a1;width:30%;white-space:nowrap}
+.kw-ja{color:#0369a1;width:20%;font-size:.75rem}
+.kw-meaning{color:#0c4a6e;line-height:1.55}
+.card-divider{height:1px;background:var(--border)}
+@media(max-width:600px){.question-text{font-size:.86rem}.set-domain{display:none}.kw-ja{display:none}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1>CCDV-F バイリンガル問題集 | Vol.1（Q1-Q20）</h1>
+  <div class="subtitle">&#127471;&#127477; 日本語カード &#8594; &#127482;&#127480; 英語カード + Key Words 意味付き | Q1-20 / 20</div>
+</header>
+<nav class="jump-nav"><span>Jump:</span> <a class="jump-btn" href="#card-1">Q1</a> <a class="jump-btn" href="#card-2">Q2</a> <a class="jump-btn" href="#card-3">Q3</a> <a class="jump-btn" href="#card-4">Q4</a> <a class="jump-btn" href="#card-5">Q5</a> <a class="jump-btn" href="#card-6">Q6</a> <a class="jump-btn" href="#card-7">Q7</a> <a class="jump-btn" href="#card-8">Q8</a> <a class="jump-btn" href="#card-9">Q9</a> <a class="jump-btn" href="#card-10">Q10</a> <a class="jump-btn" href="#card-11">Q11</a> <a class="jump-btn" href="#card-12">Q12</a> <a class="jump-btn" href="#card-13">Q13</a> <a class="jump-btn" href="#card-14">Q14</a> <a class="jump-btn" href="#card-15">Q15</a> <a class="jump-btn" href="#card-16">Q16</a> <a class="jump-btn" href="#card-17">Q17</a> <a class="jump-btn" href="#card-18">Q18</a> <a class="jump-btn" href="#card-19">Q19</a> <a class="jump-btn" href="#card-20">Q20</a></nav>
+<div class="cards-container">
+<div class="question-set" id="card-1">
+  <div class="set-header"><span class="set-num">Q1</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">SaaS 企業がユーザーのサポートチケットを Claude API で分析するシステムを構築している。チケットは毎日夜間に 80,000 件まとめて届き、翌朝までに全件のカテゴリ分類と優先度スコアが必要だ。コストを最小化しつつ要件を満たす最適な API 利用パターンはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Message Batches API（バッチ API）を使用する。通常の Synchronous API と比べて最大 50% のコスト削減が可能で、24 時間以内の応答が保証されるため夜間バッチ処理に最適。1 リクエストに最大 10,000 件を含めることができ、80,000 件を 8 バッチに分割して送信する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Message Batches API はバルク・非同期処理向けに設計されており、通常料金の半額で利用できる。リアルタイム性が不要で大量処理が必要な夜間バッチに最適。Streaming は即時表示用・Synchronous は単発リクエスト向けであり、コスト最小化には不向き。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A SaaS company is building a system to analyze support tickets using the Claude API. Up to 80,000 tickets arrive each night in bulk, and all must be categorized and prioritized by the next morning. Which API usage pattern best minimizes cost while meeting this requirement?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use the Message Batches API. It provides up to 50% cost reduction compared to synchronous requests and guarantees responses within 24 hours, making it ideal for overnight batch processing. Up to 10,000 requests can be included per batch, so the 80,000 tickets can be split into 8 batches.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Message Batches API</td><td class="kw-ja">バッチ API</td><td class="kw-meaning">大量リクエストを非同期で処理するAPI。通常料金の最大50%オフ・24時間応答保証</td></tr>
+<tr><td class="kw-en">synchronous</td><td class="kw-ja">同期処理</td><td class="kw-meaning">リクエストごとに即時応答を返す方式。単発・リアルタイム用途向け</td></tr>
+<tr><td class="kw-en">cost optimization</td><td class="kw-ja">コスト最適化</td><td class="kw-meaning">API利用料を削減するための設計判断（バッチ・キャッシュ・モデル選択など）</td></tr>
+<tr><td class="kw-en">bulk processing</td><td class="kw-ja">バルク処理</td><td class="kw-meaning">大量データを一括で処理すること。夜間バッチなどに適する</td></tr>
+<tr><td class="kw-en">throughput</td><td class="kw-ja">スループット</td><td class="kw-meaning">単位時間あたりに処理できるリクエスト数</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-2">
+  <div class="set-header"><span class="set-num">Q2</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">EC サイトが Claude API に tool_use（Function Calling）を統合している。ユーザーが「在庫を確認して注文を完了して」と入力した場合、Claude は check_inventory ツールと place_order ツールを両方呼び出す必要がある。この 2 つのツール呼び出しを最も効率よく処理する方法はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Claude が tool_use ブロックを複数同時に返した場合（parallel tool calls）、アプリ側は各ツールを並列実行し、すべての tool_result を一つの messages 配列にまとめて Claude に返す。ただし check_inventory の結果が place_order の入力に必要な場合は順次実行が必要。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude API は 1 ターンで複数の tool_use を返せる（parallel tool calls）。依存関係がないツールは並列実行でレイテンシを削減できる。一方、前のツール結果が次のツールの引数になる場合は逐次実行が必要。依存関係の有無を設計段階で整理することが重要。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An e-commerce site integrates Claude API with tool_use (Function Calling). When a user says 'Check inventory and complete the order,' Claude needs to call both check_inventory and place_order. What is the most efficient way to handle these two tool calls?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">When Claude returns multiple tool_use blocks in a single turn (parallel tool calls), the application runs each tool in parallel and returns all tool_result blocks together in one messages array. However, if check_inventory output is required as input for place_order, sequential execution is necessary.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool_use</td><td class="kw-ja">ツール使用</td><td class="kw-meaning">Claude APIでモデルが外部関数の呼び出しを要求するコンテンツブロック</td></tr>
+<tr><td class="kw-en">parallel tool calls</td><td class="kw-ja">並列ツール呼び出し</td><td class="kw-meaning">複数のtool_useを同時実行し、まとめてtool_resultを返すパターン</td></tr>
+<tr><td class="kw-en">tool_result</td><td class="kw-ja">ツール結果</td><td class="kw-meaning">アプリがツール実行結果をClaudeに返すコンテンツブロック</td></tr>
+<tr><td class="kw-en">dependency</td><td class="kw-ja">依存関係</td><td class="kw-meaning">あるツールの出力が別ツールの入力に必要な関係。逐次実行が必要になる</td></tr>
+<tr><td class="kw-en">latency</td><td class="kw-ja">レイテンシ</td><td class="kw-meaning">リクエスト送信から応答受信までの時間。並列化で削減できる</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-3">
+  <div class="set-header"><span class="set-num">Q3</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">リーガルテック企業が Claude API を使って契約書レビューアプリを開発中。ユーザーが 200 ページの PDF をアップロードすると、全文を Claude に送ると 200k トークンを超えコストと遅延が問題になる。最も効果的なアーキテクチャはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">PDF をセクション単位でチャンク分割し、関連性スコアリング（埋め込みベクトル検索）で質問に関連する上位チャンクのみを抽出して Claude に送る RAG（Retrieval-Augmented Generation）パターンを採用する。全文送付が必要な場合は Prompt Caching でコストを削減する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">大規模ドキュメントの処理には RAG が有効。全文をコンテキストに詰め込む「Stuffing」はコスト・速度ともに非効率。関連チャンクのみ抽出することでトークン消費を 80〜90% 削減できる。頻繁に参照する長い文書には Prompt Caching（最大 90% 削減）も組み合わせると効果的。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A legaltech company is building a contract review application using the Claude API. When a user uploads a 200-page PDF, sending the full text to Claude exceeds 200k tokens, causing cost and latency issues. What is the most effective architecture?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Adopt a RAG (Retrieval-Augmented Generation) pattern: chunk the PDF into sections, use relevance scoring (embedding vector search) to extract only the top chunks related to the query, and send only those to Claude. For cases where full-text access is required, use Prompt Caching to reduce costs.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">RAG</td><td class="kw-ja">RAG（検索拡張生成）</td><td class="kw-meaning">外部データをベクトル検索で取得し、コンテキストに注入して生成精度を向上させる手法</td></tr>
+<tr><td class="kw-en">chunking</td><td class="kw-ja">チャンク分割</td><td class="kw-meaning">長文をセクション単位に分割してベクトル化・検索可能にする前処理</td></tr>
+<tr><td class="kw-en">Prompt Caching</td><td class="kw-ja">プロンプトキャッシュ</td><td class="kw-meaning">同一プレフィックスのトークンをキャッシュしAPIコストを最大90%削減する機能</td></tr>
+<tr><td class="kw-en">embedding</td><td class="kw-ja">埋め込み（ベクトル）</td><td class="kw-meaning">テキストを多次元ベクトルに変換し意味的類似度を計算可能にする表現</td></tr>
+<tr><td class="kw-en">token budget</td><td class="kw-ja">トークン予算</td><td class="kw-meaning">1リクエストで消費するトークン上限を設計段階で見積もること</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-4">
+  <div class="set-header"><span class="set-num">Q4</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ニュースアグリゲーターが Claude API を使ってリアルタイム要約をユーザーに提供している。長い記事（3,000 語）の要約が完了するまでユーザーが待たされ UX が悪い。最も適切な改善策はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Streaming API（server-sent events）を使用し、Claude が生成したトークンをチャンクごとにリアルタイムでクライアントに送信する。ユーザーはページロード後すぐにテキストが流れるのを確認でき、体感速度が大幅に向上する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Streaming は最初のトークンまでの時間（TTFT: Time To First Token）を体感的に短縮する。全応答を待たずにレンダリングを開始できるため UX が向上。実装は EventSource または fetch + ReadableStream で行う。応答を保存・加工する場合はすべてのチャンクを受信してから処理する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A news aggregator uses the Claude API to provide real-time article summaries. Users experience poor UX because they must wait for the full summary of long articles (3,000 words) to complete. What is the most appropriate improvement?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use the Streaming API (server-sent events) to send tokens to the client in real time as Claude generates them. Users see text appearing immediately after page load, dramatically improving perceived speed.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Streaming API</td><td class="kw-ja">ストリーミングAPI</td><td class="kw-meaning">生成トークンをリアルタイムで逐次送信するAPI。TTFT短縮に効果的</td></tr>
+<tr><td class="kw-en">server-sent events</td><td class="kw-ja">サーバー送信イベント</td><td class="kw-meaning">サーバーからクライアントへの単方向リアルタイム通信プロトコル</td></tr>
+<tr><td class="kw-en">TTFT</td><td class="kw-ja">最初のトークンまでの時間</td><td class="kw-meaning">Time To First Token。ユーザーが最初のテキストを見るまでの待ち時間</td></tr>
+<tr><td class="kw-en">ReadableStream</td><td class="kw-ja">読み取りストリーム</td><td class="kw-meaning">JavaScriptでストリームデータを逐次処理するWeb API</td></tr>
+<tr><td class="kw-en">UX</td><td class="kw-ja">ユーザー体験</td><td class="kw-meaning">ユーザーがシステムを使う際に感じる使いやすさ・満足度</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-5">
+  <div class="set-header"><span class="set-num">Q5</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">モバイルアプリが Claude API に大量リクエストを送信しており、断続的に HTTP 529 (Overloaded) エラーが発生している。サービスの安定性を保ちながら全リクエストを確実に処理するための最善のエラー処理戦略はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">指数バックオフ（Exponential Backoff）にジッター（ランダム待機）を加えた再試行ロジックを実装する。初回リトライは 1 秒待機、以降は 2 秒・4 秒・8 秒と倍増させ、最大待機上限（例: 60 秒）を設ける。同時に x-ratelimit-remaining ヘッダーを監視してレート制限を事前に検知する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">529 は一時的な過負荷エラーでリトライ有効（cf. 400/401 はリトライ不要）。ジッターなしの指数バックオフは「リトライの集中」を起こすため、ランダム待機を加えて分散させる。レート制限ヘッダー（x-ratelimit-remaining, x-ratelimit-reset）を監視して事前制御するのもベストプラクティス。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A mobile app sending high volumes of requests to the Claude API is experiencing intermittent HTTP 529 (Overloaded) errors. What is the best error handling strategy to maintain service stability while ensuring all requests are processed?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement retry logic using exponential backoff with jitter: wait 1 second on the first retry, doubling to 2, 4, and 8 seconds, with a maximum cap (e.g., 60 seconds). Also monitor the x-ratelimit-remaining header to proactively detect rate limit exhaustion.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">exponential backoff</td><td class="kw-ja">指数バックオフ</td><td class="kw-meaning">リトライ待機時間を指数的に増やす戦略。サーバー負荷の集中を防ぐ</td></tr>
+<tr><td class="kw-en">jitter</td><td class="kw-ja">ジッター</td><td class="kw-meaning">バックオフ待機時間にランダム要素を加えること。リトライの同期を防ぐ</td></tr>
+<tr><td class="kw-en">HTTP 529</td><td class="kw-ja">過負荷エラー</td><td class="kw-meaning">Anthropicサーバーが一時的に過負荷の状態。リトライ可能な一時エラー</td></tr>
+<tr><td class="kw-en">rate limit</td><td class="kw-ja">レート制限</td><td class="kw-meaning">単位時間あたりのAPIリクエスト上限。ヘッダーで残余を確認できる</td></tr>
+<tr><td class="kw-en">x-ratelimit-remaining</td><td class="kw-ja">残余レート制限</td><td class="kw-meaning">現在の時間ウィンドウで残り何リクエスト送れるかを示すHTTPヘッダー</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-6">
+  <div class="set-header"><span class="set-num">Q6</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">金融レポート生成システムが Claude API を使っている。同じ 15,000 トークンの詳細な財務規制ガイドラインを、日々 5,000 件のレポート生成リクエストの system プロンプトに毎回含めている。このコスト構造を最も効率よく改善する方法はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">cache_control: {"type": "ephemeral"} を財務規制ガイドラインのコンテンツブロックに付与して Prompt Caching を有効化する。キャッシュヒット時のトークンコストは通常の 10% 程度に削減され、5 分間（TTL）保持される。5,000 件 × 15,000 トークンの繰り返し課金が大幅に削減される。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Prompt Caching は同一プレフィックス（system プロンプトや長い文書）の再利用コストを最大 90% 削減する機能。cache_control フィールドで「ここまでキャッシュせよ」と境界を指定する。TTL はデフォルト 5 分（Sonnet 系は延長可）。頻繁に変化する動的コンテンツよりも、固定の長文コンテキストに最適。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A financial report generation system uses the Claude API. The same 15,000-token detailed financial regulations guideline is included in the system prompt for 5,000 report generation requests per day. What is the most efficient way to improve this cost structure?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Enable Prompt Caching by adding cache_control: {"type": "ephemeral"} to the financial regulations content block. Cached tokens cost approximately 10% of normal input tokens and are retained for 5 minutes (TTL), dramatically reducing the repeated billing for 5,000 requests × 15,000 tokens.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Prompt Caching</td><td class="kw-ja">プロンプトキャッシュ</td><td class="kw-meaning">同一プレフィックスのトークンを5分間キャッシュし、再利用コストを最大90%削減</td></tr>
+<tr><td class="kw-en">cache_control</td><td class="kw-ja">キャッシュ制御</td><td class="kw-meaning">APIリクエストでキャッシュ境界を指定するフィールド（type: ephemeral）</td></tr>
+<tr><td class="kw-en">TTL</td><td class="kw-ja">有効期間</td><td class="kw-meaning">Time To Live。キャッシュが保持される時間（デフォルト5分）</td></tr>
+<tr><td class="kw-en">cache hit</td><td class="kw-ja">キャッシュヒット</td><td class="kw-meaning">同一プレフィックスが再利用されコスト削減が適用された状態</td></tr>
+<tr><td class="kw-en">input tokens</td><td class="kw-ja">入力トークン</td><td class="kw-meaning">APIに送信するプロンプトのトークン数。課金の基準の一つ</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-7">
+  <div class="set-header"><span class="set-num">Q7</span><span class="set-domain">Applications and Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Webhook 通知システムを構築している。Claude API の非同期バッチ処理が完了したとき、外部の在庫管理システムに HTTP POST で結果を通知したい。セキュリティと信頼性の両方を確保するために必要な実装はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Webhook エンドポイントで HMAC-SHA256 署名検証を実装する（ヘッダーの X-Signature と送信ボディのハッシュを照合）。また、冪等性キー（idempotency key）を用いて重複配信による二重処理を防ぎ、5xx エラー時はキュー（SQS など）への再エンキューで再送保証を実現する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Webhook は「サーバーがクライアントに」イベントを通知するプッシュ型の仕組み。セキュリティ確保には署名検証が必須（なりすまし防止）。信頼性確保には「少なくとも一度（at-least-once）」配信と冪等性設計が重要。配信失敗時の DLQ（Dead Letter Queue）設計も忘れずに。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are building a webhook notification system. When Claude API asynchronous batch processing completes, you need to notify an external inventory management system via HTTP POST. What implementation ensures both security and reliability?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement HMAC-SHA256 signature verification on the webhook endpoint (comparing the X-Signature header with a hash of the request body). Use idempotency keys to prevent duplicate processing from repeated deliveries, and guarantee redelivery by re-enqueuing failed requests (5xx errors) to a queue such as SQS.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">webhook</td><td class="kw-ja">ウェブフック</td><td class="kw-meaning">イベント発生時にサーバーが外部URLへHTTP POSTでデータを送るプッシュ通知</td></tr>
+<tr><td class="kw-en">HMAC-SHA256</td><td class="kw-ja">HMAC-SHA256署名</td><td class="kw-meaning">秘密鍵とハッシュ関数でペイロードに署名し、送信元の正当性を検証する仕組み</td></tr>
+<tr><td class="kw-en">idempotency key</td><td class="kw-ja">冪等性キー</td><td class="kw-meaning">同一リクエストを複数回処理しても結果が変わらないことを保証するためのキー</td></tr>
+<tr><td class="kw-en">at-least-once delivery</td><td class="kw-ja">少なくとも一度の配信</td><td class="kw-meaning">配信失敗時に再送保証するが、重複配信が起きうる設計方針</td></tr>
+<tr><td class="kw-en">Dead Letter Queue</td><td class="kw-ja">デッドレターキュー</td><td class="kw-meaning">処理失敗メッセージを溜めておく専用キュー。障害分析・再処理に使用</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-8">
+  <div class="set-header"><span class="set-num">Q8</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">スタートアップが AI チャットボットを構築している。ユーザー質問の 90% は「営業時間は？」「返品ポリシーは？」などのシンプルな FAQ で、残り 10% は複雑な注文トラブルの対応。コスト最適化のために最も適切なモデル選択戦略はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ルーターエージェントパターンを採用する。まず軽量な分類ロジック（またはモデル自体）で質問の複雑さを判定し、シンプルな FAQ は Claude Haiku（高速・最低コスト）で処理、複雑なトラブル対応は Claude Sonnet（バランス型）にルーティングする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">すべての質問を高性能・高コストモデルで処理するのは非効率。Haiku は簡単なタスクに対して Sonnet の 1/10 以下のコストで同等の品質を提供できる。ルーターパターンはコスト最適化の定番手法。分類は質問の長さ・キーワード・センチメントなどを基準にできる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A startup is building an AI chatbot. 90% of user questions are simple FAQs like 'What are your business hours?' or 'What is the return policy?', while the remaining 10% involve complex order issues. What is the most appropriate model selection strategy for cost optimization?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Adopt a router agent pattern: use lightweight classification logic (or the model itself) to assess question complexity, then route simple FAQs to Claude Haiku (fastest, lowest cost) and complex troubleshooting to Claude Sonnet (balanced performance).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Claude Haiku</td><td class="kw-ja">Claude Haiku</td><td class="kw-meaning">最も軽量・高速・低コストなモデル。シンプルな分類・FAQ・要約タスクに最適</td></tr>
+<tr><td class="kw-en">Claude Sonnet</td><td class="kw-ja">Claude Sonnet</td><td class="kw-meaning">速度とインテリジェンスのバランス型モデル。多くのユースケースに適する</td></tr>
+<tr><td class="kw-en">router pattern</td><td class="kw-ja">ルーターパターン</td><td class="kw-meaning">入力の性質に基づいて適切なモデルやエージェントに振り分ける設計</td></tr>
+<tr><td class="kw-en">complexity classification</td><td class="kw-ja">複雑さ分類</td><td class="kw-meaning">タスクの難易度を事前評価して最適なモデルを選択すること</td></tr>
+<tr><td class="kw-en">cost-performance tradeoff</td><td class="kw-ja">コスト性能トレードオフ</td><td class="kw-meaning">処理コストと出力品質のバランスを最適化する設計判断</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-9">
+  <div class="set-header"><span class="set-num">Q9</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">医療 AI スタートアップが複雑な症例診断支援システムを構築している。患者の症状・検査値・既往歴から複数の鑑別診断候補を導出し、各診断の根拠と可能性を段階的に推論する必要がある。最も適切なモデル設定はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Extended Thinking（拡張思考モード）を有効にした Claude Sonnet または Opus を使用する。thinking: {type: "enabled", budget_tokens: 10000} を設定し、モデルが内部で複数の仮説を検討・検証してから最終診断候補を出力する。医療判断における多段階推論の精度が大幅に向上する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Extended Thinking はモデルが「考える時間」を確保し、複雑な多段階推論の精度を向上させる機能。budget_tokens で思考に使うトークン上限を指定（多いほど深く考えるが、コスト増）。医療・法律・数学など高い推論精度が必要なタスクに有効。通常の会話タスクには不要。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A medical AI startup is building a complex case diagnosis support system. The system must derive multiple differential diagnosis candidates from patient symptoms, lab values, and medical history, and reason through the evidence and likelihood of each diagnosis step by step. What is the most appropriate model configuration?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use Claude Sonnet or Opus with Extended Thinking enabled. Set thinking: {type: "enabled", budget_tokens: 10000} to allow the model to internally consider and validate multiple hypotheses before outputting final diagnosis candidates, significantly improving multi-step reasoning accuracy for medical decisions.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Extended Thinking</td><td class="kw-ja">拡張思考モード</td><td class="kw-meaning">モデルが内部思考プロセスを経てから回答する機能。複雑な推論タスクに有効</td></tr>
+<tr><td class="kw-en">budget_tokens</td><td class="kw-ja">思考トークン予算</td><td class="kw-meaning">拡張思考で使用できるトークンの上限。多いほど深い推論が可能</td></tr>
+<tr><td class="kw-en">differential diagnosis</td><td class="kw-ja">鑑別診断</td><td class="kw-meaning">複数の疾患候補を列挙し、証拠に基づいて絞り込む医療診断のプロセス</td></tr>
+<tr><td class="kw-en">multi-step reasoning</td><td class="kw-ja">多段階推論</td><td class="kw-meaning">複数の推論ステップを経て最終結論を導くプロセス</td></tr>
+<tr><td class="kw-en">Claude Opus</td><td class="kw-ja">Claude Opus</td><td class="kw-meaning">最高インテリジェンスモデル。最も複雑なタスク向けだが最もコストが高い</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-10">
+  <div class="set-header"><span class="set-num">Q10</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">EdTech 企業が学習アプリを構築している。生徒がコードを提出するたびに Claude API でリアルタイムフィードバックを提供するが、応答速度が遅く（平均 8 秒）生徒の学習フローが中断される。解決策として最も優先すべき最適化はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Streaming API に切り替えて TTFT（最初のトークンまでの時間）を改善し、フィードバックが流れ始めるまでの体感時間を短縮する。同時にシステムプロンプトを短縮し不要な指示を削除する。モデルを Sonnet から Haiku に変更することで推論速度を大幅に向上させることも検討する（コードフィードバックなら Haiku で十分な品質）。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">レイテンシ最適化の優先順位：① Streaming で体感速度改善（TTFT 短縮） ② プロンプト短縮でトークン処理量削減 ③ より軽量なモデルへ変更 ④ Prompt Caching で固定部分の処理短縮。リアルタイム性が重要なユースケース（チャット・コードレビュー）では Streaming は必須。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An EdTech company is building a learning app. Every time a student submits code, the Claude API provides real-time feedback, but the average response time is 8 seconds, disrupting student learning flow. What optimization should be prioritized to solve this?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Switch to the Streaming API to improve TTFT (Time To First Token) and reduce perceived wait time until feedback begins appearing. Additionally, shorten the system prompt by removing unnecessary instructions. Consider changing from Sonnet to Haiku for significantly faster inference speed (Haiku provides sufficient quality for code feedback).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">TTFT</td><td class="kw-ja">最初のトークンまでの時間</td><td class="kw-meaning">ユーザーが最初の出力トークンを受け取るまでの時間。体感速度に直結</td></tr>
+<tr><td class="kw-en">inference speed</td><td class="kw-ja">推論速度</td><td class="kw-meaning">モデルがトークンを生成するスピード（tokens/second）</td></tr>
+<tr><td class="kw-en">latency optimization</td><td class="kw-ja">レイテンシ最適化</td><td class="kw-meaning">応答時間を短縮するための設計・設定の改善</td></tr>
+<tr><td class="kw-en">prompt length</td><td class="kw-ja">プロンプト長</td><td class="kw-meaning">送信するプロンプトのトークン数。短いほど処理が速い</td></tr>
+<tr><td class="kw-en">model downgrade</td><td class="kw-ja">モデル変更（軽量化）</td><td class="kw-meaning">高精度モデルから軽量モデルへ変更することで速度・コストを改善</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-11">
+  <div class="set-header"><span class="set-num">Q11</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">コンテンツモデレーションシステムが Claude API を使って画像とテキストを同時に分析している。ユーザー投稿の画像に不適切な視覚コンテンツが含まれているかを判定する場合、最も適切な API のアプローチはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Claude の Vision 機能を使用し、messages の content 配列に {type: "image", source: {type: "base64", media_type: "image/jpeg", data: "..."}} のような画像ブロックとテキストブロックを組み合わせて送信する。モデルは画像とテキスト文脈の両方を考慮して判定する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude は Vision（マルチモーダル）に対応しており、テキストと画像を同一コンテキストで処理できる。画像は Base64 エンコードまたは URL 参照で送信できる。1 メッセージに複数画像を含めることも可能。高精度なモデレーションが必要な場合は Sonnet 以上を選択する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A content moderation system uses the Claude API to analyze images and text simultaneously. When determining whether a user post's image contains inappropriate visual content, what is the most appropriate API approach?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use Claude's Vision capability by combining an image block ({type: "image", source: {type: "base64", media_type: "image/jpeg", data: "..."}}) with a text block in the content array of the messages field. The model evaluates both the image and the text context together.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Vision</td><td class="kw-ja">ビジョン（画像認識）</td><td class="kw-meaning">Claudeが画像を入力として受け取り、内容を解析・説明・判定できる機能</td></tr>
+<tr><td class="kw-en">multimodal</td><td class="kw-ja">マルチモーダル</td><td class="kw-meaning">テキスト・画像・ファイルなど複数のモダリティを組み合わせた処理</td></tr>
+<tr><td class="kw-en">content moderation</td><td class="kw-ja">コンテンツモデレーション</td><td class="kw-meaning">ユーザー生成コンテンツが規約・安全基準に適合しているかを審査するプロセス</td></tr>
+<tr><td class="kw-en">base64</td><td class="kw-ja">Base64エンコード</td><td class="kw-meaning">バイナリデータ（画像等）をテキスト形式に変換するエンコーディング方式</td></tr>
+<tr><td class="kw-en">image block</td><td class="kw-ja">画像ブロック</td><td class="kw-meaning">Claude APIのmessages content配列に含める画像データの構造体</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-12">
+  <div class="set-header"><span class="set-num">Q12</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">B2B SaaS 企業が Claude API を使ったコード生成機能を開発している。処理するタスクは ①単純な変数名リファクタリング（大量・反復）、②中程度の複雑さのバグ修正、③アーキテクチャレベルの設計レビューの 3 種類。それぞれに最適なモデル割り当てはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">①変数名リファクタリング → Claude Haiku（単純・反復タスク、最低コスト）、②バグ修正 → Claude Sonnet（中程度の推論、バランス型）、③アーキテクチャレビュー → Claude Sonnet または Opus（複雑な設計判断、最高精度）。タスク複雑度に応じたティアード（階層的）モデル選択が最適。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">CCDV 試験頻出：モデル選択の原則。Haiku = 高速・低コスト・シンプルタスク向け / Sonnet = バランス・大多数のタスク向け / Opus = 最高精度・最複雑タスク向け。コード生成では Sonnet が最もコスパが高く、アーキテクチャ設計など高度な推論が必要な場合に Opus を検討。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A B2B SaaS company is developing a code generation feature using the Claude API. The tasks are: ① simple variable name refactoring (high volume, repetitive), ② moderate-complexity bug fixes, and ③ architecture-level design reviews. What is the optimal model assignment for each?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">① Variable refactoring → Claude Haiku (simple, repetitive, lowest cost); ② Bug fixes → Claude Sonnet (moderate reasoning, balanced); ③ Architecture review → Claude Sonnet or Opus (complex design decisions, highest accuracy). Tiered model selection based on task complexity is optimal.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tiered model selection</td><td class="kw-ja">階層的モデル選択</td><td class="kw-meaning">タスクの複雑さに応じてHaiku/Sonnet/Opusを使い分けるコスト最適化戦略</td></tr>
+<tr><td class="kw-en">Haiku</td><td class="kw-ja">Claude Haiku</td><td class="kw-meaning">最軽量・最高速・最低コスト。シンプルな分類・変換・要約タスク向け</td></tr>
+<tr><td class="kw-en">Sonnet</td><td class="kw-ja">Claude Sonnet</td><td class="kw-meaning">速度と品質のバランスが優れた主力モデル。ほとんどのコードタスクに適する</td></tr>
+<tr><td class="kw-en">Opus</td><td class="kw-ja">Claude Opus</td><td class="kw-meaning">最高インテリジェンス。複雑な推論・創造的・アーキテクチャ設計向け</td></tr>
+<tr><td class="kw-en">cost-per-quality</td><td class="kw-ja">品質あたりコスト</td><td class="kw-meaning">出力品質に対するAPIコストの比率。モデル選択の重要指標</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-13">
+  <div class="set-header"><span class="set-num">Q13</span><span class="set-domain">Model Selection and Optimization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">Claude API で生成したコンテンツに一貫性を持たせたい。同じプロンプトに対して毎回ほぼ同じ出力を得るためにはどのパラメータを調整すべきか？また創造的なコンテンツ生成でバリエーションを増やしたい場合はどう設定するか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">一貫性が必要な場合は temperature を 0 に設定する（決定論的出力）。創造的バリエーションが必要な場合は temperature を 0.7〜1.0 に設定する。top_p は nucleus sampling の閾値（0.9〜0.95 が標準）。本番システムでは temperature=0 を基本とし、創造タスクのみ引き上げる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">temperature=0：最も確率の高いトークンを常に選択→再現性が高い→ファクトチェック・分類・構造化データ抽出向け。temperature>0：ランダム性が増す→多様な表現→コピーライティング・ストーリー生成向け。top_p（nucleus sampling）は temperature と組み合わせて使用。基本は temperature のみ調整で十分。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You want generated content from the Claude API to be consistent. What parameter should be adjusted to get nearly the same output for the same prompt every time? And how should it be set when you want more variation in creative content generation?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">For consistency, set temperature to 0 (deterministic output). For creative variation, set temperature to 0.7–1.0. top_p sets the nucleus sampling threshold (0.9–0.95 is standard). In production systems, use temperature=0 as the baseline and raise it only for creative tasks.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">temperature</td><td class="kw-ja">温度パラメータ</td><td class="kw-meaning">出力のランダム性を制御。0=決定論的、1.0=最大ランダム。再現性が必要なら0</td></tr>
+<tr><td class="kw-en">top_p</td><td class="kw-ja">トップP（核サンプリング）</td><td class="kw-meaning">累積確率がp以上のトークンのみを選択候補にするサンプリング手法</td></tr>
+<tr><td class="kw-en">deterministic output</td><td class="kw-ja">決定論的出力</td><td class="kw-meaning">同じ入力から常に同じ出力を生成すること。temperature=0で実現</td></tr>
+<tr><td class="kw-en">nucleus sampling</td><td class="kw-ja">核サンプリング</td><td class="kw-meaning">上位確率トークンのみを候補とすることで品質と多様性のバランスを取る</td></tr>
+<tr><td class="kw-en">reproducibility</td><td class="kw-ja">再現性</td><td class="kw-meaning">同一条件で同一結果を得られる性質。デバッグや品質保証に重要</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-14">
+  <div class="set-header"><span class="set-num">Q14</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">在庫管理エージェントに search_products ツールを定義している。ツールの description と parameters の設計について、Claude が最も正確にツールを使用するためのベストプラクティスはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">description には「いつ・なぜこのツールを使うべきか」を明確に記述し、parameters の各フィールドには type・description・examples・enum（選択肢が固定の場合）を詳細に定義する。required と optional を明示し、Claude がパラメータを正確に推論できるよう入力形式を具体例で示す。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">ツール定義の品質がエージェントの精度に直結する。不明確な description では Claude が誤ったタイミングでツールを呼び出す。具体的な使用例・禁止パターン・期待される引数形式を記述することで精度が向上。enum でパラメータの選択肢を制限することも有効（ハルシネーション防止）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are defining a search_products tool for an inventory management agent. What are the best practices for designing the tool's description and parameters so that Claude uses the tool most accurately?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Clearly describe in the description 'when and why this tool should be used.' Define each parameter field with type, description, examples, and enum (when choices are fixed). Explicitly mark required and optional fields, and provide concrete examples of input format so Claude can accurately infer parameter values.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">tool description</td><td class="kw-ja">ツール説明文</td><td class="kw-meaning">Claudeがツールの用途・呼び出し条件を理解するための自然言語説明</td></tr>
+<tr><td class="kw-en">JSON Schema</td><td class="kw-ja">JSONスキーマ</td><td class="kw-meaning">ツールのパラメータ構造を定義するフォーマット（type・description・required）</td></tr>
+<tr><td class="kw-en">enum</td><td class="kw-ja">列挙型</td><td class="kw-meaning">パラメータの取りうる値を事前に定義する制約。ハルシネーション防止に有効</td></tr>
+<tr><td class="kw-en">required vs optional</td><td class="kw-ja">必須と任意</td><td class="kw-meaning">パラメータの必須度を明示することでClaude の推論精度を向上させる</td></tr>
+<tr><td class="kw-en">hallucination prevention</td><td class="kw-ja">ハルシネーション防止</td><td class="kw-meaning">モデルが存在しない値を生成しないよう、選択肢やフォーマットを制約する設計</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-15">
+  <div class="set-header"><span class="set-num">Q15</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">旅行予約エージェントが複数のAPIを呼び出してフライト・ホテル・レンタカーの空き状況を確認する。現在は順次呼び出しているため全チェックに 9 秒かかる。最も効率よく改善する方法はどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Claude が 3 つのツール（check_flights・check_hotels・check_cars）を同一ターンで並列呼び出しできるよう、アプリ側で tool_use ブロックを並列実行して全 tool_result を一度に返す設計に変更する。API 独立性があれば 3 倍近い速度改善が可能（9 秒 → 3 秒程度）。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Claude は 1 ターンで複数の tool_use を返すことができる（並列ツール呼び出し）。アプリ側の責任は各ツールを並列実行（Promise.all 等）し、全 tool_result を messages に追加してClaude に返すこと。前のツール結果が次のツール入力に必要でない限り、常に並列化を検討すること。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A travel booking agent calls multiple APIs to check availability for flights, hotels, and rental cars. Currently using sequential calls, the full check takes 9 seconds. What is the most efficient way to improve this?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Redesign so Claude can make parallel calls to three tools (check_flights, check_hotels, check_cars) in the same turn: run all tool_use blocks in parallel on the application side and return all tool_results at once. With independent APIs, this can achieve nearly 3x speed improvement (9 seconds → ~3 seconds).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">parallel tool calls</td><td class="kw-ja">並列ツール呼び出し</td><td class="kw-meaning">Claudeが複数のtool_useを同一ターンで要求し、アプリが並列実行する設計</td></tr>
+<tr><td class="kw-en">Promise.all</td><td class="kw-ja">Promise.all</td><td class="kw-meaning">複数の非同期処理を並列実行し、すべて完了するまで待機するJS API</td></tr>
+<tr><td class="kw-en">sequential vs parallel</td><td class="kw-ja">逐次処理 vs 並列処理</td><td class="kw-meaning">ツール呼び出しの実行順序の違い。独立ツールは並列化でレイテンシを削減</td></tr>
+<tr><td class="kw-en">API independence</td><td class="kw-ja">API独立性</td><td class="kw-meaning">各APIが他のAPIの結果に依存しないこと。並列化の前提条件</td></tr>
+<tr><td class="kw-en">turn</td><td class="kw-ja">ターン</td><td class="kw-meaning">ユーザーとモデル間の1往復の会話単位</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-16">
+  <div class="set-header"><span class="set-num">Q16</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">自律エージェントがループ内でツールを繰り返し呼び出す設計になっている。本番環境で無限ループが発生し、API コストが急増した。このリスクを防ぐためのベストプラクティスはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">① 最大反復回数の上限（例: 10 回）を設ける、② タイムアウト（例: 30 秒）を設定する、③ Claude の system プロンプトに明確な停止条件を記述する（「タスク完了または解決不能と判断した時点でループを終了せよ」）、④ 各ループでの進捗を記録してスタック検出を行う。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">エージェントの無限ループは本番の重大リスク。防御策は多層で実装する：アプリレベル（反復上限・タイムアウト）+ プロンプトレベル（明確な停止条件）+ 監視レベル（異常アラート）。特に重要なのは「停止条件の明示」と「スタック検出（同じツールを同じ引数で繰り返す場合に検知）」。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An autonomous agent is designed to repeatedly call tools in a loop. In production, infinite loops occurred, causing a spike in API costs. What are the best practices to prevent this risk?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">① Set a maximum iteration limit (e.g., 10 iterations); ② Configure a timeout (e.g., 30 seconds); ③ Include explicit stopping conditions in Claude's system prompt ('terminate the loop when the task is complete or deemed unsolvable'); ④ Log progress at each loop iteration and implement stall detection.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">iteration limit</td><td class="kw-ja">反復回数上限</td><td class="kw-meaning">エージェントループの最大実行回数。無限ループを防ぐアプリレベルの制御</td></tr>
+<tr><td class="kw-en">stopping condition</td><td class="kw-ja">停止条件</td><td class="kw-meaning">エージェントがループを終了すべき条件。プロンプトで明示することが重要</td></tr>
+<tr><td class="kw-en">stall detection</td><td class="kw-ja">スタック検出</td><td class="kw-meaning">同じ操作が繰り返されていることを検知する仕組み。ループ異常の早期発見</td></tr>
+<tr><td class="kw-en">timeout</td><td class="kw-ja">タイムアウト</td><td class="kw-meaning">処理時間の上限。超過した場合に処理を強制終了する安全機構</td></tr>
+<tr><td class="kw-en">cost control</td><td class="kw-ja">コスト制御</td><td class="kw-meaning">API利用コストの急増を防ぐための上限・アラート・ガードレール</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-17">
+  <div class="set-header"><span class="set-num">Q17</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">医療記録入力エージェントが患者情報を電子カルテシステムに書き込む前に、医師の確認を必要とする仕組みを実装したい。Claude Claude API のエージェント設計でどのように実現するか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Human-in-the-Loop パターンを実装する。エージェントが書き込みツール（update_medical_record）を呼び出そうとした際、アプリケーション層でインターセプトして医師に確認画面を表示する。医師が承認した場合のみツールを実行し、tool_result を Claude に返す。拒否した場合はエラー結果を返してエージェントに別の行動を促す。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">Human-in-the-Loop は高リスクアクション（金融取引・医療記録・メール送信）に必須のパターン。Claude 自体は「承認待ち」を知らず、アプリケーション層でツール実行前に人間のチェックを挟む。ツールの「承認必要フラグ」を定義して自動実行とHITL を使い分けることも一般的。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A medical record entry agent needs to implement a mechanism requiring physician approval before writing patient information to the electronic health record system. How is this achieved in a Claude API agent design?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement the Human-in-the-Loop pattern: when the agent attempts to call the write tool (update_medical_record), intercept at the application layer to display a confirmation screen to the physician. Execute the tool only if approved and return the tool_result to Claude. If rejected, return an error result to prompt the agent to take an alternative action.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Human-in-the-Loop</td><td class="kw-ja">ヒューマン・イン・ザ・ループ</td><td class="kw-meaning">高リスクアクション実行前に人間の確認・承認を挟むエージェント設計パターン</td></tr>
+<tr><td class="kw-en">intercept</td><td class="kw-ja">インターセプト</td><td class="kw-meaning">ツール実行前にアプリ層で処理を一時停止し、人間の介入を可能にすること</td></tr>
+<tr><td class="kw-en">approval workflow</td><td class="kw-ja">承認ワークフロー</td><td class="kw-meaning">アクション実行前に権限者の確認を得る業務プロセス</td></tr>
+<tr><td class="kw-en">high-risk action</td><td class="kw-ja">高リスクアクション</td><td class="kw-meaning">誤実行時の影響が大きい操作（書き込み・削除・送信等）。HITL が推奨</td></tr>
+<tr><td class="kw-en">tool execution control</td><td class="kw-ja">ツール実行制御</td><td class="kw-meaning">アプリケーション層でツールの実行を制御する仕組み</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-18">
+  <div class="set-header"><span class="set-num">Q18</span><span class="set-domain">Agent Design and Implementation</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">デバッグ支援エージェントがツール実行中にエラーを返した。エラー内容：「FileNotFoundError: config.yaml が見つかりません」。エージェントがこのエラーを適切に処理して問題解決を継続するために、tool_result をどのように設計すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">tool_result の content にエラーメッセージを含め is_error: true を設定する（例: {type: "tool_result", tool_use_id: "...", is_error: true, content: "FileNotFoundError: config.yaml not found. Searched paths: /app/config/, /etc/app/"}）。エラー内容と検索済みパスを明示することで、Claude が代替パスを試みるか、ユーザーに確認を求める等の適切な次のアクションを選択できる。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">tool_result で is_error: true を使うと、Claude はエラーを認識して回復戦略を試みる。エラーメッセージには何が失敗したか + 検索した場所 + 次に試せること を含めると Claude の問題解決能力が向上する。単に「エラー」とだけ返すよりも、コンテキスト豊富なエラー情報を渡すことが重要。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A debugging support agent returned an error during tool execution: 'FileNotFoundError: config.yaml not found.' How should the tool_result be designed so the agent can appropriately handle this error and continue problem-solving?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Include the error message in tool_result content with is_error: true (e.g., {type: "tool_result", tool_use_id: "...", is_error: true, content: "FileNotFoundError: config.yaml not found. Searched paths: /app/config/, /etc/app/"}). By providing the error and the searched paths, Claude can select an appropriate next action such as trying alternative paths or asking the user for confirmation.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">is_error</td><td class="kw-ja">エラーフラグ</td><td class="kw-meaning">tool_resultでエラー発生を示すフィールド。trueにするとClaudeがエラーとして認識</td></tr>
+<tr><td class="kw-en">error recovery</td><td class="kw-ja">エラー回復</td><td class="kw-meaning">ツールエラー発生後にエージェントが代替手段を試みるプロセス</td></tr>
+<tr><td class="kw-en">tool_result</td><td class="kw-ja">ツール実行結果</td><td class="kw-meaning">アプリがツール実行後にClaudeへ返すコンテンツブロック</td></tr>
+<tr><td class="kw-en">contextual error message</td><td class="kw-ja">文脈付きエラーメッセージ</td><td class="kw-meaning">失敗原因・検索場所・次に試せることを含む詳細なエラー情報</td></tr>
+<tr><td class="kw-en">recovery strategy</td><td class="kw-ja">回復戦略</td><td class="kw-meaning">エラー発生時にエージェントが次に取るべき行動の計画</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-19">
+  <div class="set-header"><span class="set-num">Q19</span><span class="set-domain">MCP Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">開発チームが社内の PostgreSQL データベースを Claude に接続するため MCP（Model Context Protocol）サーバーを構築している。MCP サーバーが提供すべき機能の種類と、セキュリティ設計のベストプラクティスはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">MCP サーバーは tools（SQLクエリ実行などのアクション）と resources（スキーマ定義や読み取り専用テーブルの静的データ）を定義する。セキュリティ設計として：① 読み取り専用クエリのみ許可（DDL/DML は禁止）、② クエリパラメータはバインド変数で SQL インジェクション防止、③ 接続情報は環境変数で管理、④ クエリ結果の行数上限を設ける。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">MCP はツール（actions）とリソース（data）を標準化されたインターフェースでClaudeに提供するプロトコル。MCPサーバーはデータソースへの安全なアクセスレイヤーとして機能する。Tools = Claude が呼び出せる関数 / Resources = Claude が参照できる静的データ / Prompts = 再利用可能なプロンプトテンプレート の 3 要素で構成される。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A development team is building an MCP (Model Context Protocol) server to connect an internal PostgreSQL database to Claude. What types of capabilities should the MCP server provide, and what are the best practices for security design?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The MCP server should define tools (actions such as SQL query execution) and resources (static data like schema definitions or read-only tables). Security best practices: ① Allow only read-only queries (prohibit DDL/DML); ② Use bind variables for query parameters to prevent SQL injection; ③ Manage connection strings via environment variables; ④ Set a row limit on query results.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">MCP</td><td class="kw-ja">モデルコンテキストプロトコル</td><td class="kw-meaning">ClaudeがツールとデータソースにアクセスするためのAnthropicが策定した標準プロトコル</td></tr>
+<tr><td class="kw-en">MCP tools</td><td class="kw-ja">MCPツール</td><td class="kw-meaning">Claudeが実行をリクエストできる関数・アクション（DBクエリ・API呼び出し等）</td></tr>
+<tr><td class="kw-en">MCP resources</td><td class="kw-ja">MCPリソース</td><td class="kw-meaning">Claudeが参照できる静的データ（スキーマ・ファイル・設定等）</td></tr>
+<tr><td class="kw-en">SQL injection</td><td class="kw-ja">SQLインジェクション</td><td class="kw-meaning">悪意ある入力でSQLを操作する攻撃。バインド変数で防止</td></tr>
+<tr><td class="kw-en">read-only access</td><td class="kw-ja">読み取り専用アクセス</td><td class="kw-meaning">データの参照のみを許可しCRUD操作を制限するセキュリティ原則</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-20">
+  <div class="set-header"><span class="set-num">Q20</span><span class="set-domain">MCP Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">MCP サーバーを開発中。ファイルシステムへのアクセスを提供する際に、ファイルの読み取り（静的コンテンツ）と、ファイルの作成・削除（アクション実行）をそれぞれどのプリミティブ（tools / resources / prompts）に実装すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ファイルの読み取り（静的コンテンツ参照）は resources として実装する（例: file:///path/to/file）。Claude がコンテキストに取り込む読み取り専用データとして提供される。ファイルの作成・削除などの副作用を伴うアクションは tools として実装する。tools はClaudeが実行を要求し、ユーザー確認を経て実行される。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">MCP の 3 プリミティブ：① Resources = 読み取り専用の静的データ提供（ファイル・DB レコード・設定）② Tools = 副作用を伴うアクション実行（ファイル作成・API 呼び出し・DB 書き込み）③ Prompts = 再利用可能なプロンプトテンプレート（ユーザーが選択して使う）。副作用の有無が tools と resources の分岐点。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are developing an MCP server providing filesystem access. Which MCP primitive (tools / resources / prompts) should file reading (static content) and file creation/deletion (action execution) each be implemented as?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">File reading (static content reference) should be implemented as a resource (e.g., file:///path/to/file), provided as read-only data that Claude can incorporate into its context. File creation, deletion, and other operations with side effects should be implemented as tools. Tools are requested by Claude for execution and require user confirmation.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">MCP resources</td><td class="kw-ja">MCPリソース</td><td class="kw-meaning">読み取り専用の静的データを提供するMCPプリミティブ。副作用なし</td></tr>
+<tr><td class="kw-en">MCP tools</td><td class="kw-ja">MCPツール</td><td class="kw-meaning">副作用を伴うアクションを実行するMCPプリミティブ。ユーザー確認を経て実行</td></tr>
+<tr><td class="kw-en">MCP prompts</td><td class="kw-ja">MCPプロンプト</td><td class="kw-meaning">再利用可能なプロンプトテンプレートを提供するMCPプリミティブ</td></tr>
+<tr><td class="kw-en">side effect</td><td class="kw-ja">副作用</td><td class="kw-meaning">システム状態を変更するアクション（書き込み・削除・送信等）。toolsで実装</td></tr>
+<tr><td class="kw-en">primitive</td><td class="kw-ja">プリミティブ</td><td class="kw-meaning">MCPにおける基本構成要素（tools・resources・prompts）</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
