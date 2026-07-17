@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F BILI Vol.10 | Q181-200 ドメインバランス補完版</title>
+<style>
+:root{
+  --bg:#0f172a;--card:#1e293b;--border:#334155;--text:#e2e8f0;--muted:#94a3b8;
+  --jp-accent:#6366f1;--en-accent:#0ea5e9;--ans-bg:#0f2b1a;--ans-border:#166534;
+  --exp-bg:#1c1a07;--exp-border:#854d0e;--kw-bg:#0f1e35;--kw-border:#1e40af;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:60px}
+.hero{background:linear-gradient(90deg,#1e1b4b 0%,#312e81 50%,#0f766e 100%);color:#fff;padding:28px 20px;text-align:center}
+.hero h1{font-size:1.3rem;font-weight:800}
+.hero p{font-size:.82rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border-radius:20px;padding:3px 12px;font-size:.72rem;margin-top:8px;margin-right:4px}
+.sticky-header{position:sticky;top:0;z-index:100;background:#1e1b4b;border-bottom:1px solid #4338ca;padding:8px 16px;display:flex;align-items:center;gap:12px;font-size:.78rem}
+.sticky-header a{color:#a5b4fc;text-decoration:none;font-weight:700}
+.jump-nav{background:#0f172a;border-bottom:1px solid var(--border);padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px}
+.jump-item{display:inline-block;background:#1e293b;border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-size:.7rem;color:#94a3b8;text-decoration:none;transition:.15s}
+.jump-item:hover{background:#334155;color:#e2e8f0}
+.container{max-width:800px;margin:0 auto;padding:0 16px}
+.question-set{margin-top:32px;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.set-header{background:linear-gradient(90deg,#1e1b4b,#0c4a6e);padding:12px 18px;display:flex;align-items:center;gap:12px}
+.set-num{font-size:1rem;font-weight:800;color:#fff}
+.set-domain{font-size:.75rem;color:#bae6fd;font-weight:600}
+.jp-card,.en-card{padding:18px 20px}
+.jp-card{background:#111827}
+.en-card{background:#0f172a}
+.card-divider{height:1px;background:linear-gradient(90deg,#6366f1,#0ea5e9)}
+.lang-label{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px}
+.lang-label.jp{background:rgba(99,102,241,.2);color:#a5b4fc;border:1px solid #4f46e5}
+.lang-label.en{background:rgba(14,165,233,.2);color:#7dd3fc;border:1px solid #0284c7}
+.question-text{font-size:.92rem;line-height:1.75;color:#e2e8f0;margin-bottom:14px}
+.question-text.en{font-size:.88rem;color:#cbd5e1}
+.answer-section{display:flex;flex-direction:column;gap:12px}
+.correct-answer{border-radius:10px;padding:12px 14px}
+.correct-answer.jp{background:var(--ans-bg);border:1px solid var(--ans-border)}
+.correct-answer.en{background:#0c1e35;border:1px solid #1e3a5f}
+.ans-label{font-size:.68rem;font-weight:700;margin-bottom:6px}
+.ans-label.jp{color:#4ade80}
+.ans-label.en{color:#38bdf8}
+.ans-text{font-size:.88rem;line-height:1.65}
+.ans-text.jp{color:#bbf7d0}
+.ans-text.en{color:#bae6fd}
+.overall-exp{background:var(--exp-bg);border:1px solid var(--exp-border);border-radius:10px;padding:12px 14px}
+.exp-title{font-size:.68rem;font-weight:700;color:#fbbf24;margin-bottom:6px}
+.exp-body{font-size:.84rem;line-height:1.7;color:#fef3c7}
+.kw-box{background:var(--kw-bg);border:1px solid var(--kw-border);border-radius:10px;padding:12px 14px}
+.kw-title{font-size:.68rem;font-weight:700;color:#60a5fa;margin-bottom:8px}
+.kw-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.kw-table td{padding:5px 8px;border-bottom:1px solid #1e3a5f;vertical-align:top}
+.kw-table tr:last-child td{border-bottom:none}
+.kw-en{color:#93c5fd;font-weight:700;white-space:nowrap;width:30%}
+.kw-ja{color:#a5b4fc;width:30%}
+.kw-meaning{color:#94a3b8;width:40%}
+@media(max-width:600px){
+  .kw-table,.kw-table tbody,.kw-table tr,.kw-table td{display:block;width:100%}
+  .kw-table tr{margin-bottom:8px;border-bottom:1px solid #1e3a5f;padding-bottom:6px}
+  .kw-table td{border-bottom:none;padding:2px 4px}
+  .kw-en{color:#93c5fd;font-weight:700}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>CCA-F BILI Vol.10</h1>
+  <p>Q181–Q200 ドメインバランス補完版</p>
+  <span class="badge">Prompt Eng. ×8</span>
+  <span class="badge">Claude Code ×6</span>
+  <span class="badge">Tool/MCP ×4</span>
+  <span class="badge">Agentic ×2</span>
+</div>
+<div class="sticky-header">
+  <a href="../index.html">← TOP</a>
+  <span style="color:#94a3b8">|</span>
+  <span style="color:#a5b4fc">Vol.10 Q181–Q200</span>
+</div>
+<div class="jump-nav">
+<a class="jump-item" href="#card-1">Q181</a>
+<a class="jump-item" href="#card-2">Q182</a>
+<a class="jump-item" href="#card-3">Q183</a>
+<a class="jump-item" href="#card-4">Q184</a>
+<a class="jump-item" href="#card-5">Q185</a>
+<a class="jump-item" href="#card-6">Q186</a>
+<a class="jump-item" href="#card-7">Q187</a>
+<a class="jump-item" href="#card-8">Q188</a>
+<a class="jump-item" href="#card-9">Q189</a>
+<a class="jump-item" href="#card-10">Q190</a>
+<a class="jump-item" href="#card-11">Q191</a>
+<a class="jump-item" href="#card-12">Q192</a>
+<a class="jump-item" href="#card-13">Q193</a>
+<a class="jump-item" href="#card-14">Q194</a>
+<a class="jump-item" href="#card-15">Q195</a>
+<a class="jump-item" href="#card-16">Q196</a>
+<a class="jump-item" href="#card-17">Q197</a>
+<a class="jump-item" href="#card-18">Q198</a>
+<a class="jump-item" href="#card-19">Q199</a>
+<a class="jump-item" href="#card-20">Q200</a>
+</div>
+<div class="container">
+<div class="question-set" id="card-1">
+  <div class="set-header"><span class="set-num">Q181</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">カスタマーサポートツールが、フォーマットの多様なサポートチケット本文から「製品シリアル番号」を抽出する。フリーテキスト・HTML メール等が混在し、シリアル番号がなく「修理依頼 URL」のみ含まれるケースでは、Claude がハルシネーションや誤った値を返す。最も効果的な解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">様々なメール形式から正しく抽出した few-shot 例を追加する。シリアル番号がない場合に null を出力する例を明示的に含める。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">構造が多様な入力に対しては <b>few-shot（例示）</b> が最強。null ケースの例を含めることで「出力できない場合の振る舞い」をモデルに学習させ、ハルシネーションを抑制できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A customer support assistant tool uses Claude to extract 'product serial numbers' from support ticket bodies. Ticket formats vary widely, including free-text and HTML emails. When no serial number is provided and only a 'repair request URL' is included, Claude either hallucinates a number or returns incorrect values. What is the most effective solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add few-shot examples that include correct extractions from various email formats, specifically including examples where 'null' is output when no number exists.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">few-shot</td><td class="kw-ja">フューショット</td><td class="kw-meaning">手本を数例示して出力パターンを誘導する手法</td></tr><tr><td class="kw-en">hallucination</td><td class="kw-ja">ハルシネーション</td><td class="kw-meaning">モデルが事実と異なる内容を生成する現象</td></tr><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr><tr><td class="kw-en">chain of thought</td><td class="kw-ja">思考の連鎖（CoT）</td><td class="kw-meaning">推論ステップを順に展開させるプロンプト技法</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-2">
+  <div class="set-header"><span class="set-num">Q182</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">e コマースサイトのコンテンツ管理エージェントが顧客レビューを分類している。「商品は良いが配送が遅い」のように複数カテゴリにまたがるレビューで、Claude が一貫性のない分類を返す。解決策として最も効果的なのは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">2〜4 件の targeted few-shot 例を作成し、曖昧なレビューがどのカテゴリに分類されるかを明示する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body">曖昧なケースへの対処には <b>few-shot で境界線を示す</b> のが効果的。分類の「境界ケース」を例に含めることで、一貫性が大幅に向上する。システムプロンプトでの定義だけでは不十分。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A content management agent is categorizing customer reviews for an e-commerce site. For example, ambiguous reviews like 'the product is good but delivery was slow' span multiple categories, causing Claude to return inconsistent classifications. What is the most effective solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Create 2-4 targeted few-shot examples showing the expected classification for ambiguous reviews, explicitly indicating which category they belong to.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">few-shot</td><td class="kw-ja">フューショット</td><td class="kw-meaning">手本を数例示して出力パターンを誘導する手法</td></tr><tr><td class="kw-en">ambiguous</td><td class="kw-ja">曖昧な</td><td class="kw-meaning">複数の解釈が可能で判断が難しい状態</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-3">
+  <div class="set-header"><span class="set-num">Q183</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">不動産ポータルサイトが物件紹介文から「仲介手数料割引コード」を抽出する。一部の物件には割引コードが存在せず、Claude がコードのない物件でハルシネーションを起こす。最善の対策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">様々な物件紹介文から正しく抽出した例を追加する。割引コードが存在しない場合に null を出力する例を明示的に含める。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>null ケースを few-shot に含める</b> のが鉄則。モデルは「何も出力しないこと」が正解になりうると few-shot で学ぶまで、値を作り上げようとする傾向がある。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A real estate portal site uses Claude to extract brokerage fee discount codes from property introduction texts. Some properties have no discount code, and Claude hallucinates codes for those properties. What is the best countermeasure?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add examples of correct extractions from various property introduction texts, specifically including examples where 'null' is output when no discount code exists.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">hallucination</td><td class="kw-ja">ハルシネーション</td><td class="kw-meaning">モデルが事実と異なる内容を生成する現象</td></tr><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-4">
+  <div class="set-header"><span class="set-num">Q184</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">カスタマーサポートプラットフォームが issue_type enum フィールドに 5 つの固定カテゴリを持つツールを使っている。既存カテゴリに当てはまらない問い合わせで Claude がツール呼び出しに失敗する。最善の解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">issue_type の enum 値に 'other' を追加し、どのカテゴリにも当てはまらない問い合わせをそこに分類するよう Claude に指示する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>enum に 'other' を設ける</b> のが定石。Claude は enum の外の値を出力できないため、想定外の入力のための逃げ場を設計段階で用意することが重要。スキーマ設計はツール品質の根幹。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A customer support platform uses a tool with an issue_type enum field containing five fixed categories. Claude fails to call the tool when an inquiry doesn't fit any existing category. What is the best solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add 'other' to the enum values for issue_type and instruct Claude to use it for inquiries that don't fit any other category.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">constraint</td><td class="kw-ja">制約</td><td class="kw-meaning">ツールやスキーマで出力範囲を制限する設定</td></tr><tr><td class="kw-en">schema</td><td class="kw-ja">スキーマ</td><td class="kw-meaning">データ構造・型・制約を定義した仕様</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-5">
+  <div class="set-header"><span class="set-num">Q185</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">数千件の技術マニュアルから安全仕様の詳細を抽出するパイプラインを設計している。あるマニュアルは仕様を明記し、別のマニュアルは仕様が存在しない。Claude が仕様のないケースでハルシネーションを起こす。最善の対策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">仕様が明記されているケースと存在しないケースの両方を含む few-shot 例を使用する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>正例・負例の両方を few-shot に含める</b> ことで、モデルは「情報がない場合は null を返す」という判断を学習できる。大規模パイプラインでは一貫性が命。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are designing a pipeline to extract safety specification details from thousands of technical manuals. Some manuals explicitly state the specifications, while others do not include them. Claude hallucinates specifications for manuals where they don't exist. What is the best countermeasure?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Use few-shot examples that include both cases where specifications exist and cases where they do not.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">few-shot</td><td class="kw-ja">フューショット</td><td class="kw-meaning">手本を数例示して出力パターンを誘導する手法</td></tr><tr><td class="kw-en">pipeline</td><td class="kw-ja">パイプライン</td><td class="kw-meaning">複数処理ステップを連結した自動化ワークフロー</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-6">
+  <div class="set-header"><span class="set-num">Q186</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ホテルのコンシェルジュアシスタントに grant_upgrade ツールがある。ツールの説明には「マネージャーの承認後にのみ使用する」と明記されているが、ゲストが強く要求すると Claude が承認なしでツールを使う。最善の修正方法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">システムプロンプト内のペルソナ指示として、承認なしでのアップグレードは絶対に行わないという制約を明示的に記述する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>ツール説明よりもシステムプロンプトの制約が優先</b>される。重要な制限はシステムプロンプトに明示的に記述することで、ユーザーの強い要求（プロンプトインジェクション）にも耐えられる堅牢な設計になる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A hotel concierge assistant has a grant_upgrade tool. The tool description explicitly states 'Use only after manager approval,' but Claude uses the tool without approval when guests strongly request it. What is the best fix?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Explicitly describe within the system prompt persona instructions that upgrades must never be granted without approval.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">deterministic</td><td class="kw-ja">決定論的な</td><td class="kw-meaning">同じ入力に対して常に同じ出力が得られる性質</td></tr><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr><tr><td class="kw-en">boundary</td><td class="kw-ja">境界</td><td class="kw-meaning">許可・不許可の範囲を区切るルールや制限</td></tr><tr><td class="kw-en">persona</td><td class="kw-ja">ペルソナ</td><td class="kw-meaning">AI に与える役割・キャラクター・振る舞いの設定</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-7">
+  <div class="set-header"><span class="set-num">Q187</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">e コマースチームが Claude を使ってサプライヤーの商品情報を独自形式に変換している。入力形式が多様なため変換結果が不安定。最善の解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">入力と期待される出力をペアにした few-shot 例をプロンプトに追加する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>形式変換には few-shot が最も効果的</b>。入力→出力のペアを示すことでモデルが変換ルールを学習し、多様な入力形式にも安定して対応できる。プロンプトだけでのルール説明より圧倒的に精度が上がる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An e-commerce site development team is using Claude to convert supplier product information into a proprietary format. Due to diverse input formats, the conversion results are unstable. What is the best solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add few-shot examples to the prompt pairing input product information with the expected output format.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">few-shot</td><td class="kw-ja">フューショット</td><td class="kw-meaning">手本を数例示して出力パターンを誘導する手法</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-8">
+  <div class="set-header"><span class="set-num">Q188</span><span class="set-domain">Prompt Engineering & Structured Output</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">カスタマーサービスのルーティングエージェントが process_standard_repair と process_complex_repair の 2 つのツールを選択する。どちらを選ぶべきか曖昧なケースで Claude の選択が一貫しない。最善策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">標準と複雑のどちらの修理に分類するかを指定した 2〜4 件の few-shot 例を提供する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>ツール選択の一貫性には few-shot での境界例示</b> が効果的。分類の境界線にあるケースを例に含めることで、モデルが「どちらを選ぶべきか」の判断基準を学習する。ルールの言語化だけでは限界がある。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A customer service routing agent is tasked with choosing between two tools: process_standard_repair and process_complex_repair. Claude's choice is inconsistent for ambiguous cases. What is the best approach?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Provide 2 to 4 few-shot examples that specify whether each example belongs to standard or complex repair.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">deterministic</td><td class="kw-ja">決定論的な</td><td class="kw-meaning">同じ入力に対して常に同じ出力が得られる性質</td></tr><tr><td class="kw-en">ambiguous</td><td class="kw-ja">曖昧な</td><td class="kw-meaning">複数の解釈が可能で判断が難しい状態</td></tr><tr><td class="kw-en">few-shot</td><td class="kw-ja">フューショット</td><td class="kw-meaning">手本を数例示して出力パターンを誘導する手法</td></tr><tr><td class="kw-en">escalate</td><td class="kw-ja">エスカレートする</td><td class="kw-meaning">より上位の担当・システムへ処理を引き継ぐ</td></tr><tr><td class="kw-en">routing</td><td class="kw-ja">ルーティング</td><td class="kw-meaning">入力の内容に応じて適切な処理先に振り分けること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-9">
+  <div class="set-header"><span class="set-num">Q189</span><span class="set-domain">Claude Code Configuration & Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">開発チームが Claude Code でシステム設計ドキュメントを自動生成するワークフローを構築した。しかし、前のセッションで合意した設計判断を Claude が忘れ、矛盾した提案をする。根本原因は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Claude はセッションコンテキストの分離を経験しており、前のセッションの決定事項にアクセスできない。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>Claude Code はセッションをまたいで記憶を保持しない</b>。設計判断・合意事項は CLAUDE.md や別ファイルに永続化し、新セッションで明示的に渡す設計が必要。セッション間の情報伝達は人間が担う。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A development team used Claude Code to build a workflow that automatically generates system design documents. However, Claude forgets design decisions agreed upon in previous sessions and makes contradictory proposals. What is the root cause?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Because the model experiences session context isolation and cannot access decisions from previous sessions.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">confirmation bias</td><td class="kw-ja">確証バイアス</td><td class="kw-meaning">既存の信念を支持する情報を優先的に選ぶ傾向</td></tr><tr><td class="kw-en">context window</td><td class="kw-ja">コンテキストウィンドウ</td><td class="kw-meaning">モデルが一度に処理できる最大トークン範囲</td></tr><tr><td class="kw-en">validation</td><td class="kw-ja">バリデーション</td><td class="kw-meaning">入力・出力が期待通りかを検証するプロセス</td></tr><tr><td class="kw-en">cache</td><td class="kw-ja">キャッシュ</td><td class="kw-meaning">計算結果を一時保存して再利用する仕組み</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-10">
+  <div class="set-header"><span class="set-num">Q190</span><span class="set-domain">Claude Code Configuration & Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">開発者が frontend/ と backend/ に分割されたプロジェクトで機能開発をしている。ルートの CLAUDE.md に全体ルールがあるが、Claude が backend/ 配下の指示を認識しない。確認する最善の方法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ルートセッションで /memory を実行し、backend/ の CLAUDE.md が読み込まれているかを確認する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>/memory コマンドで現在読み込まれているコンテキストを確認</b>できる。CLAUDE.md の階層読み込みは起点ディレクトリに依存するため、サブディレクトリの設定が反映されているかは /memory で検証するのが確実。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A developer is developing features in a project divided into 'frontend/' and 'backend/' directories. The root CLAUDE.md has overall rules, but Claude doesn't recognize instructions in the backend/ directory. What is the best way to verify this?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Run '/memory' in the root session to check if the backend/ CLAUDE.md is being loaded.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">aggregate</td><td class="kw-ja">集約する</td><td class="kw-meaning">複数の情報・ルールをまとめて一つに統合すること</td></tr><tr><td class="kw-en">schema</td><td class="kw-ja">スキーマ</td><td class="kw-meaning">データ構造・型・制約を定義した仕様</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-11">
+  <div class="set-header"><span class="set-num">Q191</span><span class="set-domain">Claude Code Configuration & Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">モバイル開発チームが大規模なレガシーアプリを Objective-C から Swift に移行している。Claude Code に繰り返し同じ移行手順を説明しなければならない。最善の解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">カスタムスキル（.claude/skills/ など）として実装し、移行手順と制約を SKILL.md に定義する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>繰り返す作業はカスタムスキルに切り出す</b>。.claude/skills/ に SKILL.md を置くことで、移行ルール・制約・ベストプラクティスをセッションをまたいで再利用できる。スラッシュコマンドから呼び出すことも可能。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A mobile development team is migrating a large legacy app from Objective-C to Swift. They have to repeatedly explain the same migration procedures to Claude Code. What is the best solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement as a custom skill (e.g., .claude/skills/) and define migration procedures and constraints in SKILL.md.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr><tr><td class="kw-en">legacy</td><td class="kw-ja">レガシー</td><td class="kw-meaning">古い技術・コードで現在も稼働しているシステム</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-12">
+  <div class="set-header"><span class="set-num">Q192</span><span class="set-domain">Claude Code Configuration & Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">DevOps チームが Terraform 生成・Kubernetes デプロイ・AWS Lambda 設定の指示を含む巨大な CLAUDE.md を管理している。ファイルが肥大化し関連情報を見つけにくい。最善の解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Terraform・Kubernetes・Lambda に関する指示を別ファイルに移動し、CLAUDE.md から @import でそれぞれを読み込む。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>CLAUDE.md は @import でモジュール分割できる</b>。トピック別に .claude/rules/ 配下にファイルを分割し、CLAUDE.md から @import することで保守性が大幅に向上する。最大 4 ホップまで再帰インポート可能。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A DevOps team is managing a massive CLAUDE.md file containing instructions for Terraform generation, Kubernetes deployment, and AWS Lambda configuration. The file has grown too large. What is the best solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Move instructions regarding Terraform, Kubernetes, and Lambda to separate files and use @import in CLAUDE.md to load each of them.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">hallucination</td><td class="kw-ja">ハルシネーション</td><td class="kw-meaning">モデルが事実と異なる内容を生成する現象</td></tr><tr><td class="kw-en">contamination</td><td class="kw-ja">汚染</td><td class="kw-meaning">不正確な情報がコンテキストに混入すること</td></tr><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr><tr><td class="kw-en">pipeline</td><td class="kw-ja">パイプライン</td><td class="kw-meaning">複数処理ステップを連結した自動化ワークフロー</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-13">
+  <div class="set-header"><span class="set-num">Q193</span><span class="set-domain">Claude Code Configuration & Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">シニアエンジニアが Claude Code を使って大規模サーバーレスアプリのテンプレートを作成している。異なるアーキテクチャパターンを並行して試したいが、実験中に現在の作業を壊したくない。最善の方法は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">fork_session を使ってセッションを分岐させ、並行ワークフローで各アーキテクチャパターンを独立して探索する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>fork_session でセッションを分岐</b>させると、現在の状態を保持しながら複数の方向性を並行探索できる。実験的な変更が本流に影響しないため、安全にアーキテクチャを比較検討できる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A senior engineer is using Claude Code to create a template for a large-scale serverless application. They want to try different architecture patterns in parallel without breaking the current work during experimentation. What is the best approach?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The senior engineer uses fork_session to create a session branch and independently explores each architecture pattern in parallel workflows.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">fork_session</td><td class="kw-ja">セッション分岐</td><td class="kw-meaning">現在のセッション状態をコピーして並行探索する機能</td></tr><tr><td class="kw-en">session branching</td><td class="kw-ja">セッションブランチング</td><td class="kw-meaning">セッションを複数に分岐させて並行作業する手法</td></tr><tr><td class="kw-en">parallel workflow</td><td class="kw-ja">並行ワークフロー</td><td class="kw-meaning">複数の処理を同時並行で実行する作業フロー</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-14">
+  <div class="set-header"><span class="set-num">Q194</span><span class="set-domain">Claude Code Configuration & Workflows</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">複数の独立したアプリケーション・共有ライブラリ・インフラコードを含む大規模モノリポのコンテキスト戦略を設計している。各チームが独自ルールを持ちつつ共通規約も守る必要がある。最善の構成は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">共通ルールをルートの CLAUDE.md に配置し、各アプリ・ライブラリ・インフラ配下にそれぞれの CLAUDE.md を置いて固有の指示を管理する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>CLAUDE.md は階層配置できる</b>。ルートに共通ルール、サブディレクトリに固有ルールを置くことで、共通規約と個別設定を両立できる。Claude はプロジェクトルートから辿って全階層の CLAUDE.md を読み込む。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">You are designing a context strategy for a large monorepo that includes multiple independent applications, shared libraries, and infrastructure code. Each team needs its own rules while also following common conventions. What is the best configuration?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Place a CLAUDE.md for common rules at the root of the monorepo, and place individual CLAUDE.md files under each application, library, and infrastructure directory for their specific instructions.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-15">
+  <div class="set-header"><span class="set-num">Q195</span><span class="set-domain">Tool Design & MCP Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">自動ファイル同期エージェントが sync_data ツールを使って分散ストレージ間でデータを移動する。エージェントがデータ所在地（データレジデンシー）の制約を無視して禁止リージョンにデータを転送することがある。最善の対策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">PreToolCall フックを実装してツール引数を検査し、データ転送先がコンプライアンス要件を満たしているかを事前に確認してブロックする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>PreToolCall フックでツール実行前に引数を検証</b>する。データレジデンシーのような規制要件はモデルの判断に任せず、フックでプログラム的に強制するのが確実。モデルレベルの指示だけでは見落としが起きうる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An automated file synchronization agent uses the sync_data tool to move data between distributed storage systems. The agent sometimes ignores data residency constraints and transfers data to prohibited regions. What is the best countermeasure?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement a PreToolCall hook to inspect tool arguments and verify that the data transfer destination meets compliance requirements before allowing execution.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">data residency</td><td class="kw-ja">データレジデンシー</td><td class="kw-meaning">データを保存・処理するリージョンの規制要件</td></tr><tr><td class="kw-en">explicitly</td><td class="kw-ja">明示的に</td><td class="kw-meaning">曖昧さなく直接・はっきりと指示・記述すること</td></tr><tr><td class="kw-en">constraint</td><td class="kw-ja">制約</td><td class="kw-meaning">ツールやスキーマで出力範囲を制限する設定</td></tr><tr><td class="kw-en">compliance</td><td class="kw-ja">コンプライアンス</td><td class="kw-meaning">法規制・規約・ポリシーへの準拠</td></tr><tr><td class="kw-en">latency</td><td class="kw-ja">レイテンシ</td><td class="kw-meaning">リクエストから応答までにかかる遅延時間</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-16">
+  <div class="set-header"><span class="set-num">Q196</span><span class="set-domain">Tool Design & MCP Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">e コマース在庫管理ボットが fetch_product_details ツールを使っている。ユーザーが複数商品を要求すると Claude が同じ商品 ID で複数回ツールを呼び出し、API を過負荷にする。最善の解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ツールの API 側または中間層でリクエストをバッチ処理し、重複リクエストをフィルタリングする前処理を実装する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>重複・過剰なツール呼び出しはツール側で吸収する</b>のが設計の原則。モデルに呼び出し回数を制御させるより、ミドルウェアでバッチ処理・デデュプリケーションを実装する方が確実で効率的。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An e-commerce inventory management bot uses the fetch_product_details tool. When a user requests multiple products, Claude calls the tool multiple times with the same product IDs, overloading the API. What is the best solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement preprocessing on the tool's API side or in middleware to batch requests and filter out duplicate requests.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">preprocessing</td><td class="kw-ja">前処理</td><td class="kw-meaning">メイン処理の前にデータを整形・フィルタリングする工程</td></tr><tr><td class="kw-en">middleware</td><td class="kw-ja">ミドルウェア</td><td class="kw-meaning">システム間の仲介層として機能するソフトウェア</td></tr><tr><td class="kw-en">tool API side</td><td class="kw-ja">ツール API 側</td><td class="kw-meaning">ツールの実装側（呼び出し元モデル側ではなく）</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-17">
+  <div class="set-header"><span class="set-num">Q197</span><span class="set-domain">Tool Design & MCP Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">自動化エージェントが MCP ツールを使って新しい VM をプロビジョニングしようとしている。create_vm ツールがタイムアウトエラーを返した。エージェントは次に何をすべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">エラーが一時的なネットワーク問題だと推測して即座にリトライするのではなく、エラー内容を確認してからエスカレートまたは待機する判断をする。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>タイムアウトエラーへの即座リトライは危険</b>。VM 作成のような冪等でない操作では、リトライが重複リソース作成を招く。サーキットブレーカーパターンで過剰リトライを防ぎ、状況を人間にエスカレートするのが正しい設計。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An automation agent is attempting to provision a new virtual machine (VM) using an MCP tool. The create_vm tool returns a timeout error. What should the agent do next?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Rather than immediately retrying assuming the error is a temporary network issue, check the error details and make a judgment to escalate or wait.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">circuit breaker</td><td class="kw-ja">サーキットブレーカー</td><td class="kw-meaning">失敗が続く場合に処理を一時停止して過負荷を防ぐパターン</td></tr><tr><td class="kw-en">provision</td><td class="kw-ja">プロビジョニング</td><td class="kw-meaning">必要なリソースやサービスを準備・設定すること</td></tr><tr><td class="kw-en">escalate</td><td class="kw-ja">エスカレートする</td><td class="kw-meaning">より上位の担当・システムへ処理を引き継ぐ</td></tr><tr><td class="kw-en">timeout</td><td class="kw-ja">タイムアウト</td><td class="kw-meaning">処理が一定時間内に完了しなかった場合のエラー</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-18">
+  <div class="set-header"><span class="set-num">Q198</span><span class="set-domain">Tool Design & MCP Integration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">不動産査定エージェントが calculate_property_distance ツールを使って 2 物件間の距離を測定している。Claude が座標を誤った形式で渡すためツールが頻繁に失敗する。最善の修正は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ツールの説明を更新し、正確な ISO 形式の座標（緯度・経度の小数点形式）を明示的に指定する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>ツールの説明（description）が Claude への唯一の使用説明書</b>。引数の形式・単位・制約は description に明示的に記述することで、Claude が正しい形式で渡すようになる。型定義だけでは不十分なことが多い。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A real estate appraisal agent is using the calculate_property_distance tool to measure the distance between two properties. Claude frequently passes coordinates in incorrect formats, causing tool failures. What is the best fix?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Update the tool description to explicitly specify precise ISO-format coordinates (decimal latitude and longitude format).</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">hallucinate</td><td class="kw-ja">ハルシネートする</td><td class="kw-meaning">モデルが誤った内容を生成・出力する</td></tr><tr><td class="kw-en">schema</td><td class="kw-ja">スキーマ</td><td class="kw-meaning">データ構造・型・制約を定義した仕様</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-19">
+  <div class="set-header"><span class="set-num">Q199</span><span class="set-domain">Agentic Architectures & Orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">スマートエネルギー管理プラットフォームがコーディネーターエージェントを使ってユーザーリクエストを処理している。5 つの異なるエネルギーゾーンのデータを分析する必要があるが、現在は順次処理のため遅い。処理遅延を最小化する最善のアーキテクチャ変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">DAG（有向非巡回グラフ）実行フレームワークを実装して 5 ゾーンのデータ分析を並列化し、全完了後に結果をコーディネーターに集約する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>並列化可能なタスクは DAG で並列実行</b>する。独立したデータソースの分析は依存関係がないため、Sequential ではなく Parallel パターンが最適。コーディネーターは全エージェント完了後に結果を集約する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A smart energy management platform uses a Coordinator agent to process user requests. The system needs to analyze data from five different energy zones, but sequential processing causes delays. What is the best architectural change to minimize processing delay?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement a Directed Acyclic Graph (DAG) execution framework to parallelize the analysis of five energy zones and aggregate results in the coordinator after all are complete.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">orchestration</td><td class="kw-ja">オーケストレーション</td><td class="kw-meaning">複数エージェント・ツールを統括して協調動作させること</td></tr><tr><td class="kw-en">sequentially</td><td class="kw-ja">順次的に</td><td class="kw-meaning">タスクを一つずつ順番に実行する方式</td></tr><tr><td class="kw-en">coordinator</td><td class="kw-ja">コーディネーター</td><td class="kw-meaning">複数のサブエージェントを指揮する上位エージェント</td></tr><tr><td class="kw-en">summarize</td><td class="kw-ja">要約する</td><td class="kw-meaning">複数の情報・結果を集約して簡潔にまとめること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-20">
+  <div class="set-header"><span class="set-num">Q200</span><span class="set-domain">Agentic Architectures & Orchestration</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">自動車保険のカスタマーサポートボットが複雑なケースで契約詳細の変更に失敗する。ボットが処理を諦めてユーザーに「もう一度試してください」と返すだけ。最善の解決策は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">Claude がエスカレーションツールを呼び出すステップを実装し、ケースの概要をまとめて人間のオペレーターに引き継ぐ仕組みを構築する。</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>人間へのエスカレーション（Human-in-the-loop）</b> は複雑・高リスクケースの必須設計。ボットが「諦める」のではなく、状況を正確に要約して人間に引き継ぐことで顧客体験を守る。エスカレーションツールはエージェントの重要な出口戦略。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An auto insurance customer support bot fails to change contract details in complex cases and simply tells the user 'Please try again.' What is the best solution?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Implement a step where Claude calls an escalation tool, summarizes the case, and hands it off to a human operator.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">human-in-the-loop</td><td class="kw-ja">人間参加型ループ</td><td class="kw-meaning">重要な判断に人間が介在する設計パターン</td></tr><tr><td class="kw-en">orchestration</td><td class="kw-ja">オーケストレーション</td><td class="kw-meaning">複数エージェント・ツールを統括して協調動作させること</td></tr><tr><td class="kw-en">escalation</td><td class="kw-ja">エスカレーション</td><td class="kw-meaning">人間の担当者へ処理を引き継ぐ判断</td></tr><tr><td class="kw-en">tool call</td><td class="kw-ja">ツール呼び出し</td><td class="kw-meaning">Claude がツールを実行してアクションを起こすこと</td></tr><tr><td class="kw-en">summarize</td><td class="kw-ja">要約する</td><td class="kw-meaning">複数の情報・結果を集約して簡潔にまとめること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
