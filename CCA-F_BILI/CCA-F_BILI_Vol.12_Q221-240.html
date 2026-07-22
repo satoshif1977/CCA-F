@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA-F BILI Vol.12 | Q221-240 CCAR-P Set3 再整理版</title>
+<style>
+:root{
+  --bg:#0f172a;--card:#1e293b;--border:#334155;--text:#e2e8f0;--muted:#94a3b8;
+  --jp-accent:#6366f1;--en-accent:#0ea5e9;--ans-bg:#0f2b1a;--ans-border:#166534;
+  --exp-bg:#1c1a07;--exp-border:#854d0e;--kw-bg:#0f1e35;--kw-border:#1e40af;
+  --carp-bg:#1a0a2e;--carp-border:#7c3aed;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--text);padding-bottom:60px}
+.hero{color:#fff;padding:28px 20px;text-align:center}
+.hero h1{font-size:1.3rem;font-weight:800}
+.hero p{font-size:.82rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border-radius:20px;padding:3px 12px;font-size:.72rem;margin-top:8px;margin-right:4px}
+.badge.carp{background:rgba(139,92,246,.3);border:1px solid #7c3aed}
+.sticky-header{position:sticky;top:0;z-index:100;background:#1e1b4b;border-bottom:1px solid #4338ca;padding:8px 16px;display:flex;align-items:center;gap:12px;font-size:.78rem}
+.sticky-header a{color:#a5b4fc;text-decoration:none;font-weight:700}
+.jump-nav{background:#0f172a;border-bottom:1px solid var(--border);padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px}
+.jump-item{display:inline-block;background:#1e293b;border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-size:.7rem;color:#94a3b8;text-decoration:none;transition:.15s}
+.jump-item:hover{background:#334155;color:#e2e8f0}
+.jump-item.carp{background:#1a0a2e;border-color:#7c3aed;color:#c4b5fd}
+.container{max-width:800px;margin:0 auto;padding:0 16px}
+.question-set{margin-top:32px;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.question-set.carp-q{border-color:#7c3aed}
+.set-header{background:linear-gradient(90deg,#1e1b4b,#0c4a6e);padding:12px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.set-header.carp-h{background:linear-gradient(90deg,#1a0533,#4c1d95,#1e3a5f)}
+.set-num{font-size:1rem;font-weight:800;color:#fff}
+.set-domain{font-size:.75rem;color:#bae6fd;font-weight:600}
+.carp-tag{font-size:.65rem;background:rgba(139,92,246,.35);border:1px solid #7c3aed;border-radius:10px;padding:2px 8px;color:#c4b5fd;font-weight:700}
+.jp-card,.en-card{padding:18px 20px}
+.jp-card{background:#111827}
+.en-card{background:#0f172a}
+.card-divider{height:1px;background:linear-gradient(90deg,#6366f1,#0ea5e9)}
+.lang-label{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px}
+.lang-label.jp{background:rgba(99,102,241,.2);color:#a5b4fc;border:1px solid #4f46e5}
+.lang-label.en{background:rgba(14,165,233,.2);color:#7dd3fc;border:1px solid #0284c7}
+.question-text{font-size:.92rem;line-height:1.75;color:#e2e8f0;margin-bottom:14px}
+.question-text.en{font-size:.88rem;color:#cbd5e1}
+.answer-section{display:flex;flex-direction:column;gap:12px}
+.correct-answer{border-radius:10px;padding:12px 14px}
+.correct-answer.jp{background:var(--ans-bg);border:1px solid var(--ans-border)}
+.correct-answer.en{background:#0c1e35;border:1px solid #1e3a5f}
+.ans-label{font-size:.68rem;font-weight:700;margin-bottom:6px}
+.ans-label.jp{color:#4ade80}
+.ans-label.en{color:#38bdf8}
+.ans-text{font-size:.88rem;line-height:1.65}
+.ans-text.jp{color:#bbf7d0}
+.ans-text.en{color:#bae6fd}
+.overall-exp{background:var(--exp-bg);border:1px solid var(--exp-border);border-radius:10px;padding:12px 14px}
+.exp-title{font-size:.68rem;font-weight:700;color:#fbbf24;margin-bottom:6px}
+.exp-body{font-size:.84rem;line-height:1.7;color:#fef3c7}
+.kw-box{background:var(--kw-bg);border:1px solid var(--kw-border);border-radius:10px;padding:12px 14px}
+.kw-title{font-size:.68rem;font-weight:700;color:#60a5fa;margin-bottom:8px}
+.kw-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.kw-table td{padding:5px 8px;border-bottom:1px solid #1e3a5f;vertical-align:top}
+.kw-table tr:last-child td{border-bottom:none}
+.kw-en{color:#93c5fd;font-weight:700;white-space:nowrap;width:30%}
+.kw-ja{color:#a5b4fc;width:30%}
+.kw-meaning{color:#94a3b8;width:40%}
+.section-divider{margin:40px 0 16px;padding:10px 18px;background:linear-gradient(90deg,#1a0533,#4c1d95);border-radius:10px;color:#c4b5fd;font-size:.8rem;font-weight:700;text-align:center}
+@media(max-width:600px){
+  .kw-table,.kw-table tbody,.kw-table tr,.kw-table td{display:block;width:100%}
+  .kw-table tr{margin-bottom:8px;border-bottom:1px solid #1e3a5f;padding-bottom:6px}
+  .kw-table td{border-bottom:none;padding:2px 4px}
+  .kw-en{color:#93c5fd;font-weight:700}
+}
+</style>
+</head>
+<body>
+<div class="hero" style="background:linear-gradient(90deg,#064e3b 0%,#065f46 40%,#4c1d95 100%)">
+  <h1>CCA-F BILI Vol.12</h1>
+  <p>Q221–Q240 ｜ CCAR-P Set 3 — 共通問題先・CCAR-P 固有（★）を末尾に集約</p>
+  <span class="badge">Claude Code ×3</span><span class="badge">Agent Arch. ×3</span><span class="badge">Prompt Eng. ×2</span><span class="badge">RAG / Monitor. ×3</span><span class="badge">Governance ×3</span><span class="badge carp">CCAR-P Specific ★ ×6</span>
+</div>
+<div class="sticky-header">
+  <a href="../index.html">&#8592; TOP</a>
+  <span style="color:#94a3b8">|</span>
+  <span style="color:#a5b4fc">Vol.12 Q221–Q240</span>
+</div>
+<div class="jump-nav">
+<a class="jump-item" href="#card-1">Q221</a>
+<a class="jump-item" href="#card-2">Q222</a>
+<a class="jump-item" href="#card-3">Q223</a>
+<a class="jump-item" href="#card-4">Q224</a>
+<a class="jump-item" href="#card-5">Q225</a>
+<a class="jump-item" href="#card-6">Q226</a>
+<a class="jump-item" href="#card-7">Q227</a>
+<a class="jump-item" href="#card-8">Q228</a>
+<a class="jump-item" href="#card-9">Q229</a>
+<a class="jump-item" href="#card-10">Q230</a>
+<a class="jump-item" href="#card-11">Q231</a>
+<a class="jump-item" href="#card-12">Q232</a>
+<a class="jump-item" href="#card-13">Q233</a>
+<a class="jump-item" href="#card-14">Q234</a>
+<a class="jump-item carp" href="#card-15">Q235</a>
+<a class="jump-item carp" href="#card-16">Q236</a>
+<a class="jump-item carp" href="#card-17">Q237</a>
+<a class="jump-item carp" href="#card-18">Q238</a>
+<a class="jump-item carp" href="#card-19">Q239</a>
+<a class="jump-item carp" href="#card-20">Q240</a>
+</div>
+<div class="container">
+
+<div class="question-set" id="card-21">
+  <div class="set-header"><span class="set-num">Q221</span><span class="set-domain">Claude Code — Entry Point Selection</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">小売銀行ワークフローの提案が、支店スタッフ向けに Claude Code を使用することを「根底にあるのはすべて Claude だから」という理由で提案している。支店スタッフはエンジニアではなく固定業務フローに従う。この提案に含まれる設計上の誤りは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">エントリポイントはユーザーと業務内容を考慮した上で選ぶべき決定である。Claude Code は開発者向けに作られたエンジニアリングエントリポイントであり、支店スタッフが業務フローに従うのに適していない</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>エントリポイント・ビルド時インターフェース・デリバリルートは3つの独立した決定。</b>「根底は同じモデル」はこれらの層を混同した誤り。Claude Code は開発者・ターミナル向けのエンジニアリングツール。ユーザーと業務内容が合わないエントリポイントは UX 障壁を生む。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A proposal for a retail banking workflow puts Claude Code in front of branch staff on the grounds that "it's all Claude underneath." Branch staff are not engineers and will follow a fixed operational workflow. What architectural error does the proposal contain?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The entry point was chosen before the user and the work were considered; entry points, build-time interfaces, and delivery routes are distinct decisions.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">entry point</td><td class="kw-ja">エントリポイント</td><td class="kw-meaning">ユーザーが Claude にアクセスする窓口・インターフェース</td></tr><tr><td class="kw-en">Claude Code</td><td class="kw-ja">Claude Code</td><td class="kw-meaning">開発者向けターミナルツール（エンジニアリングエントリポイント）</td></tr><tr><td class="kw-en">build-time interface</td><td class="kw-ja">ビルド時インターフェース</td><td class="kw-meaning">アプリ設計時に選ぶ Claude との統合インターフェース</td></tr><tr><td class="kw-en">delivery route</td><td class="kw-ja">デリバリルート</td><td class="kw-meaning">Claude 機能をユーザーに届ける流通経路</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-22">
+  <div class="set-header"><span class="set-num">Q222</span><span class="set-domain">Agent Architecture — Workflow Routing Pattern</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">受信サポートチケットには種類のばらつきがある：請求質問はアカウントデータへの取得が必要、技術的問題は製品ドキュメントへの取得が必要、エスカレーションは直接人間キューへ。このシェイプに最も適したワークフローサブパターンは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ルーティング。分類器が各チケットを読み、下流のパスを選択するため</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>入力の種類が異なり処理が分岐する → ルーティング。</b>チェーン（固定順序で同じステップを順に実行）・並列化（すべてのパスが同時実行）・Evaluator-Optimizer（出力品質の改善ループ）は異なるパターン。ルーティングは最初に分類してから適切な下流処理に振り分ける。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Incoming support tickets vary in kind: billing questions need retrieval over account data, technical issues need retrieval over product documentation, and escalations must go straight to a human queue. Which workflow sub-pattern fits this shape?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Routing, because a classifier decides which downstream path each ticket takes.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">routing</td><td class="kw-ja">ルーティング</td><td class="kw-meaning">入力の種類を分類して適切な下流パスに振り分けるパターン</td></tr><tr><td class="kw-en">chaining</td><td class="kw-ja">チェーン</td><td class="kw-meaning">固定したステップを順番に実行するパターン</td></tr><tr><td class="kw-en">parallelization</td><td class="kw-ja">並列化</td><td class="kw-meaning">独立したサブタスクを同時並行で実行するパターン</td></tr><tr><td class="kw-en">evaluator-optimizer</td><td class="kw-ja">評価・最適化ループ</td><td class="kw-meaning">一方のモデルが出力し他方が改善を指示する品質改善パターン</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-23">
+  <div class="set-header"><span class="set-num">Q223</span><span class="set-domain">Claude Code — Skill Packaging</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">複数の異なるワークフローが同一に実行する必要のある繰り返し可能な多段階レポートフォーマット手順があり、一箇所でバージョン管理・更新される必要がある。このジョブに一致するプリミティブは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">スキル。繰り返し可能な手順をバージョン管理された再利用可能なユニットとしてパッケージ化するため</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>繰り返し可能な手順 + バージョン管理 + 複数ワークフローからの再利用 = スキル。</b>ツールはアクション・ルックアップを公開する。サブエージェントはスコープを隔離・並列化する。MCP はツールを複数クライアントに公開するプロトコル（仕組み）であり手順をパッケージ化しない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A team has a repeatable, multi-step report-formatting procedure that several different workflows must execute identically, and the procedure needs to be versioned and updated in one place. Which primitive matches this job?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">A Skill, because it packages a repeatable procedure as a versioned, reusable unit.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">Skill</td><td class="kw-ja">スキル</td><td class="kw-meaning">繰り返し可能な手順をバージョン管理された再利用可能ユニットにするプリミティブ</td></tr><tr><td class="kw-en">versioned</td><td class="kw-ja">バージョン管理された</td><td class="kw-meaning">変更履歴を追跡し特定バージョンに戻せる状態</td></tr><tr><td class="kw-en">reusable</td><td class="kw-ja">再利用可能</td><td class="kw-meaning">複数のワークフロー・プロジェクトから利用できる</td></tr><tr><td class="kw-en">primitive</td><td class="kw-ja">プリミティブ</td><td class="kw-meaning">Claude エコシステムの基本構成要素（ツール・スキル・サブエージェント等）</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-24">
+  <div class="set-header"><span class="set-num">Q224</span><span class="set-domain">Solution Design — Decomposition & Comparative Advantage</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">分解中、アーキテクトがパートナーのプロセスの各ステップを列挙し「Claude はどこで役立てるか？」と問い、既存のルールエンジンがすでに正しく実行している複数のステップを含めて大半のステップを Claude に割り当てた。アーキテクトが使うべきだった正しいフレーミングは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">「4つの特性が、すでに正しく実行しているシステムより Claude に有利に働く場所はどこか？」— 比較優位で所有者を割り当てる</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>Claude の所有権は比較優位で決定する。</b>「どこで Claude が役立つか？」は Claude の過剰割り当て（最も一般的で高コストな初期ミス）を生む問い方。ボリューム（頻度）・プロトタイピング速度・人気度はいずれも所有権の基準ではない。すでに正しく動いているシステムより Claude が有利な場所だけに割り当てる。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">During decomposition, an architect lists every step of a partner's process and asks, "Where can Claude help?"—then assigns most steps to Claude, including several a rules engine already performs correctly. What is the correct framing the architect should have used?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">"Where do the four properties argue for Claude over the system that already does this right?"—assigning owners by comparative advantage.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">decomposition</td><td class="kw-ja">分解</td><td class="kw-meaning">プロセスをステップに分割し所有者を割り当てる作業</td></tr><tr><td class="kw-en">four properties</td><td class="kw-ja">4つの特性</td><td class="kw-meaning">Claude が比較優位を持つ能力特性（柔軟性・自然言語・推論等）</td></tr><tr><td class="kw-en">comparative advantage</td><td class="kw-ja">比較優位</td><td class="kw-meaning">他システムより Claude がより優れている点で判断</td></tr><tr><td class="kw-en">over-assignment</td><td class="kw-ja">過剰割り当て</td><td class="kw-meaning">不要なステップまで Claude に割り当ててしまうミス</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-25">
+  <div class="set-header"><span class="set-num">Q225</span><span class="set-domain">Prompt Engineering — Few-shot for Format Fidelity</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">抽出タスクが独自のハウスフォーマットで出力する必要がある。詳細な文書指示だけでは実行間でフォーマットが小さく多様な形でドリフトする。このフォーマットドリフトに最も直接的に対処するプロンプトエンジニアリングの変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">正確なターゲットフォーマットを示す few-shot 例を指示と一緒に追加する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>独自フォーマット + 指示だけでドリフト = few-shot 例の追加が答え。</b>フォーマットが独自（idiosyncratic）な場合、説明より例示が有効。ステアラビリティの限界として、短くて具体的な指示 + 例示が最強の組み合わせ。温度を上げると分散が増加（逆効果）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An extraction task must produce output in an idiosyncratic house format. Detailed written instructions alone produce output that drifts from the format in small, varied ways across runs. Which prompt-engineering change most directly addresses this?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Add few-shot examples demonstrating the exact target format alongside the instructions.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">few-shot</td><td class="kw-ja">フューショット</td><td class="kw-meaning">手本を数例示して出力パターンを誘導する手法</td></tr><tr><td class="kw-en">format fidelity</td><td class="kw-ja">フォーマット忠実性</td><td class="kw-meaning">指定フォーマットへの準拠度・一貫性</td></tr><tr><td class="kw-en">idiosyncratic</td><td class="kw-ja">独自の・固有の</td><td class="kw-meaning">一般的でない特殊なフォーマット・規則</td></tr><tr><td class="kw-en">steerability</td><td class="kw-ja">ステアラビリティ</td><td class="kw-meaning">プロンプトで Claude の出力を誘導できる性質</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-26">
+  <div class="set-header"><span class="set-num">Q226</span><span class="set-domain">Prompt Engineering — Intent vs Letter</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">システムプロンプトが「100語以内に回答を収めよ」と指示している。モデルはルールの文言には従うが、制限内に収めるために法的に必要な開示テキストを省略し、指示の意図からドリフトしている。この失敗モードに対処する設計変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">指示の目標を明示的に再記述し（例：必要な開示は常に簡潔さより優先されること）、必要なテキストを構造化出力チェックで強制する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>ルールの文言に従って意図を外す（文言 vs 意図のドリフト）は既知のステアラビリティ限界。</b>対策は目標の明示化（「開示 > 簡潔さ」）+ 非交渉可能コンテンツの決定論的検証（構造化出力チェック）。制限削除（要件自体を捨てる）や繰り返し（競合を解消しない）では解決しない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A system prompt instructs an assistant to "keep responses under 100 words." The model complies with the letter of the rule but omits legally required disclosure text to stay under the limit. Which design change addresses this failure mode?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Restate the goal explicitly alongside the instruction—for example, that required disclosures always take precedence over brevity—and enforce the required text with a structured output check.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">intent vs letter</td><td class="kw-ja">意図 vs 文言</td><td class="kw-meaning">ルールの文字通りに従って本来の意図を外すドリフト</td></tr><tr><td class="kw-en">structured output</td><td class="kw-ja">構造化出力</td><td class="kw-meaning">スキーマで出力フォーマット・必須要素を強制する手法</td></tr><tr><td class="kw-en">non-negotiable content</td><td class="kw-ja">非交渉可能コンテンツ</td><td class="kw-meaning">必ず出力しなければならない必須テキスト</td></tr><tr><td class="kw-en">disclosure</td><td class="kw-ja">開示</td><td class="kw-meaning">法律・規制が要求する必須の情報公開テキスト</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-27">
+  <div class="set-header"><span class="set-num">Q227</span><span class="set-domain">Integration & Reliability — Retry Strategy</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">デプロイメントが本番環境で断続的に 429（レートリミット）と 529（過負荷）レスポンスを受け取る。現在のクライアントコードは各失敗呼び出しをタイトなループで即時リトライしており、これがインシデントを長引かせる。正しい信頼性設計を反映した変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">指数バックオフと上限回数でリトライし、一時的なヒッカップが長引く停止に増幅されないようにする</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>429・5xx は一時的なエラー。正しい制御は指数バックオフ + キャップされた試行回数。</b>タイトなループリトライはレートリミットを悪化させインシデントを長引かせる（負のフィードバックループ）。リトライなしはUX劣化。別APIキーへの切り替えは制限を回避するだけで問題を解消しない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">Under load, a deployment intermittently receives 429 rate-limit and 529 overloaded responses. The current client code retries each failed call immediately in a tight loop, which prolongs the incidents. Which change reflects correct reliability design?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Retry with exponential backoff and a capped number of attempts, so brief hiccups are not amplified into prolonged outages.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">exponential backoff</td><td class="kw-ja">指数バックオフ</td><td class="kw-meaning">リトライ間隔を指数的に増やして過負荷を防ぐ</td></tr><tr><td class="kw-en">rate limit (429)</td><td class="kw-ja">レートリミット (429)</td><td class="kw-meaning">APIリクエスト数の上限超過を示すHTTPステータス</td></tr><tr><td class="kw-en">retry strategy</td><td class="kw-ja">リトライ戦略</td><td class="kw-meaning">失敗したリクエストを再試行する方法・回数の設計</td></tr><tr><td class="kw-en">tight loop retry</td><td class="kw-ja">タイトループリトライ</td><td class="kw-meaning">間隔なしに即時リトライを繰り返す（問題のあるパターン）</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-28">
+  <div class="set-header"><span class="set-num">Q228</span><span class="set-domain">Agent Architecture — Trajectory Control</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">広いツールセットを持つエージェントが非常に長いトラジェクトリを実行することがある：ツール呼び出しが繰り返され、コンテキストが膨らみ、誰も気づかないうちに 1 つのリクエストがコストシーリングを超える可能性がある。このアーキテクチャの特徴的な失敗モードに対処する設定変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ターンごとのトークン予算・最大ツール呼び出し回数・明示的な停止基準を設定し、出力品質だけでなくエージェントの停止動作も評価する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>エージェントの特徴的な失敗：無制限のツール使用 + コンテキスト膨張 = コストシーリング超過（サイレント）。</b>対策はターンごとのトークン予算 + ツール呼び出し上限 + 停止基準。停止動作そのものを評価することも重要。大きなウィンドウは症状の上限を上げるだけで根本解決にならない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">An agent with a broad tool set occasionally runs very long trajectories: tool calls repeat, context grows, and a single request can silently exceed the cost ceiling before anyone notices. Which configuration change addresses this architecture's characteristic failure mode?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Set per-turn token budgets, maximum tool-call counts, and explicit stopping criteria—and evaluate the agent's stopping behavior, not just output quality.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">agent trajectory</td><td class="kw-ja">エージェントトラジェクトリ</td><td class="kw-meaning">エージェントが実行するツール呼び出し・推論ステップの経路</td></tr><tr><td class="kw-en">token budget</td><td class="kw-ja">トークン予算</td><td class="kw-meaning">1ターンあたりに使用できるトークン数の上限</td></tr><tr><td class="kw-en">tool-call limit</td><td class="kw-ja">ツール呼び出し上限</td><td class="kw-meaning">1リクエストで許可するツール呼び出しの最大回数</td></tr><tr><td class="kw-en">stopping criteria</td><td class="kw-ja">停止基準</td><td class="kw-meaning">エージェントが処理を終了する条件の定義</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-29">
+  <div class="set-header"><span class="set-num">Q229</span><span class="set-domain">RAG & Integration — Semantic Chunking</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">構造的な境界が弱い長文散文のコーパスがある。取得されたチャンクが頻繁にアイデアの途中で切れ、モデルが自己完結していないフラグメントから回答せざるを得ない。このコーパスに適したチャンキング変更は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">意味の境界で分割し、取得された各チャンクが自己完結するようにする意味的チャンキング</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>弱い構造 + チャンクがアイデアの途中で切れる = 意味的チャンキングが答え。</b>固定サイズ（大きくしても任意の切断は変わらない）・階層的（構造がない文書に不適）・全文書（トークン予算超過・関連性希薄化）はどれも不適。意味の境界で分割するから各チャンクが自己完結する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A corpus of long-form prose has weak structural boundaries, and retrieved chunks frequently cut off mid-idea, forcing the model to answer from fragments that are not self-contained. Which chunking change fits this corpus?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Semantic chunking that splits on meaning boundaries so each retrieved chunk is self-contained.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">semantic chunking</td><td class="kw-ja">意味的チャンキング</td><td class="kw-meaning">意味の区切り（トピック転換）で分割する手法</td></tr><tr><td class="kw-en">self-contained chunk</td><td class="kw-ja">自己完結チャンク</td><td class="kw-meaning">それ単体で意味が完結する取得単位</td></tr><tr><td class="kw-en">prose</td><td class="kw-ja">散文</td><td class="kw-meaning">詩や箇条書きでない通常の文章形式</td></tr><tr><td class="kw-en">meaning boundary</td><td class="kw-ja">意味の境界</td><td class="kw-meaning">話題・アイデアが切り替わる自然な区切り点</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-30">
+  <div class="set-header"><span class="set-num">Q230</span><span class="set-domain">Monitoring — Per-request Instrumentation</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">RAG デプロイメントのリクエストごとの計装を設計している。将来の品質低下を検出・帰属させられるようにするため、ログに含めるべき2項目を選べ。<br><small style='color:#f59e0b'>※ 2つ選択</small></div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">A: グラウンディング文書に対して測定したリクエストのリトリーバル精度（アラート閾値付き）／ B: モデルのバージョンと入出力トークン数（キャッシュヒット/ミスを含む）</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>品質低下の検出・帰属にはリトリーバル精度（取得レイヤーか特定）とモデルバージョン+トークン数（回帰トレース）が必要。</b>エラー数のみでは成功リクエストの品質低下を見逃す。全プロンプトの無期限保持はデータハンドリング・最小化要件に違反する。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A team is designing per-request instrumentation for a RAG deployment before launch, so that a future quality regression can be detected and attributed. Which TWO items belong in the per-request logs?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">A: Retrieval precision for the request, measured against the grounding documents, with an alert threshold. B: Model version and input/output token counts, including cache hit or miss.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">retrieval precision</td><td class="kw-ja">リトリーバル精度</td><td class="kw-meaning">取得されたチャンクがグラウンディングに適切か</td></tr><tr><td class="kw-en">model version</td><td class="kw-ja">モデルバージョン</td><td class="kw-meaning">使用したモデルの具体的なバージョン識別子</td></tr><tr><td class="kw-en">cache hit/miss</td><td class="kw-ja">キャッシュヒット/ミス</td><td class="kw-meaning">プロンプトキャッシュが有効化されたかどうか</td></tr><tr><td class="kw-en">attribution</td><td class="kw-ja">帰属</td><td class="kw-meaning">品質低下がどのレイヤーで発生したか特定すること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-31">
+  <div class="set-header"><span class="set-num">Q231</span><span class="set-domain">Governance & Safety — Training vs Inference-time Control</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">証券会社が「Claude のトレーニングが安全にするため、アシスタントが投機的な投資ヒントを絶対に議論しない」と前提を置いていた。本番環境では制限なく自由に議論し、ポストモーテムでその制限がどこにもエンコードされていなかったことが判明した。このインシデントが示すことは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">トレーニング時の整合と推論時の制御は2つの異なる目的を持つ別々のレイヤーである。トレーニングは広く有害な動作をカバーし、ビジネス固有のドメインポリシーはオペレーターが推論時の制御レイヤーでエンコードする責任がある</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>「モデルの安全性トレーニングが業務ポリシーも担保する」は誤信。</b>トレーニング時整合は広範な有害性をカバーするが、業務固有ポリシー（投機的投資アドバイス禁止等）はオペレーターがシステムプロンプト・ガードレール等の推論時制御でエンコードする責任がある。どのレイヤーにもエンコードされていないポリシーはどのレイヤーでも適用されない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A brokerage assumed its assistant would never discuss speculative investment tips because "Claude's training makes it safe." In production, the assistant discussed them freely, and a postmortem found the restriction was never encoded anywhere. What does this incident illustrate?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Training-time alignment covers broadly harmful behavior; a business-specific domain policy is the operator's responsibility and must be encoded at the inference-time control layer.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">training-time alignment</td><td class="kw-ja">トレーニング時の整合</td><td class="kw-meaning">事前トレーニングで組み込まれた広範な安全性</td></tr><tr><td class="kw-en">inference-time control</td><td class="kw-ja">推論時の制御</td><td class="kw-meaning">システムプロンプト・ガードレール等によるランタイム制御</td></tr><tr><td class="kw-en">operator responsibility</td><td class="kw-ja">オペレーターの責任</td><td class="kw-meaning">業務固有のポリシーをエンコードするのはオペレーターの役割</td></tr><tr><td class="kw-en">domain policy</td><td class="kw-ja">ドメインポリシー</td><td class="kw-meaning">特定業種・ユースケース固有のルール・制約</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-32">
+  <div class="set-header"><span class="set-num">Q232</span><span class="set-domain">Governance & Safety — Deterministic Authorization</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">返金発行ツールのために、チームがモデルによる judge で各ツール呼び出しを認可することを提案している。コンテキストを柔軟に考慮できるとの理由で。正しい評価は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">副作用を伴うアクションの認可は決定論的であるべき — ID とスコープのチェックを持つ許可リストとして。その決定は監査可能かつ再現可能でなければならない。モデルベースのチェックは入力と出力のスクリーニングに属する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>副作用ツール（返金発行等）の認可はホワイトリスト + ID・スコープ検証で決定論的に行う。</b>モデルベースの認可は確率論的で監査・再現不可（なぜ承認されたか説明できない）。Judge の大きさやログ取得だけでは認可を確実にできない。「いずれかが承認 = 実行」は最も脆弱。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">For a refund-issuing tool, a team proposes having a judge model decide whether each tool call should be authorized, reasoning that a model can weigh context flexibly. What is the correct assessment?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Authorization for side-effecting actions should be deterministic—an allowlist with identity and scope checks—because the decision must be auditable and replayable; model-based checks belong at input and output screening instead.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">deterministic authorization</td><td class="kw-ja">決定論的認可</td><td class="kw-meaning">ホワイトリスト+ID・スコープ検証による確実な認可</td></tr><tr><td class="kw-en">allowlist</td><td class="kw-ja">ホワイトリスト・許可リスト</td><td class="kw-meaning">明示的に許可されたアクション・主体のリスト</td></tr><tr><td class="kw-en">side-effecting action</td><td class="kw-ja">副作用を伴うアクション</td><td class="kw-meaning">外部システムに取り消し困難な変更を加える操作</td></tr><tr><td class="kw-en">auditability</td><td class="kw-ja">監査可能性</td><td class="kw-meaning">決定の根拠を後から追跡・証明できること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-33">
+  <div class="set-header"><span class="set-num">Q233</span><span class="set-domain">Governance & Safety — Fairness & Operator Responsibility</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">デプロイされたトリアージシステムが、あるグループの申請者に対して測定可能な不均衡な結果を生み出している。チームの立場は「自分たちはモデルをトレーニングしなかったのでモデルプロバイダーの問題だ」というものだ。この立場が間違っている理由は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">不均衡な結果はオペレーターが所有する特定の箇所（取得ソース・プロンプトコンテンツ・閾値・ルーティングルール）で発生する。オペレーターはグループ間の結果を測定し、特定の決定を説明するためにそれをログに記録する責任がある</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>公平性の責任はオペレーターにある。</b>不均衡な結果はオペレーターが制御する箇所（取得ソース・プロンプト・閾値・ルーティングルール）で入る。結果ログなしには個別決定の説明もできない。「プロバイダーの問題」も「大きなモデルで解決」もどちらも誤り。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A deployed triage system produces measurably worse outcomes for one applicant group. The team's position is that fairness is the model provider's problem, since they did not train the model. Why is this position wrong?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Unequal outcomes enter at identifiable points the operator owns—retrieval sources, prompt content, thresholds, and routing rules—so the operator must measure outcomes across groups and can only explain specific decisions if it logs them.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">fairness</td><td class="kw-ja">公平性</td><td class="kw-meaning">グループ間で均等な結果を保証する設計原則</td></tr><tr><td class="kw-en">bias</td><td class="kw-ja">バイアス</td><td class="kw-meaning">特定グループへの不均衡な影響・偏り</td></tr><tr><td class="kw-en">operator responsibility</td><td class="kw-ja">オペレーターの責任</td><td class="kw-meaning">取得・プロンプト・閾値での不均衡をオペレーターが対処</td></tr><tr><td class="kw-en">decision logging</td><td class="kw-ja">決定ログ</td><td class="kw-meaning">個別決定の根拠を後から説明するためのログ記録</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set" id="card-34">
+  <div class="set-header"><span class="set-num">Q234</span><span class="set-domain">Claude Code — Adoption Rollout Strategy</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">200 人規模のエンジニア組織が4部門で Claude Code を導入している。提案の一つは全員を一斉に切り替える全社メールだ。より強力なロールアウトパターンとその理由は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">各部門にチャンピオン1名を先に有効化して実際のワークフローで実証させ、その後バッチごとに普及させる。各部門が幅広い展開前に実例と地元の専門家を得られるようにする</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>一斉切り替えは「混乱した初回プロンプト → 古い習慣に静かに逃げる」という失敗パターン。</b>Champion-then-batches: チャンピオンが実ワークフローで実証 → バッチ展開 → 各部門にローカルの専門家が生まれる。上級者のみ永続的に制限・全員必須認定コース完了後は、採用を促進しない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A 200-person engineering organization is adopting Claude Code across four departments. One proposal is a single all-hands enablement email switching everyone on at once. What is the stronger rollout pattern, and why?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Enable one champion per department first to prove a real workflow, then seed adoption batch by batch, so each department gains a working example and a local expert before broad rollout.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">champion</td><td class="kw-ja">チャンピオン</td><td class="kw-meaning">各部門で最初に導入し実証・普及を担うリード役</td></tr><tr><td class="kw-en">batch rollout</td><td class="kw-ja">バッチ展開</td><td class="kw-meaning">一斉でなく段階的にグループごとに展開していく方式</td></tr><tr><td class="kw-en">local expert</td><td class="kw-ja">ローカルエキスパート</td><td class="kw-meaning">部門内でのサポート・質問受けができる現場の専門家</td></tr><tr><td class="kw-en">adoption</td><td class="kw-ja">採用・普及</td><td class="kw-meaning">新ツール・新技術が組織内で実際に使われるようになること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section-divider">★ ここから CCAR-P 固有ドメイン問題（Q235–Q240）— Evaluation / Stakeholder / Lifecycle</div>
+
+<div class="question-set carp-q" id="card-35">
+  <div class="set-header carp-h"><span class="set-num">Q235</span><span class="set-domain">Evaluation — Evals-First Development</span> <span class="carp-tag">★ CCAR-P 固有</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">チームが起草アシスタントを先に構築し、「テストできるものができてから」評価を書く計画を立てている。この順序に対する最も強い反論は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">ビルド前に定義された評価は受け入れ基準として機能し、以後のすべての変更のゲートメカニズムになる。後で書いた評価は、ビジネスが要求するものではなく、システムがすでに行っていることを記述する傾向がある</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>評価を先に書く = ビルドの受け入れ基準を先に定義すること。</b>後で書いた評価は現在の動作を合理化するだけ。評価がないと以後の変更に客観的なゲートがなくなる。「コスト削減」や「評価フレームワークは完成システムのみ」は誤った反論。評価は人間レビューを補完するものであり代替ではない。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A team plans to build a drafting assistant first and write evaluations "once there is something to test." What is the strongest argument against this ordering?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Evals defined before the build act as acceptance criteria and as the gating mechanism for every subsequent change; written afterward, they tend to describe what the system already does rather than what the business requires.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">eval-first</td><td class="kw-ja">評価先行</td><td class="kw-meaning">実装前に評価基準・指標を定義するアプローチ</td></tr><tr><td class="kw-en">acceptance criteria</td><td class="kw-ja">受け入れ基準</td><td class="kw-meaning">リリース・変更承認の条件を事前に定義したもの</td></tr><tr><td class="kw-en">gate mechanism</td><td class="kw-ja">ゲートメカニズム</td><td class="kw-meaning">変更を本番に適用する前に通過しなければならない検証</td></tr><tr><td class="kw-en">eval-driven development</td><td class="kw-ja">評価駆動開発</td><td class="kw-meaning">評価基準を先に定義してから実装を進める開発手法</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set carp-q" id="card-36">
+  <div class="set-header carp-h"><span class="set-num">Q236</span><span class="set-domain">Evaluation — Failure Taxonomy</span> <span class="carp-tag">★ CCAR-P 固有</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">プロンプト改訂後、システムの事実精度スコアは変化なく、取得精度も変化なし、だがフォーマット準拠スコアが急落した。失敗タクソノミーを使用して、最も可能性の高い失敗クラスと適切な対応は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">プロンプト失敗。改訂がフォーマット動作を変えた。プロンプトを修正して評価ゲートを再実行する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>失敗タクソノミーは症状をレイヤーに帰属させる。</b>フォーマット準拠がプロンプト改訂直後に急落 = プロンプト失敗。取得・事実精度が安定しているので取得失敗・ハルシネーション・モデルミスマッチではない。「変わったレイヤーが失敗したレイヤー」が診断の原則。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">After a prompt revision, a system's factual accuracy scores are unchanged, retrieval precision is unchanged, but format-compliance scores drop sharply. Using a failure taxonomy, what is the most likely class of failure and the appropriate response?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Prompt failure—the revision changed formatting behavior; fix the prompt and re-run the eval gate.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">failure taxonomy</td><td class="kw-ja">失敗タクソノミー</td><td class="kw-meaning">症状をレイヤー別（取得・プロンプト・モデル）に分類する手法</td></tr><tr><td class="kw-en">prompt failure</td><td class="kw-ja">プロンプト失敗</td><td class="kw-meaning">プロンプト変更に起因するパフォーマンス低下</td></tr><tr><td class="kw-en">eval gate</td><td class="kw-ja">評価ゲート</td><td class="kw-meaning">変更適用前に通過しなければならない自動評価チェック</td></tr><tr><td class="kw-en">layer attribution</td><td class="kw-ja">レイヤー帰属</td><td class="kw-meaning">問題がどのシステムレイヤーで発生したか特定すること</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set carp-q" id="card-37">
+  <div class="set-header carp-h"><span class="set-num">Q237</span><span class="set-domain">Evaluation — Golden Dataset & Data Governance</span> <span class="carp-tag">★ CCAR-P 固有</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">コンサルティング会社が提案起草アシスタントのゴールデンデータセットを構築している。過去の文書には顧客名と NDA 対象の内容が含まれている。適切なデータセット戦略は？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">顧客名を仮名化した過去の案件から構築し、クライアントの明示的な承認がない限りクライアント機密文書を除外する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>ゴールデンデータセットの NDA 対応：現実的なデータ + プライバシー制約のバランスが重要。</b>そのまま使う（NDA 違反）・完全合成データ（代表性不足で評価精度が低下）・本番フィードバックのみ（デプロイ前評価不可）はどれも不適。仮名化 + 明示的承認が現実的な正解。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A consulting firm is assembling a golden dataset for its proposal-drafting assistant. Its historical documents contain client names and material covered by NDAs. Which dataset strategy is appropriate?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Build the set from past engagements with client names redacted, and exclude client-confidential documents unless the client has given explicit approval.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">golden dataset</td><td class="kw-ja">ゴールデンデータセット</td><td class="kw-meaning">評価の基準となる高品質なラベル付きデータセット</td></tr><tr><td class="kw-en">NDA</td><td class="kw-ja">秘密保持契約（NDA）</td><td class="kw-meaning">機密情報の開示を制限する法的契約</td></tr><tr><td class="kw-en">redaction</td><td class="kw-ja">仮名化・削除</td><td class="kw-meaning">個人・機密情報をマスクまたは削除して処理</td></tr><tr><td class="kw-en">representativeness</td><td class="kw-ja">代表性</td><td class="kw-meaning">実際の使用シナリオを適切に反映しているかどうか</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set carp-q" id="card-38">
+  <div class="set-header carp-h"><span class="set-num">Q238</span><span class="set-domain">Stakeholder Communication — Assumption Validation</span> <span class="carp-tag">★ CCAR-P 固有</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ディスカバリで、ステークホルダーが「臨床医が出力をいずれにせよレビューする」と述べた。アーキテクトはそれを既存の保護手段として扱い、レビューチェックポイントを設計しなかった。アーキテクトが代わりにすべきだったことは？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">その主張を文書化された前提として記録し、レビューの権限・タイミングを正しい所有者に確認し、人間認可ステップを継承した習慣ではなく明示的なアーキテクチャゲートとして設計する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>ディスカバリでのステークホルダー発言は確認された要件ではなく、未検証の前提。</b>確認せずに前提として設計に組み込むと、実際に機能しない保護手段に依存したシステムができる。前提 → 確認 → 設計ゲートとして明示化が正しいプロセス。ミーティングノートへのサイン（C）は確認ではなく文書化。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">In discovery, a stakeholder remarks, "Clinicians will review the output anyway." The architect designs no review checkpoint, treating the remark as an existing safeguard. What should the architect have done instead?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">Record the claim as a documented assumption, confirm the review's authority and timing with the right owner, and design the human authorization step as an explicit architectural gate rather than an inherited habit.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">assumption</td><td class="kw-ja">前提・仮定</td><td class="kw-meaning">確認されていない、検証が必要な設計上の前提条件</td></tr><tr><td class="kw-en">discovery</td><td class="kw-ja">ディスカバリ</td><td class="kw-meaning">ステークホルダーから要件・制約を引き出す初期フェーズ</td></tr><tr><td class="kw-en">validated requirement</td><td class="kw-ja">検証済み要件</td><td class="kw-meaning">適切な所有者に確認・合意された確定した要件</td></tr><tr><td class="kw-en">architectural gate</td><td class="kw-ja">アーキテクチャゲート</td><td class="kw-meaning">プロセス内の必須チェックポイントとして設計された制御</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set carp-q" id="card-39">
+  <div class="set-header carp-h"><span class="set-num">Q239</span><span class="set-domain">Stakeholder Communication — Cost Forecasting</span> <span class="carp-tag">★ CCAR-P 固有</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">パイロットの月間モデル費用はわずかだった。本番ボリュームはパイロットの約 100 倍と予測される。アーキテクトがスポンサーに何をいつ提示すべきか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">本番ボリュームでの消費予測・支出管理姿勢（キャッシング・モデルティアリング・予算アラート）・モデルティアリングの説明を、リリース前に（初回請求後ではなく）提示する</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>本番コストはパイロットの 100 倍超は普通。</b>コストは最も期待を裏切りやすいメトリクスで、最初の請求書後では遅すぎる。リリース前に消費予測 + 支出管理手段 + モデルティア説明の3点セットをスポンサーに提示する。パイロット請求書をそのまま提示（100倍差を無視）・コスト保証（非現実的）は誤り。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A pilot's monthly model spend was trivial. Production volume is forecast at roughly two orders of magnitude above the pilot. What should the architect present to the sponsor, and when?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">A consumption forecast at expected production volume, the spend-control posture (caching, model tiering, budget alerts), and the model-tiering narrative—before launch, not after the first invoice.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">consumption forecast</td><td class="kw-ja">消費予測</td><td class="kw-meaning">本番ボリュームでの予想 API 使用量・コスト見積もり</td></tr><tr><td class="kw-en">model tiering</td><td class="kw-ja">モデルティアリング</td><td class="kw-meaning">用途に応じて性能・コストが異なるモデルを使い分けること</td></tr><tr><td class="kw-en">spend control</td><td class="kw-ja">支出管理</td><td class="kw-meaning">コスト上限・アラート・キャッシングで API 費用を管理</td></tr><tr><td class="kw-en">production volume</td><td class="kw-ja">本番ボリューム</td><td class="kw-meaning">実際の運用で処理するリクエスト数・データ量</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="question-set carp-q" id="card-40">
+  <div class="set-header carp-h"><span class="set-num">Q240</span><span class="set-domain">Lifecycle Management — Feedback Loop & SLA Breach</span> <span class="carp-tag">★ CCAR-P 固有</span></div>
+  <div class="jp-card">
+    <div class="lang-label jp">&#127471;&#127477; Japanese</div>
+    <div class="question-text">ライブデプロイメントの監視が同じ週に3つのシグナルを表面化させた：自己解決した単発の p95 レイテンシースパイク、品質閾値を下回った持続的な評価スコアの低下、トークンコストの緩やかな上昇。フィードバックループ（シグナル → トリアージ → 決定 → 行動 → レビュー）を適用して、チームを超えてエスカレーションが必要なシグナルはどれか？</div>
+    <div class="answer-section">
+      <div class="correct-answer jp">
+        <div class="ans-label jp">&#10003; 正解</div>
+        <div class="ans-text jp">持続的な品質低下。SLA の品質閾値を超えており、SLA には違反時に取るべきアクションが記載されているため</div>
+      </div>
+      <div class="overall-exp">
+        <div class="exp-title">&#128161; 暗記ポイント</div>
+        <div class="exp-body"><b>フィードバックループのトリアージ：ノイズ vs 監視可能 vs エスカレーション確定を区別する。</b>単発の自己解決スパイク（ノイズ）≠ エスカレーション。コストドリフト（監視可能・対策検討）≠ エスカレーション。SLA 閾値を超えた持続的品質低下 = SLA 違反 = チームを超えたエスカレーション確定（SLA が対応を規定している）。</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-divider"></div>
+  <div class="en-card">
+    <div class="lang-label en">&#127482;&#127480; English</div>
+    <div class="question-text en">A live deployment's monitoring surfaces three signals in the same week: a single p95 latency spike that self-resolved, a sustained decline in eval scores now below the quality threshold named in the SLA, and a slow upward drift in token cost. Applying the feedback loop (Signals → Triage → Decide → Act → Review), which signal requires escalation beyond the team?</div>
+    <div class="answer-section">
+      <div class="correct-answer en">
+        <div class="ans-label en">&#10003; Correct Answer</div>
+        <div class="ans-text en">The sustained quality decline, because it has crossed a committed SLA threshold and the SLA names what is owed when a breach occurs.</div>
+      </div>
+      <div class="kw-box">
+        <div class="kw-title">&#128273; Key Words</div>
+        <table class="kw-table"><tr><td class="kw-en">feedback loop</td><td class="kw-ja">フィードバックループ</td><td class="kw-meaning">シグナル検知から行動・レビューまでの継続的改善サイクル</td></tr><tr><td class="kw-en">SLA breach</td><td class="kw-ja">SLA 違反</td><td class="kw-meaning">合意されたサービス品質基準を下回ること</td></tr><tr><td class="kw-en">triage</td><td class="kw-ja">トリアージ</td><td class="kw-meaning">複数シグナルの優先度・対応要否を判断する工程</td></tr><tr><td class="kw-en">escalation</td><td class="kw-ja">エスカレーション</td><td class="kw-meaning">チームの権限・範囲を超える問題の上位への報告・対応依頼</td></tr></table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
