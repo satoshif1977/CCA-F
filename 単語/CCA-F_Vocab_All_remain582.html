@@ -77,10 +77,11 @@ tr.memorized .td-check{opacity:1}
     flex:1 1 auto;white-space:nowrap;min-width:0;
     font-size:.92rem;padding:0 6px;
   }
-  /* 品詞 */
+  /* 品詞+バッジ：単語の下に独立行で表示（見切れ防止） */
   .td-pos{
-    flex:0 0 auto;font-size:.72rem;padding:0 4px;
-    align-self:center;
+    flex:0 0 100%;
+    font-size:.72rem;padding:1px 6px 3px 42px;
+    align-self:flex-start;line-height:1.4;white-space:normal;
   }
   /* 意味：2行目に全幅で表示 */
   .td-meaning{
