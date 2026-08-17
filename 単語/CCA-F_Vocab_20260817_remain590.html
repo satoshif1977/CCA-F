@@ -135,7 +135,7 @@ tr.memorized .td-check{opacity:1}
     <option value="3">📖 201～300語</option>
     <option value="4">📖 301～400語</option>
     <option value="5">📖 401～500語</option>
-    <option value="6">📖 501～589語</option>
+    <option value="6">📖 501～590語</option>
   </select>
   <button class="btn-play" id="btn-play" onclick="startPlay()">▶ 再生</button>
   <button class="btn-pause" id="btn-pause" onclick="pausePlay()" disabled>⏸ 一時停止</button>
@@ -283,7 +283,7 @@ function generateNewVocab(){
     <option value="3">📖 201～300語</option>
     <option value="4">📖 301～400語</option>
     <option value="5">📖 401～500語</option>
-    <option value="6">📖 501～589語</option>
+    <option value="6">📖 501～590語</option>
   </select>
   <button class="btn-play" id="btn-play" onclick="startPlay()">▶ 再生</button>
   <button class="btn-pause" id="btn-pause" onclick="pausePlay()" disabled>⏸ 一時停止</button>
@@ -376,6 +376,7 @@ function cleanWord(text){
 
 // 単一発話（lang 指定・コールバック付き）
 function speakOne(text,lang,rate,onDone,pitch=1.0){
+  if(!voices.length)voices=speechSynthesis.getVoices();
   const u=new SpeechSynthesisUtterance(text);
   u.lang=lang; u.rate=rate; u.pitch=pitch;
   const v=getVoice(lang); if(v)u.voice=v;
@@ -517,6 +518,7 @@ function startPlay(){
     return;
   }
   if(allWords.length===0)collectWords();
+  speechSynthesis.cancel();
   isPlaying=true;isPaused=false;
   curIdx=GROUPS[curGroup][0];
   clearInterval(synthKeepAlive);
