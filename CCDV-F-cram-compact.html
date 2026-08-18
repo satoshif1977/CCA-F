@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCDV-F 直前チェック（1時間版）</title>
+<style>
+:root{--bg:#fff;--fg:#1f2328;--muted:#59636e;--border:#d1d9e0;--accent:#0969da;--code-bg:#f0f2f5;--thead-bg:#f6f8fa;--row-alt:#fbfcfd;--mark-bg:#fff8c5;--quote-bg:#f6f8fa;--quote-border:#d1d9e0}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1117;--fg:#e6edf3;--muted:#9198a1;--border:#3d444d;--accent:#4493f8;--code-bg:#1c2128;--thead-bg:#161b22;--row-alt:#11161d;--mark-bg:#4d3800;--quote-bg:#161b22;--quote-border:#3d444d}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.8;font-size:16px;padding:16px 16px 80px;max-width:600px;margin:0 auto}
+h1{font-size:1.3rem;border-bottom:3px solid var(--accent);padding-bottom:8px;margin:0 0 12px;color:var(--accent)}
+h2{font-size:1.15rem;margin:28px 0 10px;border-bottom:2px solid var(--border);padding:10px 0 6px;position:sticky;top:0;background:var(--bg);z-index:10}
+h3{font-size:1rem;margin:18px 0 8px;color:var(--accent);padding:4px 0}
+p{margin:.6em 0}
+a{color:var(--accent);-webkit-tap-highlight-color:rgba(9,105,218,.15)}
+hr{border:none;border-top:2px solid var(--border);margin:24px 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82em;background:var(--code-bg);padding:2px 6px;border-radius:4px;word-break:break-all}
+ul,ol{padding-left:1.3em}
+li{margin:.35em 0;line-height:1.7;padding:2px 0}
+blockquote{margin:1em 0;padding:10px 14px;border-left:4px solid var(--accent);color:var(--fg);background:var(--quote-bg);border-radius:0 8px 8px 0;font-size:.93em;font-weight:500}
+.tw{overflow-x:auto;margin:.8em 0;-webkit-overflow-scrolling:touch;border-radius:8px;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+thead th{background:var(--thead-bg);font-size:.84rem;font-weight:700;position:sticky;top:0}
+tbody tr:nth-child(even){background:var(--row-alt)}
+tbody tr:active{background:var(--mark-bg)}
+.toc{background:var(--quote-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:16px;font-size:.88rem;line-height:1.7}
+.toc ul{list-style:none;padding-left:0}
+.toc li{margin:4px 0;padding:4px 0;border-bottom:1px solid var(--border)}
+.toc li:last-child{border-bottom:none}
+.toc a{color:var(--fg);text-decoration:none;display:block;padding:2px 0}
+.toc a:active{color:var(--accent);background:var(--mark-bg);border-radius:4px}
+mark{background:var(--mark-bg);padding:1px 4px;border-radius:3px;font-weight:600}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:10px;vertical-align:middle;margin-left:4px}
+.back-top{position:fixed;bottom:20px;right:16px;background:var(--accent);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:100;-webkit-tap-highlight-color:transparent}
+</style>
+</head>
+<body>
+
+<h1>CCDV-F 直前チェック</h1>
+<p style="font-size:.82rem;color:var(--muted)">試験会場への移動中に読む用 / 知識のみ・概要省略</p>
+
+<div class="toc">
+<ul>
+<li><a href="#d2">1. Applications & Integration (33%)</a></li>
+<li><a href="#d5">2. Model Selection (17%)</a></li>
+<li><a href="#d1">3. Agents & Workflows (15%)</a></li>
+<li><a href="#d6">4. Prompt & Context (11%)</a></li>
+<li><a href="#d8">5. Tools & MCPs (11%)</a></li>
+<li><a href="#d7">6. Security & Safety (8%)</a></li>
+<li><a href="#d3">7. Claude Code (3%)</a></li>
+<li><a href="#d4">8. Eval & Debug (3%)</a></li>
+<li><a href="#cheat">9. 条件反射チートシート</a></li>
+<li><a href="#nums">10. 暗記数値</a></li>
+</ul>
+</div>
+
+<!-- ======================================== -->
+<h2 id="d2">1. Applications & Integration (33%) <span class="badge">最重要</span></h2>
+
+<h3>Messages API</h3>
+<ul>
+<li><code>POST /v1/messages</code> — 必須: <code>model</code> / <code>max_tokens</code> / <code>messages</code></li>
+<li>必須ヘッダー: <code>x-api-key</code>, <code>anthropic-version</code>, <code>content-type</code></li>
+<li><code>messages</code> = user/assistant の配列。<mark>最初は必ず user</mark></li>
+<li><mark>API はステートレス</mark> — 会話履歴は毎回全部送る</li>
+<li><code>system</code> はトップレベルパラメータ（messages の中ではない）</li>
+</ul>
+
+<h3>stop_reason</h3>
+<div class="tw"><table>
+<thead><tr><th>値</th><th>意味</th></tr></thead>
+<tbody>
+<tr><td><code>end_turn</code></td><td>自然完了</td></tr>
+<tr><td><code>max_tokens</code></td><td>出力上限で打ち切り → max_tokens 増/streaming</td></tr>
+<tr><td><code>stop_sequence</code></td><td>カスタム停止シーケンスに到達</td></tr>
+<tr><td><code>tool_use</code></td><td>ツール呼び出し要求 → 実行して tool_result を返す</td></tr>
+<tr><td><code>pause_turn</code></td><td>サーバー側ツール一時停止 → そのまま再送で再開</td></tr>
+<tr><td><code>refusal</code></td><td>安全上の拒否 → 同じプロンプトで再試行しない</td></tr>
+</tbody></table></div>
+
+<h3>主要機能</h3>
+<ul>
+<li><strong>Streaming</strong>: SSE。<code>message_start → content_block_start → content_block_delta → content_block_stop → message_delta → message_stop</code></li>
+<li><strong>Vision</strong>: base64 or url の image ブロック / PDF は document ブロック</li>
+<li><strong>サードパーティ</strong>: Bedrock（<code>anthropic.</code> プレフィックス・SigV4）/ Vertex AI（GCP ADC）/ Microsoft Foundry</li>
+</ul>
+
+<h3>Batch API <span class="badge">頻出</span></h3>
+<ul>
+<li><mark>50% 割引</mark> / 24時間以内 / 最大 100,000件 or 256MB</li>
+<li>結果は 29日間取得可 / 順序保証なし → <code>custom_id</code> で突き合わせ</li>
+</ul>
+<blockquote>「大量」+「急がない」+「コスト最優先」→ <strong>Batches API</strong><br>
+「ユーザーが待っている」「対話型」→ リアルタイム + streaming</blockquote>
+
+<h3>HTTP エラーコード</h3>
+<div class="tw"><table>
+<thead><tr><th>コード</th><th>種別</th><th>リトライ</th></tr></thead>
+<tbody>
+<tr><td>400</td><td>パラメータ不正</td><td>しない</td></tr>
+<tr><td>401</td><td>API キー不正</td><td>しない</td></tr>
+<tr><td>403</td><td>権限不足</td><td>しない</td></tr>
+<tr><td>404</td><td>モデル ID タイポ等</td><td>しない</td></tr>
+<tr><td>413</td><td>リクエスト大きすぎ</td><td>しない（入力を減らす）</td></tr>
+<tr><td><strong>429</strong></td><td><strong>rate_limit</strong></td><td><strong>する（retry-after）</strong></td></tr>
+<tr><td>500</td><td>api_error</td><td>する</td></tr>
+<tr><td><strong>529</strong></td><td><strong>overloaded</strong></td><td><strong>する（バックオフ）</strong></td></tr>
+</tbody></table></div>
+
+<h3>Application Design (8.6%)</h3>
+<ul>
+<li>5つのインターフェース: Claude Code / Claude Desktop / claude.ai / API / SDKs</li>
+<li><mark>content boundaries</mark>: 信頼できる指示(system) と信頼できないデータ(user) を分離。XML タグで境界明示</li>
+<li>session hygiene: 無関係なタスクは新しいセッションで</li>
+<li><strong>model version pinning</strong>: 本番は特定バージョンにピン留め</li>
+<li><strong>prompt versioning</strong>: プロンプトもバージョン管理 → 評価 → デプロイ</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d5">2. Model Selection & Optimization (17%)</h2>
+
+<h3>LLM 基礎</h3>
+<ul>
+<li>temperature: 低=決定的、高=多様。<mark>temperature=0 でも完全な決定性は保証されない</mark></li>
+<li>zero-shot（例なし）/ single-shot（例1つ）/ multi-shot = few-shot（例複数）</li>
+</ul>
+
+<h3>モデルオプション 4種</h3>
+<div class="tw"><table>
+<thead><tr><th>オプション</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td><strong>extended thinking</strong></td><td>budget_tokens で思考量を明示指定（旧世代）</td></tr>
+<tr><td><strong>adaptive thinking</strong></td><td><code>thinking: {type: "adaptive"}</code> モデルが自律決定（4.6以降推奨）</td></tr>
+<tr><td><strong>effort levels</strong></td><td>low / medium / high / xhigh / max の5段階</td></tr>
+<tr><td><strong>fast mode</strong></td><td>最大2.5倍速（Opus系限定・プレミアム価格）</td></tr>
+</tbody></table></div>
+
+<h3>Opus / Sonnet / Haiku</h3>
+<div class="tw"><table>
+<thead><tr><th>ティア</th><th>特性</th><th>ユースケース</th></tr></thead>
+<tbody>
+<tr><td><strong>Opus</strong></td><td>最高性能・最高価格</td><td>複雑な推論、長時間エージェント</td></tr>
+<tr><td><strong>Sonnet</strong></td><td>バランス</td><td>本番大量ワークロード</td></tr>
+<tr><td><strong>Haiku</strong></td><td>最速・最安</td><td>分類、ルーティング、レイテンシ重視</td></tr>
+</tbody></table></div>
+<ul>
+<li>定番: <strong>ルーティング構成</strong>（Haiku が振り分け → 難しいものだけ Opus/Sonnet）</li>
+</ul>
+
+<h3>Prompt Caching <span class="badge">最重要</span></h3>
+<ul>
+<li><mark>プレフィックス一致</mark>。前方の1バイトでも変わると後方すべて無効</li>
+<li>レンダリング順: <strong>tools → system → messages</strong>。安定を前に、可変を後ろに</li>
+<li><code>cache_control: {type: "ephemeral"}</code> でブレークポイント（最大4つ）</li>
+<li>TTL: デフォルト <strong>5分</strong>（1hオプション）</li>
+<li>書込 1.25倍（1h は 2倍）/ <mark>読取 0.1倍</mark> → 最大 ~90% 削減</li>
+<li>system に datetime.now() を入れるとキャッシュ毎回無効（silent invalidator）</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d1">3. Agents & Workflows (15%)</h2>
+
+<h3>ワークフロー vs エージェント</h3>
+<ul>
+<li><strong>ワークフロー</strong>: 事前定義されたコードパス。手順が決まっている場合</li>
+<li><strong>エージェント</strong>: LLM が動的に決定。オープンエンドなタスク</li>
+<li><mark>原則: 最もシンプルな構成から始める</mark></li>
+<li>エージェント判断基準4つ: 複雑性 / 価値 / 実行可能性 / エラー回復可能性</li>
+</ul>
+
+<h3>ワークフローパターン 5つ</h3>
+<div class="tw"><table>
+<thead><tr><th>パターン</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>Prompt chaining</td><td>順次ステップ、前の出力→次の入力</td></tr>
+<tr><td>Routing</td><td>入力を分類→適切な処理へ振り分け</td></tr>
+<tr><td>Parallelization</td><td>独立サブタスク並列/多数決</td></tr>
+<tr><td>Orchestrator-workers</td><td>中央LLMが動的分解→ワーカー委任</td></tr>
+<tr><td>Evaluator-optimizer</td><td>生成+評価ループで品質改善</td></tr>
+</tbody></table></div>
+
+<h3>エージェント構築</h3>
+<ul>
+<li><strong>Claude Agent SDK</strong>: 組込ツール(Read/Write/Edit/Bash/Glob/Grep/WebSearch/WebFetch) + エージェントループ + hooks + subagents + MCP</li>
+<li><strong>エージェントループ</strong>: モデル呼出 → tool_use → ツール実行 → tool_result 返却 → end_turn で終了</li>
+<li><strong>subagents</strong>: コンテキスト分離・並列化・専門化</li>
+<li><strong>hooks</strong>: 決定論的な処理を差し込む（LLM 判断に依存しない強制制御）</li>
+<li>デプロイ: <strong>Anthropic-hosted</strong>（インフラ管理不要）/ <strong>self-hosted</strong>（データを自社管理下）</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d6">4. Prompt & Context Engineering (11%)</h2>
+
+<h3>Context Engineering</h3>
+<ul>
+<li><strong>context bloat</strong>: 不要なツール出力で圧迫→性能低下</li>
+<li><strong>context drift</strong>: 長いセッションで指示からズレる</li>
+<li>対策: <strong>tool output pruning</strong>（刈込）/ <strong>compaction</strong>（要約）/ <strong>context isolation</strong>（サブエージェント分割）</li>
+</ul>
+
+<h3>Prompt Engineering</h3>
+<ul>
+<li>明確・直接的な指示が最優先</li>
+<li>few-shot 例示 → 出力形式・スタイルの安定に最も効果的</li>
+<li><strong>system</strong>: 役割・ルール・安全制約 / <strong>user</strong>: タスク入力・データ</li>
+<li>XML タグでデータと指示を構造化して分離</li>
+</ul>
+
+<h3>Output Handling</h3>
+<ul>
+<li><strong>structured outputs</strong>: JSON Schema（<code>output_config.format</code>）/ ツール入力は <code>strict: true</code></li>
+<li><strong>defensive parsing</strong>: try-catch で JSON.parse / json.loads</li>
+<li><mark>自信ありげな出力でも間違いうる（ハルシネーション）</mark>→ 検証・出典確認</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d8">5. Tools & MCPs (11%)</h2>
+
+<h3>Tool Implementation</h3>
+<ul>
+<li>定義 = <code>name</code> + <code>description</code> + <code>input_schema</code></li>
+<li><mark>description が最重要</mark>: いつ呼ぶべきかを書く</li>
+<li><code>tool_choice</code>: auto / any / tool / none</li>
+<li>並列ツール: 複数 tool_use → <strong>全結果を1つの user メッセージでまとめて返す</strong></li>
+<li>エラーは <code>is_error: true</code> で返す（握りつぶさない）</li>
+<li><strong>client-side</strong>: 自コードが実行 / <strong>server-side</strong>: Anthropic 側（web search, web fetch, code execution）</li>
+</ul>
+
+<h3>MCP (Model Context Protocol) <span class="badge">頻出</span></h3>
+<ul>
+<li>目的: 外部連携を標準化 → <mark>複数アプリで再利用・独立保守</mark></li>
+</ul>
+<div class="tw"><table>
+<thead><tr><th>プリミティブ</th><th>内容</th><th>制御主体</th></tr></thead>
+<tbody>
+<tr><td><strong>tools</strong></td><td>モデルが呼ぶ関数</td><td>モデル制御</td></tr>
+<tr><td><strong>resources</strong></td><td>読取用データ・コンテキスト</td><td>アプリケーション制御</td></tr>
+<tr><td><strong>prompts</strong></td><td>再利用可能テンプレート</td><td>ユーザー制御</td></tr>
+</tbody></table></div>
+<ul>
+<li>通信: <strong>stdio</strong>（ローカル）/ ネットワーク（リモート・HTTP/SSE）</li>
+</ul>
+
+<h3>Agentic Customization 4者 <span class="badge">頻出</span></h3>
+<div class="tw"><table>
+<thead><tr><th>手段</th><th>使いどころ</th></tr></thead>
+<tbody>
+<tr><td><strong>built-in tools</strong></td><td>汎用操作（ファイル・bash・Web検索）</td></tr>
+<tr><td><strong>custom tools</strong></td><td>自社固有のアクション・API</td></tr>
+<tr><td><strong>Skills</strong></td><td>手順・ノウハウのパッケージ化（知識）</td></tr>
+<tr><td><strong>MCP</strong></td><td>外部連携を標準プロトコルで再利用可能に</td></tr>
+</tbody></table></div>
+<blockquote>「アクション追加」→ tool / 「手順を教える」→ Skill / 「複数アプリで再利用」→ MCP</blockquote>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d7">6. Security & Safety (8%)</h2>
+
+<h3>プロンプトインジェクション <span class="badge">頻出</span></h3>
+<ul>
+<li>外部コンテンツに埋め込まれた指示がモデルを乗っ取る攻撃</li>
+<li>正解パターン: (1) untrusted 扱い+分離 (2) <mark>hooks/guardrails で強制ブロック</mark> (3) 最小権限</li>
+<li>ダミー: temperature 調整（無関係）/ 「無視しないで」お願い（強制力なし）/ 指示追従的モデル（<strong>かえって脆弱化</strong>）</li>
+</ul>
+
+<h3>Guardrails</h3>
+<ul>
+<li><strong>多層化</strong>: 入力検証 → プロンプト設計 → モデル安全性 → 出力検証 → hooks → 監査ログ</li>
+<li>PII: 収集最小化、ログ混入防止、メモリに PII を保存しない</li>
+</ul>
+
+<h3>Hooks（セキュリティ文脈）</h3>
+<ul>
+<li>「プロンプトで禁止する」より<mark>「フックで物理的に止める」が正解</mark></li>
+</ul>
+
+<h3>Key Management</h3>
+<ul>
+<li>API キーをハードコードしない → 環境変数 or シークレットマネージャー</li>
+<li>認証(authentication) = 誰か / 認可(authorization) = 何ができるか</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d3">7. Claude Code (3%)</h2>
+<ul>
+<li>コアコンポーネント5つ: <strong>Rules / Skills / Commands / Agents / Agent Memory</strong></li>
+<li>CLAUDE.md 階層: エンタープライズ → プロジェクト(<code>./CLAUDE.md</code>) → ユーザー(<code>~/.claude/CLAUDE.md</code>)</li>
+<li>ヘッドレスモード: <code>claude -p "プロンプト"</code> → <strong>CI/CD・自動化</strong></li>
+<li>スラッシュコマンド: 組込 + カスタム（<code>.claude/commands/</code>）</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="d4">8. Eval, Testing & Debugging (3%)</h2>
+<ul>
+<li>まず HTTP エラー(4xx/5xx) か モデル出力の問題かを区別</li>
+<li><strong>切り分け</strong>: 生リクエストをログ → API 直接呼びで再現確認</li>
+<li><strong>trace analysis</strong>: エージェントの実行トレースでどのステップで壊れたか特定</li>
+<li>リカバリ: リトライ（指数バックオフ）/ フォールバックモデル / 人間エスカレーション</li>
+</ul>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="cheat">9. 条件反射チートシート</h2>
+<div class="tw"><table>
+<thead><tr><th>問題文のシグナル</th><th>答え</th></tr></thead>
+<tbody>
+<tr><td>大量・夜間・コスト最優先</td><td><strong>Batches API</strong>（50%off・24h以内）</td></tr>
+<tr><td>チャットUI・体感速度・長い出力</td><td><strong>Streaming (SSE)</strong></td></tr>
+<tr><td>同じ大コンテキストを繰り返す</td><td><strong>Prompt caching</strong></td></tr>
+<tr><td>最安・最速・単純タスク</td><td><strong>Haiku</strong></td></tr>
+<tr><td>最高性能・複雑・長時間</td><td><strong>Opus</strong></td></tr>
+<tr><td>バランス・本番大量</td><td><strong>Sonnet</strong></td></tr>
+<tr><td>429 エラー</td><td><strong>retry-after + 指数バックオフ</strong></td></tr>
+<tr><td>外部コンテンツの悪意ある指示</td><td><strong>untrusted分離 + hooks + 最小権限</strong></td></tr>
+<tr><td>破壊的アクションを確実に防ぐ</td><td><strong>hooks（決定論的制御）</strong></td></tr>
+<tr><td>複数アプリで再利用可能な外部連携</td><td><strong>MCP サーバー</strong></td></tr>
+<tr><td>手順・ノウハウのパッケージ化</td><td><strong>Skill</strong></td></tr>
+<tr><td>手順が事前に決まっている</td><td><strong>ワークフロー</strong></td></tr>
+<tr><td>オープンエンド・事前定義不可</td><td><strong>エージェント</strong></td></tr>
+<tr><td>モデル更新で本番が壊れる不安</td><td><strong>バージョンピン留め + eval</strong></td></tr>
+<tr><td>コンテキスト肥大化</td><td><strong>compaction / pruning / サブエージェント</strong></td></tr>
+<tr><td>JSON 出力を確実に</td><td><strong>structured outputs + defensive parsing</strong></td></tr>
+<tr><td>API キーの扱い</td><td><strong>環境変数/シークレットマネージャー</strong></td></tr>
+<tr><td>CI/CD で Claude Code</td><td><strong>ヘッドレス <code>claude -p</code></strong></td></tr>
+<tr><td>原因がコードかモデルか不明</td><td><strong>生リクエストログ → API直接呼び</strong></td></tr>
+</tbody></table></div>
+
+<hr>
+<!-- ======================================== -->
+<h2 id="nums">10. 暗記数値</h2>
+<ul>
+<li><strong>試験</strong>: 53問 / 120分 / 720点合格 / $125 / 有効12ヶ月</li>
+<li><strong>再受験</strong>: 14 → 30 → 90日待機 / 12ヶ月に4回まで</li>
+<li><strong>Batches</strong>: 50%割引 / 24時間以内 / 100,000件 or 256MB / 結果29日保持</li>
+<li><strong>Cache</strong>: 読み 0.1倍 / 書き 1.25倍 / TTL 5分（1hオプション）/ BP最大4</li>
+<li><strong>Effort</strong>: low / medium / high / xhigh / max の5段階</li>
+<li><strong>MCP</strong>: tools / resources / prompts の3つ</li>
+<li><strong>Claude Code</strong>: Rules / Skills / Commands / Agents / Agent Memory の5つ</li>
+<li><strong>エージェント判断</strong>: 複雑性 / 価値 / 実行可能性 / エラーコスト の4つ</li>
+</ul>
+
+<p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:32px;padding:16px 0">CCDV-F 直前チェック — Good luck!</p>
+
+<a href="#" class="back-top" aria-label="トップへ戻る">^</a>
+
+</body>
+</html>
