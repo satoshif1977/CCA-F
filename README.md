@@ -1,6 +1,6 @@
-# CCA-F 学習教材
+# 認定試験 学習教材（CCA-F ほか）
 
-Claude Certified Architect – Foundations 試験対策の自作学習教材です。
+Claude 認定（CCAR-F / CCDV-F / CCAO-F / CCAR-P）および AWS 認定（AIB-C01）試験対策の自作学習教材です。
 
 🌐 **GitHub Pages**: https://satoshif1977.github.io/CCA-F/
 
@@ -11,6 +11,7 @@ Claude Certified Architect – Foundations 試験対策の自作学習教材で�
 | 🇯🇵 日本語版問題集 | JP Vol.1–6 | 180問 |
 | 📖 バイリンガル版問題集 | BILI Vol.1–9 | 180問 |
 | 📚 語彙帳（チェック版） | 全19カテゴリ | 345語 |
+| ☁️ AWS AIB-C01 問題集 | 要点問題集（読む版）＋ 演習ドリル（解く版） | 96問 |
 
 ## 語彙帳の機能
 
@@ -20,7 +21,33 @@ Claude Certified Architect – Foundations 試験対策の自作学習教材で�
 - グループ再生（全体 / 100語ずつ）・リピート・速度調整
 - 未記憶語のみ新単語帳を生成
 
-## 試験概要
+## AWS AIB-C01 問題集
+
+AWS Certified AI Business Strategist（ベータ）の試験ガイドに基づく自作問題集。
+
+| ファイル | 用途 |
+|---|---|
+| `AIB-C01/AIB-C01_review_96Q.html` | 読む版。問題 → 答え → 解説 → 暗記ポイント の順に読み進める構成。巻末に暗記ノート8枚 |
+| `AIB-C01/AIB-C01_drill_96Q.html` | 解く版。4択・複数選択のドリル。演習/試験モード、選択肢シャッフル、採点、誤答復習 |
+
+### 特徴
+
+- **公式スキル項目 58 個を 100% 網羅**（1.1.1〜4.4.6）
+- ドメイン配分は公式ウェイトに一致（D1 24% / D2 28% / D3 24% / D4 24%）
+- 設問形式も公式仕様どおり（択一＝1正解＋3誤答の4択、複数選択＝5択以上）
+- 正解位置は各約25%に平準化し、ドリル側は実行時シャッフルにも対応
+- 公式の In-scope AWS services（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF /
+  AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）に対応する問題を収録
+
+### AIB-C01 試験概要
+
+- 試験名：AWS Certified AI Business Strategist（AIB-C01）
+- 問題数：85問 / 制限時間：170分（ベータ）
+- 合格点：700 / 1000（スケールドスコア・compensatory 方式）
+- ドメイン：AI Fundamentals and Literacy / AI Strategy and Business Value Creation /
+  AI Governance and Responsible AI Leadership / Business Readiness, Leadership, and AI Transformation
+
+## CCA-F 試験概要
 
 - 試験名：Anthropic Claude Certified Architect Foundations (CCA-F)
 - 問題数：60問 / 制限時間：120分

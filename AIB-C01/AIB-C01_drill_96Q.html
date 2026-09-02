@@ -1,0 +1,2773 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIB-C01 演習ドリル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+
+:root{
+  --ground:#E9EDEC;
+  --surface:#FFFFFF;
+  --surface-2:#F3F6F5;
+  --ink:#12222B;
+  --ink-2:#37505A;
+  --muted:#68808A;
+  --line:#D2DBDA;
+  --line-2:#E2E9E8;
+  --accent:#A9541A;
+  --accent-soft:#F2E5DA;
+  --good:#1C6A58;
+  --good-soft:#E0EFE9;
+  --bad:#9C3527;
+  --bad-soft:#F5E3DF;
+  --d1:#2F5D6B;
+  --d2:#4E7F72;
+  --d3:#8E7226;
+  --d4:#A9541A;
+  --shadow:0 1px 2px rgba(18,34,43,.06), 0 8px 24px -12px rgba(18,34,43,.18);
+  --display:"Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --body:"Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1619;
+    --surface:#16232A;
+    --surface-2:#1C2C33;
+    --ink:#E3ECEA;
+    --ink-2:#B4C6C6;
+    --muted:#87A0A4;
+    --line:#283A41;
+    --line-2:#213139;
+    --accent:#DE8B4A;
+    --accent-soft:#2E2119;
+    --good:#5BB79B;
+    --good-soft:#142C28;
+    --bad:#E08573;
+    --bad-soft:#31201D;
+    --d1:#6FA3B4;
+    --d2:#79B5A4;
+    --d3:#C7A65A;
+    --d4:#DE8B4A;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1619;
+  --surface:#16232A;
+  --surface-2:#1C2C33;
+  --ink:#E3ECEA;
+  --ink-2:#B4C6C6;
+  --muted:#87A0A4;
+  --line:#283A41;
+  --line-2:#213139;
+  --accent:#DE8B4A;
+  --accent-soft:#2E2119;
+  --good:#5BB79B;
+  --good-soft:#142C28;
+  --bad:#E08573;
+  --bad-soft:#31201D;
+  --d1:#6FA3B4;
+  --d2:#79B5A4;
+  --d3:#C7A65A;
+  --d4:#DE8B4A;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.app{
+  max-width:1180px;
+  margin:0 auto;
+  padding:28px 22px 72px;
+  display:grid;
+  grid-template-columns:296px minmax(0,1fr);
+  gap:26px;
+  align-items:start;
+}
+
+/* ---------- rail ---------- */
+.rail{
+  position:sticky;
+  top:22px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.lockup{display:flex;flex-direction:column;gap:2px}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.lockup h1{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:25px;
+  line-height:1.25;
+  margin:2px 0 0;
+  text-wrap:balance;
+  letter-spacing:.01em;
+}
+.lockup p{margin:4px 0 0;font-size:12.5px;color:var(--muted);line-height:1.6}
+
+.panel{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--surface-2);border-radius:8px;padding:3px}
+.seg button{
+  border:0;background:transparent;border-radius:6px;padding:6px 4px;
+  font-size:12.5px;font-weight:500;color:var(--muted);
+  transition:background .15s, color .15s;
+}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:700}
+
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+select{
+  font:inherit;font-size:13px;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:7px;
+  padding:7px 9px;width:100%;
+}
+
+.readout{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{display:flex;flex-direction:column;gap:1px}
+.stat .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-family:var(--mono);font-size:19px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.3}
+.timer{color:var(--accent)}
+.timer.warn{color:var(--bad)}
+
+.bands{display:flex;flex-direction:column;gap:9px}
+.band{display:flex;flex-direction:column;gap:5px}
+.band-head{display:flex;align-items:baseline;gap:6px;font-size:11px;color:var(--muted)}
+.band-head .dot{width:7px;height:7px;border-radius:2px;flex:none;transform:translateY(0)}
+.band-head .nm{color:var(--ink-2);font-weight:500;font-size:11.5px;line-height:1.4}
+.band-head .ct{margin-left:auto;font-family:var(--mono);font-size:10.5px}
+.cells{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+.cell{
+  aspect-ratio:1;border-radius:2px;border:1px solid var(--line);
+  background:var(--surface-2);padding:0;
+  font-size:0;line-height:0;
+  transition:transform .12s;
+}
+.cell:hover{transform:scale(1.22)}
+.cell.answered{background:var(--ink-2);border-color:var(--ink-2)}
+.cell.correct{background:var(--good);border-color:var(--good)}
+.cell.wrong{background:var(--bad);border-color:var(--bad)}
+.cell.current{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+
+.rail-actions{display:flex;gap:8px}
+.btn{
+  border:1px solid var(--line);background:var(--surface);border-radius:8px;
+  padding:8px 12px;font-size:13px;font-weight:500;
+  transition:background .15s,border-color .15s;
+}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--ink);color:var(--ground);border-color:var(--ink);font-weight:700}
+.btn.primary:hover{opacity:.88;background:var(--ink)}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.rail-actions .btn{flex:1}
+
+/* ---------- stage ---------- */
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:26px 28px;
+  box-shadow:var(--shadow);
+}
+.qhead{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.qnum{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.chip{
+  font-size:11px;font-weight:500;padding:2.5px 8px;border-radius:20px;
+  border:1px solid var(--line);color:var(--ink-2);background:var(--surface-2);
+  line-height:1.6;
+}
+.chip.dom{border-color:transparent;color:#fff}
+.chip.multi{background:var(--accent-soft);border-color:transparent;color:var(--accent);font-weight:700}
+.chip.skill{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em}
+
+.stem{font-size:16px;line-height:1.95;margin:0 0 20px;text-wrap:pretty}
+
+.choices{display:flex;flex-direction:column;gap:9px}
+.choice{
+  display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;
+  text-align:left;width:100%;
+  border:1px solid var(--line);background:var(--surface);border-radius:9px;
+  padding:12px 14px;line-height:1.8;font-size:14.5px;
+  transition:border-color .14s, background .14s;
+}
+.choice:hover:not(:disabled){border-color:var(--ink-2);background:var(--surface-2)}
+.choice .key{
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);
+  border:1px solid var(--line);border-radius:5px;
+  width:24px;height:24px;display:grid;place-items:center;flex:none;
+  margin-top:1px;transition:background .14s,color .14s,border-color .14s;
+}
+.choice.picked{border-color:var(--ink);background:var(--surface-2)}
+.choice.picked .key{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.choice.is-correct{border-color:var(--good);background:var(--good-soft)}
+.choice.is-correct .key{background:var(--good);color:#fff;border-color:var(--good)}
+.choice.is-wrong{border-color:var(--bad);background:var(--bad-soft)}
+.choice.is-wrong .key{background:var(--bad);color:#fff;border-color:var(--bad)}
+.choice:disabled{cursor:default}
+
+.feedback{
+  margin-top:20px;padding-top:18px;border-top:1px solid var(--line-2);
+  display:flex;flex-direction:column;gap:10px;
+}
+.verdict{display:flex;align-items:center;gap:9px}
+.verdict .mark{
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 10px;border-radius:4px;
+}
+.verdict.ok .mark{background:var(--good);color:#fff}
+.verdict.ng .mark{background:var(--bad);color:#fff}
+.verdict .ans{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.exp{font-size:14px;line-height:1.95;color:var(--ink-2);margin:0}
+.mem{
+  font-size:14px;line-height:1.95;color:var(--ink);margin:0;
+  background:var(--accent-soft);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:11px 14px;
+}
+.mem .exp-label{color:var(--accent);font-weight:600}
+.toggle-field{margin-top:10px}
+.toggle{
+  width:100%;border:1px solid var(--line);background:var(--surface);
+  border-radius:8px;padding:8px 10px;font-size:12.5px;font-weight:500;
+  color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s;
+}
+.toggle[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:700}
+
+.exp-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:2px;
+}
+
+.qnav{display:flex;align-items:center;gap:9px}
+.qnav .spacer{flex:1}
+.hint{font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+
+/* ---------- result ---------- */
+.result h2{font-family:var(--display);font-size:23px;font-weight:700;margin:0 0 4px;text-wrap:balance}
+.result .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+.scoreline{display:flex;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid var(--line-2)}
+.big{display:flex;flex-direction:column;gap:0}
+.big .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.big .v{font-family:var(--mono);font-size:42px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.big .v small{font-size:16px;font-weight:500;color:var(--muted);margin-left:3px}
+.judge{padding:4px 12px;border-radius:5px;font-weight:700;font-size:13px;margin-bottom:8px}
+.judge.pass{background:var(--good-soft);color:var(--good)}
+.judge.fail{background:var(--bad-soft);color:var(--bad)}
+.caveat{font-size:11.5px;color:var(--muted);line-height:1.7;margin:14px 0 0;max-width:62ch}
+
+.dbars{display:flex;flex-direction:column;gap:14px;margin:22px 0 0}
+.dbar{display:grid;grid-template-columns:1fr;gap:5px}
+.dbar .top{display:flex;align-items:baseline;gap:8px;font-size:13px}
+.dbar .top .nm{font-weight:500}
+.dbar .top .w{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.dbar .top .sc{margin-left:auto;font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+.track{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;border:1px solid var(--line-2)}
+.fill{height:100%;border-radius:4px}
+
+.weak{margin:26px 0 0;padding-top:20px;border-top:1px solid var(--line-2)}
+.weak h3{font-family:var(--display);font-size:16px;margin:0 0 10px;font-weight:600}
+.weak ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.weak li{display:flex;gap:10px;align-items:baseline;font-size:13.5px;line-height:1.7}
+.weak li .code{font-family:var(--mono);font-size:11px;color:var(--muted);flex:none;min-width:38px}
+.weak li button{
+  border:0;background:transparent;padding:0;text-align:left;
+  color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--line);
+  text-underline-offset:3px;
+}
+.weak li button:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.empty{color:var(--muted);font-size:13.5px}
+
+.footnote{
+  font-size:11.5px;color:var(--muted);line-height:1.8;
+  padding:0 4px;max-width:70ch;
+}
+.footnote a{color:var(--muted)}
+
+@media (max-width:900px){
+  .app{grid-template-columns:1fr;padding:18px 14px 56px;gap:16px}
+  .rail{position:static}
+  .card{padding:20px 18px}
+  .stem{font-size:15.5px;line-height:1.9}
+  .cells{grid-template-columns:repeat(20,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="app">
+  <aside class="rail">
+    <div class="lockup">
+      <span class="eyebrow">AWS Certified · AIB-C01</span>
+      <h1>AI Business<br>Strategist</h1>
+      <p>ベータ試験 演習ドリル ／ 全96問・試験ガイド準拠の分野配分</p>
+    </div>
+
+    <div class="panel">
+      <div class="seg" role="group" aria-label="モード">
+        <button id="mode-practice" aria-pressed="true">演習モード</button>
+        <button id="mode-exam" aria-pressed="false">試験モード</button>
+      </div>
+      <div class="field">
+        <label for="filter">出題範囲</label>
+        <select id="filter">
+          <option value="all">全96問（本番相当の順序）</option>
+          <option value="d1">ドメイン1 AIの基礎とリテラシー（23問）</option>
+          <option value="d2">ドメイン2 AI戦略とビジネス価値（27問）</option>
+          <option value="d3">ドメイン3 ガバナンスと責任あるAI（23問）</option>
+          <option value="d4">ドメイン4 ビジネス準備とAI変革（23問）</option>
+          <option value="wrong">間違えた問題だけ</option>
+          <option value="unanswered">未回答の問題だけ</option>
+        </select>
+      </div>
+      <div class="field toggle-field">
+        <label for="shuffle-toggle">選択肢の並び</label>
+        <button id="shuffle-toggle" class="toggle" type="button" aria-pressed="true">シャッフルする</button>
+      </div>
+      <div class="readout">
+        <div class="stat"><span class="k">回答済</span><span class="v" id="stat-done">0<small style="font-size:13px;color:var(--muted)">/96</small></span></div>
+        <div class="stat" id="stat-right-wrap"><span class="k">正答率</span><span class="v" id="stat-rate">—</span></div>
+      </div>
+      <div class="readout" id="timer-wrap" hidden>
+        <div class="stat"><span class="k">残り時間</span><span class="v timer" id="timer">192:00</span></div>
+        <div class="stat"><span class="k">目安</span><span class="v" style="font-size:13px;font-weight:400;color:var(--muted);line-height:2.1">1問2分</span></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="bands" id="bands"></div>
+    </div>
+
+    <div class="rail-actions">
+      <button class="btn primary" id="btn-grade">採点する</button>
+      <button class="btn ghost" id="btn-reset">リセット</button>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <section class="card" id="quiz">
+      <div class="qhead" id="qhead"></div>
+      <p class="stem" id="stem"></p>
+      <div class="choices" id="choices"></div>
+      <div class="feedback" id="feedback" hidden></div>
+      <div class="qnav" style="margin-top:22px">
+        <button class="btn" id="btn-prev">← 前の問題</button>
+        <button class="btn primary" id="btn-next">次の問題 →</button>
+        <span class="spacer"></span>
+        <span class="hint">1–5 で選択 / Enter で次へ</span>
+      </div>
+    </section>
+
+    <section class="card result" id="result" hidden></section>
+
+    <p class="footnote">
+      本ドリルは AWS 公式の試験ガイド（AIB-C01）の出題範囲・タスクステートメントに基づいて作成した学習用の模擬問題です。実際の試験問題ではありません。ベータ版の本番は 85問／170分（1問あたり2分）、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています（採点対象外の問題が含まれるため、素点との対応は公表されていません）。本ドリルは全96問のため、試験モードの制限時間は同じペースで 192分 に設定しています。公式ガイドの In-scope AWS services（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）に対応する問題を含みます。
+    </p>
+  </main>
+</div>
+
+<script>
+const QUESTIONS = [
+ {
+  "id": 1,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.2",
+  "skillLabel": "AI / ML / 生成AI の区別",
+  "type": "single",
+  "q": "ある損害保険会社が2つの施策を検討している。施策Aは、過去10年分の事故データから請求額を予測して支払準備金を見積もる。施策Bは、調査員が書いた事故報告書のテキストから、顧客向けの説明文を自動で下書きする。この2つの施策の技術的な位置づけを最も正確に説明しているものはどれか。",
+  "choices": [
+   "施策Aは機械学習（予測モデル）、施策Bは生成AIである",
+   "施策A・施策Bとも生成AIである",
+   "施策A・施策Bとも、AIではなくルールベース自動化で実現すべきである",
+   "施策Aは生成AI、施策Bは機械学習である"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 施策Aは過去データから数値を予測する典型的な機械学習（予測・回帰）のユースケース。施策Bは既存データから新しい文章を生成するため生成AI。生成AIは機械学習の一部分であり、「新しいコンテンツ（文章・画像・コード等）を作り出す」点が予測モデルとの分かれ目です。施策Aは入力パターンが多様で明示的なルール化が難しいため、ルールベースでは代替できません。",
+  "mem": "AI ⊃ 機械学習 ⊃ 生成AI の入れ子構造。仕分けは技術名ではなく出力の性質で行う。出力が数値やラベルなら機械学習の予測モデル、新しい文章・画像・コードなら生成AI。"
+ },
+ {
+  "id": 2,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.4",
+  "skillLabel": "データ品質がAI成果に与える影響",
+  "type": "single",
+  "q": "営業部門が、CRMの商談履歴を使って受注確度を予測するモデルの構築を提案した。データを調べたところ、担当者ごとに商談ステージの入力ルールが異なり、失注案件の3割は理由欄が空欄で、同一顧客が別名で重複登録されていた。ビジネス戦略担当として最初に取るべき行動はどれか。",
+  "choices": [
+   "予測精度の目標値を下げ、現状のデータで運用を開始する",
+   "データ品質の課題を可視化し、入力ルールの統一と名寄せを含むデータ整備を先行タスクとして計画に組み込む",
+   "まずモデルを構築し、精度が低ければその時点でデータ整備を検討する",
+   "より高性能な基盤モデルを選定し、データの不備を補わせる"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: AIの出力品質は入力データの品質を上回りません（いわゆる garbage in, garbage out）。入力ルールの不統一・欠損・重複はモデルが学習する「正解」そのものを歪めるため、モデル構築より前にデータ整備を計画へ組み込むのが定石です。高性能なモデルはデータの欠陥を補いません。目標値を下げても、歪んだデータで得た予測は意思決定を誤らせます。",
+  "mem": "AIの出力品質は入力データの品質を超えない（garbage in, garbage out）。入力ルールの不統一・欠損・重複は「歪んだ正解」を教えるのと同じ。モデル構築より前にデータ整備を工程として計画へ組み込む。高性能モデルはデータの欠陥を補わない。"
+ },
+ {
+  "id": 3,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.1",
+  "skillLabel": "AIの基本用語（推論・学習）",
+  "type": "single",
+  "q": "経営会議で「学習（training）と推論（inference）でコスト構造が違う」と説明を求められた。ビジネス上の説明として最も適切なものはどれか。",
+  "choices": [
+   "学習・推論のいずれもモデル提供事業者が負担するため、利用企業にコストは発生しない",
+   "学習も推論も、利用量に比例して継続的に発生するコストである",
+   "学習はモデルを作る一時的・集中的なコスト、推論は利用のたびに発生する継続的なコストである",
+   "推論は初期構築時のみ発生し、学習は運用中に継続的に発生する"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 学習（training）はデータからモデルを作る工程で、大きな計算資源を一時的に消費します。推論（inference）は完成したモデルに入力を与えて出力を得る工程で、利用のたびに発生します。したがって本番運用が長期化するほど推論コストが総額を支配しやすく、ROI試算では推論の単価×想定利用量の見積りが要になります。",
+  "mem": "学習（training）＝モデルを作る一時的・集中的なコスト。推論（inference）＝利用のたびに発生する継続コスト。長期運用ほど推論が総額を支配するため、ROI試算では「推論単価 × 想定利用件数 × 期間」を必ず織り込む。"
+ },
+ {
+  "id": 4,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.5",
+  "skillLabel": "過去データによる学習の前提",
+  "type": "single",
+  "q": "小売企業が過去5年分の販売実績で需要予測モデルを学習させた。この5年間には、店舗の一時休業や購買行動が大きく変化した特異な期間が含まれている。この学習データを無条件に使うことの最大のリスクはどれか。",
+  "choices": [
+   "予測結果の説明可能性が失われる",
+   "データ量が多すぎて学習コストが上がる",
+   "非構造化データが含まれるため、モデルが学習できない",
+   "過去の異常な期間のパターンを「通常」として学習し、現在の需要を誤って予測する"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 機械学習は「過去データに現れたパターンが将来も続く」という前提に立ちます。構造的に異なる特異期間を区別せずに学習させると、その異常なパターンを通常状態として再現してしまいます。対策は、期間を示す特徴量の追加、該当期間の除外・重み付け、直近データでの再学習などです。データ量や説明可能性は本質的な論点ではありません。",
+  "mem": "機械学習は「過去に現れたパターンが将来も続く」という前提に立つ。特異な期間を区別せず学習させると、その異常を通常として再現する。対策は期間を示す特徴量の追加・該当期間の除外や重み付け・直近データでの再学習。"
+ },
+ {
+  "id": 5,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.6",
+  "skillLabel": "AIに関する国際規格・共通語彙",
+  "type": "single",
+  "q": "グループ全体のAI利用方針を策定するにあたり、法務部門から「国際的に認知された枠組みに準拠したい」と要請があった。組織としてAIを管理する仕組み（マネジメントシステム）の要求事項を定めた国際規格はどれか。",
+  "choices": [
+   "ISO/IEC 42001",
+   "ISO/IEC 27017",
+   "PCI DSS",
+   "ISO 9001"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: ISO/IEC 42001 は AIマネジメントシステム（AIMS）の国際規格で、組織がAIを責任をもって開発・提供・利用するための管理の仕組みを定めます。関連して ISO/IEC 23053 は機械学習を用いたAIシステムのフレームワークと用語を扱います。ISO 9001 は品質マネジメント、PCI DSS はカード決済のセキュリティ基準、ISO/IEC 27017 はクラウドサービスの情報セキュリティ管理策で、いずれもAI固有の枠組みではありません。",
+  "mem": "ISO/IEC 42001＝AIマネジメントシステム（AIMS）の要求事項。ISO/IEC 23053＝機械学習を用いたAIシステムのフレームワークと用語。ISO 9001＝品質、ISO/IEC 27017＝クラウドの情報セキュリティ、PCI DSS＝カード決済で、いずれもAI固有ではない。"
+ },
+ {
+  "id": 6,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.3",
+  "skillLabel": "構造化データと非構造化データ",
+  "type": "multi",
+  "q": "コンタクトセンターの改善プロジェクトで、利用可能なデータ資産を整理している。非構造化データに分類されるものを2つ選べ。",
+  "choices": [
+   "通話の録音音声",
+   "顧客が送信した問い合わせメールの本文",
+   "応対履歴テーブルの「対応時間（秒）」列",
+   "CRMの顧客ID",
+   "チケット管理システムのステータス区分（未対応/対応中/完了）"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "exp": "正解: 録音音声とメール本文は、あらかじめ定義された行・列の形式を持たない非構造化データです。対応時間・顧客ID・ステータス区分は、スキーマが定義されたテーブルの値であり構造化データにあたります。生成AIの価値が特に大きいのは、従来は集計が難しかった非構造化データ（音声・テキスト・画像）を扱える点にあります。",
+  "mem": "非構造化データ＝音声・メール本文・画像・自由記述など、行と列の形式を持たないもの。構造化データ＝スキーマが定義されたテーブルの値（ID・数値・ステータス区分）。生成AIの価値は、従来は集計が難しかった非構造化データを扱える点にある。"
+ },
+ {
+  "id": 7,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.4",
+  "skillLabel": "データ品質とビジネス成果の接続",
+  "type": "single",
+  "q": "社内文書を検索・要約する生成AIアシスタントを全社展開したところ、利用者から「古い規程を根拠に回答する」との苦情が相次いだ。根本原因として最も可能性が高いものはどれか。",
+  "choices": [
+   "基盤モデルの性能が不足している",
+   "参照先の文書リポジトリに旧版が残っており、鮮度と版管理が担保されていない",
+   "利用者のプロンプトが長すぎる",
+   "推論コストの上限に達している"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 参照する文書側に旧版が混在していれば、モデルがどれだけ高性能でも古い内容を根拠にします。ドキュメントの版管理・失効文書の削除・更新頻度の定義といったデータガバナンスが対策です。「AIの精度問題」に見える事象の多くが、実際にはデータ運用の問題であるという点は、経営層への説明でも重要な論点になります。",
+  "mem": "「AIの精度問題」に見える事象の多くは、実際にはデータ運用の問題。参照先に旧版が残っていれば、どれだけ高性能なモデルでも古い内容を根拠にする。対策は版管理・失効文書の削除・更新頻度の定義といったデータガバナンス。"
+ },
+ {
+  "id": 8,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.1",
+  "skillLabel": "ルールベース自動化とAIの使い分け",
+  "type": "single",
+  "q": "経理部門が2つの業務の自動化を検討している。業務Xは「経費申請額が5万円を超える場合は部長承認へ回す」という規程どおりの振り分け。業務Yは「領収書の画像から店名・金額・日付を読み取る」処理。最も適切な実装方針はどれか。",
+  "choices": [
+   "業務X・業務Yとも生成AIで実装する",
+   "業務XはAI、業務Yはルールベース自動化で実装する",
+   "業務Xはルールベース自動化、業務YはAI（文書・画像認識）で実装する",
+   "業務X・業務Yとも、まず人手で運用しデータを蓄積してから判断する"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 業務Xは条件が明確・決定的で、例外も規程で定義できるためルールベースが適切です。ルールベースは結果が完全に予測でき、監査もしやすく、コストも低く抑えられます。業務Yは入力（レイアウトの異なる領収書画像）が多様でルール化が困難なためAIが適します。「AIを使わない判断ができること」も本試験で問われる重要な能力です。",
+  "mem": "条件が明確・決定的で例外も規程で定義できる業務はルールベース（低コスト・完全な再現性・監査容易）。入力が多様でルール化が困難な業務はAI。「AIを使わない判断ができること」も試験で問われる能力。"
+ },
+ {
+  "id": 9,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.2",
+  "skillLabel": "AIエージェントの中核能力",
+  "type": "multi",
+  "q": "社内の調達業務にAIエージェントの導入を検討している。AIエージェントが従来の単一の生成AIチャットボットと異なる中核的な能力はどれか。2つ選べ。",
+  "choices": [
+   "出力に誤りが発生しない",
+   "与えられた目標に対し、手順を自ら分解して段階的に実行できる",
+   "外部システムやツールを呼び出して実際の処理を実行できる",
+   "学習データを一切必要としない",
+   "人間の承認を必要としない点で、ガバナンスの対象外となる"
+  ],
+  "answer": [
+   1,
+   2
+  ],
+  "exp": "正解: AIエージェントの中核はツール利用（外部API・システムの呼び出し）と自律性（目標から手順を分解し、複数ステップを実行する）です。さらにエージェント同士の連携（A2A）やオーケストレーションも特徴です。エージェントも学習済みモデルを基盤とし、誤りは発生します。むしろ実際に処理を実行できる分だけ影響範囲が広く、人間の承認ポイントやガードレールの設計はより重要になります。",
+  "mem": "AIエージェントの中核能力は①ツール利用（外部API・システムの呼び出し）②自律性（目標から手順を分解し多段実行）。加えてエージェント間連携（A2A）とオーケストレーション。学習が不要になるわけでも誤りがなくなるわけでもなく、実際に処理を実行できる分だけ影響範囲が広い。"
+ },
+ {
+  "id": 10,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.3",
+  "skillLabel": "モデルドリフトと継続的監視",
+  "type": "single",
+  "q": "導入から8か月が経過した与信審査支援モデルについて、稼働当初は良好だった予測精度が徐々に低下しているとの報告があった。ビジネス側への説明として最も適切なものはどれか。",
+  "choices": [
+   "AIモデルは一度構築すれば精度は変わらないため、計測方法に誤りがある",
+   "モデルのソフトウェアが経年劣化しているため、再インストールが必要である",
+   "推論回数が増えたことでモデルが自動的に劣化した",
+   "市場環境や顧客行動が学習時点から変化し、モデルの前提と現実がずれた（モデルドリフト）可能性が高く、継続的な監視と再学習が必要である"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: モデル自体のプログラムが劣化するわけではなく、学習時点の世界と現在の世界がずれることで精度が落ちます（モデルドリフト／データドリフト）。したがってAI導入は「作って終わり」ではなく、精度監視・再学習・再評価の運用費用と体制を最初から見込む必要があります。ROI試算でこの継続コストを落とすと、後から採算が崩れます。",
+  "mem": "モデルのプログラムが劣化するのではなく、学習時点の世界と現在の世界がずれて精度が落ちる（モデルドリフト／データドリフト）。AI導入は「作って終わり」ではなく、精度監視・再学習・再評価の運用費用と体制を最初から見込む。"
+ },
+ {
+  "id": 11,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.4",
+  "skillLabel": "シャドーAIの抑止とツール分類",
+  "type": "single",
+  "q": "情報システム部門の調査で、複数の部署が会社の承認を経ずに外部の生成AIサービスへ業務文書を貼り付けていることが判明した。単純に全面禁止した場合に想定される最大の副作用と、推奨される対応の組み合わせはどれか。",
+  "choices": [
+   "利用がより見えない形に潜り、統制が効かなくなる。承認済み・評価中・利用禁止といった透明な分類を公開し、承認済みの代替手段を提供する",
+   "副作用は特にない。全面禁止が唯一の正しい対応である",
+   "生産性が上がりすぎる。段階的に利用を再開する",
+   "コストが増加する。利用ログの取得を停止する"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 全面禁止は、業務上の必要性が残る限り私物端末などへ利用が潜り、かえって可視性を失わせます（シャドーAI）。透明なツール分類（承認済み／評価中／利用禁止）を公開し、承認済みの安全な代替手段と申請経路を用意することで、統制と生産性を両立させるのが定石です。",
+  "mem": "全面禁止は業務上の必要性が残る限り利用を地下に潜らせ、かえって可視性を失う（シャドーAI）。定石は透明なツール分類（承認済み／評価中／利用禁止）の公開＋承認済みの安全な代替手段＋申請経路の用意。"
+ },
+ {
+  "id": 12,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.1",
+  "skillLabel": "AI適用の判断基準",
+  "type": "single",
+  "q": "ある業務プロセスについて、AI導入よりもルールベース自動化を選ぶ根拠として最も強いものはどれか。",
+  "choices": [
+   "経営層がAIに関心を持っている",
+   "判断基準が明文化されており、例外が限定的で、結果の完全な再現性と説明が求められる",
+   "処理件数が非常に多い",
+   "担当者の入れ替わりが多い"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 判断が決定的なロジックで表現でき、監査上も同じ入力から常に同じ出力が求められる業務は、ルールベースが優位です。低コストで、挙動が完全に説明可能で、テストも容易です。処理件数の多さや人員の流動性は自動化一般の動機であり、AIを選ぶ固有の理由にはなりません。",
+  "mem": "ルールベースを選ぶ強い根拠は「判断基準が明文化され、例外が限定的で、完全な再現性と説明が求められる」こと。処理件数の多さや人員の流動性は自動化一般の動機であり、AIを選ぶ固有の理由にはならない。"
+ },
+ {
+  "id": 13,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.2",
+  "skillLabel": "エージェントのオーケストレーション",
+  "type": "single",
+  "q": "受注から出荷までの一連の処理を、複数のAIエージェントが分担して実行する構成を検討している。この構成で最も重視すべき設計上の論点はどれか。",
+  "choices": [
+   "すべてのエージェントに同一のプロンプトを与えること",
+   "可能な限り多くのエージェントを配置し、人間の関与を完全に排除すること",
+   "各エージェントの役割分担、連携手順、および失敗時に人間へエスカレーションする条件を明確に定義すること",
+   "エージェントの数だけ基盤モデルの契約を分けること"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 複数エージェントの構成では、役割分担とオーケストレーション（実行順序・引き継ぎ）の設計に加え、どこで止めて人間に渡すかというエスカレーション条件の定義が要です。自律的に実処理を行う分、誤りが連鎖して増幅するリスクがあるため、人間の関与の排除ではなく「関与すべき点の特定」が正しい方向です。",
+  "mem": "複数エージェント構成の設計上の要は、役割分担・連携手順（オーケストレーション）・失敗時のエスカレーション条件の明確化。自律的に実処理を行う分だけ誤りが連鎖増幅するため、「人間の関与の排除」ではなく「関与すべき点の特定」が正しい方向。"
+ },
+ {
+  "id": 14,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.3",
+  "skillLabel": "運用監視の責任分担",
+  "type": "single",
+  "q": "AIソリューションの本番稼働にあたり、継続的な監視の体制を設計している。ビジネス戦略担当が特に確保すべき責任範囲はどれか。",
+  "choices": [
+   "モデルの学習アルゴリズムのチューニング",
+   "開発者の作業工数の管理",
+   "推論基盤のインフラ稼働率の監視",
+   "ビジネス指標（誤判定によるコスト、業務KPIの変化）の監視と、閾値を割った場合の意思決定プロセス"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 技術指標（稼働率・レイテンシ・精度）はIT部門が担いますが、その精度低下が事業にいくらの損失を与え、どの水準で停止・再学習・撤退を判断するかを定義するのはビジネス側の責任です。技術監視とビジネス監視の両輪を最初に紐づけておくことが、後の「誰も止められないAI」を防ぎます。",
+  "mem": "技術指標（稼働率・レイテンシ・精度）の監視はIT部門。ビジネス側の責任は、誤判定によるコストや業務KPIの変化を監視し、どの水準で停止・再学習・撤退を判断するかを定義すること。両輪を最初に紐づけると「誰も止められないAI」を防げる。"
+ },
+ {
+  "id": 15,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.3",
+  "skillLabel": "RAG とファインチューニングの選択",
+  "type": "single",
+  "q": "社内規程は四半期ごとに改訂され、問い合わせ対応では常に最新版に基づく回答と出典の提示が求められる。この要件に最も適したモデル適応の手法はどれか。",
+  "choices": [
+   "RAG（検索拡張生成。回答時に最新の規程文書を検索して参照させる）",
+   "プロンプトに「最新の規程に従うこと」と明記する",
+   "より大きなパラメータ数の基盤モデルへの変更",
+   "ファインチューニング（規程の全文をモデルに学習させる）"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: RAGは回答のたびに外部の文書リポジトリを検索して参照するため、文書を差し替えるだけで最新版に追従でき、出典の提示も容易です。ファインチューニングは改訂のたびに再学習が必要でコストと遅延が大きく、出典提示も困難です。モデルを大きくしても社内規程は知りません。指示文だけでは、モデルが知らない最新版を参照させることはできません。",
+  "mem": "更新が頻繁で出典提示が必要ならRAG。回答のたびに外部文書を検索するため、文書を差し替えるだけで最新版に追従できる。ファインチューニングは改訂のたびに再学習が必要で出典提示も困難。指示文だけではモデルが知らない情報は参照できない。"
+ },
+ {
+  "id": 16,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.2",
+  "skillLabel": "トークン上限とコンテキストウィンドウ",
+  "type": "single",
+  "q": "数百ページに及ぶ契約書全文を一度に投入して要約させたところ、契約書の後半にある重要な条項が要約から抜け落ちる事象が頻発した。原因として最も可能性が高いものはどれか。",
+  "choices": [
+   "推論の同時実行数が上限に達している",
+   "入力がコンテキストウィンドウ（一度に扱えるトークン数）の上限を超え、一部が処理されていない",
+   "モデルが日本語に対応していない",
+   "出力形式がJSONで指定されていない"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: モデルが一度に扱えるトークン数には上限があり、それを超えた入力は切り捨てられたり、内容の一部が十分に反映されなくなります。対策は、文書を条項単位に分割して要約を積み上げる、RAGで関連条項のみを抽出して投入する、といった設計です。長文処理を伴う業務では、この制約を前提に業務フローを設計する必要があります。",
+  "mem": "モデルが一度に扱えるトークン数（コンテキストウィンドウ）には上限があり、超過分は切り捨てられるか十分に反映されない。対策は文書を分割して要約を積み上げる、RAGで関連部分のみ投入する、といった業務フロー側の設計。"
+ },
+ {
+  "id": 17,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.1",
+  "skillLabel": "プロンプトエンジニアリングの基本原則",
+  "type": "single",
+  "q": "マーケティング部門が「商品の説明文を書いて」というプロンプトで生成AIを使ったが、出力の品質にばらつきが大きい。改善策として最も効果が高いものはどれか。",
+  "choices": [
+   "同じプロンプトを繰り返し実行し、良い出力が出るまで待つ",
+   "より高価なモデルに切り替える",
+   "対象読者・文字数・トーン・含めるべき要素・出力形式を明示し、望ましい出力の例を添える",
+   "プロンプトをできるだけ短くする"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: プロンプトの基本原則は、役割・文脈・制約（文字数・トーン・必須要素）・出力形式を具体的に指定することと、望ましい例を示すこと（Few-shot）です。曖昧な指示は出力のばらつきをそのまま生みます。試行回数を増やすのはコストの浪費であり、短くすることは通常むしろ逆効果です。",
+  "mem": "プロンプトの基本原則は、役割・文脈・制約（文字数・トーン・必須要素）・出力形式の具体的な指定と、望ましい出力例の提示（Few-shot）。曖昧な指示は出力のばらつきをそのまま生む。短くするのは通常むしろ逆効果。"
+ },
+ {
+  "id": 18,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.3",
+  "skillLabel": "ファインチューニングが適する場面",
+  "type": "single",
+  "q": "次のうち、RAGよりもファインチューニングの検討が適している状況はどれか。",
+  "choices": [
+   "回答の根拠となる文書の出典を必ず提示する必要がある",
+   "社外に出せない機密文書を検索対象にしたい",
+   "参照する情報が毎日更新される",
+   "自社独自の文体・専門用語・出力様式を、大量の事例に基づいて一貫して再現させたい"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: ファインチューニングは、モデルの「振る舞い方（文体・様式・専門的な言い回し）」を、十分な量の事例で作り込みたい場合に適します。逆に、頻繁に更新される知識・出典提示が必要な場面・検索対象の追加はRAGの領域です。実務では「様式はファインチューニング、知識はRAG」と役割を分けて併用する設計も一般的です。",
+  "mem": "ファインチューニングが適するのは、自社独自の文体・専門用語・出力様式を大量の事例で一貫して再現させたい場合。頻繁に更新される知識・出典提示・検索対象の追加はRAGの領域。実務では「様式はファインチューニング、知識はRAG」と役割を分けて併用する。"
+ },
+ {
+  "id": 19,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.2",
+  "skillLabel": "トークン量とコストの関係",
+  "type": "single",
+  "q": "生成AIを使った問い合わせ対応の月額コストが、当初見積りの3倍に膨らんだ。原因調査で最初に確認すべき項目として最も適切なものはどれか。",
+  "choices": [
+   "1件あたりの入出力トークン量と処理件数の実績（見積り前提との差分）",
+   "社内Wi-Fiの帯域",
+   "開発チームの人数",
+   "利用しているブラウザの種類"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 生成AIの利用コストは概ね「入出力トークン量 × 処理件数 × 単価」で決まります。RAGで参照文書を大量に投入している、会話履歴を毎回全量渡している、想定より利用が伸びた、といった要因が典型です。まず前提と実績の差分を分解することが、プロンプト短縮・参照範囲の絞り込み・モデルの使い分けといった打ち手につながります。",
+  "mem": "生成AIのコストは概ね「入出力トークン量 × 処理件数 × 単価」。膨張の典型要因は、RAGで参照文書を大量投入している、会話履歴を毎回全量渡している、想定より利用が伸びた、の3つ。まず前提と実績の差分を分解する。"
+ },
+ {
+  "id": 20,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.1",
+  "skillLabel": "出力の一貫性を高める工夫",
+  "type": "single",
+  "q": "生成AIの出力を後続の基幹システムに自動連携したい。出力の扱いやすさを高める工夫として最も適切なものはどれか。",
+  "choices": [
+   "出力をそのまま無検証で連携する",
+   "出力形式（項目名と構造）をプロンプトで明示的に指定し、想定どおりでない場合の検証処理を設ける",
+   "モデルの温度設定を最大にする",
+   "出力を毎回人手で転記する"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 後続システム連携では、出力形式を明示的に指定したうえで、想定した構造かどうかを検証する処理（バリデーション）を挟むのが基本です。生成AIの出力は確率的で、形式が崩れることがあります。無検証の連携は障害の原因になり、全件人手転記は自動化の意義を失わせます。",
+  "mem": "後続システムへ連携する場合は、出力形式（項目名と構造）をプロンプトで明示指定したうえで、想定どおりの構造かを検証する処理（バリデーション）を挟む。生成AIの出力は確率的で形式が崩れることがある。"
+ },
+ {
+  "id": 21,
+  "d": 1,
+  "task": "1.3",
+  "skill": "1.3.3",
+  "skillLabel": "マネージドなRAGの選択（Amazon Bedrock Knowledge Bases）",
+  "type": "single",
+  "q": "社内規程や商品マニュアルに基づいて回答する生成AIアシスタントを構築したい。文書は自社で管理し、回答には必ず出典を示したい。開発チームは検索基盤を自前で構築・運用する余力がない。AWS 上の選択肢として最も適切なものはどれか。",
+  "choices": [
+   "AWS Pricing Calculator で費用を試算してから判断する",
+   "Amazon SageMaker AI で独自の言語モデルを一から学習させる",
+   "Amazon Bedrock の Knowledge Bases を利用し、自社文書を登録して RAG による回答と出典提示を行う",
+   "AWS Marketplace で最も安価な AI 製品を購入する"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 要件を分解すると、①自社文書を根拠にする（RAG）②出典を提示する ③検索基盤の構築・運用は避けたい、の3点です。Amazon Bedrock の Knowledge Bases は、この RAG のパイプライン（文書の取り込み・分割・検索・回答生成）をマネージドで提供し、回答に参照元を付与できます。",
+  "mem": "Amazon Bedrock = 基盤モデルを API で使うマネージドな生成AIプラットフォーム。その中の Knowledge Bases が RAG のマネージド実装で、自社文書を根拠にした回答と出典提示を担う。Amazon SageMaker AI は独自モデルを構築・運用したいときの選択肢。試験では「自社データに基づく回答」→ Knowledge Bases（RAG）、「独自モデルを作る」→ SageMaker AI、で仕分ける。"
+ },
+ {
+  "id": 22,
+  "d": 1,
+  "task": "1.1",
+  "skill": "1.1.6",
+  "skillLabel": "AI関連の国際規格の役割分担",
+  "type": "single",
+  "q": "AIに関する国際規格として ISO/IEC 42001 と ISO/IEC 23053 の名前が挙がった。この2つの役割の違いを説明したものとして最も適切なものはどれか。",
+  "choices": [
+   "いずれもAIの精度基準を数値で定めた規格である",
+   "42001 は機械学習システムの構築フレームワークと用語、23053 は組織のマネジメントシステムを扱う",
+   "いずれも同じ内容で、番号が異なるだけである",
+   "42001 は組織がAIを責任をもって管理するマネジメントシステムの要求事項、23053 は機械学習を用いたAIシステムのフレームワークと用語を扱う"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: ISO/IEC 42001 は AIマネジメントシステム（AIMS）の国際規格です。組織としてAIをどう管理するか、つまり方針・役割・リスク評価・継続的改善といった仕組みの要求事項を定めます。認証の対象になるのはこちらです。",
+  "mem": "ISO/IEC 42001 = AIマネジメントシステム（AIMS）の要求事項。組織としてAIを管理する仕組みを定め、認証の対象になる。ISO/IEC 23053 = 機械学習を用いたAIシステムのフレームワークと用語（共通語彙）。「42001＝組織の管理の仕組み／23053＝ML システムの枠組みと用語」で覚える。ISO 9001（品質）・ISO/IEC 27017（クラウドセキュリティ）はAI固有ではない。"
+ },
+ {
+  "id": 23,
+  "d": 1,
+  "task": "1.2",
+  "skill": "1.2.4",
+  "skillLabel": "シャドーAI対策としての承認済みサービスの提供",
+  "type": "single",
+  "q": "社員が個人契約の生成AIサービスに業務文書を投入している実態が判明した。全面禁止ではなく、統制の効いた代替手段を用意する方針とした。AWS を利用する企業の対応として最も適切なものはどれか。",
+  "choices": [
+   "自社のAWSアカウント内で Amazon Bedrock や Amazon Quick といった承認済みの手段を提供し、ツール分類（承認済み／評価中／利用禁止）と申請経路を明示する",
+   "生成AIの利用を情報システム部門の担当者のみに限定する",
+   "利用実態の調査を継続し、対応は次年度に持ち越す",
+   "社員ごとに利用してよい外部サービスを個別に判断する"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: シャドーAIが生まれる原因は、業務上の必要性があるのに承認された手段がないことです。したがって対策は、禁止でも個別判断でもなく、統制の効いた代替手段を用意して正規ルートへ誘導することになります。",
+  "mem": "シャドーAI対策の型は「透明なツール分類（承認済み／評価中／利用禁止）＋承認済みの代替手段＋申請経路」。全面禁止は利用を地下に潜らせて可視性を失う。AWS 環境なら Amazon Bedrock・Amazon Quick を自社アカウント内の承認済み手段として提供でき、アクセス制御とログを自社ポリシー下に置ける点が個人契約との違い。"
+ },
+ {
+  "id": 24,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.1",
+  "skillLabel": "高インパクトなユースケースの特定",
+  "type": "single",
+  "q": "製造業の経営会議で、全社のAI活用テーマを20件洗い出した。最初に着手するテーマを選ぶ基準として最も適切なものはどれか。",
+  "choices": [
+   "最も技術的に新規性が高いテーマ",
+   "ビジネス成果への影響度が大きく、必要なデータが既に整っており、成果を測定できるテーマ",
+   "最も多くの部署が関心を示したテーマ",
+   "競合他社がプレスリリースを出したテーマ"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 初期テーマの選定軸は「インパクト × 実現可能性（データの有無・技術成熟度）× 測定可能性」です。特に最初の案件は、全社の支持を得るための実績づくりを兼ねるため、成果が数字で示せることが重要になります。技術的新規性や他社の動向は、自社の成果に直結する保証がありません。",
+  "mem": "初期テーマの選定軸は「インパクト × 実現可能性（データの有無・技術成熟度）× 測定可能性」。最初の案件は全社の支持を得る実績づくりを兼ねるため、成果が数字で示せることが特に重要。技術的新規性や他社の動向は自社の成果を保証しない。"
+ },
+ {
+  "id": 25,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.2",
+  "skillLabel": "Build / Buy / Partner の判断",
+  "type": "multi",
+  "q": "金融機関が、顧客対応向けAIソリューションについて自社開発（build）か外部製品の購入（buy）かを検討している。「購入（buy）」を選ぶ根拠として妥当なものを2つ選べ。",
+  "choices": [
+   "将来的にベンダーへの依存を完全に排除したい",
+   "当該機能が自社の競争優位の中核であり、独自データを深く組み込みたい",
+   "求める機能が業界標準的で、他社との差別化の源泉になりにくい",
+   "規制当局への説明責任を自社で一切負いたくない",
+   "短期間での立ち上げが求められ、社内に必要な専門人材が不足している"
+  ],
+  "answer": [
+   2,
+   4
+  ],
+  "exp": "正解: 差別化の源泉になりにくい標準機能、かつ時間と人材の制約がある場合は購入が合理的です。逆に競争優位の中核となる領域は自社開発（build）や共同開発（partner）を検討します。ベンダー依存の完全排除は buy を選ぶ根拠にはなりません。また、外部製品を使っても規制当局に対する説明責任は利用企業側に残るため、責任を負いたくないという理由も誤りです。",
+  "mem": "buy が合理的なのは「求める機能が業界標準的で差別化の源泉になりにくい」かつ「短期立ち上げが必要で社内人材が不足」の場合。競争優位の中核領域は build / partner。ベンダー依存の排除は buy の根拠にならず、外部製品を使っても規制当局への説明責任は利用企業に残る。"
+ },
+ {
+  "id": 26,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.3",
+  "skillLabel": "AI施策の優先順位付けと中止判断",
+  "type": "single",
+  "q": "6か月間実施したPoCで、精度は目標に達したが、業務プロセスへの組み込みには基幹システムの大規模改修が必要で、投資回収に7年かかることが判明した。ビジネス戦略担当としての推奨はどれか。",
+  "choices": [
+   "精度目標を達成しているため、そのまま本番展開する",
+   "他部署に予算を負担させて展開する",
+   "投資回収期間と戦略的意義を経営に提示し、スコープ縮小・保留・中止のいずれかを明示的に意思決定する",
+   "精度をさらに高めてから再検討する"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 優先順位付けには「拡大（scale）・保留（pause）・中止（terminate）」を明示的に選ぶ規律が含まれます。技術的成功と事業的成功は別物であり、精度が目標に達したことは投資判断の十分条件ではありません。撤退・保留を正しく選べることは、AIポートフォリオ運営の中核的な能力として問われます。",
+  "mem": "優先順位付けには「拡大（scale）・保留（pause）・中止（terminate）」を明示的に選ぶ規律が含まれる。技術的成功と事業的成功は別物で、精度が目標に達したことは投資判断の十分条件ではない。"
+ },
+ {
+  "id": 27,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.4",
+  "skillLabel": "AIが適切でない場面の判断",
+  "type": "single",
+  "q": "次のうち、AIの適用を見送るべき可能性が最も高いのはどれか。",
+  "choices": [
+   "過去の販売実績から翌月の需要を予測する",
+   "月間10万件の問い合わせメールを分類する",
+   "数万点の商品画像にタグを付与する",
+   "年に3件しか発生せず、判断根拠を規制当局へ個別に完全な形で説明する必要がある特殊な審査業務"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 事例数が極端に少なく学習データが確保できず、かつ個別の判断根拠を完全に説明する義務がある業務は、AI適用の費用対効果とリスクが見合いません。人による判断＋明文化されたチェックリストのほうが適切です。他の3つは、件数が多くパターンが学習可能で、AIの得意領域にあたります。",
+  "mem": "AI適用を見送るべきなのは、事例数が極端に少なく学習データを確保できず、かつ個別の判断根拠を完全に説明する義務がある業務。人による判断＋明文化されたチェックリストのほうが適切。逆に件数が多くパターンが学習可能な業務はAIの得意領域。"
+ },
+ {
+  "id": 28,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.5",
+  "skillLabel": "業務プロセス移行時の考慮事項",
+  "type": "multi",
+  "q": "人手で行っている審査業務をAIベースの仕組みへ移行する計画を立てている。移行計画に必ず含めるべき検討事項を2つ選べ。",
+  "choices": [
+   "社内で最も新しいPCの機種選定",
+   "開発チームの座席配置",
+   "AIベンダーの創業年数",
+   "移行期間中の業務継続性（並行稼働や切り戻しの手順）",
+   "AIが期待どおり動作しなかった場合のコスト影響と撤退基準"
+  ],
+  "answer": [
+   3,
+   4
+  ],
+  "exp": "正解: 移行では、業務継続性（並行稼働・段階移行・切り戻し手順）と、想定どおりにいかない場合のコスト影響・撤退基準を事前に定義することが不可欠です。加えてデータ準備状況と性能への影響も主要な検討軸になります。ベンダーの創業年数や執務環境は移行リスクの本質ではありません。",
+  "mem": "業務プロセス移行の計画に必ず含めるのは①業務継続性（並行稼働・段階移行・切り戻し手順）②期待どおり動かない場合のコスト影響と撤退基準。加えてデータ準備状況と性能への影響も主要な検討軸。"
+ },
+ {
+  "id": 29,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.2",
+  "skillLabel": "ベンダー提案の評価",
+  "type": "single",
+  "q": "3社のAIベンダーから提案を受けた。評価にあたり、機能とライセンス費用に加えて必ず確認すべき項目として最も重要なものはどれか。",
+  "choices": [
+   "入力データの取り扱い（学習への二次利用の有無）、データ保存先の地域、規制要件への適合",
+   "提案書のページ数",
+   "本社所在地の景観",
+   "営業担当者の対応の速さ"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: AIベンダー評価では、機能・価格に加えて「投入したデータが提供者側の学習に使われないか」「データがどの地域に保存されるか」「自社が従う規制に適合するか」の確認が不可欠です。ここを詰めずに導入すると、後から法務・コンプライアンス上の重大な手戻りが発生します。",
+  "mem": "AIベンダー評価では、機能・ライセンス費用に加えて「投入データが提供者側の学習に二次利用されないか」「データがどの地域に保存されるか」「自社が従う規制に適合するか」の3点が必須確認事項。"
+ },
+ {
+  "id": 30,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.5",
+  "skillLabel": "AIプラットフォーム移行の検討",
+  "type": "single",
+  "q": "現在利用中の生成AIプラットフォームから別のプラットフォームへの移行を検討している。意思決定にあたり見落とされやすいコスト要素はどれか。",
+  "choices": [
+   "新しいサービスのロゴ変更費用",
+   "プロンプトの再設計・評価データによる再検証・利用者の再教育に要するコストと期間",
+   "会議室の予約コスト",
+   "月額ライセンス費用の差額"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: プラットフォーム移行では、表面的な単価差よりも、蓄積したプロンプト資産の作り直し、品質が同等であることの再検証、業務手順書と利用者教育の更新といった「切り替えコスト」が支配的になりがちです。この切り替えコストの大きさこそがロックインの実態であり、初期選定時から意識すべき論点です。",
+  "mem": "プラットフォーム移行で支配的になるのは、月額単価の差ではなく切り替えコスト（プロンプト資産の作り直し・品質同等性の再検証・業務手順書と利用者教育の更新）。この切り替えコストの大きさがロックインの実態。"
+ },
+ {
+  "id": 31,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.3",
+  "skillLabel": "施策の停止・中止の判断根拠",
+  "type": "single",
+  "q": "進行中のAI施策を中止（terminate）する判断の根拠として、最も妥当なものはどれか。",
+  "choices": [
+   "担当者が異動したため",
+   "開発が予定より2週間遅れているため",
+   "前提としていた業務要件そのものが変化し、当初想定した価値がもはや生まれないと確認できたため",
+   "同業他社が類似の取り組みを発表したため"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 中止の正当な根拠は、価値仮説が崩れたこと（業務要件の変化、前提データの喪失、規制環境の変化など）です。人事異動や短期の遅延は体制・計画の調整で対応する事象であり、他社の発表は自社の価値仮説を否定しません。中止の基準をあらかじめ定義しておくと、判断が属人化しません。",
+  "mem": "中止（terminate）の正当な根拠は、価値仮説そのものが崩れたこと（業務要件の変化・前提データの喪失・規制環境の変化）。人事異動や短期の遅延は体制・計画の調整で対応する事象、他社の発表は自社の価値仮説を否定しない。"
+ },
+ {
+  "id": 32,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.1",
+  "skillLabel": "経営目標とAI施策の紐づけ",
+  "type": "single",
+  "q": "中期経営計画に「顧客解約率の2ポイント改善」が掲げられている。AI施策とこの目標の整合を示す方法として最も適切なものはどれか。",
+  "choices": [
+   "AI人材の採用計画を示す",
+   "AI施策の技術的な新規性を強調する",
+   "導入予定のAIサービス名を一覧で示す",
+   "解約に至る要因を分解し、AI施策が影響を与える中間指標（例: 初回応答時間、解約予兆の検知率）と、それが解約率へ与える寄与を明示する"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 経営目標との整合は、目標を要因に分解し、AI施策が動かす中間指標と最終指標の因果の道筋を示すことで説明します。この「指標のつながり」を最初に定義しておくと、後の効果測定（ベースライン設定・KPI設計）とそのまま接続でき、経営層の承認も得やすくなります。",
+  "mem": "経営目標との整合は、目標を要因に分解し、AI施策が動かす中間指標（初回応答時間・解約予兆の検知率など）と最終指標への寄与という因果の道筋で示す。この指標のつながりが、そのまま効果測定の設計に接続する。"
+ },
+ {
+  "id": 33,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.1",
+  "skillLabel": "AI施策のKPI設計（有形・無形）",
+  "type": "multi",
+  "q": "社内文書検索AIの効果を測定するKPIを設計している。無形（intangible）の便益に分類されるものを2つ選べ。",
+  "choices": [
+   "文書検索に費やす時間の削減（時間×人件費単価）",
+   "従業員満足度スコアの向上",
+   "ライセンス費用の削減額",
+   "印刷コストの削減額",
+   "新入社員が独力で業務を進められるまでの体感的な不安の軽減"
+  ],
+  "answer": [
+   1,
+   4
+  ],
+  "exp": "正解: 従業員満足度や心理的負荷の軽減は、金額に直接換算しにくい無形便益です。時間削減額・ライセンス費用・印刷コストは金額換算できる有形便益にあたります。無形便益は無視するのではなく、アンケートスコアや定着率などの代理指標で継続的に測定し、有形便益と併記するのが実務的な扱いです。",
+  "mem": "無形（intangible）便益＝従業員満足度・心理的負荷の軽減など金額換算しにくいもの。有形（tangible）便益＝時間削減額・ライセンス費用・印刷コストなど金額換算できるもの。無形は無視せず代理指標で測定し、有形と併記する。"
+ },
+ {
+  "id": 34,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.2",
+  "skillLabel": "導入前ベースラインの計測",
+  "type": "single",
+  "q": "AIチャットボット導入から3か月後、経営層から「結局どれだけ効果があったのか」と問われたが、導入前の応対時間や解決率のデータを取得していなかった。この状況が示す教訓として最も重要なものはどれか。",
+  "choices": [
+   "導入前にベースライン（現状値）を測定しておかなければ、改善分を切り分けて示すことができない",
+   "効果測定は導入後に設計すればよい",
+   "AIの効果は定性的にしか語れない",
+   "効果測定は不要である"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: ベースラインがなければ「AIによる改善分」を他要因と切り分けて主張できません。ベースラインは導入前に、KPIと同じ定義・同じ計測方法で取得しておく必要があります。可能であれば、AIを適用しない対照グループを設けると、外部要因の影響をさらに切り分けられます。",
+  "mem": "ベースライン（導入前の現状値）がなければ、AIによる改善分を他要因と切り分けて示せない。KPIと同じ定義・同じ計測方法で導入前に取得する。AIを適用しない対照グループを設けると外部要因もさらに切り分けられる。"
+ },
+ {
+  "id": 35,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.3",
+  "skillLabel": "AIのROI算出",
+  "type": "multi",
+  "q": "生成AI活用のROIを算出している。総コスト側に必ず含めるべき項目を2つ選べ。",
+  "choices": [
+   "データ整備・前処理および業務プロセス変更に要する工数",
+   "競合他社のAI投資額",
+   "本番稼働後の推論利用料と、精度監視・再学習にかかる継続費用",
+   "将来的に得られると期待する売上増加額",
+   "経営層の会議時間"
+  ],
+  "answer": [
+   0,
+   2
+  ],
+  "exp": "正解: ROIのコスト側で過小評価されがちなのが、継続的な推論費用・監視や再学習の運用費用と、データ整備や業務プロセス変更・教育に要する工数です。期待売上はベネフィット側の項目、他社の投資額は自社のコストではありません。この2項目を織り込むかどうかで、試算の妥当性が大きく変わります。",
+  "mem": "ROIのコスト側で過小評価されがちな2項目は①本番稼働後の推論利用料と精度監視・再学習の継続費用 ②データ整備・前処理および業務プロセス変更・教育の工数。期待売上はベネフィット側、他社の投資額は自社のコストではない。"
+ },
+ {
+  "id": 36,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.4",
+  "skillLabel": "成功を予測する先行指標",
+  "type": "single",
+  "q": "全社展開した生成AIアシスタントについて、最終的な業務効率化効果が出る前の段階で、成功の見込みを示す先行指標（leading indicator）として最も適切なものはどれか。",
+  "choices": [
+   "社内報での紹介回数",
+   "週次のアクティブ利用率と、利用者あたりの反復利用回数",
+   "翌年度のAI予算額",
+   "年度末の営業利益率"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 先行指標は、最終成果より前に動き、成果を予測する指標です。生成AIの展開では、継続的に使われているか（アクティブ率・反復利用率）が定着と効果の最も早い予兆になります。営業利益率や翌年度予算は遅行指標であり、施策の軌道修正には間に合いません。",
+  "mem": "先行指標（leading indicator）は最終成果より前に動き成果を予測する指標。生成AI展開では週次アクティブ利用率と利用者あたりの反復利用回数が最も早い予兆。営業利益率や翌年度予算は遅行指標で軌道修正に間に合わない。"
+ },
+ {
+  "id": 37,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.5",
+  "skillLabel": "AIコストの管理と最適化",
+  "type": "multi",
+  "q": "生成AI利用のコストを抑制する打ち手として妥当なものを2つ選べ。",
+  "choices": [
+   "全社の利用を一律に停止する",
+   "参照文書や会話履歴を必要な範囲に絞り、入力トークン量を削減する",
+   "出力の検証工程を廃止する",
+   "用途に応じてモデルを使い分け、単純なタスクには軽量なモデルを割り当てる",
+   "すべての処理を最上位モデルに統一する"
+  ],
+  "answer": [
+   1,
+   3
+  ],
+  "exp": "正解: コスト最適化の基本は、タスクの難易度に応じたモデルの使い分けと、入力トークン量の削減（参照範囲の絞り込み、履歴の要約、キャッシュの活用）です。利用停止は価値も失います。検証工程の廃止は品質・リスク面の後退であり、最上位モデルへの統一はコストを増やします。",
+  "mem": "コスト最適化の基本は①用途に応じたモデルの使い分け（単純タスクには軽量モデル）②入力トークン量の削減（参照範囲の絞り込み・履歴の要約・キャッシュ活用）。利用停止は価値も失い、検証工程の廃止は品質後退、最上位モデルへの統一は増コスト。"
+ },
+ {
+  "id": 38,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.3",
+  "skillLabel": "生産性向上の定量化",
+  "type": "single",
+  "q": "開発チームの生産性向上をAI導入効果として金額換算したい。説得力を高める方法として最も適切なものはどれか。",
+  "choices": [
+   "削減できた時間をそのまま人件費単価で乗じ、全額を利益改善として計上する",
+   "業界平均の一般的な数値をそのまま自社の効果として用いる",
+   "削減時間に加え、その時間が実際に何へ振り向けられたか（新規開発、障害対応削減など）を示し、換算の前提を明示する",
+   "開発者の主観評価のみを根拠とする"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 「時間削減 × 単価」だけでは、削減された時間が価値に転換されたことを示せず、経営層に「机上の数字」と受け取られます。空いた時間の使い道と、換算の前提（対象人数、稼働率など）を明示することで、監査にも耐える説明になります。業界平均の流用は自社の実態を反映しません。",
+  "mem": "生産性向上を金額換算するときは「時間削減 × 単価」だけでは机上の数字と受け取られる。空いた時間が何に振り向けられたかと、換算の前提（対象人数・稼働率）を明示することで監査にも耐える説明になる。業界平均の流用は自社の実態を反映しない。"
+ },
+ {
+  "id": 39,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.2",
+  "skillLabel": "効果測定における交絡要因",
+  "type": "single",
+  "q": "AI導入と同じ四半期に、大規模なキャンペーンと組織再編が実施された。この期間の売上増加をAIの効果として報告することの問題点はどれか。",
+  "choices": [
+   "売上は効果指標として使えない",
+   "特に問題はない",
+   "四半期は測定期間として短すぎる",
+   "他の施策の影響と切り分けられておらず、効果が過大に評価される恐れがある"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 同時期の他施策（交絡要因）を切り分けないまま成果を主張すると、効果を過大に見積もることになり、後の投資判断を誤らせます。対照グループの設定、段階的な展開による比較、影響要因の明示といった手当てが必要です。誠実な効果測定は、次の予算獲得の信頼性にも直結します。",
+  "mem": "同時期の他施策（交絡要因）を切り分けないまま成果を主張すると、効果を過大評価して後の投資判断を誤らせる。対照グループの設定、段階的な展開による比較、影響要因の明示で手当てする。"
+ },
+ {
+  "id": 40,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.1",
+  "skillLabel": "無形便益の扱い方",
+  "type": "single",
+  "q": "AI導入の便益のうち、顧客満足度の向上のように金額換算が難しいものを、経営報告でどう扱うのが最も適切か。",
+  "choices": [
+   "代理指標（NPS、再購入率など）で継続的に測定し、有形便益とは区別して併記する",
+   "定性的な感想文としてのみ記載する",
+   "金額換算できないため報告から除外する",
+   "推定値を作り、有形便益に合算して単一の金額で報告する"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 無形便益は測定可能な代理指標に落とし込み、有形便益と区別して併記するのが誠実かつ実用的です。除外すれば価値を過小評価し、根拠の薄い推定値を有形便益に合算すれば試算全体の信頼性を損ないます。区別して示すことで、経営層が判断材料として重み付けできます。",
+  "mem": "金額換算が難しい便益は、代理指標（NPS・再購入率など）で継続測定し、有形便益とは区別して併記する。除外すれば価値を過小評価し、根拠の薄い推定値を有形便益に合算すれば試算全体の信頼性を損なう。"
+ },
+ {
+  "id": 41,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.5",
+  "skillLabel": "PoCから本番へのコスト計画",
+  "type": "single",
+  "q": "PoCでは月額数万円で収まっていた生成AI関連費用が、全社展開の試算では月額数百万円規模になった。この差を経営層に説明する観点として最も適切なものはどれか。",
+  "choices": [
+   "PoCの見積りが誤っていた",
+   "利用者数と処理件数が桁違いに増えるため利用料が線形以上に伸び、加えて監視・サポート・教育といった運用体制の費用が新たに発生する",
+   "AIサービスの値上げがあったため",
+   "本番環境のほうが単価が高いため"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: PoCと本番の費用差は、主に規模（利用者数×処理件数）と、PoCでは不要だった運用体制（監視、ヘルプデスク、教育、ガバナンス）の費用によって生じます。この構造をあらかじめ示しておくことが、展開段階での予算差し戻しを防ぐ最善策です。",
+  "mem": "PoCと本番の費用差は①規模（利用者数 × 処理件数）が桁違いに増える ②PoCでは不要だった運用体制（監視・ヘルプデスク・教育・ガバナンス）の費用が新たに発生する、の2点で生じる。この構造を先に示すことが予算差し戻しを防ぐ最善策。"
+ },
+ {
+  "id": 42,
+  "d": 2,
+  "task": "2.3",
+  "skill": "2.3.3",
+  "skillLabel": "持続的な競争優位の源泉",
+  "type": "single",
+  "q": "同じ基盤モデルは競合も利用できる。それでもAIが持続的な競争優位を生み得る理由として最も適切なものはどれか。",
+  "choices": [
+   "最新のモデルをいち早く採用すれば、他社は追随できないため",
+   "AI関連の特許を取得すれば競合が参入できないため",
+   "自社固有のデータ、業務プロセスへの深い統合、蓄積された運用ノウハウは容易に模倣できないため",
+   "AIの利用を公表しなければ競合に気づかれないため"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: モデル自体は誰でも調達できるコモディティに近づいており、差別化は「自社にしかないデータ」「自社の業務への作り込み」「運用を通じて蓄積される改善サイクル」から生まれます。モデルの先行採用は短期的な優位に過ぎず、数か月で追随されます。",
+  "mem": "基盤モデル自体はコモディティに近く、持続的な差別化は「自社固有のデータ」「業務プロセスへの深い統合」「運用を通じて蓄積される改善ノウハウ」から生まれる。最新モデルの先行採用は短期的優位に過ぎず数か月で追随される。"
+ },
+ {
+  "id": 43,
+  "d": 2,
+  "task": "2.3",
+  "skill": "2.3.2",
+  "skillLabel": "AIによるビジネスモデル変革",
+  "type": "single",
+  "q": "設備メーカーが、販売した設備の稼働データをAIで分析し、故障予兆に基づく保守を提供し始めた。これはどのような機会にあたるか。",
+  "choices": [
+   "マーケティング施策",
+   "既存業務の効率化にとどまる取り組み",
+   "製造原価の削減施策",
+   "製品販売からサービス提供（成果課金型の保守サービス）へ収益構造を広げるビジネスモデル変革の機会"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 既存業務の効率化ではなく、収益の源泉そのものを製品売り切りから継続的なサービス収入へ広げる動きであり、ビジネスモデル変革にあたります。AIの価値は「今の仕事を速くする」だけでなく「これまで売れなかったものを売れるようにする」点にもあり、後者のほうが競争優位は大きくなります。",
+  "mem": "収益の源泉を製品売り切りから継続的なサービス収入へ広げる動きはビジネスモデル変革。AIの価値は「今の仕事を速くする」だけでなく「これまで売れなかったものを売れるようにする」点にもあり、後者のほうが競争優位は大きい。"
+ },
+ {
+  "id": 44,
+  "d": 2,
+  "task": "2.3",
+  "skill": "2.3.4",
+  "skillLabel": "業界成熟度に応じた投資水準",
+  "type": "single",
+  "q": "競合各社が既にAIによる自動応答を標準装備し、顧客もそれを前提としている成熟した業界にいる。この状況における自社のAI投資の位置づけとして最も適切なものはどれか。",
+  "choices": [
+   "もはや差別化ではなく事業継続の必要条件（参入資格）であり、追随のための投資に加え、他社が持たないデータ資産での差別化を並行して検討する",
+   "競合が投資しているため、同額を投じる",
+   "顧客が慣れるまで様子を見る",
+   "差別化要因になり得ないため投資は不要である"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 業界で標準化した機能は差別化要因ではなく参入資格（table stakes）です。未対応は明確な不利になるため追随は必要ですが、それ自体では優位を生みません。したがって、追随投資と並行して自社固有の資産に基づく差別化領域を探すのが妥当な投資配分です。",
+  "mem": "業界で標準化した機能は差別化要因ではなく参入資格（table stakes）。未対応は明確な不利になるため追随は必要だが、それ自体では優位を生まない。追随投資と並行して自社固有の資産に基づく差別化領域を探すのが妥当な配分。"
+ },
+ {
+  "id": 45,
+  "d": 2,
+  "task": "2.3",
+  "skill": "2.3.1",
+  "skillLabel": "競争環境の分析",
+  "type": "single",
+  "q": "自社の業界におけるAI活用の競争環境を評価する際、最も有用な観点はどれか。",
+  "choices": [
+   "業界紙での言及回数",
+   "顧客の期待値がどう変化しているか、および競合が実際に顧客体験や原価構造をどう変えたか",
+   "競合が発表したAI関連のプレスリリース件数",
+   "競合のAIエンジニアの人数"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 競争環境の評価で意味を持つのは、顧客の期待水準の変化と、競合の実際の成果（顧客体験・リードタイム・原価構造の変化）です。発表件数や人員数は活動量の指標であって成果ではなく、これを基準にすると「発表のための投資」に引きずられます。",
+  "mem": "競争環境の評価で意味を持つのは、顧客の期待水準の変化と、競合が実際に変えた成果（顧客体験・リードタイム・原価構造）。プレスリリース件数やAIエンジニアの人数は活動量の指標であり、これを基準にすると「発表のための投資」に引きずられる。"
+ },
+ {
+  "id": 46,
+  "d": 2,
+  "task": "2.3",
+  "skill": "2.3.3",
+  "skillLabel": "オペレーション改善としてのAI",
+  "type": "single",
+  "q": "物流企業が配車計画の最適化にAIを導入し、積載率を継続的に改善している。この取り組みが競争優位につながる仕組みとして最も適切な説明はどれか。",
+  "choices": [
+   "広報効果が高まる",
+   "AI人材の採用が容易になる",
+   "原価構造が改善し、価格競争力と収益性の両方で持続的な余力が生まれる",
+   "最新技術を使っていること自体が優位になる"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: オペレーション改善型のAIは、原価構造そのものを変える点に価値があります。原価が下がれば、価格で攻めることも収益で守ることも選べるようになり、競合が同水準の改善を実現するまで優位が持続します。広報効果や採用は副次的な効果に過ぎません。",
+  "mem": "オペレーション改善型のAIは原価構造そのものを変える点に価値がある。原価が下がれば価格で攻めることも収益で守ることも選べ、競合が同水準の改善を実現するまで優位が持続する。広報効果や採用は副次的。"
+ },
+ {
+  "id": 47,
+  "d": 2,
+  "task": "2.3",
+  "skill": "2.3.4",
+  "skillLabel": "先行投資とファストフォロワーの判断",
+  "type": "single",
+  "q": "AI活用がまだ初期段階にある業界において、大規模な先行投資を避け、他社の事例を見てから追随する戦略が正当化されるのはどのような場合か。",
+  "choices": [
+   "予算編成が面倒な場合",
+   "社内にAIに詳しい人がいない場合",
+   "経営層がAIに関心を持っていない場合",
+   "自社の差別化の源泉が別領域にあり、当該AI用途で先行しても優位が持続しにくく、技術の陳腐化リスクが高い場合"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: ファストフォロワー戦略が合理的なのは、その用途での先行優位が持続しにくく、技術や標準がまだ流動的で陳腐化リスクが高い場合です。ただしこの戦略でも、追随できるだけのデータ基盤と組織能力の準備は先行して進める必要があります。人材や関心の不足は、投資判断の理由ではなく解決すべき課題です。",
+  "mem": "ファストフォロワー戦略が合理的なのは、その用途での先行優位が持続しにくく、技術や標準が流動的で陳腐化リスクが高い場合。ただし追随できるだけのデータ基盤と組織能力の準備は先行して進める必要がある。人材や関心の不足は投資判断の理由ではなく解決すべき課題。"
+ },
+ {
+  "id": 48,
+  "d": 2,
+  "task": "2.1",
+  "skill": "2.1.2",
+  "skillLabel": "AWS AIサービスの使い分け（build / buy / partner）",
+  "type": "single",
+  "q": "3つの部門から要望が挙がった。営業部門は「既製のAIアシスタントで日々の業務データに質問したい」、商品部門は「基盤モデルを使った自社向け生成AIアプリを作りたい」、品質部門は「自社の検査データで独自の判定モデルを構築したい」。AWS の提供内容と要望の対応として最も適切な組み合わせはどれか。",
+  "choices": [
+   "営業＝Amazon Quick、商品＝Amazon Bedrock、品質＝Amazon SageMaker AI",
+   "3部門とも Amazon SageMaker AI で対応する",
+   "3部門とも AWS Marketplace で製品を購入して対応する",
+   "営業＝Amazon SageMaker AI、商品＝Amazon Quick、品質＝Amazon Bedrock"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: AWS のAI関連の提供は、大きく3層に分かれます。すぐ使える既製のアシスタント（Amazon Quick）、基盤モデルをAPIで呼び出して自社アプリを組む層（Amazon Bedrock）、そして自社データで独自のモデルを構築・運用する層（Amazon SageMaker AI）です。",
+  "mem": "AWS のAI提供は3層。①Amazon Quick＝既製のAI搭載ビジネスアシスタント（buy 相当・すぐ使える）②Amazon Bedrock＝基盤モデルをAPIで使い自社アプリを組む（マネージド）③Amazon SageMaker AI＝自社データで独自モデルを構築・運用（build）。外部製品の評価・調達の場が AWS Marketplace。要望を読んで3層のどこかを仕分ける出題に備える。"
+ },
+ {
+  "id": 49,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.5",
+  "skillLabel": "AI関連サービスの料金体系の違い",
+  "type": "multi",
+  "q": "AI関連の費用計画を立てるにあたり、料金体系の違いを整理している。正しい説明を2つ選べ。",
+  "choices": [
+   "従量課金では利用量が増えても費用は変わらない",
+   "料金体系はいずれも同一であり、サービスによる違いはない",
+   "従量課金（consumption-based）は処理量に応じて費用が変動するため、利用が伸びるほど総額が増える",
+   "シート課金（seat-based）は利用者数で決まるため、実際に使う人数の見積りが費用を左右する",
+   "インスタンス課金（instance-based）は起動時間に関係なく定額である"
+  ],
+  "answer": [
+   2,
+   3
+  ],
+  "exp": "正解: AI関連サービスの料金体系は主に3つあります。従量課金（consumption-based）は処理量（生成AIであれば入出力トークン量や実行回数）に応じて変動します。インスタンス課金（instance-based）は計算資源を確保している時間に応じて発生し、使っていなくても起動していれば費用がかかります。シート課金（seat-based）は利用者数で決まります。",
+  "mem": "AWS のAI料金体系は3種類。①従量課金 consumption-based ＝処理量（トークン量・実行回数）で変動 ②インスタンス課金 instance-based ＝計算資源の起動時間で発生（使わなくても起動中は課金）③シート課金 seat-based ＝利用者数で決定。費用を動かす変数が体系ごとに違うので、見積りと感度分析の着眼点も変わる。"
+ },
+ {
+  "id": 50,
+  "d": 2,
+  "task": "2.2",
+  "skill": "2.2.3",
+  "skillLabel": "費用の事前試算と実績分析の使い分け",
+  "type": "single",
+  "q": "生成AI施策のROIを、稟議時と稼働後の両方で説明する必要がある。AWS のツールの使い分けとして最も適切なものはどれか。",
+  "choices": [
+   "稟議時・稼働後とも AWS Cost Explorer で対応する",
+   "稟議時は AWS Pricing Calculator で費用を試算し、稼働後は AWS Cost Explorer で実績を分析して試算との差分を確認する",
+   "稟議時は AWS Marketplace、稼働後は AWS Pricing Calculator を用いる",
+   "稟議時・稼働後とも AWS Pricing Calculator で対応する"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: AWS Pricing Calculator は、まだ使っていないサービスの費用を事前に見積もるためのツールです。構成と想定利用量を入力して試算するため、稟議や投資判断の材料になります。",
+  "mem": "AWS Pricing Calculator = これから使う分の事前試算（稟議・投資判断の材料）。AWS Cost Explorer = 実際に発生した費用の可視化・分析（稼働後の検証）。「Calculator は未来、Explorer は過去」で覚える。ROI 説明は両者を往復させ、試算と実績の差分の理由を特定するのが要点。"
+ },
+ {
+  "id": 51,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.1",
+  "skillLabel": "責任あるAIの各次元の適用",
+  "type": "single",
+  "q": "住宅ローンの事前審査にAIによるスコアリングを導入する。申込者から否決理由の説明を求められる可能性がある。この場面で特に重視すべき責任あるAIの次元はどれか。",
+  "choices": [
+   "出力の多様性（diversity of output）",
+   "モデルのパラメータ数",
+   "説明可能性（explainability）と公平性（fairness）",
+   "応答速度（latency）"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 個人の重要な機会（融資・雇用・入居など）に影響する判断では、なぜその結果になったかを説明できること（説明可能性）と、保護されるべき属性によって不利益が生じないこと（公平性）が最重要になります。多くの法域で説明を求める権利が制度化されつつあり、これはコンプライアンス要件でもあります。",
+  "mem": "個人の重要な機会（融資・雇用・入居など）に影響する判断では、説明可能性（explainability）と公平性（fairness）が最重要。多くの法域で説明を求める権利が制度化されつつあり、これはコンプライアンス要件でもある。"
+ },
+ {
+  "id": 52,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.2",
+  "skillLabel": "事業目標と責任あるAIのトレードオフ",
+  "type": "single",
+  "q": "営業部門が「解約しそうな顧客を高精度で特定できるが、判断根拠を説明できない」モデルの即時導入を求めている。一方、法務は説明可能性の担保を要求している。ビジネス戦略担当の対応として最も適切なものはどれか。",
+  "choices": [
+   "営業部門の要求を優先し、説明可能性の議論は導入後に回す",
+   "法務の懸念を理由に施策自体を中止する",
+   "説明可能性の要件を満たすまで無期限に保留する",
+   "用途を「顧客への不利益な決定」ではなく「社内のアプローチ優先順位付け」に限定し、人による最終判断を挟む形で、リスクに見合った運用範囲を設計する"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: トレードオフの調停は「全か無か」ではなく、用途とリスク水準に応じて適用範囲を設計することで行います。顧客に直接不利益を与える自動決定と、人間の判断を支援する優先順位付けとでは要求される説明可能性の水準が異なります。用途の限定と人的関与の設計が、実務的な着地点になります。",
+  "mem": "責任あるAIと事業目標のトレードオフは「全か無か」ではなく、用途とリスク水準に応じた適用範囲の設計で調停する。顧客に不利益を与える自動決定と、人間の判断を支援する社内の優先順位付けとでは、要求される説明可能性の水準が異なる。"
+ },
+ {
+  "id": 53,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.3",
+  "skillLabel": "ガバナンス・バイ・デザイン",
+  "type": "single",
+  "q": "責任あるAIの実践をプロジェクトに組み込むタイミングとして最も適切なのはどれか。",
+  "choices": [
+   "構想・企画段階から、リスク評価と統制策を設計に織り込む",
+   "本番リリースの直前",
+   "監査で指摘を受けた後",
+   "インシデントが発生した後"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 責任あるAIは、構想段階からリスク評価と統制策を設計へ織り込む「ガバナンス・バイ・デザイン」が原則です。後付けの対応は、手戻りコストが大きく、既に稼働した仕組みの根幹（データの取得方法、モデルの選定、ログ設計）を変えられないことが多いためです。",
+  "mem": "責任あるAIは構想・企画段階からリスク評価と統制策を設計へ織り込む（ガバナンス・バイ・デザイン）。後付けは手戻りコストが大きく、既に稼働した仕組みの根幹（データの取得方法・モデル選定・ログ設計）を変えられないことが多い。"
+ },
+ {
+  "id": 54,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.4",
+  "skillLabel": "人間による監督が必要な場面",
+  "type": "multi",
+  "q": "AIの出力に対して人間による監督（human oversight）を必須とすべき場面を2つ選べ。",
+  "choices": [
+   "個人の採用可否や与信可否など、人に重大な影響を与える決定",
+   "メールの誤字脱字チェック",
+   "社内向けの議事録の下書き作成",
+   "誤った出力が安全・健康・法的責任に直結する業務",
+   "社内の会議室予約の空き検索"
+  ],
+  "answer": [
+   0,
+   3
+  ],
+  "exp": "正解: 人間の監督は、影響の重大性に応じて配分します。人の権利や機会に関わる決定、安全・健康・法的責任に直結する業務は必須です。一方、誤りの影響が小さく容易に修正できる業務（議事録の下書き、誤字チェック）に一律の承認を課すと、生産性が失われ、かえって形骸化した承認になります。",
+  "mem": "人間による監督が必須なのは①誤った出力が安全・健康・法的責任に直結する業務 ②採用可否や与信可否など人に重大な影響を与える決定。誤りの影響が小さく容易に修正できる業務に一律の承認を課すと、生産性を失い承認が形骸化する。"
+ },
+ {
+  "id": 55,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.4",
+  "skillLabel": "ガードレールとエスカレーション設計",
+  "type": "single",
+  "q": "顧客向け生成AIチャットの安全設計として、最も優先度が高い組み合わせはどれか。",
+  "choices": [
+   "応答速度の最適化とUIデザインの改善",
+   "取り扱い禁止トピックの制限、回答の根拠提示、確信度が低い場合や苦情に該当する場合に人間へ引き継ぐエスカレーション基準の明文化",
+   "会話ログの取得停止",
+   "モデルの温度設定の最大化"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 顧客接点の安全設計は、入出力の制限（ガードレール）、根拠の提示によるハルシネーション抑止、そして「どの条件で人間に引き継ぐか」の明文化が中核です。エスカレーション基準を曖昧にすると、AIが答えるべきでない場面で答え続けることになります。ログ停止は監査と改善の手段を失う後退です。",
+  "mem": "顧客接点の安全設計の中核は①取り扱い禁止トピックの制限（ガードレール）②回答の根拠提示によるハルシネーション抑止 ③確信度が低い場合や苦情に該当する場合のエスカレーション基準の明文化。ログ停止は監査と改善の手段を失う後退。"
+ },
+ {
+  "id": 56,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.1",
+  "skillLabel": "公平性（fairness）の実務",
+  "type": "single",
+  "q": "採用書類の一次スクリーニングにAIを用いたところ、特定の属性を持つ応募者の通過率が著しく低いことが判明した。学習データには過去10年の採用実績が使われていた。最も妥当な説明はどれか。",
+  "choices": [
+   "データ量が不足している",
+   "モデルのアルゴリズムに不具合がある",
+   "過去の採用実績に含まれていた偏りをモデルが学習し、再現している可能性が高い",
+   "応募者の質に差があることを正しく検出している"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 過去の意思決定をそのまま学習させると、その中に含まれる偏りも「正解」として学習・再現・増幅されます。対策には、学習データの偏りの評価、属性別の性能差の測定、代理変数（郵便番号や学校名など属性と相関する特徴）の点検、そして人による監督の維持が含まれます。結果を鵜呑みに正当化するのは最も危険な選択です。",
+  "mem": "過去の意思決定をそのまま学習させると、その中の偏りも「正解」として学習・再現・増幅される。対策は学習データの偏りの評価、属性別の性能差の測定、代理変数（郵便番号・学校名など属性と相関する特徴）の点検、人による監督の維持。"
+ },
+ {
+  "id": 57,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.1",
+  "skillLabel": "透明性とプライバシー",
+  "type": "single",
+  "q": "顧客対応の一部を生成AIが担うようになった。顧客に対する透明性の観点から実施すべきことはどれか。",
+  "choices": [
+   "AIであることは問い合わせがあった場合にのみ答える",
+   "AIが応対していることは伏せ、人間らしい名前を付ける",
+   "AI利用の事実を利用規約の末尾にのみ記載する",
+   "AIが応対していることを明示し、人間の担当者に代わってもらう方法を案内する"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 透明性の原則は、相手がAIと対話していることを認識でき、必要なら人間に切り替えられる状態を保つことです。AIであることを偽る設計は信頼を損ない、法域によっては開示義務違反にもなり得ます。規約の末尾への記載だけでは、実質的な認識可能性を満たしません。",
+  "mem": "透明性の原則は、相手がAIと対話していることを認識でき、必要なら人間に切り替えられる状態を保つこと。AIであることを偽る設計は信頼を損ない、法域によっては開示義務違反にもなり得る。規約の末尾への記載だけでは認識可能性を満たさない。"
+ },
+ {
+  "id": 58,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.1",
+  "skillLabel": "AIガバナンス体制の構成",
+  "type": "multi",
+  "q": "全社AIガバナンス委員会を新設する。体制設計として適切なものを2つ選べ。",
+  "choices": [
+   "事業部門、IT、法務・コンプライアンス、リスク管理、人事など横断的な代表者で構成する",
+   "すべての判断を外部ベンダーに委任する",
+   "委員会の議事録は非公開とし、決定事項のみを口頭で共有する",
+   "IT部門のみで構成し、意思決定を迅速化する",
+   "AIユースケースごとに、承認者と説明責任者を明確に定める"
+  ],
+  "answer": [
+   0,
+   4
+  ],
+  "exp": "正解: AIのリスクは技術・法務・人事・事業のいずれにもまたがるため、クロスファンクショナルな代表構成が必要です。加えて、ユースケースごとに「誰が承認し、誰が結果に説明責任を負うか」を明示することが、実効性の要になります。IT部門単独の体制や外部への丸投げは、説明責任の所在を曖昧にします。",
+  "mem": "AIガバナンス体制の要件は①事業部門・IT・法務コンプライアンス・リスク管理・人事など横断的な代表構成 ②ユースケースごとに承認者と説明責任者を明確に定めること。IT部門単独の体制や外部への丸投げは説明責任の所在を曖昧にする。"
+ },
+ {
+  "id": 59,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.2",
+  "skillLabel": "規制コンプライアンスリスクの特定",
+  "type": "single",
+  "q": "複数の国で事業を展開する企業が、生成AIを使った顧客プロファイリングを計画している。コンプライアンス面で最初に確認すべき事項はどれか。",
+  "choices": [
+   "各法域における個人データの取り扱い規制、自動化された意思決定に関する規制、越境データ移転の要件",
+   "利用するAIサービスの提供事業者の企業規模",
+   "導入予定日の社内カレンダー",
+   "AIサービスの日本語対応状況"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 顧客データを用いる施策では、法域ごとの個人データ保護規制、自動化された意思決定に対する制約や説明義務、越境データ移転の要件を最初に確認します。地域によって要求が異なるため、最も厳しい法域に合わせるか、地域ごとに機能を分けるかという設計判断が必要になります。",
+  "mem": "複数法域で個人データを扱う施策では①各法域の個人データ保護規制 ②自動化された意思決定に関する制約や説明義務 ③越境データ移転の要件、を最初に確認する。最も厳しい法域に合わせるか、地域ごとに機能を分けるかの設計判断が必要。"
+ },
+ {
+  "id": 60,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.3",
+  "skillLabel": "アクセス制御とデータ保護",
+  "type": "single",
+  "q": "全社の文書を検索できる生成AIアシスタントを導入したところ、一般社員が人事評価文書の内容を要約させられることが判明した。根本的な対策はどれか。",
+  "choices": [
+   "該当する質問文をキーワードで禁止する",
+   "元の文書に設定されたアクセス権限を、AIの検索・参照時にも利用者ごとに適用する（権限の継承）",
+   "AIアシスタントの利用を管理職に限定する",
+   "人事文書を紙に戻す"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 生成AIの導入で顕在化しやすいのが、元データのアクセス権限がAI経由で迂回される問題です。根本対策は、利用者の権限に基づいて参照可能な文書のみを検索対象とする権限継承の実装です。キーワード禁止は容易に回避され、利用者の限定は業務価値を大きく損ないます。",
+  "mem": "生成AI導入で顕在化しやすいのが、元データのアクセス権限がAI経由で迂回される問題。根本対策は、利用者の権限に基づいて参照可能な文書のみを検索対象とする権限継承の実装。キーワード禁止は容易に回避され、利用者の限定は業務価値を損なう。"
+ },
+ {
+  "id": 61,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.4",
+  "skillLabel": "AIリスク分類フレームワーク",
+  "type": "single",
+  "q": "社内に30件のAIユースケースが存在する。限られたガバナンス資源を配分する方法として最も適切なものはどれか。",
+  "choices": [
+   "すべてのユースケースに同一水準の審査と監視を課す",
+   "開発が早いものから順に審査する",
+   "影響の重大性（人への影響、法規制、金額、可逆性）に基づいてリスク区分を定義し、区分ごとに要求される審査・監視の水準を変える",
+   "利用部署の役職順に審査する"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: リスク区分（例: 高・中・低）を定義し、区分に応じて審査の深さ、承認者の階層、監視頻度、人的関与の要否を変えるのが標準的なアプローチです。一律の重い審査は、低リスク案件の速度を奪い、結果としてシャドーAIを誘発します。逆に一律の軽い審査は、高リスク案件を野放しにします。",
+  "mem": "限られたガバナンス資源は、影響の重大性（人への影響・法規制・金額・可逆性）に基づくリスク区分で配分する。区分ごとに審査の深さ・承認者の階層・監視頻度・人的関与の要否を変える。一律の重い審査はシャドーAIを誘発し、一律の軽い審査は高リスク案件を野放しにする。"
+ },
+ {
+  "id": 62,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.1",
+  "skillLabel": "説明責任（accountability）の所在",
+  "type": "single",
+  "q": "外部ベンダーのAIサービスを利用した業務で顧客に不利益が生じた場合、規制当局や顧客に対する説明責任について正しいものはどれか。",
+  "choices": [
+   "技術を提供したベンダーがすべての責任を負う",
+   "利用者である顧客が責任を負う",
+   "AIが自律的に判断したため、誰にも責任は生じない",
+   "サービスを顧客に提供している自社が説明責任を負うため、ベンダーとの契約で必要な情報開示と協力義務を確保しておく必要がある"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 外部サービスを利用していても、顧客や当局に対する説明責任は、その業務を提供している自社に残ります。したがって調達段階で、インシデント時の情報提供、ログの開示、監査への協力、責任分界点を契約に織り込んでおくことが不可欠です。「ベンダーがやったこと」は説明として成立しません。",
+  "mem": "外部ベンダーのAIサービスを使っていても、顧客や規制当局への説明責任は業務を提供している自社に残る。調達段階でインシデント時の情報提供・ログの開示・監査への協力・責任分界点を契約に織り込む。「ベンダーがやったこと」は説明として成立しない。"
+ },
+ {
+  "id": 63,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.3",
+  "skillLabel": "個人データを含む学習・利用の統制",
+  "type": "single",
+  "q": "顧客の問い合わせ履歴を使って生成AIの回答品質を高めたい。データ保護の観点から最初に検討すべきことはどれか。",
+  "choices": [
+   "取得時の利用目的の範囲内かを確認し、必要に応じて同意取得または匿名化・仮名化などの措置を講じること",
+   "データを暗号化せずに高速化すること",
+   "データ量をできるだけ増やすこと",
+   "データの保存期間を無期限にすること"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 個人データの二次利用では、取得時に示した利用目的の範囲内かどうかがまず問われます。範囲外であれば、同意の取得か、個人が特定されない形への加工が必要です。加えて保存期間の限定、アクセス制御、投入データがベンダー側の学習に使われない契約条件の確認が実務上の要点です。",
+  "mem": "個人データの二次利用では、まず取得時に示した利用目的の範囲内かを確認する。範囲外なら同意の取得か、匿名化・仮名化などの加工が必要。加えて保存期間の限定、アクセス制御、投入データがベンダー側の学習に使われない契約条件の確認。"
+ },
+ {
+  "id": 64,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.4",
+  "skillLabel": "ライフサイクル全体のガバナンス",
+  "type": "single",
+  "q": "AIガバナンスを「ライフサイクル全体」で適用するとは、具体的にどういうことか。",
+  "choices": [
+   "リリース前の審査を厳格にすること",
+   "企画・データ取得・開発・検証・本番運用・変更・廃止の各段階に、評価と統制のチェックポイントを設けること",
+   "開発ドキュメントを整備すること",
+   "年1回の内部監査を実施すること"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: AIのリスクは稼働後にも変化します（データの変化、利用範囲の拡大、モデルの更新）。したがって企画から廃止まで各段階にチェックポイントを設け、特に「用途変更」と「モデル更新」の際に再評価が走る仕組みが重要です。リリース前審査や年次監査だけでは、稼働後の変化を捉えられません。",
+  "mem": "ライフサイクル全体のガバナンスとは、企画・データ取得・開発・検証・本番運用・変更・廃止の各段階に評価と統制のチェックポイントを設けること。特に「用途変更」と「モデル更新」で再評価が走る仕組みが重要。リリース前審査や年次監査だけでは稼働後の変化を捉えられない。"
+ },
+ {
+  "id": 65,
+  "d": 3,
+  "task": "3.3",
+  "skill": "3.3.1",
+  "skillLabel": "本番稼働後のリスク統制と監視",
+  "type": "multi",
+  "q": "本番稼働中のAIシステムに対する監視の仕組みとして必要なものを2つ選べ。",
+  "choices": [
+   "精度・エラー率などの性能指標の継続的な計測と、閾値を割った際のアラート",
+   "利用部署の座席表の管理",
+   "入出力ログの記録と、問題発生時に事後追跡できる仕組み",
+   "モデルの学習に使ったGPUの型番一覧",
+   "開発者の残業時間の記録"
+  ],
+  "answer": [
+   0,
+   2
+  ],
+  "exp": "正解: 本番監視の中核は、性能指標の継続計測とアラート、および入出力ログによる追跡可能性（トレーサビリティ）です。ログは、苦情対応・監査対応・原因分析のすべての起点になります。取得にあたっては個人データの扱いと保存期間の方針をあわせて定義します。",
+  "mem": "本番監視の中核は①精度・エラー率などの性能指標の継続計測と閾値アラート ②入出力ログの記録による追跡可能性（トレーサビリティ）。ログは苦情対応・監査対応・原因分析すべての起点であり、個人データの扱いと保存期間の方針もあわせて定義する。"
+ },
+ {
+  "id": 66,
+  "d": 3,
+  "task": "3.3",
+  "skill": "3.3.2",
+  "skillLabel": "バイアスの発生段階とバイアスドリフト",
+  "type": "single",
+  "q": "AIシステムにおけるバイアスについて、正しい説明はどれか。",
+  "choices": [
+   "学習データの選定時にのみ発生するため、初期のデータ検証で完全に排除できる",
+   "バイアスは技術的な問題であり、事業部門は関与しなくてよい",
+   "データ収集、ラベル付け、特徴量の設計、モデル選定、運用時の使われ方など複数の段階で発生し得るため、稼働後も継続的な監視が必要である",
+   "モデルの精度が高ければバイアスは発生しない"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: バイアスはライフサイクルの複数段階で混入し、さらに稼働後も社会や利用実態の変化に伴って偏りが変化します（バイアスドリフト）。したがって一度きりの検証では不十分で、属性別の性能差を定期的に測る運用が必要です。全体精度が高くても、特定の集団で著しく劣ることは起こり得ます。",
+  "mem": "バイアスはデータ収集・ラベル付け・特徴量の設計・モデル選定・運用時の使われ方という複数段階で発生し、稼働後も変化する（バイアスドリフト）。一度きりの検証では不十分で、属性別の性能差を定期的に測る運用が必要。全体精度が高くても特定集団で著しく劣ることは起こり得る。"
+ },
+ {
+  "id": 67,
+  "d": 3,
+  "task": "3.3",
+  "skill": "3.3.3",
+  "skillLabel": "有害コンテンツと知的財産のリスク",
+  "type": "multi",
+  "q": "生成AIをマーケティング素材の制作に使う際、知的財産・コンテンツ面で管理すべきリスクを2つ選べ。",
+  "choices": [
+   "利用するモデルのバージョン番号",
+   "生成物が既存の著作物に類似し、権利侵害を問われる可能性",
+   "生成にかかる時間が長いこと",
+   "生成物のファイルサイズが大きいこと",
+   "社外秘の情報や他社の権利物をプロンプトに投入してしまうこと"
+  ],
+  "answer": [
+   1,
+   4
+  ],
+  "exp": "正解: 生成AIの知財リスクは出口と入口の両方にあります。出口は生成物が既存著作物に類似するリスク（公開前の確認プロセスが対策）、入口はプロンプトに機密情報や他社の権利物を投入してしまうリスク（利用ガイドラインと承認済みツールの提供が対策）です。生成時間やファイルサイズは知財リスクではありません。",
+  "mem": "生成AIの知財リスクは出口と入口の両方にある。出口＝生成物が既存著作物に類似し権利侵害を問われるリスク（公開前の確認プロセスが対策）。入口＝機密情報や他社の権利物をプロンプトに投入してしまうリスク（利用ガイドラインと承認済みツールの提供が対策）。"
+ },
+ {
+  "id": 68,
+  "d": 3,
+  "task": "3.3",
+  "skill": "3.3.4",
+  "skillLabel": "ハルシネーションへの対処",
+  "type": "single",
+  "q": "社内向け生成AIが、実在しない社内規程の条番号を示して回答する事象が報告された。事業側の対策として最も効果的な組み合わせはどれか。",
+  "choices": [
+   "利用ログの取得を停止する",
+   "利用者に「AIの回答を信じないように」と通知するのみ",
+   "モデルの応答をより長くする",
+   "回答を社内文書に基づかせ（RAG）出典リンクを必須表示にしたうえで、重要な判断に用いる場合の原文確認を業務手順に組み込む"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: ハルシネーション対策は、根拠となる文書に基づいて回答させ（RAG）、出典を必ず提示して人が検証できる状態にすること、そして重要な判断では原文確認を業務手順として定めることの組み合わせが有効です。注意喚起のみでは、出典のない自然な文章はそのまま信用されてしまいます。",
+  "mem": "ハルシネーション対策は①RAGで社内文書に基づかせる ②出典リンクの必須表示で人が検証できる状態にする ③重要な判断では原文確認を業務手順に組み込む、の組み合わせ。注意喚起のみでは、出典のない自然な文章はそのまま信用されてしまう。"
+ },
+ {
+  "id": 69,
+  "d": 3,
+  "task": "3.3",
+  "skill": "3.3.4",
+  "skillLabel": "信頼性リスクとデータ品質の劣化",
+  "type": "single",
+  "q": "稼働中のAIシステムについて、入力データを供給する基幹システムの改修により、ある項目の入力形式が変更された。想定される最も重大なリスクはどれか。",
+  "choices": [
+   "入力データの前提が変わったことでモデルの出力品質が静かに劣化し、誰も気づかないまま誤った判断が積み重なる",
+   "ログの保存容量の不足",
+   "ライセンス費用の増加",
+   "画面の表示崩れ"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 最も危険なのは、システムがエラーを出さずに動き続けながら出力品質だけが劣化する状態です。対策は、入力データの妥当性検証（スキーマ・分布の監視）と、上流システムの変更管理プロセスにAIシステムを影響先として組み込むことです。AIは上流のデータ変更に対して脆弱である、という点を関係部署に共有しておく必要があります。",
+  "mem": "最も危険なのは、システムがエラーを出さずに動き続けながら出力品質だけが静かに劣化する状態。対策は入力データの妥当性検証（スキーマ・分布の監視）と、上流システムの変更管理プロセスにAIシステムを影響先として組み込むこと。"
+ },
+ {
+  "id": 70,
+  "d": 3,
+  "task": "3.3",
+  "skill": "3.3.1",
+  "skillLabel": "リスク統制の設計",
+  "type": "single",
+  "q": "高リスクに分類されたAIユースケースに対する統制策の設計として、最も適切なものはどれか。",
+  "choices": [
+   "保険に加入して対応する",
+   "予防（利用範囲の限定、ガードレール）、検知（監視、定期評価）、対応（エスカレーション、停止手順、影響を受けた顧客への救済）の三層で統制を設計する",
+   "リスクが高いため、当該ユースケースは一律に禁止する",
+   "運用担当者の注意喚起を徹底する"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: リスク統制は予防・検知・対応の三層で設計します。特に見落とされやすいのが「対応」層で、停止手順（キルスイッチ）と、影響を受けた顧客への救済手続きをあらかじめ定義しておくことが、インシデント時の被害と信頼失墜を最小化します。一律禁止は価値を捨てる選択、注意喚起のみは統制とは言えません。",
+  "mem": "リスク統制は三層で設計する。予防（利用範囲の限定・ガードレール）／検知（監視・定期評価）／対応（エスカレーション・停止手順・影響を受けた顧客への救済）。見落とされやすいのは対応層で、停止手順（キルスイッチ）と救済手続きの事前定義が被害と信頼失墜を最小化する。"
+ },
+ {
+  "id": 71,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.1",
+  "skillLabel": "AIワークロードにおける責任共有モデル",
+  "type": "single",
+  "q": "マネージドなAIサービスを利用してAI機能を提供している。AWS 責任共有モデルの考え方をAIワークロードに当てはめた説明として最も適切なものはどれか。",
+  "choices": [
+   "クラウド事業者が基盤を提供しているため、利用企業に責任は生じない",
+   "利用企業がすべての責任を負い、クラウド事業者に責任はない",
+   "クラウド事業者はクラウド自体のセキュリティを担い、利用企業は投入するデータ、アクセス権限の設定、AIの用途と出力の扱いに責任を負う",
+   "責任の分担は契約ごとに異なるため、一般的な整理は存在しない"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: AWS 責任共有モデルの基本は、クラウド事業者が「クラウド自体のセキュリティ」を、利用企業が「クラウドの中のセキュリティ」を担うという分担です。これはAIワークロードでも変わりません。",
+  "mem": "AWS 責任共有モデル＝事業者は「クラウドのセキュリティ（security OF the cloud）」、利用企業は「クラウド内のセキュリティ（security IN the cloud）」。AIワークロードでの自社責任は、①投入するデータの選別 ②アクセス権限の設計 ③AIの用途と出力の扱い。マネージドサービスを使っても顧客・当局への説明責任は自社に残る。"
+ },
+ {
+  "id": 72,
+  "d": 3,
+  "task": "3.1",
+  "skill": "3.1.4",
+  "skillLabel": "ガードレールによる出力統制（Amazon Bedrock Guardrails）",
+  "type": "single",
+  "q": "顧客向け生成AIチャットで、扱ってはいけない話題への言及と、応答に個人情報が含まれることを防ぎたい。Amazon Bedrock のガードレール機能について、ビジネス側の理解として最も適切なものはどれか。",
+  "choices": [
+   "利用者ごとの課金上限を設定する機能である",
+   "ガードレールを設定すれば人間による監督は不要になる",
+   "モデルの精度を高める機能であり、出力内容の制限には使えない",
+   "扱わせないトピックの指定、有害表現の検出、個人情報のマスクやブロックといった制限を、入力と出力の両方に適用できる"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: Amazon Bedrock のガードレールは、生成AIの入力と出力に対して制限をかける仕組みです。ビジネス側が押さえるべき機能は、扱わせたくないトピックの指定、有害な表現の検出、そして個人情報の検出とマスクまたはブロックです。",
+  "mem": "Amazon Bedrock Guardrails＝生成AIの入力と出力の両方に制限をかける統制機能。ビジネス側が押さえるのは「扱わせないトピックの指定／有害表現の検出／個人情報のマスク・ブロック」。精度向上の機能ではなく、ハルシネーションをゼロにもしない。予防・検知・対応の三層のうち予防層にあたり、人間の監督を置き換えるものではない。"
+ },
+ {
+  "id": 73,
+  "d": 3,
+  "task": "3.2",
+  "skill": "3.2.3",
+  "skillLabel": "マネージドAIサービス利用時のデータ保護",
+  "type": "multi",
+  "q": "マネージドな生成AIサービスの全社導入にあたり、法務から「データの取り扱いを確認したい」と要請があった。ビジネス戦略担当が確認すべき事項を2つ選べ。",
+  "choices": [
+   "サービスの提供事業者の従業員数",
+   "利用開始日が期初か期末か",
+   "投入したデータがモデルの学習に二次利用されない条件になっているか",
+   "サービスの画面デザインが自社のブランドカラーに合っているか",
+   "データがどのリージョン（地域）に保存・処理され、自社が従う規制の要件を満たすか"
+  ],
+  "answer": [
+   2,
+   4
+  ],
+  "exp": "正解: マネージドなAIサービスを業務データで使う際、法務・コンプライアンス上の論点は概ね2つに集約されます。1つは、投入したデータが提供事業者側のモデル学習に二次利用されないかどうかです。ここが担保されていないと、社外秘情報が意図せず外部に残る可能性があります。",
+  "mem": "マネージドAIサービス導入時のデータ保護チェックは2点が中核。①投入データが提供事業者のモデル学習に二次利用されない条件か ②データがどのリージョンで保存・処理され、越境移転などの規制要件を満たすか。加えてアクセス権限の設計と監査ログの方針。責任共有モデル上、これらは利用企業側の責任範囲。"
+ },
+ {
+  "id": 74,
+  "d": 4,
+  "task": "4.1",
+  "skill": "4.1.1",
+  "skillLabel": "AI導入に向けたビジネスレディネス評価",
+  "type": "multi",
+  "q": "全社的なAI導入に先立ち、組織のレディネス（準備度）を評価する。評価すべき次元として適切なものを2つ選べ。",
+  "choices": [
+   "本社ビルの築年数",
+   "競合他社のAI予算額",
+   "データの品質・アクセス性、および必要な技術基盤とガバナンス枠組みの整備状況",
+   "経営層の合意形成と、AI活用の方向性に対する一貫したメッセージの有無",
+   "社内で使われている表計算ソフトのバージョン"
+  ],
+  "answer": [
+   2,
+   3
+  ],
+  "exp": "正解: レディネス評価の主要な次元は、経営層の合意（リーダーシップ・アラインメント）、データの品質とアクセス性、組織文化の受容度、技術基盤、ガバナンス枠組みです。準備が整っていない次元を放置したままスケールさせると、パイロットは成功しても全社展開で失速します。他社の予算額は自社の準備度を示しません。",
+  "mem": "レディネス評価の主要次元は①経営層の合意形成（リーダーシップ・アラインメント）②データの品質とアクセス性 ③組織文化の受容度 ④技術基盤 ⑤ガバナンス枠組み。準備が整っていない次元を放置してスケールすると、パイロットは成功しても全社展開で失速する。"
+ },
+ {
+  "id": 75,
+  "d": 4,
+  "task": "4.1",
+  "skill": "4.1.2",
+  "skillLabel": "AI成熟度モデルの適用",
+  "type": "single",
+  "q": "ある企業では、複数の部署がそれぞれ独自にAIツールを試しており、成功事例は生まれているが全社標準や共通基盤はまだ存在しない。成熟度モデル上の位置づけとして最も適切なものはどれか。",
+  "choices": [
+   "実験・部分導入の段階であり、次の課題は成功事例の標準化と共通基盤・ガバナンスの整備である",
+   "未着手の段階",
+   "AIの活用を終了する段階",
+   "エンタープライズ規模での本番展開が完了した段階"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: 部門単位の実験が並行し、標準や共通基盤が未整備な状態は、実験段階から全社展開への移行期です。この段階での典型的な課題は、成功パターンの標準化、共通基盤への集約、ガバナンスの整備、重複投資の解消です。成熟度を正しく認識することで、次に打つべき手が具体化します。",
+  "mem": "部門単位の実験が並行し、成功事例はあるが全社標準や共通基盤が未整備な状態＝実験段階から全社展開への移行期。この段階の典型的課題は、成功パターンの標準化・共通基盤への集約・ガバナンス整備・重複投資の解消。"
+ },
+ {
+  "id": 76,
+  "d": 4,
+  "task": "4.1",
+  "skill": "4.1.3",
+  "skillLabel": "ケイパビリティギャップの特定",
+  "type": "single",
+  "q": "パイロットは成功したが全社展開が進まない。原因分析の枠組みとして最も適切なものはどれか。",
+  "choices": [
+   "経営層の関心不足のみを原因として扱う",
+   "人材（スキル）、プロセス（業務手順・意思決定）、技術（基盤）、ガバナンス（統制・承認）の4側面でギャップを洗い出す",
+   "予算不足のみを原因として扱う",
+   "技術力の不足のみを詳細に分析する"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 展開が止まる原因は技術に限りません。人材・プロセス・技術・ガバナンスの4側面で構造的にギャップを洗い出すことで、真のボトルネック（多くの場合は業務プロセスの未整備や承認プロセスの不在）が見えます。単一原因に決め打ちすると、打ち手を誤ります。",
+  "mem": "展開が止まる原因は技術に限らない。人材（スキル）・プロセス（業務手順・意思決定）・技術（基盤）・ガバナンス（統制・承認）の4側面でギャップを洗い出す。真のボトルネックは業務プロセスの未整備や承認プロセスの不在であることが多い。"
+ },
+ {
+  "id": 77,
+  "d": 4,
+  "task": "4.1",
+  "skill": "4.1.4",
+  "skillLabel": "能力開発投資の優先順位",
+  "type": "single",
+  "q": "レディネス評価の結果、データ品質・人材スキル・ガバナンスの3領域すべてに課題があることが判明した。限られた予算での投資順序の考え方として最も適切なものはどれか。",
+  "choices": [
+   "最も声の大きい部署の要望から着手する",
+   "3領域に均等に予算を配分する",
+   "当面の戦略目標に直結するユースケースを実現するうえでボトルネックとなっている領域から順に投資し、段階的な進化パスを描く",
+   "最も費用が安い領域から着手する"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 能力開発投資は、戦略目標から逆算し、その実現を阻んでいるボトルネックから順に配分します。均等配分はどの領域も中途半端になり、成果が出ません。段階的な進化パス（この投資が次に何を可能にするか）を描くことで、継続的な予算獲得の説明もしやすくなります。",
+  "mem": "能力開発投資は戦略目標から逆算し、その実現を阻んでいるボトルネックから順に配分する。均等配分はどの領域も中途半端になる。段階的な進化パス（この投資が次に何を可能にするか）を描くと、継続的な予算獲得の説明もしやすい。"
+ },
+ {
+  "id": 78,
+  "d": 4,
+  "task": "4.1",
+  "skill": "4.1.1",
+  "skillLabel": "レディネス不足のままの拡大リスク",
+  "type": "single",
+  "q": "データ整備とガバナンスが未成熟なまま、経営判断で全社一斉にAIツールを展開した。最も起こりやすい結果はどれか。",
+  "choices": [
+   "短期間で全社の生産性が大幅に向上する",
+   "技術的な問題は一切生じない",
+   "コストのみが削減される",
+   "利用が定着せず、品質のばらつきやコンプライアンス上の懸念が表面化し、AIへの信頼が失われて次の投資が難しくなる"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 準備不足のままの一斉展開は、初期の失望体験を組織全体に配ってしまい、その後の正しい取り組みまで説得力を失わせます。AI変革では、組織の信頼という資産を一度失うと回復に時間がかかるため、レディネスに応じた段階的な展開が推奨されます。",
+  "mem": "準備不足のままの一斉展開は、初期の失望体験を組織全体に配り、その後の正しい取り組みまで説得力を失わせる。AI変革では組織の信頼という資産を一度失うと回復に時間がかかるため、レディネスに応じた段階的展開が推奨される。"
+ },
+ {
+  "id": 79,
+  "d": 4,
+  "task": "4.2",
+  "skill": "4.2.1",
+  "skillLabel": "データレディネスとサイロの影響",
+  "type": "single",
+  "q": "顧客の全体像に基づくレコメンドをAIで実現したいが、顧客データが販売・サポート・Webの3システムに分断され、共通の顧客識別子がない。最初に着手すべきことはどれか。",
+  "choices": [
+   "顧客識別子の統合とデータ連携の設計（名寄せ・統合基盤の整備）",
+   "AI人材の採用",
+   "レコメンド画面のUI設計",
+   "最新の基盤モデルの選定"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: データサイロは、AI施策における最も一般的かつ根深い障害です。同一顧客を横断的に識別できなければ、どれほど優れたモデルでも全体像に基づく判断はできません。識別子の統合とデータ連携の設計は、単一施策ではなく複数施策の共通基盤となるため、投資対効果の説明もしやすい領域です。",
+  "mem": "データサイロはAI施策で最も一般的かつ根深い障害。同一顧客を横断的に識別できなければ、どれほど優れたモデルでも全体像に基づく判断はできない。顧客識別子の統合とデータ連携の設計は複数施策の共通基盤となるため、投資対効果の説明もしやすい。"
+ },
+ {
+  "id": 80,
+  "d": 4,
+  "task": "4.2",
+  "skill": "4.2.2",
+  "skillLabel": "データオーナーシップと共有枠組み",
+  "type": "single",
+  "q": "部門横断のAI施策で、データの提供を求められた部門が「品質責任を負えない」として提供を拒んでいる。組織的な解決策として最も適切なものはどれか。",
+  "choices": [
+   "経営層の指示で強制的に提供させる",
+   "データごとにオーナーを定義し、品質基準・利用条件・責任範囲を明文化したデータ共有の枠組みを整備する",
+   "データを匿名でコピーして利用する",
+   "当該部門のデータを使わずに施策を進める"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: データ共有が進まない原因の多くは、意地悪ではなく責任範囲の曖昧さです。データオーナーシップ（誰が品質と利用可否に責任を持つか）と、品質基準・利用条件・責任分界を明文化した枠組みを整えることで、提供側が安心して出せるようになります。強制は一度は動いても継続しません。",
+  "mem": "データ共有が進まない原因の多くは責任範囲の曖昧さ。データごとにオーナー（誰が品質と利用可否に責任を持つか）を定義し、品質基準・利用条件・責任分界を明文化した枠組みを整えることで、提供側が安心して出せるようになる。強制は一度は動いても継続しない。"
+ },
+ {
+  "id": 81,
+  "d": 4,
+  "task": "4.2",
+  "skill": "4.2.3",
+  "skillLabel": "AIを支える技術基盤の要件",
+  "type": "multi",
+  "q": "AI施策を全社規模で支える技術基盤に求められる要件として適切なものを2つ選べ。",
+  "choices": [
+   "利用実績を計測しないこと",
+   "部署ごとに独立した基盤を個別に構築すること",
+   "需要変動に応じて処理能力を伸縮できること",
+   "すべての処理を単一のサーバーで実行すること",
+   "アクセス制御・監査ログなどセキュリティとガバナンスの機能が基盤として提供されること"
+  ],
+  "answer": [
+   2,
+   4
+  ],
+  "exp": "正解: 全社基盤には、需要変動への伸縮性（スケーラビリティ）と、アクセス制御・監査ログといったセキュリティ／ガバナンス機能の標準提供が求められます。これにより各施策が個別に統制を作り込む必要がなくなり、展開速度が上がります。部署ごとの個別基盤は重複投資と統制の分散を招きます。",
+  "mem": "全社基盤に求められるのは①需要変動に応じた処理能力の伸縮性（スケーラビリティ）②アクセス制御・監査ログなどセキュリティとガバナンス機能の標準提供。これにより各施策が個別に統制を作り込む必要がなくなる。部署ごとの個別基盤は重複投資と統制の分散を招く。"
+ },
+ {
+  "id": 82,
+  "d": 4,
+  "task": "4.2",
+  "skill": "4.2.2",
+  "skillLabel": "データ戦略の意義",
+  "type": "single",
+  "q": "経営会議で「なぜAI施策の前にデータ戦略が必要なのか」と問われた。説明として最も適切なものはどれか。",
+  "choices": [
+   "データ戦略は法令で義務付けられているため",
+   "データ量を増やすこと自体が目的であるため",
+   "データはAI施策の共通の原資であり、どのデータを誰が管理し、どう品質を担保し、どこまで共有するかを先に定めることで、個別施策の立ち上げ速度と再現性が上がるため",
+   "AIベンダーが要求するため"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: データ戦略は、個々のAI施策が毎回ゼロからデータを探し、品質を確認し、利用可否を交渉する状態を解消します。共通の原資として整備しておくことで、2件目・3件目の施策の立ち上げが加速し、投資の回収が早まります。これは経営層への説明として実感を持って伝わる論点です。",
+  "mem": "データ戦略は、個々のAI施策が毎回ゼロからデータを探し、品質を確認し、利用可否を交渉する状態を解消する。共通の原資として整備しておくと2件目・3件目の立ち上げが加速し、投資の回収が早まる。"
+ },
+ {
+  "id": 83,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.1",
+  "skillLabel": "経営スポンサーシップとAIチャンピオン",
+  "type": "single",
+  "q": "全社的なAI活用を推進するにあたり、現場の推進役（AIチャンピオン）を機能させるために経営層が果たすべき役割として最も重要なものはどれか。",
+  "choices": [
+   "チャンピオンの活動を非公式なものにとどめる",
+   "チャンピオンに全責任を委ねる",
+   "チャンピオンの人数を最大化する",
+   "方向性を明示し、活動時間の確保・予算・意思決定権限を正式に付与して、活動を評価対象に組み込む"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: 現場の推進役は、善意の兼務だけでは持続しません。経営層が方向性を示し、活動時間・予算・意思決定権限を正式に与え、その活動を評価に反映して初めて機能します。非公式のままでは、通常業務が忙しくなった瞬間に活動が止まります。",
+  "mem": "現場の推進役（AIチャンピオン）は善意の兼務だけでは持続しない。経営層が方向性を明示し、活動時間・予算・意思決定権限を正式に付与し、その活動を評価対象に組み込んで初めて機能する。非公式のままでは通常業務が忙しくなった瞬間に止まる。"
+ },
+ {
+  "id": 84,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.2",
+  "skillLabel": "クロスファンクショナルチームの編成",
+  "type": "single",
+  "q": "顧客対応領域のAI施策チームを編成する。構成として最も適切なものはどれか。",
+  "choices": [
+   "業務を熟知した事業部門の担当者、技術担当、法務・コンプライアンス担当を含め、意思決定と説明責任の所在を明確にする",
+   "IT部門と外部ベンダーのみで構成する",
+   "データサイエンティストのみで構成する",
+   "経営層のみで構成する"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: AI施策の成否は、業務知識・技術・法務の3者が同じテーブルにいるかで大きく変わります。特に業務担当者の参画がないと、統計的には正しくても現場で使えない仕組みができます。あわせて、誰が何を決め、誰が結果に説明責任を負うかを明示することが重要です。",
+  "mem": "AI施策チームは、業務を熟知した事業部門の担当者・技術担当・法務コンプライアンス担当の3者が同じテーブルにいることが要。業務担当者の参画がないと、統計的には正しくても現場で使えない仕組みができる。あわせて意思決定と説明責任の所在を明示する。"
+ },
+ {
+  "id": 85,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.3",
+  "skillLabel": "従業員の不安への透明なコミュニケーション",
+  "type": "single",
+  "q": "AI導入の発表後、現場から「自分の仕事がなくなるのではないか」という不安の声が上がっている。経営としての対応で最も適切なものはどれか。",
+  "choices": [
+   "雇用への影響について言及を避ける",
+   "導入の目的、対象となる業務の範囲、想定される役割の変化、実施時期、および人材の再配置・育成の方針を具体的に示す",
+   "不安の声を出した従業員と個別に面談し、発言を控えるよう求める",
+   "「影響は一切ない」と断言する"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 不安は、情報の空白を埋めるために生まれます。目的・対象範囲・役割の変化・時期・再配置や育成の方針を具体的に示すことが最も効果的です。言及を避ければ憶測が広がり、根拠のない断言は後に信頼を損ないます。発言の抑制は問題を地下に潜らせるだけです。",
+  "mem": "従業員の不安は情報の空白を埋めるために生まれる。目的・対象となる業務の範囲・想定される役割の変化・実施時期・人材の再配置と育成の方針を具体的に示すことが最も効果的。言及回避は憶測を広げ、根拠のない断言は後に信頼を損なう。"
+ },
+ {
+  "id": 86,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.4",
+  "skillLabel": "文化的障壁とリーダーの介入",
+  "type": "single",
+  "q": "ある企業では、AI活用の試行で失敗した部署が社内で厳しく批評される風潮があり、新しい試みへの応募が減っている。リーダーが取るべき介入として最も効果的なものはどれか。",
+  "choices": [
+   "試行の実施を一部の優秀な部署に限定する",
+   "失敗した部署の責任を明確化する",
+   "学習を目的とした試行では、あらかじめ評価基準を「成果」ではなく「検証できた仮説」に置き、失敗事例を学びとして公式に共有する場を設ける",
+   "失敗事例を社内で公開しない"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 失敗への恐れはAI導入の代表的な文化的障壁です。実験段階では評価基準を成果ではなく学習に置き、失敗を公式に共有する仕組みを作ることで、心理的安全性が確保されます。実施部署の限定は組織全体の学習機会を狭め、失敗の非公開は同じ失敗の繰り返しを招きます。",
+  "mem": "失敗への恐れはAI導入の代表的な文化的障壁。実験段階では評価基準を「成果」ではなく「検証できた仮説」に置き、失敗事例を学びとして公式に共有する場を設けることで心理的安全性が確保される。実施部署の限定は組織全体の学習機会を狭める。"
+ },
+ {
+  "id": 87,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.5",
+  "skillLabel": "全社的なAIリテラシー育成",
+  "type": "multi",
+  "q": "全社のAIリテラシーを短期間で底上げする施策として効果的なものを2つ選べ。",
+  "choices": [
+   "業務に即した実践型の研修と、部門横断のハッカソンやPoCプログラム",
+   "AIに関する書籍を配布して各自の自習に委ねる",
+   "AI関連の資格取得を人事評価から除外する",
+   "AIの利用を専門部署のみに限定する",
+   "責任あるAIに関する研修を、全従業員向けの必須プログラムとして組み込む"
+  ],
+  "answer": [
+   0,
+   4
+  ],
+  "exp": "正解: リテラシー向上は、自分の業務に紐づいた実践機会（研修＋ハッカソンやPoC）で最も進みます。同時に、責任あるAIの研修を全員必須にすることで、活用と統制を同じ速度で広げられます。自習任せは差が開くだけで、利用の限定はリテラシー向上そのものを止めます。",
+  "mem": "全社のAIリテラシー向上に効くのは①業務に即した実践型研修＋部門横断のハッカソンやPoCプログラム ②責任あるAI研修の全従業員必須化。活用と統制を同じ速度で広げるのが要点。自習任せは差が開くだけ、利用の限定はリテラシー向上そのものを止める。"
+ },
+ {
+  "id": 88,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.6",
+  "skillLabel": "人の役割の再定義",
+  "type": "single",
+  "q": "請求書処理業務の大半をAIが担うようになった。この業務の担当者の役割設計として最も適切なものはどれか。",
+  "choices": [
+   "AIの処理結果を無条件に承認する役割に限定する",
+   "担当者を全員配置転換し、業務から外す",
+   "従来どおり全件を手作業で処理し続ける",
+   "AIが処理した結果の例外・低確信度案件の判断、品質の監督、取引先との折衝といった、人の強みが生きる業務へ役割を移す"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: AI導入後の人の役割は「作業の実行者」から「例外判断と監督、そして人にしかできない関係性の仕事」へ移ります。批判的思考・共感・創造性という人の強みと、AIの処理能力を組み合わせる設計が要点です。無条件承認の役割は、人的関与を形骸化させ統制上も無意味です。",
+  "mem": "AI導入後の人の役割は「作業の実行者」から「例外・低確信度案件の判断、品質の監督、取引先との折衝」へ移る。批判的思考・共感・創造性という人の強みとAIの処理能力を組み合わせる設計が要点。無条件承認の役割は人的関与を形骸化させ統制上も無意味。"
+ },
+ {
+  "id": 89,
+  "d": 4,
+  "task": "4.3",
+  "skill": "4.3.2",
+  "skillLabel": "責任範囲の明確化",
+  "type": "single",
+  "q": "AI施策の推進体制において「説明責任者（accountable）」を1名に定めることが重要とされる理由はどれか。",
+  "choices": [
+   "複数部門が関与する施策では責任が分散しやすく、問題発生時の意思決定と対外説明が滞るため",
+   "作業効率が上がるため",
+   "人件費を抑えられるため",
+   "組織図が簡潔になるため"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: クロスファンクショナルな体制は強みである一方、責任の所在が曖昧になりやすいという弱点があります。実務を分担する担当者は複数いてよいのですが、最終的に説明責任を負う人物を1名に定めておくことで、インシデント時の判断と対外説明が滞りません。",
+  "mem": "クロスファンクショナルな体制は責任の所在が曖昧になりやすい。実務を分担する担当者は複数いてよいが、最終的に説明責任を負う人物（accountable）を1名に定めることで、インシデント時の意思決定と対外説明が滞らない。"
+ },
+ {
+  "id": 90,
+  "d": 4,
+  "task": "4.4",
+  "skill": "4.4.1",
+  "skillLabel": "反復的な変革フェーズ",
+  "type": "single",
+  "q": "AI変革を段階的に進める際のフェーズの順序として最も適切なものはどれか。",
+  "choices": [
+   "拡大 → 実験 → 構想 → 立ち上げ",
+   "構想（envision）→ 実験（experiment）→ 立ち上げ（launch）→ 拡大（scale）",
+   "立ち上げ → 構想 → 拡大 → 実験",
+   "実験 → 拡大 → 構想 → 立ち上げ"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: 構想（どこを目指すか・どのユースケースか）→ 実験（小さく検証する）→ 立ち上げ（本番として業務に組み込む）→ 拡大（他部門・他業務へ広げる）という反復サイクルが基本形です。重要なのは各フェーズの終わりに継続・修正・中止を判断するゲートを設けることです。",
+  "mem": "AI変革の反復フェーズは 構想（envision）→ 実験（experiment）→ 立ち上げ（launch）→ 拡大（scale）。重要なのは各フェーズの終わりに継続・修正・中止を判断するゲートを設けること。"
+ },
+ {
+  "id": 91,
+  "d": 4,
+  "task": "4.4",
+  "skill": "4.4.2",
+  "skillLabel": "短期的成果からのスケール",
+  "type": "single",
+  "q": "全社的なAI展開を成功させるうえで、最初に「小さく確実に成果が出るユースケース」から着手することの主な狙いはどれか。",
+  "choices": [
+   "競合に先行するため",
+   "技術検証のみを目的とするため",
+   "早期の実績で組織の信頼と支持を獲得し、次の投資と全社展開への合意形成につなげるため",
+   "予算を使い切るため"
+  ],
+  "answer": [
+   2
+  ],
+  "exp": "正解: 初期の小さな成功（クイックウィン）は、単なる効果測定ではなく、組織の支持と次の予算を獲得するための政治的資産です。同時に、展開に必要な手順・統制・教育の型を小さな範囲で作り込む機会にもなります。最初から全社規模を狙うと、失敗時の損失と信頼低下が大きくなります。",
+  "mem": "初期の小さな成功（クイックウィン）は、単なる効果測定ではなく組織の支持と次の予算を獲得するための政治的資産。同時に、展開に必要な手順・統制・教育の型を小さな範囲で作り込む機会にもなる。最初から全社規模を狙うと失敗時の損失と信頼低下が大きい。"
+ },
+ {
+  "id": 92,
+  "d": 4,
+  "task": "4.4",
+  "skill": "4.4.3",
+  "skillLabel": "CoE（センター・オブ・エクセレンス）の役割",
+  "type": "single",
+  "q": "AIのCoE（センター・オブ・エクセレンス）を設立する主な目的として最も適切なものはどれか。",
+  "choices": [
+   "外部への広報窓口を一本化する",
+   "すべてのAI施策をCoEが実行し、事業部門は関与しないようにする",
+   "AI関連の予算を一元的に管理して各部門の申請を抑制する",
+   "再利用可能な標準・ガイドライン・共通基盤・知見を集約し、各事業部門が自律的に施策を進められるよう支援する"
+  ],
+  "answer": [
+   3
+  ],
+  "exp": "正解: CoEの役割は、標準・ガイドライン・共通基盤・成功事例を集約し、事業部門の自走を支援することです。CoEがすべてを実行する体制は、CoE自身がボトルネックとなり、業務知識を持つ事業部門の当事者意識も育ちません。「実行する組織」ではなく「加速させる組織」として設計します。",
+  "mem": "CoE（センター・オブ・エクセレンス）の役割は、再利用可能な標準・ガイドライン・共通基盤・知見を集約し、事業部門が自律的に進められるよう支援すること。CoEがすべてを実行する体制はCoE自身がボトルネックとなり当事者意識も育たない。「実行する組織」ではなく「加速させる組織」。"
+ },
+ {
+  "id": 93,
+  "d": 4,
+  "task": "4.4",
+  "skill": "4.4.5",
+  "skillLabel": "実験から本番への移行要件",
+  "type": "multi",
+  "q": "PoCで成功したAI施策を本番運用へ移行する際、新たに必要となる要件を2つ選べ。",
+  "choices": [
+   "PoCで使用した検証用データセットの継続利用",
+   "本番データを用いた統制（アクセス制御、監査ログ、変更管理）と継続的な監視の仕組み",
+   "開発担当者の作業場所の変更",
+   "PoC時よりも小さな利用者数の想定",
+   "障害時の対応体制、サービス水準、および運用手順書の整備"
+  ],
+  "answer": [
+   1,
+   4
+  ],
+  "exp": "正解: 本番移行では、PoCでは不要だった運用要件（障害対応体制、サービス水準、手順書）と、本番データを扱うための統制・監視が新たに必要になります。この「PoCと本番の要件差」を見積りに織り込まないことが、展開の遅延と予算超過の典型的な原因です。",
+  "mem": "PoCから本番移行で新たに必要になるのは①本番データを扱う統制（アクセス制御・監査ログ・変更管理）と継続的な監視 ②障害時の対応体制・サービス水準・運用手順書の整備。この「PoCと本番の要件差」を見積りに織り込まないことが遅延と予算超過の典型的原因。"
+ },
+ {
+  "id": 94,
+  "d": 4,
+  "task": "4.4",
+  "skill": "4.4.4",
+  "skillLabel": "継続的なフィードバックと長期的価値の追跡",
+  "type": "single",
+  "q": "本番稼働したAI施策について、長期的な価値を維持・向上させる仕組みとして最も適切なものはどれか。",
+  "choices": [
+   "利用者からのフィードバックを収集する経路と、成功指標の定期レビューを設け、改善・再学習・撤退の判断につなげる",
+   "年1回の利用者アンケートのみを実施する",
+   "稼働後は指標の計測を終了し、次の施策へ移る",
+   "効果測定を外部コンサルタントに完全に委ねる"
+  ],
+  "answer": [
+   0
+  ],
+  "exp": "正解: AI施策の価値は稼働後に自然に維持されるものではなく、利用実態の変化・データの変化とともに劣化し得ます。フィードバック経路と定期レビューを組み込み、改善・再学習・撤退の判断につなげる運用があって初めて長期的な価値が保たれます。稼働後の計測終了は、劣化を見逃す最も一般的な失敗です。",
+  "mem": "AI施策の価値は稼働後に自然に維持されるものではなく、利用実態やデータの変化とともに劣化し得る。利用者フィードバックの収集経路と成功指標の定期レビューを設け、改善・再学習・撤退の判断につなげる。稼働後の計測終了は劣化を見逃す最も一般的な失敗。"
+ },
+ {
+  "id": 95,
+  "d": 4,
+  "task": "4.1",
+  "skill": "4.1.2",
+  "skillLabel": "AWS CAF による成熟度・ギャップの評価",
+  "type": "single",
+  "q": "全社のAI活用に向けた準備状況を、体系立てて評価したい。AWS Cloud Adoption Framework（AWS CAF）の使い方として最も適切なものはどれか。",
+  "choices": [
+   "AIモデルの精度を測定するためのベンチマーク集として用いる",
+   "ビジネス・人材・ガバナンス・プラットフォーム・セキュリティ・オペレーションの6つの視点で組織の能力を評価し、ギャップの特定と変革ロードマップの作成に用いる",
+   "AWS の料金を試算するためのツールとして用いる",
+   "個々のAIプロジェクトの進捗を日次で管理するツールとして用いる"
+  ],
+  "answer": [
+   1
+  ],
+  "exp": "正解: AWS Cloud Adoption Framework（AWS CAF）は、クラウドやAIの活用に向けて組織の能力を評価し、変革のロードマップを描くための枠組みです。ビジネス、人材（People）、ガバナンス、プラットフォーム、セキュリティ、オペレーションという6つの視点で構成されます。",
+  "mem": "AWS CAF（Cloud Adoption Framework）の6つの視点＝ビジネス／人材（People）／ガバナンス／プラットフォーム／セキュリティ／オペレーション。組織の能力を評価してギャップを特定し、変革ロードマップを描くための枠組み。「6視点」は頻出。精度ベンチマーク・料金試算・プロジェクト管理のツールではない点も押さえる。"
+ },
+ {
+  "id": 96,
+  "d": 4,
+  "task": "4.4",
+  "skill": "4.4.6",
+  "skillLabel": "スケール時の事業継続性とパフォーマンスの確保",
+  "type": "multi",
+  "q": "1部門で成功したAI施策を、全社の基幹業務へ拡大する。拡大にあたって事業継続性とパフォーマンスの観点から評価すべき事項を2つ選べ。",
+  "choices": [
+   "施策名の社内公募",
+   "拡大に合わせたロゴデザインの刷新",
+   "利用が全社規模に増えたときの処理能力・応答時間と、上限に達した場合の縮退運転や優先順位の方針",
+   "拡大先の部門の座席レイアウト",
+   "AIが停止した場合に業務を継続する代替手段（手作業への切り戻し手順を含む）と、その訓練"
+  ],
+  "answer": [
+   2,
+   4
+  ],
+  "exp": "正解: 1部門で動いていた仕組みを全社へ広げると、処理件数と同時利用者数が桁違いに増えます。まず評価すべきは、その負荷でも必要な応答時間を保てるか、上限に達した場合にどう振る舞うか（縮退運転、処理の優先順位付け、待機の許容）です。",
+  "mem": "パイロットから全社展開へスケールする際の必須評価は2軸。①パフォーマンス＝増えた処理件数・同時利用者数に耐えられるか、上限時の縮退運転や優先順位の方針 ②事業継続性＝AIが停止しても業務を続ける代替手段（手作業への切り戻し手順）と訓練。基幹業務への組み込みは「AIが止まる＝業務が止まる」を意味する点が要。"
+ }
+];
+
+
+const DOMAINS = {
+  1:{name:"AIの基礎とリテラシー", short:"D1 基礎とリテラシー", w:24, color:"var(--d1)"},
+  2:{name:"AI戦略とビジネス価値創出", short:"D2 戦略と価値創出", w:28, color:"var(--d2)"},
+  3:{name:"AIガバナンスと責任あるAI", short:"D3 ガバナンス", w:24, color:"var(--d3)"},
+  4:{name:"ビジネス準備とAI変革", short:"D4 準備と変革", w:24, color:"var(--d4)"}
+};
+const KEYS = ["A","B","C","D","E"];
+const STORE = "aibc01-drill-v2";
+const EXAM_SECONDS = 192*60;
+
+const state = {
+  mode:"practice",
+  filter:"all",
+  pos:0,
+  answers:{},
+  revealed:{},
+  view:"quiz",
+  examStart:null,
+  examEnded:false,
+  shuffle:true,
+  perm:{}
+};
+
+/* ---------- persistence ---------- */
+function save(){
+  try{
+    localStorage.setItem(STORE, JSON.stringify({
+      mode:state.mode, filter:state.filter, pos:state.pos,
+      answers:state.answers, revealed:state.revealed,
+      examStart:state.examStart, examEnded:state.examEnded,
+      shuffle:state.shuffle, perm:state.perm
+    }));
+  }catch(e){/* storage unavailable — session-only is fine */}
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(STORE);
+    if(!raw) return;
+    const s = JSON.parse(raw);
+    if(s && typeof s === "object"){
+      state.mode = s.mode === "exam" ? "exam" : "practice";
+      state.filter = s.filter || "all";
+      state.answers = s.answers || {};
+      state.revealed = s.revealed || {};
+      state.examStart = s.examStart || null;
+      state.examEnded = !!s.examEnded;
+      state.pos = Number.isInteger(s.pos) ? s.pos : 0;
+      state.shuffle = s.shuffle !== false;
+      state.perm = (s.perm && typeof s.perm === "object") ? s.perm : {};
+    }
+  }catch(e){/* ignore corrupt or blocked storage */}
+}
+
+/* ---------- helpers ---------- */
+function order(){
+  if(state.filter.startsWith("d")) return QUESTIONS.filter(q => q.d === Number(state.filter[1]));
+  if(state.filter === "wrong") return QUESTIONS.filter(q => state.answers[q.id] && !isRight(q));
+  if(state.filter === "unanswered") return QUESTIONS.filter(q => !state.answers[q.id]);
+  return QUESTIONS;
+}
+function current(){
+  const list = order();
+  if(!list.length) return null;
+  if(state.pos >= list.length) state.pos = list.length - 1;
+  if(state.pos < 0) state.pos = 0;
+  return list[state.pos];
+}
+function same(a,b){
+  if(!a || a.length !== b.length) return false;
+  const x=[...a].sort((m,n)=>m-n), y=[...b].sort((m,n)=>m-n);
+  return x.every((v,i)=>v===y[i]);
+}
+function isRight(q){ return same(state.answers[q.id], q.answer); }
+function answeredCount(){ return QUESTIONS.filter(q=>state.answers[q.id]).length; }
+function rightCount(){ return QUESTIONS.filter(q=>state.answers[q.id] && isRight(q)).length; }
+function shown(q){ return state.mode === "practice" ? !!state.revealed[q.id] : state.examEnded; }
+
+/* 表示順（元インデックスの配列）を返す。回答は常に元インデックスで保持する */
+function permFor(q){
+  if(!state.shuffle) return q.choices.map((_,i)=>i);
+  const cached = state.perm[q.id];
+  if(Array.isArray(cached) && cached.length === q.choices.length) return cached;
+  const a = q.choices.map((_,i)=>i);
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  state.perm[q.id] = a;
+  return a;
+}
+
+/* ---------- rail ---------- */
+function renderRail(){
+  const done = answeredCount();
+  document.getElementById("stat-done").innerHTML =
+    done + '<small style="font-size:13px;color:var(--muted)">/' + QUESTIONS.length + '</small>';
+  const graded = QUESTIONS.filter(q => state.answers[q.id] && shown(q));
+  document.getElementById("stat-rate").textContent =
+    graded.length ? Math.round(rightCount()/graded.length*100) + "%" : "—";
+
+  const cur = current();
+  const bands = document.getElementById("bands");
+  bands.innerHTML = "";
+  [1,2,3,4].forEach(d => {
+    const qs = QUESTIONS.filter(q => q.d === d);
+    const band = document.createElement("div");
+    band.className = "band";
+    const doneD = qs.filter(q => state.answers[q.id]).length;
+    const head = document.createElement("div");
+    head.className = "band-head";
+    head.innerHTML = '<span class="dot" style="background:'+DOMAINS[d].color+'"></span>' +
+      '<span class="nm">'+DOMAINS[d].short+'</span>' +
+      '<span class="ct mono">'+doneD+'/'+qs.length+'</span>';
+    band.appendChild(head);
+    const cells = document.createElement("div");
+    cells.className = "cells";
+    qs.forEach(q => {
+      const b = document.createElement("button");
+      b.className = "cell";
+      b.type = "button";
+      b.title = "問 " + q.id;
+      b.setAttribute("aria-label", "問 " + q.id + "へ移動");
+      const a = state.answers[q.id];
+      if(a){
+        if(shown(q)) b.classList.add(isRight(q) ? "correct" : "wrong");
+        else b.classList.add("answered");
+      }
+      if(cur && cur.id === q.id) b.classList.add("current");
+      b.addEventListener("click", () => jumpTo(q.id));
+      cells.appendChild(b);
+    });
+    band.appendChild(cells);
+    bands.appendChild(band);
+  });
+}
+
+function jumpTo(id){
+  const list = order();
+  let i = list.findIndex(q => q.id === id);
+  if(i < 0){
+    state.filter = "all";
+    document.getElementById("filter").value = "all";
+    i = QUESTIONS.findIndex(q => q.id === id);
+  }
+  state.pos = i;
+  state.view = "quiz";
+  render();
+  document.getElementById("quiz").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* ---------- question ---------- */
+function render(){
+  document.getElementById("mode-practice").setAttribute("aria-pressed", state.mode === "practice");
+  document.getElementById("mode-exam").setAttribute("aria-pressed", state.mode === "exam");
+  document.getElementById("timer-wrap").hidden = state.mode !== "exam";
+  document.getElementById("filter").value = state.filter;
+  const sh = document.getElementById("shuffle-toggle");
+  sh.setAttribute("aria-pressed", state.shuffle);
+  sh.textContent = state.shuffle ? "シャッフルする" : "固定（データ順）";
+
+  const quiz = document.getElementById("quiz");
+  const result = document.getElementById("result");
+  quiz.hidden = state.view !== "quiz";
+  result.hidden = state.view !== "result";
+  if(state.view === "result") renderResult();
+
+  const q = current();
+  if(!q){
+    quiz.hidden = false;
+    result.hidden = true;
+    document.getElementById("qhead").innerHTML = '<span class="qnum">該当なし</span>';
+    document.getElementById("stem").textContent = "この条件に当てはまる問題はありません。出題範囲を切り替えてください。";
+    document.getElementById("choices").innerHTML = "";
+    document.getElementById("feedback").hidden = true;
+    renderRail();
+    return;
+  }
+
+  const list = order();
+  const dom = DOMAINS[q.d];
+  document.getElementById("qhead").innerHTML =
+    '<span class="qnum">問 ' + String(q.id).padStart(2,"0") + ' / ' + QUESTIONS.length + '</span>' +
+    '<span class="chip dom" style="background:'+dom.color+'">'+dom.name+'</span>' +
+    '<span class="chip skill">'+q.skill+' '+q.skillLabel+'</span>' +
+    (q.type === "multi" ? '<span class="chip multi">複数選択（'+q.answer.length+'つ）</span>' : "");
+
+  document.getElementById("stem").textContent = q.q;
+
+  const picked = state.answers[q.id] || [];
+  const reveal = shown(q);
+  const box = document.getElementById("choices");
+  box.innerHTML = "";
+  const perm = permFor(q);
+  perm.forEach((orig, di) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "choice";
+    if(picked.includes(orig)) b.classList.add("picked");
+    if(reveal){
+      if(q.answer.includes(orig)) b.classList.add("is-correct");
+      else if(picked.includes(orig)) b.classList.add("is-wrong");
+      b.disabled = true;
+    }
+    b.innerHTML = '<span class="key">'+KEYS[di]+'</span><span>'+escapeHtml(q.choices[orig])+'</span>';
+    b.addEventListener("click", () => pick(q, orig));
+    box.appendChild(b);
+  });
+
+  const fb = document.getElementById("feedback");
+  if(reveal){
+    const ok = isRight(q);
+    fb.hidden = false;
+    fb.innerHTML =
+      '<div class="verdict '+(ok?"ok":"ng")+'">' +
+        '<span class="mark">'+(ok?"Correct":"Review")+'</span>' +
+        '<span class="ans mono">正解 '+q.answer.map(i=>KEYS[perm.indexOf(i)]).sort().join(" · ")+'</span>' +
+      '</div>' +
+      '<p class="exp"><span class="exp-label">解説</span>'+escapeHtml(q.exp)+'</p>' +
+      '<p class="mem"><span class="exp-label">暗記ポイント</span>'+escapeHtml(q.mem)+'</p>';
+  }else{
+    fb.hidden = true;
+    fb.innerHTML = "";
+  }
+
+  document.getElementById("btn-prev").disabled = state.pos === 0;
+  const next = document.getElementById("btn-next");
+  const last = state.pos >= list.length - 1;
+  if(state.mode === "practice" && picked.length && !reveal){
+    next.textContent = "答え合わせ";
+  }else{
+    next.textContent = last ? "採点画面へ →" : "次の問題 →";
+  }
+  renderRail();
+  save();
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function pick(q, i){
+  if(shown(q)) return;
+  let cur = state.answers[q.id] ? [...state.answers[q.id]] : [];
+  if(q.type === "single"){
+    cur = [i];
+  }else{
+    if(cur.includes(i)) cur = cur.filter(v => v !== i);
+    else if(cur.length < q.answer.length) cur.push(i);
+    else { cur.shift(); cur.push(i); }
+  }
+  state.answers[q.id] = cur;
+  if(state.mode === "practice" && q.type === "single") state.revealed[q.id] = true;
+  if(state.mode === "practice" && q.type === "multi" && cur.length === q.answer.length) state.revealed[q.id] = true;
+  render();
+}
+
+function step(delta){
+  const list = order();
+  const q = current();
+  if(delta > 0 && state.mode === "practice" && q && state.answers[q.id] && !state.revealed[q.id]){
+    state.revealed[q.id] = true;
+    render();
+    return;
+  }
+  if(delta > 0 && state.pos >= list.length - 1){
+    state.view = "result";
+    if(state.mode === "exam") state.examEnded = true;
+    render();
+    return;
+  }
+  state.pos = Math.min(Math.max(state.pos + delta, 0), list.length - 1);
+  render();
+}
+
+/* ---------- result ---------- */
+function renderResult(){
+  const graded = QUESTIONS.filter(q => state.answers[q.id]);
+  const right = graded.filter(isRight).length;
+  const rate = graded.length ? right / graded.length : 0;
+  const scaled = Math.round(100 + rate * 900);
+  const pass = scaled >= 700;
+
+  let html =
+    '<h2>採点結果</h2>' +
+    '<p class="sub">回答 ' + graded.length + ' 問 / 全 ' + QUESTIONS.length + ' 問（未回答は集計対象外）</p>' +
+    '<div class="scoreline">' +
+      '<div class="big"><span class="k">正答率</span><span class="v">' + Math.round(rate*100) + '<small>%</small></span></div>' +
+      '<div class="big"><span class="k">スケールドスコア換算（参考）</span><span class="v">' + scaled + '</span></div>' +
+      '<span class="judge ' + (pass ? "pass" : "fail") + '">' + (pass ? "合格ライン（700）到達" : "合格ラインまで正答 " + Math.max(1, Math.ceil(graded.length*2/3 - right)) + " 問ぶん") + '</span>' +
+    '</div>' +
+    '<div class="dbars">';
+
+  [1,2,3,4].forEach(d => {
+    const qs = QUESTIONS.filter(q => q.d === d && state.answers[q.id]);
+    const r = qs.filter(isRight).length;
+    const pct = qs.length ? Math.round(r/qs.length*100) : 0;
+    html +=
+      '<div class="dbar">' +
+        '<div class="top">' +
+          '<span class="nm">' + DOMAINS[d].name + '</span>' +
+          '<span class="w mono">出題比率 ' + DOMAINS[d].w + '%</span>' +
+          '<span class="sc">' + (qs.length ? r + " / " + qs.length + "　" + pct + "%" : "未回答") + '</span>' +
+        '</div>' +
+        '<div class="track"><div class="fill" style="width:' + pct + '%;background:' + DOMAINS[d].color + '"></div></div>' +
+      '</div>';
+  });
+  html += '</div>';
+
+  const missed = QUESTIONS.filter(q => state.answers[q.id] && !isRight(q));
+  html += '<div class="weak"><h3>復習が必要なスキル項目</h3>';
+  if(!missed.length){
+    html += '<p class="empty">誤答はありません。出題範囲を切り替えて残りの問題に進んでください。</p>';
+  }else{
+    html += '<ul>' + missed.map(q =>
+      '<li><span class="code mono">' + q.skill + '</span>' +
+      '<button type="button" data-jump="' + q.id + '">' + escapeHtml(q.skillLabel) + '（問 ' + q.id + '）</button></li>'
+    ).join("") + '</ul>';
+  }
+  html += '</div>';
+
+  html += '<p class="caveat">スケールドスコアは正答率から線形換算した参考値です。実際の試験は項目応答理論に基づく採点で、採点対象外の問題も含まれるため、この数値がそのまま本番のスコアになるわけではありません。分野別の偏りを把握する目安としてお使いください。</p>';
+
+  html += '<div class="qnav" style="margin-top:22px">' +
+    '<button class="btn primary" data-act="review">誤答だけ復習する</button>' +
+    '<button class="btn" data-act="back">問題に戻る</button>' +
+    '</div>';
+
+  const el = document.getElementById("result");
+  el.innerHTML = html;
+  el.querySelectorAll("[data-jump]").forEach(b =>
+    b.addEventListener("click", () => jumpTo(Number(b.dataset.jump))));
+  el.querySelector('[data-act="review"]').addEventListener("click", () => {
+    state.filter = "wrong"; state.pos = 0; state.view = "quiz"; render();
+  });
+  el.querySelector('[data-act="back"]').addEventListener("click", () => {
+    state.view = "quiz"; render();
+  });
+}
+
+/* ---------- timer ---------- */
+function tick(){
+  if(state.mode !== "exam" || !state.examStart || state.examEnded) return;
+  const left = EXAM_SECONDS - Math.floor((Date.now() - state.examStart)/1000);
+  const el = document.getElementById("timer");
+  if(left <= 0){
+    el.textContent = "00:00";
+    state.examEnded = true;
+    state.view = "result";
+    render();
+    return;
+  }
+  const m = Math.floor(left/60), s = left%60;
+  el.textContent = String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
+  el.classList.toggle("warn", left < 15*60);
+}
+
+/* ---------- wiring ---------- */
+document.getElementById("mode-practice").addEventListener("click", () => {
+  state.mode = "practice"; state.examEnded = false; render();
+});
+document.getElementById("mode-exam").addEventListener("click", () => {
+  state.mode = "exam";
+  state.examEnded = false;
+  if(!state.examStart) state.examStart = Date.now();
+  state.view = "quiz";
+  render(); tick();
+});
+document.getElementById("filter").addEventListener("change", e => {
+  state.filter = e.target.value; state.pos = 0; state.view = "quiz"; render();
+});
+document.getElementById("shuffle-toggle").addEventListener("click", () => {
+  state.shuffle = !state.shuffle;
+  state.perm = {};
+  render();
+});
+document.getElementById("btn-prev").addEventListener("click", () => step(-1));
+document.getElementById("btn-next").addEventListener("click", () => step(1));
+document.getElementById("btn-grade").addEventListener("click", () => {
+  if(state.mode === "exam") state.examEnded = true;
+  state.view = "result"; render();
+  document.getElementById("result").scrollIntoView({behavior:"smooth", block:"start"});
+});
+document.getElementById("btn-reset").addEventListener("click", () => {
+  state.answers = {}; state.revealed = {}; state.perm = {}; state.pos = 0;
+  state.examStart = null; state.examEnded = false; state.view = "quiz";
+  render();
+});
+document.addEventListener("keydown", e => {
+  if(e.target.tagName === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
+  if(e.key >= "1" && e.key <= "5"){
+    const q = current();
+    if(q && Number(e.key) <= q.choices.length){ pick(q, permFor(q)[Number(e.key)-1]); e.preventDefault(); }
+  }else if(e.key === "Enter" || e.key === "ArrowRight"){
+    step(1); e.preventDefault();
+  }else if(e.key === "ArrowLeft"){
+    step(-1); e.preventDefault();
+  }
+});
+
+load();
+render();
+setInterval(tick, 1000);
+tick();
+</script>
+</body>
+</html>
