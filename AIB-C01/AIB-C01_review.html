@@ -205,11 +205,11 @@ body{
   <header class="mast">
     <span class="eyebrow">AWS Certified · AIB-C01</span>
     <h1>AI Business Strategist<br>要点問題集</h1>
-    <p class="sub">AWS Certified AI Business Strategist（ベータ）試験ガイドの出題範囲に沿った96問。問題 → 答え → 解説 → 暗記ポイント の順に、上から読み進めるだけの構成です。</p>
+    <p class="sub">AWS Certified AI Business Strategist（ベータ）試験ガイドの出題範囲に沿った98問。問題 → 答え → 解説 → 暗記ポイント の順に、上から読み進めるだけの構成です。</p>
     <div class="howto">
       <b>使い方</b>　選択肢は正解だけを載せています。問題文を読んで自分なりの答えを頭に浮かべてから、下の「答え」を見てください。太字の一行がその問題の要点、その下が詳しい解説、最後のオレンジの枠が試験直前に見返す暗記ポイントです。<br>
       <b>直前に見返すとき</b>　各問の暗記ポイントと、巻末の<a href="#note">暗記ノート</a>だけを拾い読みしてください。<br>
-      <b>解く練習をしたいとき</b>　同じ96問を4択形式で解ける演習ドリルを別に用意しています。仕上げはそちらでどうぞ。
+      <b>解く練習をしたいとき</b>　同じ98問を4択形式で解ける演習ドリルを別に用意しています。仕上げはそちらでどうぞ。
     </div>
     <nav class="jump">
       <a href="#d1">D1 基礎とリテラシー</a>
@@ -225,7 +225,7 @@ body{
     <span class="domno mono">Domain 1</span>
     <h2>AIの基礎とリテラシー</h2>
     <p class="domlead">AI・ML・生成AIの区別、データの種類と品質、ルールベースとの使い分け、RAG／ファインチューニング、トークンとプロンプト、国際規格</p>
-    <p class="dommeta mono">出題比率 24% ／ 問 01–23（全23問）</p>
+    <p class="dommeta mono">出題比率 24% ／ 問 01–24（全24問）</p>
   </header>
   <article class="qa" id="q1">
     <div class="qmeta">
@@ -710,6 +710,27 @@ body{
       <p>シャドーAI対策の型は「透明なツール分類（承認済み／評価中／利用禁止）＋承認済みの代替手段＋申請経路」。全面禁止は利用を地下に潜らせて可視性を失う。AWS 環境なら Amazon Bedrock・Amazon Quick を自社アカウント内の承認済み手段として提供でき、アクセス制御とログを自社ポリシー下に置ける点が個人契約との違い。</p>
     </div>
   </article>
+  <article class="qa" id="q24">
+    <div class="qmeta">
+      <span class="no mono">24</span>
+      <span class="code mono">1.3.3</span>
+      <span class="tag">独自モデルを構築する場面（Amazon SageMaker AI）</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">製造ラインの画像から、自社独自の欠陥基準で良品・不良品を判定するモデルを作りたい。既成の基盤モデルをそのまま使っても自社基準での判定精度が出ず、社内には十分な量の教師データと機械学習エンジニアがそろっている。AWS 上の選択肢として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">Amazon SageMaker AI で、自社の教師データを用いて判定モデルを構築・学習・デプロイする</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">既成の基盤モデルで満たせない独自モデルを、自社データで作る層が Amazon SageMaker AI。</p>
+      <p>要件は、①判定基準が自社独自 ②既成の基盤モデルでは精度が出ない ③自前の教師データと機械学習の人材がある、の3点です。この条件がそろったときに選ぶのが Amazon SageMaker AI で、独自モデルの構築・学習・デプロイ・運用までを一貫して行えます。</p><p>Amazon Bedrock の Knowledge Bases は、文書を根拠にテキストで回答させる RAG の仕組みです。判定基準を文章で登録しても、画像から良品・不良品を判定する用途には合いません。Amazon Quick は BI・可視化の層で、結果を見せることはできてもモデルを作る手段ではありません。</p><p>AWS Marketplace は既製品を調達する場（buy）です。今回は「既成のもので精度が出ない」ことが前提なので、汎用製品をそのまま適用しても要件を満たしません。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>AWS の生成AI/ML は3層で仕分ける。Amazon Bedrock＝既成の基盤モデルを API で使う層。Amazon SageMaker AI＝独自モデルを自社データで構築・学習・デプロイする層。Amazon Quick＝BI・可視化の層。判断は「既成モデルで足りるか」で行い、足りなければ SageMaker AI へ上がる。逆に、足りるのに SageMaker AI を選ぶのは過剰投資として誤答になる。</p>
+    </div>
+  </article>
 </section>
 
 <section class="dom d2" id="d2">
@@ -717,11 +738,11 @@ body{
     <span class="domno mono">Domain 2</span>
     <h2>AI戦略とビジネス価値創出</h2>
     <p class="domlead">ユースケースの選定、build-buy-partner、KPIとベースライン、ROI算出とコスト最適化、競争優位とビジネスモデル変革</p>
-    <p class="dommeta mono">出題比率 28% ／ 問 24–50（全27問）</p>
+    <p class="dommeta mono">出題比率 28% ／ 問 25–52（全28問）</p>
   </header>
-  <article class="qa" id="q24">
+  <article class="qa" id="q25">
     <div class="qmeta">
-      <span class="no mono">24</span>
+      <span class="no mono">25</span>
       <span class="code mono">2.1.1</span>
       <span class="tag">高インパクトなユースケースの特定</span>
     </div>
@@ -740,9 +761,9 @@ body{
       <p>初期テーマの選定軸は「インパクト × 実現可能性（データの有無・技術成熟度）× 測定可能性」。最初の案件は全社の支持を得る実績づくりを兼ねるため、成果が数字で示せることが特に重要。技術的新規性や他社の動向は自社の成果を保証しない。</p>
     </div>
   </article>
-  <article class="qa" id="q25">
+  <article class="qa" id="q26">
     <div class="qmeta">
-      <span class="no mono">25</span>
+      <span class="no mono">26</span>
       <span class="code mono">2.1.2</span>
       <span class="tag">Build / Buy / Partner の判断</span><span class="pill">答えは2つ</span>
     </div>
@@ -761,9 +782,9 @@ body{
       <p>buy が合理的なのは「求める機能が業界標準的で差別化の源泉になりにくい」かつ「短期立ち上げが必要で社内人材が不足」の場合。競争優位の中核領域は build / partner。ベンダー依存の排除は buy の根拠にならず、外部製品を使っても規制当局への説明責任は利用企業に残る。</p>
     </div>
   </article>
-  <article class="qa" id="q26">
+  <article class="qa" id="q27">
     <div class="qmeta">
-      <span class="no mono">26</span>
+      <span class="no mono">27</span>
       <span class="code mono">2.1.3</span>
       <span class="tag">AI施策の優先順位付けと中止判断</span>
     </div>
@@ -782,9 +803,9 @@ body{
       <p>優先順位付けには「拡大（scale）・保留（pause）・中止（terminate）」を明示的に選ぶ規律が含まれる。技術的成功と事業的成功は別物で、精度が目標に達したことは投資判断の十分条件ではない。</p>
     </div>
   </article>
-  <article class="qa" id="q27">
+  <article class="qa" id="q28">
     <div class="qmeta">
-      <span class="no mono">27</span>
+      <span class="no mono">28</span>
       <span class="code mono">2.1.4</span>
       <span class="tag">AIが適切でない場面の判断</span>
     </div>
@@ -803,9 +824,9 @@ body{
       <p>AI適用を見送るべきなのは、事例数が極端に少なく学習データを確保できず、かつ個別の判断根拠を完全に説明する義務がある業務。人による判断＋明文化されたチェックリストのほうが適切。逆に件数が多くパターンが学習可能な業務はAIの得意領域。</p>
     </div>
   </article>
-  <article class="qa" id="q28">
+  <article class="qa" id="q29">
     <div class="qmeta">
-      <span class="no mono">28</span>
+      <span class="no mono">29</span>
       <span class="code mono">2.1.5</span>
       <span class="tag">業務プロセス移行時の考慮事項</span><span class="pill">答えは2つ</span>
     </div>
@@ -824,9 +845,9 @@ body{
       <p>業務プロセス移行の計画に必ず含めるのは①業務継続性（並行稼働・段階移行・切り戻し手順）②期待どおり動かない場合のコスト影響と撤退基準。加えてデータ準備状況と性能への影響も主要な検討軸。</p>
     </div>
   </article>
-  <article class="qa" id="q29">
+  <article class="qa" id="q30">
     <div class="qmeta">
-      <span class="no mono">29</span>
+      <span class="no mono">30</span>
       <span class="code mono">2.1.2</span>
       <span class="tag">ベンダー提案の評価</span>
     </div>
@@ -845,9 +866,9 @@ body{
       <p>AIベンダー評価では、機能・ライセンス費用に加えて「投入データが提供者側の学習に二次利用されないか」「データがどの地域に保存されるか」「自社が従う規制に適合するか」の3点が必須確認事項。</p>
     </div>
   </article>
-  <article class="qa" id="q30">
+  <article class="qa" id="q31">
     <div class="qmeta">
-      <span class="no mono">30</span>
+      <span class="no mono">31</span>
       <span class="code mono">2.1.5</span>
       <span class="tag">AIプラットフォーム移行の検討</span>
     </div>
@@ -866,9 +887,9 @@ body{
       <p>プラットフォーム移行で支配的になるのは、月額単価の差ではなく切り替えコスト（プロンプト資産の作り直し・品質同等性の再検証・業務手順書と利用者教育の更新）。この切り替えコストの大きさがロックインの実態。</p>
     </div>
   </article>
-  <article class="qa" id="q31">
+  <article class="qa" id="q32">
     <div class="qmeta">
-      <span class="no mono">31</span>
+      <span class="no mono">32</span>
       <span class="code mono">2.1.3</span>
       <span class="tag">施策の停止・中止の判断根拠</span>
     </div>
@@ -887,9 +908,9 @@ body{
       <p>中止（terminate）の正当な根拠は、価値仮説そのものが崩れたこと（業務要件の変化・前提データの喪失・規制環境の変化）。人事異動や短期の遅延は体制・計画の調整で対応する事象、他社の発表は自社の価値仮説を否定しない。</p>
     </div>
   </article>
-  <article class="qa" id="q32">
+  <article class="qa" id="q33">
     <div class="qmeta">
-      <span class="no mono">32</span>
+      <span class="no mono">33</span>
       <span class="code mono">2.1.1</span>
       <span class="tag">経営目標とAI施策の紐づけ</span>
     </div>
@@ -908,16 +929,16 @@ body{
       <p>経営目標との整合は、目標を要因に分解し、AI施策が動かす中間指標（初回応答時間・解約予兆の検知率など）と最終指標への寄与という因果の道筋で示す。この指標のつながりが、そのまま効果測定の設計に接続する。</p>
     </div>
   </article>
-  <article class="qa" id="q33">
+  <article class="qa" id="q34">
     <div class="qmeta">
-      <span class="no mono">33</span>
+      <span class="no mono">34</span>
       <span class="code mono">2.2.1</span>
       <span class="tag">AI施策のKPI設計（有形・無形）</span><span class="pill">答えは2つ</span>
     </div>
     <p class="q">社内文書検索AIの効果を測定するKPIを設計している。無形（intangible）の便益に分類されるものを2つ選べ。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <ul class="anslist"><li>従業員満足度スコアの向上</li><li>新入社員が独力で業務を進められるまでの体感的な不安の軽減</li></ul>
+      <ul class="anslist"><li>新入社員が独力で業務を進められるまでの体感的な不安の軽減</li><li>従業員満足度スコアの向上</li></ul>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -929,9 +950,9 @@ body{
       <p>無形（intangible）便益＝従業員満足度・心理的負荷の軽減など金額換算しにくいもの。有形（tangible）便益＝時間削減額・ライセンス費用・印刷コストなど金額換算できるもの。無形は無視せず代理指標で測定し、有形と併記する。</p>
     </div>
   </article>
-  <article class="qa" id="q34">
+  <article class="qa" id="q35">
     <div class="qmeta">
-      <span class="no mono">34</span>
+      <span class="no mono">35</span>
       <span class="code mono">2.2.2</span>
       <span class="tag">導入前ベースラインの計測</span>
     </div>
@@ -950,9 +971,9 @@ body{
       <p>ベースライン（導入前の現状値）がなければ、AIによる改善分を他要因と切り分けて示せない。KPIと同じ定義・同じ計測方法で導入前に取得する。AIを適用しない対照グループを設けると外部要因もさらに切り分けられる。</p>
     </div>
   </article>
-  <article class="qa" id="q35">
+  <article class="qa" id="q36">
     <div class="qmeta">
-      <span class="no mono">35</span>
+      <span class="no mono">36</span>
       <span class="code mono">2.2.3</span>
       <span class="tag">AIのROI算出</span><span class="pill">答えは2つ</span>
     </div>
@@ -971,9 +992,9 @@ body{
       <p>ROIのコスト側で過小評価されがちな2項目は①本番稼働後の推論利用料と精度監視・再学習の継続費用 ②データ整備・前処理および業務プロセス変更・教育の工数。期待売上はベネフィット側、他社の投資額は自社のコストではない。</p>
     </div>
   </article>
-  <article class="qa" id="q36">
+  <article class="qa" id="q37">
     <div class="qmeta">
-      <span class="no mono">36</span>
+      <span class="no mono">37</span>
       <span class="code mono">2.2.4</span>
       <span class="tag">成功を予測する先行指標</span>
     </div>
@@ -992,9 +1013,9 @@ body{
       <p>先行指標（leading indicator）は最終成果より前に動き成果を予測する指標。生成AI展開では週次アクティブ利用率と利用者あたりの反復利用回数が最も早い予兆。営業利益率や翌年度予算は遅行指標で軌道修正に間に合わない。</p>
     </div>
   </article>
-  <article class="qa" id="q37">
+  <article class="qa" id="q38">
     <div class="qmeta">
-      <span class="no mono">37</span>
+      <span class="no mono">38</span>
       <span class="code mono">2.2.5</span>
       <span class="tag">AIコストの管理と最適化</span><span class="pill">答えは2つ</span>
     </div>
@@ -1013,9 +1034,9 @@ body{
       <p>コスト最適化の基本は①用途に応じたモデルの使い分け（単純タスクには軽量モデル）②入力トークン量の削減（参照範囲の絞り込み・履歴の要約・キャッシュ活用）。利用停止は価値も失い、検証工程の廃止は品質後退、最上位モデルへの統一は増コスト。</p>
     </div>
   </article>
-  <article class="qa" id="q38">
+  <article class="qa" id="q39">
     <div class="qmeta">
-      <span class="no mono">38</span>
+      <span class="no mono">39</span>
       <span class="code mono">2.2.3</span>
       <span class="tag">生産性向上の定量化</span>
     </div>
@@ -1034,9 +1055,9 @@ body{
       <p>生産性向上を金額換算するときは「時間削減 × 単価」だけでは机上の数字と受け取られる。空いた時間が何に振り向けられたかと、換算の前提（対象人数・稼働率）を明示することで監査にも耐える説明になる。業界平均の流用は自社の実態を反映しない。</p>
     </div>
   </article>
-  <article class="qa" id="q39">
+  <article class="qa" id="q40">
     <div class="qmeta">
-      <span class="no mono">39</span>
+      <span class="no mono">40</span>
       <span class="code mono">2.2.2</span>
       <span class="tag">効果測定における交絡要因</span>
     </div>
@@ -1055,9 +1076,9 @@ body{
       <p>同時期の他施策（交絡要因）を切り分けないまま成果を主張すると、効果を過大評価して後の投資判断を誤らせる。対照グループの設定、段階的な展開による比較、影響要因の明示で手当てする。</p>
     </div>
   </article>
-  <article class="qa" id="q40">
+  <article class="qa" id="q41">
     <div class="qmeta">
-      <span class="no mono">40</span>
+      <span class="no mono">41</span>
       <span class="code mono">2.2.1</span>
       <span class="tag">無形便益の扱い方</span>
     </div>
@@ -1076,9 +1097,9 @@ body{
       <p>金額換算が難しい便益は、代理指標（NPS・再購入率など）で継続測定し、有形便益とは区別して併記する。除外すれば価値を過小評価し、根拠の薄い推定値を有形便益に合算すれば試算全体の信頼性を損なう。</p>
     </div>
   </article>
-  <article class="qa" id="q41">
+  <article class="qa" id="q42">
     <div class="qmeta">
-      <span class="no mono">41</span>
+      <span class="no mono">42</span>
       <span class="code mono">2.2.5</span>
       <span class="tag">PoCから本番へのコスト計画</span>
     </div>
@@ -1097,9 +1118,9 @@ body{
       <p>PoCと本番の費用差は①規模（利用者数 × 処理件数）が桁違いに増える ②PoCでは不要だった運用体制（監視・ヘルプデスク・教育・ガバナンス）の費用が新たに発生する、の2点で生じる。この構造を先に示すことが予算差し戻しを防ぐ最善策。</p>
     </div>
   </article>
-  <article class="qa" id="q42">
+  <article class="qa" id="q43">
     <div class="qmeta">
-      <span class="no mono">42</span>
+      <span class="no mono">43</span>
       <span class="code mono">2.3.3</span>
       <span class="tag">持続的な競争優位の源泉</span>
     </div>
@@ -1118,9 +1139,9 @@ body{
       <p>基盤モデル自体はコモディティに近く、持続的な差別化は「自社固有のデータ」「業務プロセスへの深い統合」「運用を通じて蓄積される改善ノウハウ」から生まれる。最新モデルの先行採用は短期的優位に過ぎず数か月で追随される。</p>
     </div>
   </article>
-  <article class="qa" id="q43">
+  <article class="qa" id="q44">
     <div class="qmeta">
-      <span class="no mono">43</span>
+      <span class="no mono">44</span>
       <span class="code mono">2.3.2</span>
       <span class="tag">AIによるビジネスモデル変革</span>
     </div>
@@ -1139,9 +1160,9 @@ body{
       <p>収益の源泉を製品売り切りから継続的なサービス収入へ広げる動きはビジネスモデル変革。AIの価値は「今の仕事を速くする」だけでなく「これまで売れなかったものを売れるようにする」点にもあり、後者のほうが競争優位は大きい。</p>
     </div>
   </article>
-  <article class="qa" id="q44">
+  <article class="qa" id="q45">
     <div class="qmeta">
-      <span class="no mono">44</span>
+      <span class="no mono">45</span>
       <span class="code mono">2.3.4</span>
       <span class="tag">業界成熟度に応じた投資水準</span>
     </div>
@@ -1160,9 +1181,9 @@ body{
       <p>業界で標準化した機能は差別化要因ではなく参入資格（table stakes）。未対応は明確な不利になるため追随は必要だが、それ自体では優位を生まない。追随投資と並行して自社固有の資産に基づく差別化領域を探すのが妥当な配分。</p>
     </div>
   </article>
-  <article class="qa" id="q45">
+  <article class="qa" id="q46">
     <div class="qmeta">
-      <span class="no mono">45</span>
+      <span class="no mono">46</span>
       <span class="code mono">2.3.1</span>
       <span class="tag">競争環境の分析</span>
     </div>
@@ -1181,9 +1202,9 @@ body{
       <p>競争環境の評価で意味を持つのは、顧客の期待水準の変化と、競合が実際に変えた成果（顧客体験・リードタイム・原価構造）。プレスリリース件数やAIエンジニアの人数は活動量の指標であり、これを基準にすると「発表のための投資」に引きずられる。</p>
     </div>
   </article>
-  <article class="qa" id="q46">
+  <article class="qa" id="q47">
     <div class="qmeta">
-      <span class="no mono">46</span>
+      <span class="no mono">47</span>
       <span class="code mono">2.3.3</span>
       <span class="tag">オペレーション改善としてのAI</span>
     </div>
@@ -1202,9 +1223,9 @@ body{
       <p>オペレーション改善型のAIは原価構造そのものを変える点に価値がある。原価が下がれば価格で攻めることも収益で守ることも選べ、競合が同水準の改善を実現するまで優位が持続する。広報効果や採用は副次的。</p>
     </div>
   </article>
-  <article class="qa" id="q47">
+  <article class="qa" id="q48">
     <div class="qmeta">
-      <span class="no mono">47</span>
+      <span class="no mono">48</span>
       <span class="code mono">2.3.4</span>
       <span class="tag">先行投資とファストフォロワーの判断</span>
     </div>
@@ -1223,9 +1244,9 @@ body{
       <p>ファストフォロワー戦略が合理的なのは、その用途での先行優位が持続しにくく、技術や標準が流動的で陳腐化リスクが高い場合。ただし追随できるだけのデータ基盤と組織能力の準備は先行して進める必要がある。人材や関心の不足は投資判断の理由ではなく解決すべき課題。</p>
     </div>
   </article>
-  <article class="qa" id="q48">
+  <article class="qa" id="q49">
     <div class="qmeta">
-      <span class="no mono">48</span>
+      <span class="no mono">49</span>
       <span class="code mono">2.1.2</span>
       <span class="tag">AWS AIサービスの使い分け（build / buy / partner）</span><span class="pill">AWS</span>
     </div>
@@ -1244,9 +1265,9 @@ body{
       <p>AWS のAI提供は3層。①Amazon Quick＝既製のAI搭載ビジネスアシスタント（buy 相当・すぐ使える）②Amazon Bedrock＝基盤モデルをAPIで使い自社アプリを組む（マネージド）③Amazon SageMaker AI＝自社データで独自モデルを構築・運用（build）。外部製品の評価・調達の場が AWS Marketplace。要望を読んで3層のどこかを仕分ける出題に備える。</p>
     </div>
   </article>
-  <article class="qa" id="q49">
+  <article class="qa" id="q50">
     <div class="qmeta">
-      <span class="no mono">49</span>
+      <span class="no mono">50</span>
       <span class="code mono">2.2.5</span>
       <span class="tag">AI関連サービスの料金体系の違い</span><span class="pill">答えは2つ</span><span class="pill">AWS</span>
     </div>
@@ -1265,9 +1286,9 @@ body{
       <p>AWS のAI料金体系は3種類。①従量課金 consumption-based ＝処理量（トークン量・実行回数）で変動 ②インスタンス課金 instance-based ＝計算資源の起動時間で発生（使わなくても起動中は課金）③シート課金 seat-based ＝利用者数で決定。費用を動かす変数が体系ごとに違うので、見積りと感度分析の着眼点も変わる。</p>
     </div>
   </article>
-  <article class="qa" id="q50">
+  <article class="qa" id="q51">
     <div class="qmeta">
-      <span class="no mono">50</span>
+      <span class="no mono">51</span>
       <span class="code mono">2.2.3</span>
       <span class="tag">費用の事前試算と実績分析の使い分け</span><span class="pill">AWS</span>
     </div>
@@ -1286,6 +1307,27 @@ body{
       <p>AWS Pricing Calculator = これから使う分の事前試算（稟議・投資判断の材料）。AWS Cost Explorer = 実際に発生した費用の可視化・分析（稼働後の検証）。「Calculator は未来、Explorer は過去」で覚える。ROI 説明は両者を往復させ、試算と実績の差分の理由を特定するのが要点。</p>
     </div>
   </article>
+  <article class="qa" id="q52">
+    <div class="qmeta">
+      <span class="no mono">52</span>
+      <span class="code mono">2.1.2</span>
+      <span class="tag">既製品の調達（AWS Marketplace）</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">品質部門が外観検査へのAI導入を検討している。自社で開発する余力はなく、業界特化の既製品を複数比較したうえで調達したい。契約と請求は既存の AWS アカウントに統合したい。最も適切な手段はどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">AWS Marketplace で第三者製品を評価・調達し、契約と請求を自社の AWS アカウントに統合する</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">build-buy-partner の buy を実行する場が AWS Marketplace。契約・請求を AWS アカウントに統合できる。</p>
+      <p>要件は「自社開発の余力がない」「既製品を比較して調達したい」——つまり build-buy-partner の buy です。AWS Marketplace は第三者製品を評価・購入できる調達の場で、契約と請求を自社の AWS アカウントに統合できます。</p><p>Amazon Bedrock と Amazon SageMaker AI は、いずれも自社で作る build 側の手段です。開発の余力がないという前提に真正面から反します。</p><p>AWS Pricing Calculator は費用を試算するツールであり、製品を調達する場ではありません。比較の材料にはなっても、調達手段そのものにはなりません。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>build-buy-partner の3択と AWS のサービスは対応づけて覚える。build＝Amazon Bedrock（基盤モデルを使って作る）／ Amazon SageMaker AI（独自モデルを作る）。buy・partner＝AWS Marketplace（第三者製品を評価・調達し、契約と請求を AWS アカウントに統合）。AWS Pricing Calculator は費用試算のツールであって調達の場ではない、という引っかけが出る。</p>
+    </div>
+  </article>
 </section>
 
 <section class="dom d3" id="d3">
@@ -1293,11 +1335,11 @@ body{
     <span class="domno mono">Domain 3</span>
     <h2>AIガバナンスと責任あるAI</h2>
     <p class="domlead">責任あるAIの各次元とトレードオフ、ガバナンス体制と規制対応、リスク分類、バイアス・ハルシネーション・知財の統制</p>
-    <p class="dommeta mono">出題比率 24% ／ 問 51–73（全23問）</p>
+    <p class="dommeta mono">出題比率 24% ／ 問 53–75（全23問）</p>
   </header>
-  <article class="qa" id="q51">
+  <article class="qa" id="q53">
     <div class="qmeta">
-      <span class="no mono">51</span>
+      <span class="no mono">53</span>
       <span class="code mono">3.1.1</span>
       <span class="tag">責任あるAIの各次元の適用</span>
     </div>
@@ -1316,9 +1358,9 @@ body{
       <p>個人の重要な機会（融資・雇用・入居など）に影響する判断では、説明可能性（explainability）と公平性（fairness）が最重要。多くの法域で説明を求める権利が制度化されつつあり、これはコンプライアンス要件でもある。</p>
     </div>
   </article>
-  <article class="qa" id="q52">
+  <article class="qa" id="q54">
     <div class="qmeta">
-      <span class="no mono">52</span>
+      <span class="no mono">54</span>
       <span class="code mono">3.1.2</span>
       <span class="tag">事業目標と責任あるAIのトレードオフ</span>
     </div>
@@ -1337,9 +1379,9 @@ body{
       <p>責任あるAIと事業目標のトレードオフは「全か無か」ではなく、用途とリスク水準に応じた適用範囲の設計で調停する。顧客に不利益を与える自動決定と、人間の判断を支援する社内の優先順位付けとでは、要求される説明可能性の水準が異なる。</p>
     </div>
   </article>
-  <article class="qa" id="q53">
+  <article class="qa" id="q55">
     <div class="qmeta">
-      <span class="no mono">53</span>
+      <span class="no mono">55</span>
       <span class="code mono">3.1.3</span>
       <span class="tag">ガバナンス・バイ・デザイン</span>
     </div>
@@ -1358,16 +1400,16 @@ body{
       <p>責任あるAIは構想・企画段階からリスク評価と統制策を設計へ織り込む（ガバナンス・バイ・デザイン）。後付けは手戻りコストが大きく、既に稼働した仕組みの根幹（データの取得方法・モデル選定・ログ設計）を変えられないことが多い。</p>
     </div>
   </article>
-  <article class="qa" id="q54">
+  <article class="qa" id="q56">
     <div class="qmeta">
-      <span class="no mono">54</span>
+      <span class="no mono">56</span>
       <span class="code mono">3.1.4</span>
       <span class="tag">人間による監督が必要な場面</span><span class="pill">答えは2つ</span>
     </div>
     <p class="q">AIの出力に対して人間による監督（human oversight）を必須とすべき場面を2つ選べ。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <ul class="anslist"><li>個人の採用可否や与信可否など、人に重大な影響を与える決定</li><li>誤った出力が安全・健康・法的責任に直結する業務</li></ul>
+      <ul class="anslist"><li>誤った出力が安全・健康・法的責任に直結する業務</li><li>個人の採用可否や与信可否など、人に重大な影響を与える決定</li></ul>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -1379,9 +1421,9 @@ body{
       <p>人間による監督が必須なのは①誤った出力が安全・健康・法的責任に直結する業務 ②採用可否や与信可否など人に重大な影響を与える決定。誤りの影響が小さく容易に修正できる業務に一律の承認を課すと、生産性を失い承認が形骸化する。</p>
     </div>
   </article>
-  <article class="qa" id="q55">
+  <article class="qa" id="q57">
     <div class="qmeta">
-      <span class="no mono">55</span>
+      <span class="no mono">57</span>
       <span class="code mono">3.1.4</span>
       <span class="tag">ガードレールとエスカレーション設計</span>
     </div>
@@ -1400,9 +1442,9 @@ body{
       <p>顧客接点の安全設計の中核は①取り扱い禁止トピックの制限（ガードレール）②回答の根拠提示によるハルシネーション抑止 ③確信度が低い場合や苦情に該当する場合のエスカレーション基準の明文化。ログ停止は監査と改善の手段を失う後退。</p>
     </div>
   </article>
-  <article class="qa" id="q56">
+  <article class="qa" id="q58">
     <div class="qmeta">
-      <span class="no mono">56</span>
+      <span class="no mono">58</span>
       <span class="code mono">3.1.1</span>
       <span class="tag">公平性（fairness）の実務</span>
     </div>
@@ -1421,9 +1463,9 @@ body{
       <p>過去の意思決定をそのまま学習させると、その中の偏りも「正解」として学習・再現・増幅される。対策は学習データの偏りの評価、属性別の性能差の測定、代理変数（郵便番号・学校名など属性と相関する特徴）の点検、人による監督の維持。</p>
     </div>
   </article>
-  <article class="qa" id="q57">
+  <article class="qa" id="q59">
     <div class="qmeta">
-      <span class="no mono">57</span>
+      <span class="no mono">59</span>
       <span class="code mono">3.1.1</span>
       <span class="tag">透明性とプライバシー</span>
     </div>
@@ -1442,16 +1484,16 @@ body{
       <p>透明性の原則は、相手がAIと対話していることを認識でき、必要なら人間に切り替えられる状態を保つこと。AIであることを偽る設計は信頼を損ない、法域によっては開示義務違反にもなり得る。規約の末尾への記載だけでは認識可能性を満たさない。</p>
     </div>
   </article>
-  <article class="qa" id="q58">
+  <article class="qa" id="q60">
     <div class="qmeta">
-      <span class="no mono">58</span>
+      <span class="no mono">60</span>
       <span class="code mono">3.2.1</span>
       <span class="tag">AIガバナンス体制の構成</span><span class="pill">答えは2つ</span>
     </div>
     <p class="q">全社AIガバナンス委員会を新設する。体制設計として適切なものを2つ選べ。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <ul class="anslist"><li>事業部門、IT、法務・コンプライアンス、リスク管理、人事など横断的な代表者で構成する</li><li>AIユースケースごとに、承認者と説明責任者を明確に定める</li></ul>
+      <ul class="anslist"><li>AIユースケースごとに、承認者と説明責任者を明確に定める</li><li>事業部門、IT、法務・コンプライアンス、リスク管理、人事など横断的な代表者で構成する</li></ul>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -1463,9 +1505,9 @@ body{
       <p>AIガバナンス体制の要件は①事業部門・IT・法務コンプライアンス・リスク管理・人事など横断的な代表構成 ②ユースケースごとに承認者と説明責任者を明確に定めること。IT部門単独の体制や外部への丸投げは説明責任の所在を曖昧にする。</p>
     </div>
   </article>
-  <article class="qa" id="q59">
+  <article class="qa" id="q61">
     <div class="qmeta">
-      <span class="no mono">59</span>
+      <span class="no mono">61</span>
       <span class="code mono">3.2.2</span>
       <span class="tag">規制コンプライアンスリスクの特定</span>
     </div>
@@ -1484,9 +1526,9 @@ body{
       <p>複数法域で個人データを扱う施策では①各法域の個人データ保護規制 ②自動化された意思決定に関する制約や説明義務 ③越境データ移転の要件、を最初に確認する。最も厳しい法域に合わせるか、地域ごとに機能を分けるかの設計判断が必要。</p>
     </div>
   </article>
-  <article class="qa" id="q60">
+  <article class="qa" id="q62">
     <div class="qmeta">
-      <span class="no mono">60</span>
+      <span class="no mono">62</span>
       <span class="code mono">3.2.3</span>
       <span class="tag">アクセス制御とデータ保護</span>
     </div>
@@ -1505,9 +1547,9 @@ body{
       <p>生成AI導入で顕在化しやすいのが、元データのアクセス権限がAI経由で迂回される問題。根本対策は、利用者の権限に基づいて参照可能な文書のみを検索対象とする権限継承の実装。キーワード禁止は容易に回避され、利用者の限定は業務価値を損なう。</p>
     </div>
   </article>
-  <article class="qa" id="q61">
+  <article class="qa" id="q63">
     <div class="qmeta">
-      <span class="no mono">61</span>
+      <span class="no mono">63</span>
       <span class="code mono">3.2.4</span>
       <span class="tag">AIリスク分類フレームワーク</span>
     </div>
@@ -1526,9 +1568,9 @@ body{
       <p>限られたガバナンス資源は、影響の重大性（人への影響・法規制・金額・可逆性）に基づくリスク区分で配分する。区分ごとに審査の深さ・承認者の階層・監視頻度・人的関与の要否を変える。一律の重い審査はシャドーAIを誘発し、一律の軽い審査は高リスク案件を野放しにする。</p>
     </div>
   </article>
-  <article class="qa" id="q62">
+  <article class="qa" id="q64">
     <div class="qmeta">
-      <span class="no mono">62</span>
+      <span class="no mono">64</span>
       <span class="code mono">3.2.1</span>
       <span class="tag">説明責任（accountability）の所在</span>
     </div>
@@ -1547,9 +1589,9 @@ body{
       <p>外部ベンダーのAIサービスを使っていても、顧客や規制当局への説明責任は業務を提供している自社に残る。調達段階でインシデント時の情報提供・ログの開示・監査への協力・責任分界点を契約に織り込む。「ベンダーがやったこと」は説明として成立しない。</p>
     </div>
   </article>
-  <article class="qa" id="q63">
+  <article class="qa" id="q65">
     <div class="qmeta">
-      <span class="no mono">63</span>
+      <span class="no mono">65</span>
       <span class="code mono">3.2.3</span>
       <span class="tag">個人データを含む学習・利用の統制</span>
     </div>
@@ -1568,9 +1610,9 @@ body{
       <p>個人データの二次利用では、まず取得時に示した利用目的の範囲内かを確認する。範囲外なら同意の取得か、匿名化・仮名化などの加工が必要。加えて保存期間の限定、アクセス制御、投入データがベンダー側の学習に使われない契約条件の確認。</p>
     </div>
   </article>
-  <article class="qa" id="q64">
+  <article class="qa" id="q66">
     <div class="qmeta">
-      <span class="no mono">64</span>
+      <span class="no mono">66</span>
       <span class="code mono">3.2.4</span>
       <span class="tag">ライフサイクル全体のガバナンス</span>
     </div>
@@ -1589,9 +1631,9 @@ body{
       <p>ライフサイクル全体のガバナンスとは、企画・データ取得・開発・検証・本番運用・変更・廃止の各段階に評価と統制のチェックポイントを設けること。特に「用途変更」と「モデル更新」で再評価が走る仕組みが重要。リリース前審査や年次監査だけでは稼働後の変化を捉えられない。</p>
     </div>
   </article>
-  <article class="qa" id="q65">
+  <article class="qa" id="q67">
     <div class="qmeta">
-      <span class="no mono">65</span>
+      <span class="no mono">67</span>
       <span class="code mono">3.3.1</span>
       <span class="tag">本番稼働後のリスク統制と監視</span><span class="pill">答えは2つ</span>
     </div>
@@ -1610,9 +1652,9 @@ body{
       <p>本番監視の中核は①精度・エラー率などの性能指標の継続計測と閾値アラート ②入出力ログの記録による追跡可能性（トレーサビリティ）。ログは苦情対応・監査対応・原因分析すべての起点であり、個人データの扱いと保存期間の方針もあわせて定義する。</p>
     </div>
   </article>
-  <article class="qa" id="q66">
+  <article class="qa" id="q68">
     <div class="qmeta">
-      <span class="no mono">66</span>
+      <span class="no mono">68</span>
       <span class="code mono">3.3.2</span>
       <span class="tag">バイアスの発生段階とバイアスドリフト</span>
     </div>
@@ -1631,9 +1673,9 @@ body{
       <p>バイアスはデータ収集・ラベル付け・特徴量の設計・モデル選定・運用時の使われ方という複数段階で発生し、稼働後も変化する（バイアスドリフト）。一度きりの検証では不十分で、属性別の性能差を定期的に測る運用が必要。全体精度が高くても特定集団で著しく劣ることは起こり得る。</p>
     </div>
   </article>
-  <article class="qa" id="q67">
+  <article class="qa" id="q69">
     <div class="qmeta">
-      <span class="no mono">67</span>
+      <span class="no mono">69</span>
       <span class="code mono">3.3.3</span>
       <span class="tag">有害コンテンツと知的財産のリスク</span><span class="pill">答えは2つ</span>
     </div>
@@ -1652,9 +1694,9 @@ body{
       <p>生成AIの知財リスクは出口と入口の両方にある。出口＝生成物が既存著作物に類似し権利侵害を問われるリスク（公開前の確認プロセスが対策）。入口＝機密情報や他社の権利物をプロンプトに投入してしまうリスク（利用ガイドラインと承認済みツールの提供が対策）。</p>
     </div>
   </article>
-  <article class="qa" id="q68">
+  <article class="qa" id="q70">
     <div class="qmeta">
-      <span class="no mono">68</span>
+      <span class="no mono">70</span>
       <span class="code mono">3.3.4</span>
       <span class="tag">ハルシネーションへの対処</span>
     </div>
@@ -1673,9 +1715,9 @@ body{
       <p>ハルシネーション対策は①RAGで社内文書に基づかせる ②出典リンクの必須表示で人が検証できる状態にする ③重要な判断では原文確認を業務手順に組み込む、の組み合わせ。注意喚起のみでは、出典のない自然な文章はそのまま信用されてしまう。</p>
     </div>
   </article>
-  <article class="qa" id="q69">
+  <article class="qa" id="q71">
     <div class="qmeta">
-      <span class="no mono">69</span>
+      <span class="no mono">71</span>
       <span class="code mono">3.3.4</span>
       <span class="tag">信頼性リスクとデータ品質の劣化</span>
     </div>
@@ -1694,9 +1736,9 @@ body{
       <p>最も危険なのは、システムがエラーを出さずに動き続けながら出力品質だけが静かに劣化する状態。対策は入力データの妥当性検証（スキーマ・分布の監視）と、上流システムの変更管理プロセスにAIシステムを影響先として組み込むこと。</p>
     </div>
   </article>
-  <article class="qa" id="q70">
+  <article class="qa" id="q72">
     <div class="qmeta">
-      <span class="no mono">70</span>
+      <span class="no mono">72</span>
       <span class="code mono">3.3.1</span>
       <span class="tag">リスク統制の設計</span>
     </div>
@@ -1715,9 +1757,9 @@ body{
       <p>リスク統制は三層で設計する。予防（利用範囲の限定・ガードレール）／検知（監視・定期評価）／対応（エスカレーション・停止手順・影響を受けた顧客への救済）。見落とされやすいのは対応層で、停止手順（キルスイッチ）と救済手続きの事前定義が被害と信頼失墜を最小化する。</p>
     </div>
   </article>
-  <article class="qa" id="q71">
+  <article class="qa" id="q73">
     <div class="qmeta">
-      <span class="no mono">71</span>
+      <span class="no mono">73</span>
       <span class="code mono">3.2.1</span>
       <span class="tag">AIワークロードにおける責任共有モデル</span><span class="pill">AWS</span>
     </div>
@@ -1736,9 +1778,9 @@ body{
       <p>AWS 責任共有モデル＝事業者は「クラウドのセキュリティ（security OF the cloud）」、利用企業は「クラウド内のセキュリティ（security IN the cloud）」。AIワークロードでの自社責任は、①投入するデータの選別 ②アクセス権限の設計 ③AIの用途と出力の扱い。マネージドサービスを使っても顧客・当局への説明責任は自社に残る。</p>
     </div>
   </article>
-  <article class="qa" id="q72">
+  <article class="qa" id="q74">
     <div class="qmeta">
-      <span class="no mono">72</span>
+      <span class="no mono">74</span>
       <span class="code mono">3.1.4</span>
       <span class="tag">ガードレールによる出力統制（Amazon Bedrock Guardrails）</span><span class="pill">AWS</span>
     </div>
@@ -1757,9 +1799,9 @@ body{
       <p>Amazon Bedrock Guardrails＝生成AIの入力と出力の両方に制限をかける統制機能。ビジネス側が押さえるのは「扱わせないトピックの指定／有害表現の検出／個人情報のマスク・ブロック」。精度向上の機能ではなく、ハルシネーションをゼロにもしない。予防・検知・対応の三層のうち予防層にあたり、人間の監督を置き換えるものではない。</p>
     </div>
   </article>
-  <article class="qa" id="q73">
+  <article class="qa" id="q75">
     <div class="qmeta">
-      <span class="no mono">73</span>
+      <span class="no mono">75</span>
       <span class="code mono">3.2.3</span>
       <span class="tag">マネージドAIサービス利用時のデータ保護</span><span class="pill">答えは2つ</span><span class="pill">AWS</span>
     </div>
@@ -1785,11 +1827,11 @@ body{
     <span class="domno mono">Domain 4</span>
     <h2>ビジネス準備とAI変革</h2>
     <p class="domlead">レディネスと成熟度、データ・技術基盤、チェンジマネジメントと人材育成、パイロットから全社展開へのスケール</p>
-    <p class="dommeta mono">出題比率 24% ／ 問 74–96（全23問）</p>
+    <p class="dommeta mono">出題比率 24% ／ 問 76–98（全23問）</p>
   </header>
-  <article class="qa" id="q74">
+  <article class="qa" id="q76">
     <div class="qmeta">
-      <span class="no mono">74</span>
+      <span class="no mono">76</span>
       <span class="code mono">4.1.1</span>
       <span class="tag">AI導入に向けたビジネスレディネス評価</span><span class="pill">答えは2つ</span>
     </div>
@@ -1808,9 +1850,9 @@ body{
       <p>レディネス評価の主要次元は①経営層の合意形成（リーダーシップ・アラインメント）②データの品質とアクセス性 ③組織文化の受容度 ④技術基盤 ⑤ガバナンス枠組み。準備が整っていない次元を放置してスケールすると、パイロットは成功しても全社展開で失速する。</p>
     </div>
   </article>
-  <article class="qa" id="q75">
+  <article class="qa" id="q77">
     <div class="qmeta">
-      <span class="no mono">75</span>
+      <span class="no mono">77</span>
       <span class="code mono">4.1.2</span>
       <span class="tag">AI成熟度モデルの適用</span>
     </div>
@@ -1829,9 +1871,9 @@ body{
       <p>部門単位の実験が並行し、成功事例はあるが全社標準や共通基盤が未整備な状態＝実験段階から全社展開への移行期。この段階の典型的課題は、成功パターンの標準化・共通基盤への集約・ガバナンス整備・重複投資の解消。</p>
     </div>
   </article>
-  <article class="qa" id="q76">
+  <article class="qa" id="q78">
     <div class="qmeta">
-      <span class="no mono">76</span>
+      <span class="no mono">78</span>
       <span class="code mono">4.1.3</span>
       <span class="tag">ケイパビリティギャップの特定</span>
     </div>
@@ -1850,9 +1892,9 @@ body{
       <p>展開が止まる原因は技術に限らない。人材（スキル）・プロセス（業務手順・意思決定）・技術（基盤）・ガバナンス（統制・承認）の4側面でギャップを洗い出す。真のボトルネックは業務プロセスの未整備や承認プロセスの不在であることが多い。</p>
     </div>
   </article>
-  <article class="qa" id="q77">
+  <article class="qa" id="q79">
     <div class="qmeta">
-      <span class="no mono">77</span>
+      <span class="no mono">79</span>
       <span class="code mono">4.1.4</span>
       <span class="tag">能力開発投資の優先順位</span>
     </div>
@@ -1871,9 +1913,9 @@ body{
       <p>能力開発投資は戦略目標から逆算し、その実現を阻んでいるボトルネックから順に配分する。均等配分はどの領域も中途半端になる。段階的な進化パス（この投資が次に何を可能にするか）を描くと、継続的な予算獲得の説明もしやすい。</p>
     </div>
   </article>
-  <article class="qa" id="q78">
+  <article class="qa" id="q80">
     <div class="qmeta">
-      <span class="no mono">78</span>
+      <span class="no mono">80</span>
       <span class="code mono">4.1.1</span>
       <span class="tag">レディネス不足のままの拡大リスク</span>
     </div>
@@ -1892,9 +1934,9 @@ body{
       <p>準備不足のままの一斉展開は、初期の失望体験を組織全体に配り、その後の正しい取り組みまで説得力を失わせる。AI変革では組織の信頼という資産を一度失うと回復に時間がかかるため、レディネスに応じた段階的展開が推奨される。</p>
     </div>
   </article>
-  <article class="qa" id="q79">
+  <article class="qa" id="q81">
     <div class="qmeta">
-      <span class="no mono">79</span>
+      <span class="no mono">81</span>
       <span class="code mono">4.2.1</span>
       <span class="tag">データレディネスとサイロの影響</span>
     </div>
@@ -1913,9 +1955,9 @@ body{
       <p>データサイロはAI施策で最も一般的かつ根深い障害。同一顧客を横断的に識別できなければ、どれほど優れたモデルでも全体像に基づく判断はできない。顧客識別子の統合とデータ連携の設計は複数施策の共通基盤となるため、投資対効果の説明もしやすい。</p>
     </div>
   </article>
-  <article class="qa" id="q80">
+  <article class="qa" id="q82">
     <div class="qmeta">
-      <span class="no mono">80</span>
+      <span class="no mono">82</span>
       <span class="code mono">4.2.2</span>
       <span class="tag">データオーナーシップと共有枠組み</span>
     </div>
@@ -1934,16 +1976,16 @@ body{
       <p>データ共有が進まない原因の多くは責任範囲の曖昧さ。データごとにオーナー（誰が品質と利用可否に責任を持つか）を定義し、品質基準・利用条件・責任分界を明文化した枠組みを整えることで、提供側が安心して出せるようになる。強制は一度は動いても継続しない。</p>
     </div>
   </article>
-  <article class="qa" id="q81">
+  <article class="qa" id="q83">
     <div class="qmeta">
-      <span class="no mono">81</span>
+      <span class="no mono">83</span>
       <span class="code mono">4.2.3</span>
       <span class="tag">AIを支える技術基盤の要件</span><span class="pill">答えは2つ</span>
     </div>
     <p class="q">AI施策を全社規模で支える技術基盤に求められる要件として適切なものを2つ選べ。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <ul class="anslist"><li>需要変動に応じて処理能力を伸縮できること</li><li>アクセス制御・監査ログなどセキュリティとガバナンスの機能が基盤として提供されること</li></ul>
+      <ul class="anslist"><li>アクセス制御・監査ログなどセキュリティとガバナンスの機能が基盤として提供されること</li><li>需要変動に応じて処理能力を伸縮できること</li></ul>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -1955,9 +1997,9 @@ body{
       <p>全社基盤に求められるのは①需要変動に応じた処理能力の伸縮性（スケーラビリティ）②アクセス制御・監査ログなどセキュリティとガバナンス機能の標準提供。これにより各施策が個別に統制を作り込む必要がなくなる。部署ごとの個別基盤は重複投資と統制の分散を招く。</p>
     </div>
   </article>
-  <article class="qa" id="q82">
+  <article class="qa" id="q84">
     <div class="qmeta">
-      <span class="no mono">82</span>
+      <span class="no mono">84</span>
       <span class="code mono">4.2.2</span>
       <span class="tag">データ戦略の意義</span>
     </div>
@@ -1976,9 +2018,9 @@ body{
       <p>データ戦略は、個々のAI施策が毎回ゼロからデータを探し、品質を確認し、利用可否を交渉する状態を解消する。共通の原資として整備しておくと2件目・3件目の立ち上げが加速し、投資の回収が早まる。</p>
     </div>
   </article>
-  <article class="qa" id="q83">
+  <article class="qa" id="q85">
     <div class="qmeta">
-      <span class="no mono">83</span>
+      <span class="no mono">85</span>
       <span class="code mono">4.3.1</span>
       <span class="tag">経営スポンサーシップとAIチャンピオン</span>
     </div>
@@ -1997,9 +2039,9 @@ body{
       <p>現場の推進役（AIチャンピオン）は善意の兼務だけでは持続しない。経営層が方向性を明示し、活動時間・予算・意思決定権限を正式に付与し、その活動を評価対象に組み込んで初めて機能する。非公式のままでは通常業務が忙しくなった瞬間に止まる。</p>
     </div>
   </article>
-  <article class="qa" id="q84">
+  <article class="qa" id="q86">
     <div class="qmeta">
-      <span class="no mono">84</span>
+      <span class="no mono">86</span>
       <span class="code mono">4.3.2</span>
       <span class="tag">クロスファンクショナルチームの編成</span>
     </div>
@@ -2018,9 +2060,9 @@ body{
       <p>AI施策チームは、業務を熟知した事業部門の担当者・技術担当・法務コンプライアンス担当の3者が同じテーブルにいることが要。業務担当者の参画がないと、統計的には正しくても現場で使えない仕組みができる。あわせて意思決定と説明責任の所在を明示する。</p>
     </div>
   </article>
-  <article class="qa" id="q85">
+  <article class="qa" id="q87">
     <div class="qmeta">
-      <span class="no mono">85</span>
+      <span class="no mono">87</span>
       <span class="code mono">4.3.3</span>
       <span class="tag">従業員の不安への透明なコミュニケーション</span>
     </div>
@@ -2039,9 +2081,9 @@ body{
       <p>従業員の不安は情報の空白を埋めるために生まれる。目的・対象となる業務の範囲・想定される役割の変化・実施時期・人材の再配置と育成の方針を具体的に示すことが最も効果的。言及回避は憶測を広げ、根拠のない断言は後に信頼を損なう。</p>
     </div>
   </article>
-  <article class="qa" id="q86">
+  <article class="qa" id="q88">
     <div class="qmeta">
-      <span class="no mono">86</span>
+      <span class="no mono">88</span>
       <span class="code mono">4.3.4</span>
       <span class="tag">文化的障壁とリーダーの介入</span>
     </div>
@@ -2060,9 +2102,9 @@ body{
       <p>失敗への恐れはAI導入の代表的な文化的障壁。実験段階では評価基準を「成果」ではなく「検証できた仮説」に置き、失敗事例を学びとして公式に共有する場を設けることで心理的安全性が確保される。実施部署の限定は組織全体の学習機会を狭める。</p>
     </div>
   </article>
-  <article class="qa" id="q87">
+  <article class="qa" id="q89">
     <div class="qmeta">
-      <span class="no mono">87</span>
+      <span class="no mono">89</span>
       <span class="code mono">4.3.5</span>
       <span class="tag">全社的なAIリテラシー育成</span><span class="pill">答えは2つ</span>
     </div>
@@ -2081,9 +2123,9 @@ body{
       <p>全社のAIリテラシー向上に効くのは①業務に即した実践型研修＋部門横断のハッカソンやPoCプログラム ②責任あるAI研修の全従業員必須化。活用と統制を同じ速度で広げるのが要点。自習任せは差が開くだけ、利用の限定はリテラシー向上そのものを止める。</p>
     </div>
   </article>
-  <article class="qa" id="q88">
+  <article class="qa" id="q90">
     <div class="qmeta">
-      <span class="no mono">88</span>
+      <span class="no mono">90</span>
       <span class="code mono">4.3.6</span>
       <span class="tag">人の役割の再定義</span>
     </div>
@@ -2102,9 +2144,9 @@ body{
       <p>AI導入後の人の役割は「作業の実行者」から「例外・低確信度案件の判断、品質の監督、取引先との折衝」へ移る。批判的思考・共感・創造性という人の強みとAIの処理能力を組み合わせる設計が要点。無条件承認の役割は人的関与を形骸化させ統制上も無意味。</p>
     </div>
   </article>
-  <article class="qa" id="q89">
+  <article class="qa" id="q91">
     <div class="qmeta">
-      <span class="no mono">89</span>
+      <span class="no mono">91</span>
       <span class="code mono">4.3.2</span>
       <span class="tag">責任範囲の明確化</span>
     </div>
@@ -2123,9 +2165,9 @@ body{
       <p>クロスファンクショナルな体制は責任の所在が曖昧になりやすい。実務を分担する担当者は複数いてよいが、最終的に説明責任を負う人物（accountable）を1名に定めることで、インシデント時の意思決定と対外説明が滞らない。</p>
     </div>
   </article>
-  <article class="qa" id="q90">
+  <article class="qa" id="q92">
     <div class="qmeta">
-      <span class="no mono">90</span>
+      <span class="no mono">92</span>
       <span class="code mono">4.4.1</span>
       <span class="tag">反復的な変革フェーズ</span>
     </div>
@@ -2144,9 +2186,9 @@ body{
       <p>AI変革の反復フェーズは 構想（envision）→ 実験（experiment）→ 立ち上げ（launch）→ 拡大（scale）。重要なのは各フェーズの終わりに継続・修正・中止を判断するゲートを設けること。</p>
     </div>
   </article>
-  <article class="qa" id="q91">
+  <article class="qa" id="q93">
     <div class="qmeta">
-      <span class="no mono">91</span>
+      <span class="no mono">93</span>
       <span class="code mono">4.4.2</span>
       <span class="tag">短期的成果からのスケール</span>
     </div>
@@ -2165,9 +2207,9 @@ body{
       <p>初期の小さな成功（クイックウィン）は、単なる効果測定ではなく組織の支持と次の予算を獲得するための政治的資産。同時に、展開に必要な手順・統制・教育の型を小さな範囲で作り込む機会にもなる。最初から全社規模を狙うと失敗時の損失と信頼低下が大きい。</p>
     </div>
   </article>
-  <article class="qa" id="q92">
+  <article class="qa" id="q94">
     <div class="qmeta">
-      <span class="no mono">92</span>
+      <span class="no mono">94</span>
       <span class="code mono">4.4.3</span>
       <span class="tag">CoE（センター・オブ・エクセレンス）の役割</span>
     </div>
@@ -2186,9 +2228,9 @@ body{
       <p>CoE（センター・オブ・エクセレンス）の役割は、再利用可能な標準・ガイドライン・共通基盤・知見を集約し、事業部門が自律的に進められるよう支援すること。CoEがすべてを実行する体制はCoE自身がボトルネックとなり当事者意識も育たない。「実行する組織」ではなく「加速させる組織」。</p>
     </div>
   </article>
-  <article class="qa" id="q93">
+  <article class="qa" id="q95">
     <div class="qmeta">
-      <span class="no mono">93</span>
+      <span class="no mono">95</span>
       <span class="code mono">4.4.5</span>
       <span class="tag">実験から本番への移行要件</span><span class="pill">答えは2つ</span>
     </div>
@@ -2207,9 +2249,9 @@ body{
       <p>PoCから本番移行で新たに必要になるのは①本番データを扱う統制（アクセス制御・監査ログ・変更管理）と継続的な監視 ②障害時の対応体制・サービス水準・運用手順書の整備。この「PoCと本番の要件差」を見積りに織り込まないことが遅延と予算超過の典型的原因。</p>
     </div>
   </article>
-  <article class="qa" id="q94">
+  <article class="qa" id="q96">
     <div class="qmeta">
-      <span class="no mono">94</span>
+      <span class="no mono">96</span>
       <span class="code mono">4.4.4</span>
       <span class="tag">継続的なフィードバックと長期的価値の追跡</span>
     </div>
@@ -2228,9 +2270,9 @@ body{
       <p>AI施策の価値は稼働後に自然に維持されるものではなく、利用実態やデータの変化とともに劣化し得る。利用者フィードバックの収集経路と成功指標の定期レビューを設け、改善・再学習・撤退の判断につなげる。稼働後の計測終了は劣化を見逃す最も一般的な失敗。</p>
     </div>
   </article>
-  <article class="qa" id="q95">
+  <article class="qa" id="q97">
     <div class="qmeta">
-      <span class="no mono">95</span>
+      <span class="no mono">97</span>
       <span class="code mono">4.1.2</span>
       <span class="tag">AWS CAF による成熟度・ギャップの評価</span><span class="pill">AWS</span>
     </div>
@@ -2249,9 +2291,9 @@ body{
       <p>AWS CAF（Cloud Adoption Framework）の6つの視点＝ビジネス／人材（People）／ガバナンス／プラットフォーム／セキュリティ／オペレーション。組織の能力を評価してギャップを特定し、変革ロードマップを描くための枠組み。「6視点」は頻出。精度ベンチマーク・料金試算・プロジェクト管理のツールではない点も押さえる。</p>
     </div>
   </article>
-  <article class="qa" id="q96">
+  <article class="qa" id="q98">
     <div class="qmeta">
-      <span class="no mono">96</span>
+      <span class="no mono">98</span>
       <span class="code mono">4.4.6</span>
       <span class="tag">スケール時の事業継続性とパフォーマンスの確保</span><span class="pill">答えは2つ</span>
     </div>
@@ -2413,7 +2455,7 @@ body{
   </article>
 </section>
   <p class="tail">
-    本書は AWS 公式の試験ガイド（AIB-C01）に記載された出題範囲・タスクステートメント・スキル項目に基づいて作成した学習用の教材です。実際の試験問題ではありません。ベータ版は85問／170分、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています。各問の番号横にある数字（1.1.2 など）は、公式試験ガイドのスキル項目番号に対応しており、全96問で公式のスキル項目58個をすべて網羅しています。<span class="pill">AWS</span> のマークが付いた問題は、公式ガイドの In-scope AWS services（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）に対応する問題です。
+    本書は AWS 公式の試験ガイド（AIB-C01）に記載された出題範囲・タスクステートメント・スキル項目に基づいて作成した学習用の教材です。実際の試験問題ではありません。ベータ版は85問／170分、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています。各問の番号横にある数字（1.1.2 など）は、公式試験ガイドのスキル項目番号に対応しており、全98問で公式のスキル項目58個をすべて網羅しています。<span class="pill">AWS</span> のマークが付いた問題は、公式ガイドの In-scope AWS services（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）に対応する問題です。
   </p>
   <a class="totop" href="#top">▲ 先頭に戻る</a>
 </div>
