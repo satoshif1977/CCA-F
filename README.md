@@ -33,13 +33,30 @@ AWS Certified AI Business Strategist（ベータ）の試験ガイドに基づ�
 ### 特徴
 
 - **公式スキル項目 58 個を 100% 網羅**（1.1.1〜4.4.6）
-- ドメイン配分は公式ウェイトに一致（D1 24% / D2 28% / D3 24% / D4 24%）
+- ドメイン配分は公式ウェイトと**問題数まで完全一致**（D1 24問 / D2 28問 / D3 24問 / D4 24問）
 - 設問形式も公式仕様どおり（択一＝1正解＋3誤答の4択、複数選択＝5択以上）
-- 正解位置は各約25%（A/B/C/D = 21/21/20/20問）に平準化し、ドリル側は実行時シャッフルにも対応
-- 公式の In-scope AWS services（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF /
-  AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）に対応する問題を収録
+- 正解位置は各約25%（A/B/C/D = 21/21/21/20問）に平準化し、ドリル側は実行時シャッフルにも対応
+- 公式ガイドが名指しする AWS サービス・枠組みを収録。内訳は次の2系統
+  - 付録「In-scope AWS services and features」の **9項目**（Amazon Bedrock / Amazon SageMaker AI /
+    Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）
+  - 「Recommended AWS knowledge」の **2項目**（AWS Well-Architected Framework の Responsible AI Lens /
+    コスト最適化戦略（Savings Plans など））。付録には無いが公式ガイド本文に明記されている
 - 各サービスは**必ず1問以上で正解側に登場**させ、「常に誤答」となるサービスを作らない
 - ダミー選択肢は「知識がなくても消去できる」ものを排し、もっともらしいが観点がずれた選択肢で構成
+
+### 面談で話せるポイント：コミットメント型割引の名前はサービスごとに違う
+
+初版はここを「Savings Plans」で一括りにしていたが、AWS 公式ドキュメントで裏取りして修正した。
+
+| サービス | コミットメント型の仕組み | 条件 |
+|---|---|---|
+| Amazon SageMaker AI | **SageMaker AI Savings Plans** | 1年／3年コミット・最大64%減 |
+| Amazon Bedrock | **Provisioned Throughput** | コミットなし／1か月／6か月。長いほど時間あたり単価が下がる |
+| Amazon EC2 / AWS Lambda / AWS Fargate | Compute Savings Plans | 1年／3年コミット |
+
+Bedrock に Savings Plans は存在しない。なお Provisioned Throughput は「使わなくてもモデルユニット単位で
+課金される」ため純粋な値下げ策ではなく、まず On-Demand、リアルタイム性が不要なら
+バッチ推論（On-Demand 比 50%引き）、という順序で検討するのが定石。
 
 ### AIB-C01 試験概要
 
