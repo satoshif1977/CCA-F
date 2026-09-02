@@ -11,7 +11,7 @@ Claude 認定（CCAR-F / CCDV-F / CCAO-F / CCAR-P）および AWS 認定（AIB-C
 | 🇯🇵 日本語版問題集 | JP Vol.1–6 | 180問 |
 | 📖 バイリンガル版問題集 | BILI Vol.1–9 | 180問 |
 | 📚 語彙帳（チェック版） | 全19カテゴリ | 345語 |
-| ☁️ AWS AIB-C01 問題集 | 要点問題集（読む版）＋ 演習ドリル（解く版） | 98問 |
+| ☁️ AWS AIB-C01 問題集 | 要点問題集（読む版）＋ 演習ドリル（解く版） | 100問 |
 
 ## 語彙帳の機能
 
@@ -35,7 +35,7 @@ AWS Certified AI Business Strategist（ベータ）の試験ガイドに基づ�
 - **公式スキル項目 58 個を 100% 網羅**（1.1.1〜4.4.6）
 - ドメイン配分は公式ウェイトに一致（D1 24% / D2 28% / D3 24% / D4 24%）
 - 設問形式も公式仕様どおり（択一＝1正解＋3誤答の4択、複数選択＝5択以上）
-- 正解位置は各ちょうど25%（A/B/C/D 各20問）に平準化し、ドリル側は実行時シャッフルにも対応
+- 正解位置は各約25%（A/B/C/D = 21/21/20/20問）に平準化し、ドリル側は実行時シャッフルにも対応
 - 公式の In-scope AWS services（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF /
   AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）に対応する問題を収録
 - 各サービスは**必ず1問以上で正解側に登場**させ、「常に誤答」となるサービスを作らない
@@ -45,6 +45,9 @@ AWS Certified AI Business Strategist（ベータ）の試験ガイドに基づ�
 
 - 試験名：AWS Certified AI Business Strategist（AIB-C01）
 - 問題数：85問 / 制限時間：170分（ベータ）
+  - 試験ガイド PDF は「130 minutes」と記載しているが、これは一般提供版の想定。
+    製品ページおよび Pearson VUE の予約枠（180分＝試験170分＋チュートリアル約10分）から、
+    ベータは 85問／170分（＝約2分/問）で確定。本問題集の試験モードも 2分/問 で設定している
 - 合格点：700 / 1000（スケールドスコア・compensatory 方式）
 - ドメイン：AI Fundamentals and Literacy / AI Strategy and Business Value Creation /
   AI Governance and Responsible AI Leadership / Business Readiness, Leadership, and AI Transformation
