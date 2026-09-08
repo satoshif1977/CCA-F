@@ -205,11 +205,11 @@ body{
   <header class="mast">
     <span class="eyebrow">AWS Certified · AIB-C01</span>
     <h1>AI Business Strategist<br>要点問題集</h1>
-    <p class="sub">AWS Certified AI Business Strategist（ベータ）試験ガイドの出題範囲に沿った110問（うち101〜110 は公式練習問題との突合による追補）。問題 → 答え → 解説 → 暗記ポイント の順に、上から読み進めるだけの構成です。</p>
+    <p class="sub">AWS Certified AI Business Strategist（ベータ）試験ガイドの出題範囲に沿った113問（うち101〜113 は公式練習問題との突合による追補）。問題 → 答え → 解説 → 暗記ポイント の順に、上から読み進めるだけの構成です。</p>
     <div class="howto">
       <b>使い方</b>　選択肢は正解だけを載せています。問題文を読んで自分なりの答えを頭に浮かべてから、下の「答え」を見てください。太字の一行がその問題の要点、その下が詳しい解説、最後のオレンジの枠が試験直前に見返す暗記ポイントです。<br>
       <b>直前に見返すとき</b>　各問の暗記ポイントと、巻末の<a href="#note">暗記ノート</a>だけを拾い読みしてください。<br>
-      <b>解く練習をしたいとき</b>　同じ110問を4択形式で解ける演習ドリルを別に用意しています。仕上げはそちらでどうぞ。
+      <b>解く練習をしたいとき</b>　同じ113問を4択形式で解ける演習ドリルを別に用意しています。仕上げはそちらでどうぞ。
     </div>
     <nav class="jump">
       <a href="#d1">D1 基礎とリテラシー</a>
@@ -425,7 +425,7 @@ body{
     <p class="q">導入から8か月が経過した与信審査支援モデルについて、稼働当初は良好だった予測精度が徐々に低下しているとの報告があった。ビジネス側への説明として最も適切なものはどれか。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <p class="anstext">市場環境や顧客行動が学習時点から変化し、モデルの前提と現実がずれた（モデルドリフト）可能性が高く、継続的な監視と再学習が必要である</p>
+      <p class="anstext">市場環境や顧客行動が学習時点から変化してモデルの前提と現実がずれた可能性が高く、継続的な監視と再学習が必要である</p>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -467,7 +467,7 @@ body{
     <p class="q">ある業務プロセスについて、AI導入よりもルールベース自動化を選ぶ根拠として最も強いものはどれか。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <p class="anstext">判断基準が明文化されており、例外が限定的で、結果の完全な再現性と説明が求められる</p>
+      <p class="anstext">判断基準が明文化されており、例外が限定的で、結果の完全な再現性と説明が求められること</p>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -802,7 +802,7 @@ body{
     <span class="domno mono">Domain 2</span>
     <h2>AI戦略とビジネス価値創出</h2>
     <p class="domlead">ユースケースの選定、build-buy-partner、KPIとベースライン、ROI算出とコスト最適化、競争優位とビジネスモデル変革</p>
-    <p class="dommeta mono">出題比率 28% ／ 問 25–52 ＋ 追補 106・107（全30問）</p>
+    <p class="dommeta mono">出題比率 28% ／ 問 25–52 ＋ 追補 106・107・111・112（全32問）</p>
   </header>
   <article class="qa" id="q25">
     <div class="qmeta">
@@ -1170,7 +1170,7 @@ body{
     <p class="q">同じ基盤モデルは競合も利用できる。それでもAIが持続的な競争優位を生み得る理由として最も適切なものはどれか。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <p class="anstext">自社固有のデータ、業務プロセスへの深い統合、蓄積された運用ノウハウは容易に模倣できないため</p>
+      <p class="anstext">自社固有のデータ、業務プロセスへの深い統合、蓄積された運用ノウハウは他社が容易に真似できないため</p>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -1432,6 +1432,49 @@ body{
     <div class="mem">
       <span class="lab mono">暗記ポイント</span>
       <p>ショーバック＝実費を見せるだけ（請求しない）／チャージバック＝部門予算に実際に請求する。導入順はショーバック → 配賦ロジックの納得 → チャージバック。事業部門にも開示して初めて判断材料になる。</p>
+    </div>
+  </article>
+
+  <article class="qa" id="q111">
+    <div class="qmeta">
+      <span class="no mono">111</span>
+      <span class="code mono">2.2.5</span>
+      <span class="tag">Bedrock と SageMaker AI の割引の違い</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">ある企業は Amazon Bedrock の基盤モデルを使った社内向けアシスタントを運用しており、月間の利用量は半年にわたり安定している。単価を下げたい担当者から「Amazon SageMaker AI と同じように Savings Plans を購入すればよいのではないか」という提案が出た。この提案に対する説明として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">Amazon Bedrock に Savings Plans は無く、単価を下げる手段は Provisioned Throughput である。ただし使わない時間も課金されるため、まず利用量の削減とバッチ推論の活用を検討する</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">コミットメント型割引はサービスごとに別物。Amazon Bedrock に Savings Plans は無い。</p>
+      <p>正解: コミットメント型割引はサービスごとに名前と仕組みが違います。Amazon SageMaker AI は Savings Plans（1年／3年）ですが、Amazon Bedrock は Provisioned Throughput（コミットなし／1か月／6か月）で、Savings Plans は存在しません。ただし Provisioned Throughput は使わなくてもモデルユニット単位で課金されるため、純粋な値下げ策ではありません。AWS が示す順序は On-Demand →（リアルタイム性が不要ならバッチ推論・On-Demand 比50%引き）→ Provisioned Throughput です。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>コミットメント型割引はサービスごとに別物。SageMaker AI＝Savings Plans（1年／3年）／Bedrock＝Provisioned Throughput（1か月／6か月・使わなくても課金）／EC2・Lambda・Fargate＝Compute Savings Plans。**Bedrock に Savings Plans は無い**。順序は On-Demand → バッチ推論（50%引き）→ Provisioned Throughput。</p>
+    </div>
+  </article>
+  <article class="qa" id="q112">
+    <div class="qmeta">
+      <span class="no mono">112</span>
+      <span class="code mono">2.1.4</span>
+      <span class="tag">ルールベースを選ぶ根拠</span>
+    </div>
+    <p class="q">ある自治体が、住民から提出された補助金申請の審査業務にAIを導入したいと考えている。審査の判断基準は条例と要領で細かく定められており、該当条項をあてはめれば結論が一意に決まる。申請件数は年間およそ800件で、審査結果には条項を引用した理由の付記が法令上義務づけられている。ビジネス戦略担当としての助言はどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">判断基準が明文化され結論が一意に決まる業務であり、条項の引用も義務づけられているため、AIによる推論よりルールベースの自動化が適している</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">基準が明文化・例外が限定的・根拠の説明が必要 → AIの推論よりルールベースの自動化。</p>
+      <p>正解: 判断基準が明文化され、例外が少なく、結論が一意に決まり、かつ根拠の提示が求められる業務は、AIによる確率的な推論よりルールベースの自動化が適します。完全な再現性と説明が担保できるためです。要約を挟む案は判断の根拠が要約の品質に左右され、予測モデルは条項の引用を確実に保証できません。件数の少なさは自動化の是非を左右しますが、この設問の決め手は「基準が明文化され結論が一意」という性質です。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>ルールベースを選ぶ根拠は3点セット ── ①判断基準が明文化されている ②例外が限定的 ③完全な再現性と根拠の説明が必要。この条件が揃ったらAIの推論より自動化。逆にAIが向くのは、規則化しにくい・入力が多様・完全一致でなくてよい業務。</p>
     </div>
   </article>
 
@@ -1873,7 +1916,7 @@ body{
     <p class="q">マネージドなAIサービスを利用してAI機能を提供している。AWS 責任共有モデルの考え方をAIワークロードに当てはめた説明として最も適切なものはどれか。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <p class="anstext">クラウド事業者はクラウド自体のセキュリティを担い、利用企業は投入するデータ、アクセス権限の設定、AIの用途と出力の扱いに責任を負う</p>
+      <p class="anstext">AWS 責任共有モデルの考え方どおり、クラウド事業者はクラウド自体のセキュリティを担い、利用企業は投入するデータ、アクセス権限の設定、AIの用途と出力の扱いに責任を負う</p>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -2019,7 +2062,7 @@ body{
     <span class="domno mono">Domain 4</span>
     <h2>ビジネス準備とAI変革</h2>
     <p class="domlead">レディネスと成熟度、データ・技術基盤、チェンジマネジメントと人材育成、パイロットから全社展開へのスケール</p>
-    <p class="dommeta mono">出題比率 24% ／ 問 77–100 ＋ 追補 104・105（全26問）</p>
+    <p class="dommeta mono">出題比率 24% ／ 問 77–100 ＋ 追補 104・105・113（全27問）</p>
   </header>
   <article class="qa" id="q77">
     <div class="qmeta">
@@ -2135,7 +2178,7 @@ body{
     <p class="q">顧客の全体像に基づくレコメンドをAIで実現したいが、顧客データが販売・サポート・Webの3システムに分断され、共通の顧客識別子がない。最初に着手すべきことはどれか。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <p class="anstext">顧客識別子の統合とデータ連携の設計（名寄せ・統合基盤の整備）</p>
+      <p class="anstext">顧客識別子の統合とデータ連携の設計（名寄せ・統合基盤の整備）に着手する</p>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -2555,7 +2598,7 @@ body{
     <p class="q">ある企業では、各事業部門が個別にAIツールを導入した結果、似た用途のシステムが重複し、部門間で知見が共有されていない。従来の役割分担のままで、部門をまたいで協働する動き方も定着していない。全社的な拡大に先立ち、AWS CAF のどのパースペクティブの観点から手を打つべきか。</p>
     <div class="ans">
       <span class="lab mono">答え</span>
-      <p class="anstext">人材（People）のパースペクティブ ── 組織連携や役割の再編、部門横断で協働する文化の醸成を扱う</p>
+      <p class="anstext">AWS CAF の人材（People）のパースペクティブ ── 組織連携や役割の再編、部門横断で協働する文化の醸成を扱う</p>
     </div>
     <div class="exp">
       <span class="lab mono">解説</span>
@@ -2565,6 +2608,28 @@ body{
     <div class="mem">
       <span class="lab mono">暗記ポイント</span>
       <p>CAF の切り分け ── 人材＝組織連携・役割再編・文化／ガバナンス＝ルールとリスク・コストの統制／プラットフォーム＝共通の技術基盤／ビジネス＝価値と効果測定。「部門が協働できない」は人材の論点。</p>
+    </div>
+  </article>
+
+  <article class="qa" id="q113">
+    <div class="qmeta">
+      <span class="no mono">113</span>
+      <span class="code mono">4.2.3</span>
+      <span class="tag">機械学習レンズで基盤要件を洗い出す</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">ある企業が、複数の事業部門でAIワークロードを本番運用する計画を立てている。技術基盤の要件を体系立てて洗い出したいが、社内には基準となる観点がなく、部門ごとに設計の粒度がばらついている。AWS が提供する枠組みの使い方として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">AWS Well-Architected Framework の機械学習レンズを設計レビューの共通観点として用い、データ準備・学習・デプロイ・監視の各段階で要件を洗い出す</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">組織の能力＝AWS CAF／個々のワークロードの設計＝Well-Architected。MLのライフサイクルは機械学習レンズ。</p>
+      <p>正解: Well-Architected Framework の機械学習レンズは、MLワークロードの設計・デプロイ・運用のベストプラクティスを段階ごとに示すため、部門をまたいだ設計レビューの共通観点として使えます。AWS CAF は組織の能力とロードマップを扱う枠組みで、個々のワークロードの設計基準ではありません。料金試算や既製品の前提構成は、要件を洗い出す枠組みの代わりにはなりません。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>切り分けの型 ── 組織の能力と変革ロードマップ＝AWS CAF（6視点）／個々のワークロードの設計品質＝Well-Architected。Well-Architected の領域別レンズは、MLのライフサイクル設計＝機械学習レンズ、公平性・説明可能性＝責任あるAIレンズ。</p>
     </div>
   </article>
 
@@ -2714,7 +2779,7 @@ body{
   </article>
 </section>
   <p class="tail">
-    本書は AWS 公式の試験ガイド（AIB-C01）に記載された出題範囲・タスクステートメント・スキル項目に基づいて作成した学習用の教材です。実際の試験問題ではありません。ベータ版は85問／170分、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています。各問の番号横にある数字（1.1.2 など）は、公式試験ガイドのスキル項目番号に対応しており、全110問で公式のスキル項目58個をすべて網羅しています。問101〜110 は、公式練習問題（Official Practice Question Set・20問）と突き合わせて不足していた論点（Well-Architected 機械学習レンズ／AWS CAF の人材パースペクティブと組織連携／コスト配分とショーバック・チャージバック／AGI を含む用語の切り分け／規制で説明義務があるときのモデル選択）を補った追補です。<span class="pill">AWS</span> のマークが付いた問題は、公式試験ガイドが名指ししている AWS のサービス・枠組みに対応する問題です。内訳は、付録「In-scope AWS services and features」の9項目（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）と、「Recommended AWS knowledge」に記載の2項目（AWS Well-Architected Framework の Responsible AI Lens / コスト最適化戦略（Savings Plans など））です。後者は付録の9項目には含まれませんが、いずれも公式ガイド本文に明記されています。
+    本書は AWS 公式の試験ガイド（AIB-C01）に記載された出題範囲・タスクステートメント・スキル項目に基づいて作成した学習用の教材です。実際の試験問題ではありません。ベータ版は85問／170分、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています。各問の番号横にある数字（1.1.2 など）は、公式試験ガイドのスキル項目番号に対応しており、全113問で公式のスキル項目58個をすべて網羅しています。問101〜113 は、公式練習問題（Official Practice Question Set・20問）と突き合わせて不足していた論点（Well-Architected 機械学習レンズ／AWS CAF の人材パースペクティブと組織連携／コスト配分とショーバック・チャージバック／AGI を含む用語の切り分け／規制で説明義務があるときのモデル選択）を補った追補です。<span class="pill">AWS</span> のマークが付いた問題は、公式試験ガイドが名指ししている AWS のサービス・枠組みに対応する問題です。内訳は、付録「In-scope AWS services and features」の9項目（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）と、「Recommended AWS knowledge」に記載の2項目（AWS Well-Architected Framework の Responsible AI Lens / コスト最適化戦略（Savings Plans など））です。後者は付録の9項目には含まれませんが、いずれも公式ガイド本文に明記されています。
   </p>
   <a class="totop" href="#top">▲ 先頭に戻る</a>
 </div>
