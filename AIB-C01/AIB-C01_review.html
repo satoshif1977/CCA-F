@@ -205,7 +205,7 @@ body{
   <header class="mast">
     <span class="eyebrow">AWS Certified · AIB-C01</span>
     <h1>AI Business Strategist<br>要点問題集</h1>
-    <p class="sub">AWS Certified AI Business Strategist（ベータ）試験ガイドの出題範囲に沿った113問（うち101〜113 は公式練習問題との突合による追補）。問題 → 答え → 解説 → 暗記ポイント の順に、上から読み進めるだけの構成です。</p>
+    <p class="sub">AWS Certified AI Business Strategist（ベータ）試験ガイドの出題範囲に沿った120問（うち101〜113 は公式練習問題、114〜120 は合格者作成ノートとの突合による追補）。問題 → 答え → 解説 → 暗記ポイント の順に、上から読み進めるだけの構成です。</p>
     <div class="howto">
       <b>使い方</b>　選択肢は正解だけを載せています。問題文を読んで自分なりの答えを頭に浮かべてから、下の「答え」を見てください。太字の一行がその問題の要点、その下が詳しい解説、最後のオレンジの枠が試験直前に見返す暗記ポイントです。<br>
       <b>直前に見返すとき</b>　各問の暗記ポイントと、巻末の<a href="#note">暗記ノート</a>だけを拾い読みしてください。<br>
@@ -802,7 +802,7 @@ body{
     <span class="domno mono">Domain 2</span>
     <h2>AI戦略とビジネス価値創出</h2>
     <p class="domlead">ユースケースの選定、build-buy-partner、KPIとベースライン、ROI算出とコスト最適化、競争優位とビジネスモデル変革</p>
-    <p class="dommeta mono">出題比率 28% ／ 問 25–52 ＋ 追補 106・107・111・112（全32問）</p>
+    <p class="dommeta mono">出題比率 28% ／ 問 25–52 ＋ 追補 106・107・111・112・114–117（全36問）</p>
   </header>
   <article class="qa" id="q25">
     <div class="qmeta">
@@ -1478,6 +1478,91 @@ body{
     </div>
   </article>
 
+  <article class="qa" id="q114">
+    <div class="qmeta">
+      <span class="no mono">114</span>
+      <span class="code mono">2.1.3</span>
+      <span class="tag">サンクコストと中止判断</span>
+    </div>
+    <p class="q">製造業が需要予測AIに18か月・1億2,000万円を投じたが、精度は目標に届かず、現場は従来のExcel運用に戻している。開発チームは「あと6,000万円あれば改善できる」と主張するが、根拠は主観的な見通しのみで、改善後にどれだけの業務価値が生まれるかは試算されていない。経営会議では「すでに1億2,000万円かけたのだから、ここでやめたら全部が無駄になる」という意見が出ている。投資判断として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">既に投じた額は判断から外し、追加の6,000万円に見合う将来価値を示せるかで継続可否を決める</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">判断材料は「これから投じる額」と「これから得られる価値」だけ。過去の支出は含めない。</p>
+      <p>正解: サンクコスト（すでに支出して回収できない費用）は、将来の意思決定の材料にしません。判断すべきは「これから投じる6,000万円」に対して「これから得られる価値」が見合うかどうかだけです。設問では改善後の業務価値が試算されていないため、まずその試算を求め、それを根拠に継続可否を決めるのが正しい順序になります。</p><p>「回収する必要がある」はサンクコストにとらわれた誤り（コンコルド効果）そのものです。「内容を問わず直ちに中止」は一見合理的ですが、将来価値の評価を放棄している点で同じ誤りの裏返しになります。同規模の再投資は、失敗の原因分析をせずに金額だけを根拠にしており正当化できません。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>サンクコストは継続の理由にも中止の理由にもならない。評価するのは追加投資額と将来リターンの比較だけ。「ここまで投資したから続ける」も「もう使ったから捨てる」も同じ誤り。将来価値が試算されていないなら、まず試算を求めるのが正解の方向。</p>
+    </div>
+  </article>
+  <article class="qa" id="q115">
+    <div class="qmeta">
+      <span class="no mono">115</span>
+      <span class="code mono">2.1.1</span>
+      <span class="tag">価値×実現性による優先順位付け</span>
+    </div>
+    <p class="q">小売業がAI候補を4件洗い出した。①需要予測はビジネス価値が高く、必要な販売データも整備済みである。②店舗の混雑を画像解析する施策は価値が高いが、カメラが未設置で学習データが存在しない。③社内文書検索は価値が低く実現性は高い。④役員向けレポートの自動生成は価値・実現性ともに低い。予算と人員が限られる中、最初の半年の進め方として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">①に集中して早期に成果を出し、②は価値が高いためカメラ設置とデータ蓄積から準備する</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">価値高×実現性高は最優先。価値高×実現性低は捨てず、前提条件の整備から段階的に準備する。</p>
+      <p>正解: 価値と実現性の2軸で見ると、①は両方が高い Quick Win で最優先です。②は価値が高い一方で実現性が低く、すぐには着手できませんが将来の価値が大きいため、データ整備という前提条件から段階的に準備する「戦略的投資」に当たります。③は余力があれば、④は見送りです。</p><p>①と③を同時に進める案は、実現性だけを基準にしており、価値の低い③に限られた人員を割いてしまいます。②を最優先する案は、学習データが存在しない以上そもそも成立しません。全件を並行してPoCする案は、予算と人員が限られるという前提に反します。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>価値×実現性のマトリクス。価値高×実現性高＝最優先（Quick Win）／価値高×実現性低＝前提条件の整備から始める戦略投資／価値低×実現性高＝余力があれば／価値低×実現性低＝見送り。実現性が低いだけで捨てない、価値が高いだけで飛びつかない。</p>
+    </div>
+  </article>
+  <article class="qa" id="q116">
+    <div class="qmeta">
+      <span class="no mono">116</span>
+      <span class="code mono">2.2.3</span>
+      <span class="tag">PoCが本番に届かない障壁の分類</span>
+    </div>
+    <p class="q">ある企業が過去2年で生成AIのPoCを12件実施したが、本番に到達したのは1件だけだった。振り返ると、大半は「動作した」「現場の評判も悪くない」という報告で終わっており、投資判断の会議で継続可否を決められないまま立ち消えになっていた。技術的にはいずれも基盤モデルで実現できており、法務レビューも完了していた。12件に共通する最大の障壁として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">価値の障壁。ROIや測定可能なビジネス成果が明確に定義されていなかった</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">「動いた」は成果ではない。成功の定義が数値で無いPoCは投資判断にかけられない。</p>
+      <p>正解: 設問は「技術的には実現できていた」「法務レビューも完了」「現場の評判も悪くない」と、技術・リスク・人の障壁を明示的に否定しています。残るのは価値の障壁で、何をもって成功とするかが数値で定義されておらず、投資判断に必要な情報が出てこなかった、という構図です。</p><p>AWS の Path-to-Value フレームワークは、生成AIが本番に届かない原因を「価値・リスク・技術・人」の4つに分類しています。このうち最も多いのが価値の未定義です。対策は、PoCを始める前にビジネスケースと成功指標を決めておくことで、PoCの後から効果を測ろうとしても比較の基準がありません。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>障壁は 価値／リスク／技術／人 の4分類（AWS Path-to-Value）。PoCが本番に行かない最頻の理由は「価値が定義されていない」。「動いた」「評判が良い」は投資判断の材料にならない。ビジネスケースと成功指標はPoC開始前に決める。</p>
+    </div>
+  </article>
+  <article class="qa" id="q117">
+    <div class="qmeta">
+      <span class="no mono">117</span>
+      <span class="code mono">2.3.3</span>
+      <span class="tag">AIフライホイールと持続的競争優位</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">同じ業界の2社が、同一の基盤モデルを使って同種のレコメンド機能を提供している。A社は自社サービス上の購買・閲覧・返品の履歴を蓄積し、その結果を継続的に学習へ還流させている。B社は外部から購入したデータのみを使っており、自社での出力や利用実績は保存していない。3年後に両社の間で持続的な差が生まれる理由として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">A社はデータが集まるほど精度が上がり利用がさらに増える好循環が回り、模倣されにくくなるため</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">模倣されるのはモデル。模倣されにくいのは独自データとそれを回す仕組み。</p>
+      <p>正解: AWS CAF-AI が「AI フライホイール」と呼ぶ好循環です。高品質なデータで学習したAIが予測を返し、その予測がビジネス成果を改善し、顧客との関係が深まることで、さらに多くの・より質の高いデータが生まれます。データとデータ戦略がこの循環を回し続ける原動力である、と位置づけられています。</p><p>両社は同じ基盤モデルを使っているため、モデルの性能そのものは差別化要因になりません。推論コストもベンダーロックインも、3年かけて広がる持続的な差の説明としては弱いものです。持続的な競争優位の源泉は、独自データとそれを回す仕組み、そして業務への組み込みの深さにあります。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>AIフライホイール（CAF-AI）＝高品質データ → 学習 → 予測 → ビジネス成果 → 顧客との関係深化 → さらにデータ。★CAF-AI が挙げる高品質データの条件は「適時・関連性がある・価値がある・妥当」（timely, relevant, valuable, valid）。ビッグデータの4つのV（Volume/Variety/Velocity/Veracity）は CAF-AI の用語ではないので混同しない。</p>
+    </div>
+  </article>
+
 </section>
 
 <section class="dom d3" id="d3">
@@ -2062,7 +2147,7 @@ body{
     <span class="domno mono">Domain 4</span>
     <h2>ビジネス準備とAI変革</h2>
     <p class="domlead">レディネスと成熟度、データ・技術基盤、チェンジマネジメントと人材育成、パイロットから全社展開へのスケール</p>
-    <p class="dommeta mono">出題比率 24% ／ 問 77–100 ＋ 追補 104・105・113（全27問）</p>
+    <p class="dommeta mono">出題比率 24% ／ 問 77–100 ＋ 追補 104・105・113・118–120（全30問）</p>
   </header>
   <article class="qa" id="q77">
     <div class="qmeta">
@@ -2633,6 +2718,70 @@ body{
     </div>
   </article>
 
+  <article class="qa" id="q118">
+    <div class="qmeta">
+      <span class="no mono">118</span>
+      <span class="code mono">4.4.1</span>
+      <span class="tag">CAF-AI と成熟度モデルの段階名の違い</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">AI推進担当が2種類のAWS資料を並行して参照している。片方はAI変革のジャーニーを4段階で示し、2段階目では基盤能力の洗い出し、部門横断の依存関係の特定、関係者の懸念の表面化を行うとしている。もう片方は生成AIの成熟度を4レベルで示し、2レベル目ではPoCとパイロットによって技術的実現性とビジネス価値を検証するとしている。この2つの2段階目の名称の組み合わせとして正しいものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">AWS CAF-AI が Align、生成AI成熟度モデルが Experiment</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">1・3・4段階目は同名。違うのは2段階目だけ ── Align か Experiment か。</p>
+      <p>正解: 2つの枠組みは1・3・4段階目の名前が同じで、2段階目だけが異なります。AWS CAF-AI の変革ジャーニーは Envision → Align → Launch → Scale で、Align は基盤能力の洗い出しと部門横断の依存関係の特定、関係者の懸念の表面化を行う段階です。</p><p>一方、AWS Prescriptive Guidance の生成AI成熟度モデルは Envision → Experiment → Launch → Scale で、Experiment は PoC とパイロットで技術的実現性とビジネス価値を検証する段階です。2つは別々の資料であり、一方が他方の下位分類という関係にはありません。設問の記述（基盤能力・依存関係・関係者の懸念＝Align／PoC・パイロット＝Experiment）が見分ける手がかりになります。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>2段階目だけ違う。CAF-AI＝Envision →【Align】→ Launch → Scale（合意形成・基盤能力）／生成AI成熟度モデル＝Envision →【Experiment】→ Launch → Scale（PoC検証）。設問に「合意形成・依存関係・関係者の懸念」が出たら Align、「PoC・パイロット・実現性検証」なら Experiment。</p>
+    </div>
+  </article>
+  <article class="qa" id="q119">
+    <div class="qmeta">
+      <span class="no mono">119</span>
+      <span class="code mono">4.1.2</span>
+      <span class="tag">成熟度レベルに対応する重点領域</span>
+    </div>
+    <p class="q">生成AI成熟度モデルでは、成熟度のレベルごとに重点領域（focus area）が対応づけられている。ある企業は既に複数の生成AIアプリケーションを本番運用しており、個別案件への対応から、全社への横展開と再利用可能な部品・標準パターンの整備、そして継続的な性能改善へと軸足を移そうとしている。この段階に対応する重点領域として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">拡大と最適化（scalability and optimization）</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">重点領域は 革新と実現性 → 統合と効率 → 拡大と最適化 → 変革とリーダーシップ の順に進む。</p>
+      <p>正解: 生成AI成熟度モデルの重点領域は「革新と実現性 → 統合と効率 → 拡大と最適化 → 変革とリーダーシップ」の順に進みます。設問の企業は既に本番運用が複数あり、全社展開・再利用可能な部品・標準パターン・継続的な性能改善へ軸足を移す段階なので、拡大と最適化（生成AIアプリケーションの拡大と継続的な性能改善）に当たります。</p><p>革新と実現性はユースケースと必要なデータの有無・品質を検証する段階、統合と効率は生成AIを既存の業務プロセスへ組み込む段階、変革とリーダーシップは生成AIで戦略的な転換を起こし競争優位を得る最上位の段階です。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>成熟度モデルの4つの見方＝①採用の柱（Business / People / Governance / Platform / Security / Operations の6つ）②重点領域 ③主要な活動 ④変革戦略。重点領域は 革新と実現性 → 統合と効率 → 拡大と最適化 → 変革とリーダーシップ の順。採用の柱6つは CAF の6パースペクティブと同じ並び。</p>
+    </div>
+  </article>
+  <article class="qa" id="q120">
+    <div class="qmeta">
+      <span class="no mono">120</span>
+      <span class="code mono">4.2.2</span>
+      <span class="tag">データを製品として扱う（data product）</span><span class="pill">AWS</span>
+    </div>
+    <p class="q">製造業で、各工場が自分たちの生産データをそれぞれ保持しており、他部門が分析に使いたい場合は担当者へ都度依頼して個別に抽出してもらっている。依頼から入手まで平均3週間かかり、AI施策が立ち上がらない要因になっている。データ基盤への投資は既に承認済みで、技術面の制約はない。組織面の打ち手として最も適切なものはどれか。</p>
+    <div class="ans">
+      <span class="lab mono">答え</span>
+      <p class="anstext">データを「製品」として扱い、オーナーと品質・提供条件を定めて利用者が自ら取得できる形にする</p>
+    </div>
+    <div class="exp">
+      <span class="lab mono">解説</span>
+      <p class="point">依頼をさばく人を増やすのは構造を変えていない。オーナーと提供条件を決めてセルフサービス化する。</p>
+      <p>正解: AWS CAF-AI は、データを「製品（data product）」として扱う考え方を推奨しています。データセットごとにオーナー（責任者）を定め、品質基準と提供条件を明示し、利用者が依頼を介さず自分で取得できる状態にする、というものです。フライホイールを回すにはデータが部門を越えて流れる必要があり、そのための組織的な仕組みが data product です。</p><p>抽出担当者の増員は、都度依頼という構造をそのままに人を足しているだけで、待ち時間は減っても仕組みは変わりません。全社員への無制限の権限開放はガバナンス上成立しません。形式統一が終わるまで着手を延期する案は、目的と手段が逆転しています。</p>
+    </div>
+    <div class="mem">
+      <span class="lab mono">暗記ポイント</span>
+      <p>データを製品として扱う（CAF-AI）＝①オーナーを決める ②品質基準と提供条件を明示する ③利用者がセルフサービスで取得できる。人を増やして依頼をさばくのは構造を変えていない。「全員に無制限公開」はガバナンス違反で誤答の定番。データ戦略がフライホイールを回し続ける。</p>
+    </div>
+  </article>
+
 </section>
 <section class="dom note" id="note">
   <header class="domhead">
@@ -2739,7 +2888,10 @@ body{
   <article class="notecard">
     <h3>6. 型で覚える（順序・段階・層）</h3>
     <ul class="notelist">
-      <li><b>変革の4フェーズ</b>　構想（envision）→ 実験（experiment）→ 立ち上げ（launch）→ 拡大（scale）。各フェーズの終わりに継続・修正・中止のゲートを置く</li>
+      <li><b>変革の4フェーズ（枠組みが2つあり、2段階目だけ違う）</b>　AWS CAF-AI＝構想（envision）→ <b>合意形成（align）</b> → 立ち上げ（launch）→ 拡大（scale）／生成AI成熟度モデル＝構想（envision）→ <b>実験（experiment）</b> → 立ち上げ（launch）→ 拡大（scale）。各フェーズの終わりに継続・修正・中止のゲートを置く</li>
+      <li><b>成熟度モデルの重点領域4つ</b>　革新と実現性 → 統合と効率 → 拡大と最適化 → 変革とリーダーシップ。成熟度モデルの見方は「採用の柱6つ／重点領域／主要な活動／変革戦略」の4つ</li>
+      <li><b>本番に届かない障壁の4分類</b>　価値（ROIが未定義）／リスク（法務・プライバシー）／技術（本番化の課題）／人（スキル不足・抵抗）。最も多いのは<b>価値</b>（AWS Path-to-Value）</li>
+      <li><b>AIフライホイール</b>　高品質データ（適時・関連性がある・価値がある・妥当）→ 学習 → 予測 → ビジネス成果 → 顧客との関係深化 → さらにデータ。★ビッグデータの「4つのV」は CAF-AI の用語ではない</li>
       <li><b>施策の3判断</b>　拡大（scale）／保留（pause）／中止（terminate）を明示的に選ぶ。中止の正当な根拠は<b>価値仮説が崩れたこと</b>のみ</li>
       <li><b>リスク統制の3層</b>　予防（利用範囲の限定・ガードレール）／検知（監視・定期評価）／対応（エスカレーション・停止手順・顧客救済）。見落とされるのは<b>対応層</b></li>
       <li><b>ケイパビリティギャップの4側面</b>　人材（スキル）／プロセス（業務手順・意思決定）／技術（基盤）／ガバナンス（統制・承認）</li>
@@ -2779,7 +2931,7 @@ body{
   </article>
 </section>
   <p class="tail">
-    本書は AWS 公式の試験ガイド（AIB-C01）に記載された出題範囲・タスクステートメント・スキル項目に基づいて作成した学習用の教材です。実際の試験問題ではありません。ベータ版は85問／170分、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています。各問の番号横にある数字（1.1.2 など）は、公式試験ガイドのスキル項目番号に対応しており、全113問で公式のスキル項目58個をすべて網羅しています。問101〜113 は、公式練習問題（Official Practice Question Set・20問）と突き合わせて不足していた論点（Well-Architected 機械学習レンズ／AWS CAF の人材パースペクティブと組織連携／コスト配分とショーバック・チャージバック／AGI を含む用語の切り分け／規制で説明義務があるときのモデル選択）を補った追補です。<span class="pill">AWS</span> のマークが付いた問題は、公式試験ガイドが名指ししている AWS のサービス・枠組みに対応する問題です。内訳は、付録「In-scope AWS services and features」の9項目（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）と、「Recommended AWS knowledge」に記載の2項目（AWS Well-Architected Framework の Responsible AI Lens / コスト最適化戦略（Savings Plans など））です。後者は付録の9項目には含まれませんが、いずれも公式ガイド本文に明記されています。
+    本書は AWS 公式の試験ガイド（AIB-C01）に記載された出題範囲・タスクステートメント・スキル項目に基づいて作成した学習用の教材です。実際の試験問題ではありません。ベータ版は85問／170分、合格ラインは 100〜1,000 のスケールドスコアで 700 とされています。各問の番号横にある数字（1.1.2 など）は、公式試験ガイドのスキル項目番号に対応しており、全120問で公式のスキル項目58個をすべて網羅しています。問101〜113 は、公式練習問題（Official Practice Question Set・20問）と突き合わせて不足していた論点（Well-Architected 機械学習レンズ／AWS CAF の人材パースペクティブと組織連携／コスト配分とショーバック・チャージバック／AGI を含む用語の切り分け／規制で説明義務があるときのモデル選択）を補った追補です。<span class="pill">AWS</span> のマークが付いた問題は、公式試験ガイドが名指ししている AWS のサービス・枠組みに対応する問題です。内訳は、付録「In-scope AWS services and features」の9項目（Amazon Bedrock / Amazon SageMaker AI / Amazon Quick / AWS CAF / AWS 責任共有モデル / AI 料金体系 / Cost Explorer / Pricing Calculator / AWS Marketplace）と、「Recommended AWS knowledge」に記載の2項目（AWS Well-Architected Framework の Responsible AI Lens / コスト最適化戦略（Savings Plans など））です。後者は付録の9項目には含まれませんが、いずれも公式ガイド本文に明記されています。
   </p>
   <a class="totop" href="#top">▲ 先頭に戻る</a>
 </div>
