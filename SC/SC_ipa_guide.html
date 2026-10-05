@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科目B 一次資料ガイド | 情報処理安全確保支援士</title>
+<style>
+:root{
+  --primary:#4f46e5; --primary-dark:#3730a3;
+  --sc:#0f766e; --sc-soft:#e6f4f1;
+  --hit:#9f1239; --hit-soft:#fdeaef;
+  --bg:#f8fafc; --card:#fff; --card-2:#f1f5f9;
+  --border:#e2e8f0; --text:#1e293b; --muted:#64748b; --faint:#94a3b8;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --primary:#8b87f5; --primary-dark:#a5a1ff;
+    --sc:#5eead4; --sc-soft:#10312e;
+    --hit:#fb7185; --hit-soft:#3a1420;
+    --bg:#0f1419; --card:#171d25; --card-2:#1e252f;
+    --border:#2b333f; --text:#e6eaf0; --muted:#9aa5b5; --faint:#6b7687;
+  }
+}
+:root[data-theme="dark"]{
+  --primary:#8b87f5; --primary-dark:#a5a1ff;
+  --sc:#5eead4; --sc-soft:#10312e;
+  --hit:#fb7185; --hit-soft:#3a1420;
+  --bg:#0f1419; --card:#171d25; --card-2:#1e252f;
+  --border:#2b333f; --text:#e6eaf0; --muted:#9aa5b5; --faint:#6b7687;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+  background:var(--bg); color:var(--text); padding-bottom:64px;
+  font-size:15px; line-height:1.85; -webkit-text-size-adjust:100%;
+}
+.hero{background:linear-gradient(135deg,#0f766e,#115e59);color:#fff;padding:26px 20px 22px;text-align:center}
+.hero h1{font-size:1.3rem;font-weight:800;letter-spacing:.02em;line-height:1.4}
+.hero p{font-size:.8rem;opacity:.9;margin-top:8px;line-height:1.7}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:4px 12px;font-size:.7rem;margin-top:8px;margin-right:4px}
+.container{max-width:760px;margin:0 auto;padding:0 16px}
+
+nav.jump{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--border);
+  display:flex;gap:6px;overflow-x:auto;padding:9px 12px;-webkit-overflow-scrolling:touch}
+nav.jump a{flex:0 0 auto;text-decoration:none;font-size:.73rem;font-weight:700;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:7px 12px;min-height:34px;display:flex;align-items:center}
+nav.jump a:hover,nav.jump a:focus-visible{color:var(--sc);border-color:var(--sc);outline:none}
+
+section{margin-top:30px;scroll-margin-top:60px}
+h2{font-size:1.02rem;font-weight:800;line-height:1.5;text-wrap:balance;
+  border-left:4px solid var(--sc);padding-left:10px;margin-bottom:6px}
+h3{font-size:.92rem;font-weight:800;margin-top:20px;margin-bottom:6px;color:var(--text);text-wrap:balance}
+.lead{font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.8}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 1.2em}
+li{margin:4px 0}
+strong{font-weight:800}
+.em{color:var(--hit);font-weight:800}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:12px}
+.card-2{background:var(--card-2);border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:10px}
+
+.chip{display:inline-block;font-size:.68rem;font-weight:700;border-radius:999px;padding:3px 9px;margin:2px 3px 2px 0;
+  background:var(--hit-soft);color:var(--hit);white-space:nowrap}
+.chip-none{background:var(--card-2);color:var(--faint)}
+.chip-sc{background:var(--sc-soft);color:var(--sc)}
+
+details{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-top:10px;overflow:hidden}
+details[open]{border-color:var(--sc)}
+summary{cursor:pointer;list-style:none;padding:13px 14px;min-height:46px;display:flex;align-items:flex-start;gap:9px;
+  font-weight:800;font-size:.9rem;line-height:1.5}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";margin-left:auto;color:var(--faint);font-weight:700;flex:0 0 auto}
+details[open] summary::after{content:"−"}
+summary:focus-visible{outline:2px solid var(--sc);outline-offset:-2px}
+.num{flex:0 0 auto;background:var(--sc);color:#fff;border-radius:7px;min-width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:800;margin-top:1px}
+.d-body{padding:0 14px 14px}
+.d-chips{padding:0 14px 10px;margin-top:-4px}
+
+.ask,.ans{border-radius:9px;padding:11px 12px;margin-top:9px;font-size:.86rem;line-height:1.8}
+.ask{background:var(--card-2);border-left:3px solid var(--muted)}
+.ans{background:var(--sc-soft);border-left:3px solid var(--sc)}
+.ask .lbl,.ans .lbl{display:block;font-size:.68rem;font-weight:800;letter-spacing:.08em;margin-bottom:4px}
+.ask .lbl{color:var(--muted)} .ans .lbl{color:var(--sc)}
+
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:.8rem;min-width:420px}
+th,td{border:1px solid var(--border);padding:7px 9px;text-align:left;vertical-align:top;line-height:1.7}
+th{background:var(--card-2);font-weight:800;white-space:nowrap}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans Mono",monospace;
+  font-size:.82em;background:var(--card-2);border-radius:4px;padding:1px 5px}
+pre{background:var(--card-2);border:1px solid var(--border);border-radius:9px;padding:11px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:9px;font-size:.78rem;line-height:1.75}
+pre code{background:none;padding:0}
+
+.note{border-left:3px solid var(--primary);background:var(--card);border:1px solid var(--border);
+  border-left:3px solid var(--primary);border-radius:9px;padding:12px;margin-top:12px;font-size:.85rem}
+.warn{border-left-color:var(--hit)}
+
+.cnt{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cnt-item{flex:1 1 190px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px}
+.cnt-n{font-size:.7rem;font-weight:800;color:var(--sc);letter-spacing:.06em}
+.cnt-t{font-size:.84rem;line-height:1.7;margin-top:3px}
+
+.footer{text-align:center;margin-top:36px;font-size:.72rem;color:var(--muted);line-height:1.9}
+.footer a{color:var(--sc)}
+a{color:var(--primary)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>科目B 一次資料ガイド</h1>
+  <p>情報処理安全確保支援士（登録セキスペ）<br>IPA 公式資料と、本物の設問・解答例の対応表</p>
+  <span class="badge">令和5年秋〜令和7年秋・全20問</span>
+  <span class="badge">解答例＋採点講評 5回分</span>
+  <span class="badge">出典はすべて IPA 公式 PDF</span>
+</div>
+
+<nav class="jump">
+  <a href="#use">使い方</a>
+  <a href="#kata">解答の型</a>
+  <a href="#code">本物の聞き方</a>
+  <a href="#miss">よくある誤答</a>
+  <a href="#tactics">本番の戦い方</a>
+  <a href="#web">11脆弱性</a>
+  <a href="#threat">10大脅威</a>
+  <a href="#ai">AIリスク</a>
+  <a href="#cvss">CVSS/EPSS</a>
+  <a href="#plan">読む順番</a>
+</nav>
+
+<div class="container">
+
+<!-- ============ 使い方 ============ -->
+<section id="use">
+  <h2>この資料は何か</h2>
+  <p class="lead">生成AIの演習問題では絶対に手に入らない「<strong>本物</strong>」だけを集めた資料です。</p>
+
+  <div class="card">
+    <p><strong>根拠：出題趣旨に、参照すべき資料名が書いてあります。</strong></p>
+    <div class="scroll">
+    <table>
+      <tr><th>回</th><th>出題趣旨に明記された資料</th></tr>
+      <tr><td class="n">R6春 問3</td><td>IPA「<strong>安全なウェブサイトの作り方</strong>」で取り上げられている脆弱性</td></tr>
+      <tr><td class="n">R7春 問1</td><td>IPA「<strong>情報セキュリティ10大脅威</strong>」の組織編にも7年連続で含まれている</td></tr>
+      <tr><td class="n">R7春 問3</td><td>JPCERT/CC 及び IPA が運営する脆弱性対策情報ポータルサイト「<strong>JVN</strong>」</td></tr>
+    </table>
+    </div>
+    <p style="margin-top:10px">出題者は、この3つを<strong>下敷きにしていることを隠していません</strong>。市販教材より優先度が高い可能性があります。</p>
+  </div>
+
+  <div class="note warn">
+    <strong>★ 生成AIの演習問題で気をつけること</strong>
+    <p>GAS で生成した問題の模範解答を全件検算したところ、<strong class="em">字数の申告が 6件中 4件ずれていました</strong>（「30字以内」の設問に 38字の解答など）。LLM は日本語の字数を正確に数えられません。<strong>字数感覚だけは、この資料の体感表で補ってください。</strong></p>
+  </div>
+</section>
+
+<!-- ============ 解答の型 ============ -->
+<section id="kata">
+  <h2>解答の型と、字数の体感</h2>
+  <p class="lead">出題趣旨20問のうち <strong class="em">13問</strong> が「対策を立案する能力を問う」でした。知識ではなく、書けるかどうかで決まります。</p>
+
+  <h3>★ 模範解答と違っても正解になります</h3>
+  <div class="card">
+    <p>IPA の解答例には、こう書かれた設問があります。</p>
+    <div class="ans"><span class="lbl">公式の備考欄（R7秋 問4 ほか）</span>
+      左の例に限らず、本文の状況に沿った仕組み、手順が記述されていること</div>
+    <p style="margin-top:10px"><strong>＝ 書けば部分点が来る設計です。</strong> 白紙だけは絶対に避けてください。</p>
+  </div>
+
+  <h3>解答の型（3パターン）</h3>
+  <div class="cnt">
+    <div class="cnt-item"><div class="cnt-n">型A ─ 対策</div><div class="cnt-t"><strong>何を</strong>＋<strong>どうする</strong><br><span class="mono">出力時にエスケープ処理を施す。</span></div></div>
+    <div class="cnt-item"><div class="cnt-n">型B ─ 条件つき対策</div><div class="cnt-t"><strong>何で判定し</strong>＋<strong>違えばどうする</strong><br><span class="mono">…を特定し、違っていれば、エラーにする。</span></div></div>
+    <div class="cnt-item"><div class="cnt-n">型C ─ 攻撃の説明</div><div class="cnt-t"><strong>誰が</strong>＋<strong>何を使い</strong>＋<strong>何をする</strong><br><span class="mono">攻撃者が…を入手し、…を実行する。</span></div></div>
+  </div>
+
+  <h3>★ 字数の体感表（実際の公式解答例）</h3>
+  <p class="lead">数えずに「見た目」で分かるようにしてください。本番で数える時間はありません。</p>
+  <div class="scroll">
+  <table>
+    <tr><th>字数</th><th>公式解答例の実物</th><th>出典</th></tr>
+    <tr><td class="n">15字</td><td>出力時にエスケープ処理を施す。</td><td class="n">R7秋 問1</td></tr>
+    <tr><td class="n">22字</td><td>権威DNSサーバ／終了したサブドメインのCNAMEレコードを削除する。</td><td class="n">R7春 問4</td></tr>
+    <tr><td class="n">26字</td><td>ポートスキャンでWebのポートだけが開いていることを確認する。</td><td class="n">R7春 問4</td></tr>
+    <tr><td class="n">31字</td><td>アップロードされたファイルの形式が拡張子と整合しているかをチェックする。</td><td class="n">R7秋 問1</td></tr>
+    <tr><td class="n">34字</td><td>Kサービス設定サイトへのアクセスが許可される接続元IPアドレスを制限する。</td><td class="n">R7秋 問3</td></tr>
+    <tr><td class="n">40字</td><td>利用しているソフトウェアやそのバージョンが明確になり、脆弱性の影響有無を容易に把握できるから</td><td class="n">R7春 問1</td></tr>
+  </table>
+  </div>
+  <div class="note">
+    <strong>目安</strong>：<strong>15〜20字 ＝ 一文の対策</strong>／<strong>30字前後 ＝ 対策＋条件</strong>／<strong>40字超 ＝ 理由の説明（「〜から」で終わる）</strong>。<br>
+    「〜から」「〜ため」で終わる設問は<strong>理由</strong>を聞いています。対策を書いても点になりません。
+  </div>
+</section>
+
+<!-- ============ 本物の聞き方 ============ -->
+<section id="code">
+  <h2>本物はコードを読ませる</h2>
+  <p class="lead">生成AIの問題は本文が「XSS脆弱性が存在していた」と<strong>答えを教えてくれます</strong>。本物は違います。<strong class="em">HTML / ECMAScript を読ませる問題が3回</strong>出ています。</p>
+
+  <details open>
+    <summary><span class="num">1</span>R7秋 問1 ─ アップロードされた xlsx が script になる</summary>
+    <div class="d-body">
+      <p>タスク名にこう入力されていた、という形で提示されます。</p>
+      <pre><code>個人タスク&lt;script src="/files/F1234567890.xlsx"&gt;&lt;/script&gt;</code></pre>
+      <div class="ask"><span class="lbl">何を見抜くか</span>アップロードした <code>.xlsx</code> の中身が JavaScript で、<code>script</code> タグで読み込まれている。拡張子だけ見ていて<strong>中身を検査していない</strong>。</div>
+      <div class="ans"><span class="lbl">公式解答例</span>アップロードされたファイルの形式が拡張子と整合しているかをチェックする。<br>／ 出力時にエスケープ処理を施す。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">2</span>R6秋 問3 ─ Webスキミングのスクリプト</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">何を見抜くか</span>改ざんされた JavaScript が、入力フォームの送信をフックして外部へ送っている。</div>
+      <div class="ans"><span class="lbl">公式解答例</span>addEventListener メソッドで配送先・支払方法選択画面の form 要素にイベントリスナーを登録し、submit 時にクレジットカード情報をクエリパラメータとして i-sha.com に送信する。</div>
+      <p style="margin-top:9px">設問1の穴埋めは <code>クロスサイトスクリプティング</code> と <code>SQLインジェクション</code>。<strong>ここは確実に取る。</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">3</span>R5秋 問1 ─ 分割投稿でスクリプトを組み立てる</summary>
+    <div class="d-body">
+      <div class="ans"><span class="lbl">公式解答例</span>HTML がコメントアウトされ一つのスクリプトになるような投稿を複数回に分けて行った。</div>
+      <div class="ans"><span class="lbl">公式解答例（対策）</span>スクリプトから別ドメインの URL に対して cookie が送られない仕組み <span class="chip chip-sc">＝ SameSite</span></div>
+    </div>
+  </details>
+
+  <div class="note warn">
+    <strong>★ ここが唯一の弱点になりやすい</strong>
+    <p>ネットワーク構成図・権限表の読解（R7秋問4 ほか）は、インフラ実務そのものです。一方 <strong>HTML / JavaScript の読解</strong>は、普段書いていないと手が止まります。<strong>短いスクリプトを読む練習だけは別枠で確保してください。</strong></p>
+  </div>
+</section>
+
+<!-- ============ よくある誤答 ============ -->
+<section id="miss">
+  <h2>よくある誤答 ─ 出題者本人が書いている</h2>
+  <p class="lead">IPA は解答例とは別に<strong>採点講評</strong>を公開しています。<strong class="em">どんな誤答が多かったか</strong>が名指しで書かれていて、合否を分けるのはほぼここです。</p>
+
+  <details open>
+    <summary><span class="num">1</span>定義を書いて終わる</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R7春 問1）</span>SBOM 利用の利点を問う問題であったが、<strong>SBOM の利用方法が説明できておらず、SBOM の定義を記載しただけの解答が散見された。</strong></div>
+      <div class="ans"><span class="lbl">公式解答例</span>利用しているソフトウェアやそのバージョンが明確になり、脆弱性の影響有無を容易に把握できるから</div>
+      <p style="margin-top:9px"><strong>★ 用語の意味を書いても0点。</strong>「それを使うと<strong>何がうれしいか</strong>」まで書いて初めて点になります。</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="num">2</span>抽象的に書く</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R7春 問3）</span>具体的な方法を問う問題であったが、<strong>抽象的な解答が散見された。設問文をよく読んで解答してほしい。</strong></div>
+      <p style="margin-top:9px"><strong>★ 「適切に管理する」「対策を実施する」は全部ダメ</strong>です。本文に出てくる固有名（パラメータ名・サーバ名・ログ名）を必ず入れてください。</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="num">3</span>聞かれたフェーズを外す</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R7秋 問1）</span>脆弱性を検出し修正するための<strong>開発プロセス</strong>を出題したが、“ログ分析を行う”や“ID の棚卸しを行う”、“アノマリ検知の仕組みを導入する”などの<strong>運用プロセスでの対策</strong>、“権限チェックを行う”、“多要素認証の仕組みを導入する”などの<strong>修正機能の追加</strong>、及び“WAF を導入する”などの<strong>セキュリティ製品導入</strong>に関する解答が散見された。</div>
+      <p style="margin-top:9px"><strong>★ 正しい対策でも、聞かれたフェーズが違えば0点。</strong>「開発」「運用」「設計」のどれを聞かれているか、設問文に線を引いてください。</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="num">4</span>予防と復旧を取り違える</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R7秋 問4）</span>万一マルウェアなどによる被害が発生してしまった場合に、<strong>いかに早く復旧するか</strong>を問うたが、<strong>被害に至る攻撃を阻止する手段について言及した解答が散見</strong>された。迅速な復旧のためにはバックアップの取得など平常時に何を行うかが重要であり、この点についての解答を期待していた。</div>
+      <p style="margin-top:9px"><strong>★ レジリエンス＝復旧優先。</strong>講評は「企業の社会的立場によっては、<strong>被害に至る経緯を解明するよりも、事業の復旧を優先する場合もある</strong>」とまで書いています。</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="num">5</span>反対を答えるケアレスミス</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R7春 問4）</span><strong>継続する場合としない場合を取り違えて反対を解答するケアレスミス</strong>と思われる解答が散見された。<strong>長文を根気よく読み解いた上で、慎重に解答してほしい。</strong></div>
+      <p style="margin-top:9px"><strong>★ 知識ではなく読み落としで落とす</strong>典型です。「する／しない」「許可／拒否」「前／後」に印を付ける癖を。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">6</span>本文の仕様を無視して一般論を書く</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R7春 問2）</span>本文中で示されている <strong>Web サイトの仕様が考慮されていない解答</strong>が散見された。本文をよく読んで解答してほしい。</div>
+      <p style="margin-top:9px">一般的に正しい対策でも、<strong>その事例で成立しなければ0点</strong>です。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">7</span>すでに実装されている対策を書く</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R6春 問1）</span>JWT 改ざんにおける検証方法を問うが、<strong>既に実装されている対策を解答する</strong>など、脆弱性を正しく理解していないと思われる解答が散見された。</div>
+      <p style="margin-top:9px"><strong>★ 本文に「もう入っている」と書いてある対策は答えになりません。</strong>欠けているものを探してください。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">8</span>複数箇所を結びつけられない</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R6春 問3）</span>XSS の検出箇所から、問合せ管理機能でスクリプトを実行できるのは管理者であることが分かる。一方、サイト X の機能概要から、利用者情報を取得するには会員管理機能を利用すればよいことが分かる。<strong>この二つをどう結びつけるかを考えて、解答してほしい。</strong></div>
+      <p style="margin-top:9px"><strong>★ 正答率が低い設問は、ほぼこの型です。</strong>根拠は1か所にありません。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">9</span>「どのログを見るか」を書かない</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R6秋 問1）</span><strong>どのログを確認するかの記述がない解答が多かった。</strong>マルウェアの動作によって、どのログに何が記録されているかを考え、検知の仕組みを設計できる能力を培ってほしい。</div>
+      <p style="margin-top:9px"><strong>★ ログ系の設問は「ログ名」を必ず書く。</strong>プロキシ／ドメインサーバ／マルウェア対策サービス／Web アクセスログ。</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">10</span>その事例では効かない対策を書く</summary>
+    <div class="d-body">
+      <div class="ask"><span class="lbl">採点講評（R6秋 問1）</span>ファイルサーバのアクセス権を最小限にするといった解答が散見されたが、<strong>マルウェアは、特別な権限なしにファイルを持ち出している。</strong>インシデントで起きたファイルの持出しを防止できる対策を選択してほしい。</div>
+      <div class="ask"><span class="lbl">採点講評（R6秋 問3）</span>通信を盗聴する、キーロガーを仕掛けるといった解答が散見された。<strong>クレジットカード情報がクエリパラメータとして送られ、かつ Web サーバのアクセスログにリクエスト URI が記録されることを理解した上で</strong>解答してほしい。</div>
+      <p style="margin-top:9px"><strong>★ 一般論として正しくても、その事例で効かなければ0点です。</strong></p>
+    </div>
+  </details>
+
+  <h3>★ 名指しされた用語の取り違え</h3>
+  <p class="lead">採点講評が「誤答が多かった」と具体名を挙げたものです。<strong>ここを押さえるだけで数点変わります。</strong></p>
+  <div class="scroll">
+  <table>
+    <tr><th>正</th><th>よくある誤答</th><th>出典</th></tr>
+    <tr><td><strong>メッセージ認証符号</strong></td><td>デジタル署名</td><td class="n">R7秋 問2</td></tr>
+    <tr><td><strong>AC</strong>（Attack Complexity＝攻撃条件の複雑さ）</td><td>C（Confidentiality Impact＝機密性への影響）</td><td class="n">R7春 問2</td></tr>
+    <tr><td><strong>SMTPS</strong>（SMTP の暗号化）</td><td>S/MIME（本文・添付の暗号化。SMTP は暗号化しない）</td><td class="n">R6秋 問2</td></tr>
+    <tr><td><strong>DKIM の h タグ</strong>が Subject を判定対象に含む</td><td>SPF が Subject を判定すると思い込む（SPF は対象外）</td><td class="n">R6秋 問2</td></tr>
+    <tr><td><strong>反射型 / 格納型 / DOM Based</strong>の3種類を区別</td><td>DOM を使っていたから DOM Based と即断 <span class="chip">2回指摘</span></td><td class="n">R5秋 問1<br>R6秋 問3</td></tr>
+    <tr><td><strong>WebAuthn</strong>（フィッシング耐性のある認証）</td><td>クライアント証明書認証・リスクベース認証と誤認</td><td class="n">R5秋 問3</td></tr>
+    <tr><td><strong>秘密鍵</strong></td><td>公開鍵・サーバ証明書</td><td class="n">R5秋 問2</td></tr>
+    <tr><td>秘密情報の処理は<strong>サーバ上で完結</strong>させる</td><td>署名付き URL をスマホアプリ上で生成（解析が容易）</td><td class="n">R7春 問3</td></tr>
+    <tr><td>マルウェアは<strong>脆弱性悪用か正規利用者をだます</strong></td><td>対策として「利用者認証の強化」（効果が薄い）</td><td class="n">R7秋 問4</td></tr>
+  </table>
+  </div>
+  <div class="note warn">
+    <strong>★ 暗号まわりの「不正確な理解」も名指しされています</strong>（R5秋 問3）<br>
+    「<strong>電子署名を暗号化できる</strong>」「<strong>秘密鍵が漏えいしても安全である</strong>」といった、暗号技術の利用方法についての不正確な理解に基づく解答が散見された。
+  </div>
+
+  <h3>★「理解してほしい」と名指しされた技術</h3>
+  <p class="lead">採点講評が明示的に学習を促したものです。<strong>出題者が「次も聞くかもしれない」と言っているに等しい</strong>項目です。</p>
+  <div class="scroll">
+  <table>
+    <tr><th>技術</th><th>講評の指摘</th><th>出典</th></tr>
+    <tr><td><strong>CSP</strong>（Content Security Policy）</td><td>内容や緩和効果、<strong>CSP による制御を回避する攻撃手法</strong>まで</td><td class="n">R7秋 問1</td></tr>
+    <tr><td><strong>SAST / DAST / IAST</strong></td><td>開発プロセスで活用するテストツールの<strong>それぞれの特徴</strong></td><td class="n">R7春 問1</td></tr>
+    <tr><td><strong>CVSS の各評価指標 / EPSS / KEV</strong></td><td>指標の意味、利用手順、<strong>KEV カタログが現状の評価に活用される</strong></td><td class="n">R7春 問2・問4</td></tr>
+    <tr><td><strong>TLS インスペクション</strong></td><td>プライベート認証局のルート証明書を端末にインストールする方法と同じ</td><td class="n">R7春 問3</td></tr>
+    <tr><td><strong>WebAuthn / Passkey</strong></td><td>ほかの認証方法とどのように異なるのか、<strong>技術的な仕組みを含め</strong></td><td class="n">R5秋 問3</td></tr>
+    <tr><td><strong>HSM</strong></td><td>使う利点に加えて、暗号技術の適正な利用方法</td><td class="n">R5秋 問3</td></tr>
+    <tr><td><strong>コンテナ</strong></td><td>どのような権限や仕組みによって実行されるか（<strong>仮想化技術の基本</strong>）</td><td class="n">R5秋 問3</td></tr>
+    <tr><td><strong>サーバ証明書の検証</strong></td><td><strong>具体的にどういった事項を検証するのか</strong>まで</td><td class="n">R5秋 問2</td></tr>
+    <tr><td><strong>Java の例外処理 / finally</strong></td><td>例外発生時の動作は脆弱性につながりやすい。<strong>リソースリーク</strong>を防ぐ</td><td class="n">R6春 問4</td></tr>
+    <tr><td><strong>アノマリ型 IPS</strong></td><td>しきい値の設定。<strong>機能の仕様を反対に理解</strong>している解答が散見</td><td class="n">R6春 問2</td></tr>
+    <tr><td><strong>リスクアセスメント</strong></td><td>流れの中で<strong>攻撃シナリオを作成する方法・分析する方法</strong></td><td class="n">R5秋 問4</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ============ 本番の戦い方 ============ -->
+<section id="tactics">
+  <h2>本番の戦い方</h2>
+  <p class="lead">ここだけは公式に答えがありません。<span class="chip chip-sc">公式</span>と<span class="chip">経験則</span>を分けて書きます。</p>
+
+  <h3><span class="chip chip-sc">公式</span> 合格基準</h3>
+  <div class="card">
+    <div class="scroll"><table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>出題／解答</td><td>4問出題・<strong>2問選択</strong></td></tr>
+      <tr><td>配点</td><td><strong>各50点 × 2問 ＝ 100点</strong></td></tr>
+      <tr><td>合格基準</td><td><strong>60点以上</strong></td></tr>
+      <tr><td>時間</td><td>150分（<strong>1問あたり約70分</strong>＋選択に10分）</td></tr>
+    </table></div>
+    <p style="margin-top:10px"><strong>★ 設問ごとの配点は公開されていません。</strong>「後半の設問ほど配点が高い」という説は広く言われますが、<strong>公式の裏付けはありません</strong>。ただし結論（最後まで解く）は変わりません。</p>
+  </div>
+
+  <h3><span class="chip">経験則</span> 問題の選び方</h3>
+  <div class="card">
+    <ul>
+      <li><strong>最初の10行ほどで分野と難易度を見極め、早めに選択を決める</strong>。迷う時間が最大の損失</li>
+      <li><strong>構成図・権限表・ログが出ている問題</strong>は、インフラ実務の経験がそのまま効く</li>
+      <li>逆に <strong>HTML / ECMAScript のソースが大量に出ている問題</strong>は、読み慣れていないなら避ける判断もある</li>
+      <li>ただし <strong>Web 系は 20問中8問</strong>。全部避けると選択肢が足りなくなります</li>
+    </ul>
+    <div class="note warn" style="margin-top:12px">
+      <strong>★ 外部情報を読むときの注意</strong>
+      <p>ネット上の「午後I 対策」「午後II 対策」の記事は、<strong class="em">令和5年秋より前の旧形式</strong>（午後I 90分＋午後II 120分）を前提にしています。現行は <strong>150分で4問中2問</strong>。<strong>時間配分の数字をそのまま使わないでください。</strong></p>
+    </div>
+  </div>
+
+  <h3><span class="chip chip-sc">公式</span>＋<span class="chip">経験則</span> 書き方</h3>
+  <div class="card">
+    <div class="ans"><span class="lbl">公式の備考欄</span>左の例に限らず、本文の状況に沿った仕組み、手順が記述されていること</div>
+    <ul style="margin-top:10px">
+      <li><strong>白紙にしない。</strong>部分点が実際に設計されています</li>
+      <li>分からなければ <strong>本文の該当箇所をそのまま写す</strong>。一般論を書くより点になりやすい</li>
+      <li><strong>設問の語尾に線を引く</strong> ─「〜から」「〜ため」なら<strong>理由</strong>、「どのように」なら<strong>手順</strong>、「何を」なら<strong>対象</strong></li>
+      <li><strong>「する／しない」「許可／拒否」に印を付ける</strong> ─ 反対を答えるケアレスミスが公式に名指しされています</li>
+    </ul>
+  </div>
+
+  <h3><span class="chip">経験則</span> 科目A-2 は科目B の土台になる</h3>
+  <div class="card">
+    <p>知識が体系化されていると、本文で「DNSサーバ」「JWT」といった語を見た瞬間に関連知識が引き出せます。<strong>科目A-2（10/17〜27）の勉強が、そのまま科目B（11/11〜23）の読解速度になります。</strong></p>
+    <p style="margin-top:8px">順番としても <strong>科目A が先に来る</strong>ので、設計としても噛み合っています。</p>
+  </div>
+</section>
+
+<!-- ============ 11脆弱性 ============ -->
+<section id="web">
+  <h2>安全なウェブサイトの作り方 ─ 第1章の11脆弱性</h2>
+  <p class="lead">全114ページですが、<strong>読むのは第1章だけ</strong>で足ります。各項目に<strong>実際の出題実績</strong>を付けました。<span class="chip">赤いチップ＝実際に出た</span></p>
+
+  <details open>
+    <summary><span class="num">1</span>SQLインジェクション</summary>
+    <div class="d-chips"><span class="chip">R6秋 問3</span></div>
+    <div class="d-body">
+      <p>入力欄に SQL の断片を入れて、データベースに想定外の命令をさせる。</p>
+      <div class="ask"><span class="lbl">こう聞かれる</span>穴埋めで脆弱性名を答えさせる形が中心。</div>
+      <div class="ans"><span class="lbl">こう答える</span>プレースホルダ（バインド機構）を用いて SQL 文を組み立てる。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">2</span>OSコマンド・インジェクション</summary>
+    <div class="d-chips"><span class="chip chip-none">現行形式での出題実績なし</span></div>
+    <div class="d-body">
+      <p>入力値が OS のコマンドとして実行されてしまう。</p>
+      <div class="ans"><span class="lbl">こう答える</span>シェルを起動する関数を使わない／入力値をチェックする。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">3</span>パス名パラメータの未チェック（ディレクトリ・トラバーサル）</summary>
+    <div class="d-chips"><span class="chip">R7春 問3</span><span class="chip">R6春 問3</span></div>
+    <div class="d-body">
+      <p>ファイル名やURLを外から指定できてしまい、見えてはいけないものが取れる。</p>
+      <div class="ask"><span class="lbl">こう聞かれた（R7春問3）</span>ファイル名に含まれる注文番号を <code>00000001</code> から順に増やしてダウンロードを試行する。</div>
+      <div class="ask"><span class="lbl">こう聞かれた（R6春問3）</span>パラメータ <code>page</code> の値を IMDS のクレデンシャル情報を返す URL に変更する。<span class="chip chip-sc">＝ SSRF＋クラウド</span></div>
+      <div class="ans"><span class="lbl">公式解答例</span>パラメータ page の値がサイトP以外の URL ならエラーにする。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">4</span>セッション管理の不備</summary>
+    <div class="d-chips"><span class="chip">R5秋 問1</span><span class="chip">R6秋 問4</span></div>
+    <div class="d-body">
+      <p>ログイン状態を表す「合鍵」が盗まれたり、使い回されたりする。</p>
+      <div class="ans"><span class="lbl">公式解答例（R6秋問4）</span>使用済みの sessionID を無効にした上で、新しい sessionID を発行</div>
+      <div class="ans"><span class="lbl">公式解答例（R5秋問1）</span>スクリプトから別ドメインの URL に対して cookie が送られない仕組み</div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="num">5</span>クロスサイト・スクリプティング（XSS）</summary>
+    <div class="d-chips"><span class="chip">R5秋 問1</span><span class="chip">R6秋 問3</span><span class="chip">R7秋 問1</span></div>
+    <div class="d-body">
+      <p><strong>最頻出。</strong>他人のブラウザで、攻撃者の書いた JavaScript を動かす。</p>
+      <div class="ans"><span class="lbl">公式解答例（R7秋問1）</span>出力時にエスケープ処理を施す。<span class="chip chip-sc">15字</span></div>
+      <div class="ans"><span class="lbl">公式解答例（R5秋問1）</span>レビュータイトルを出力する前にエスケープ処理を施す。</div>
+      <div class="note"><strong>★ 対策は「出力時」。</strong>「入力時にチェック」と書くと弱くなります。公式は一貫して<strong>出力時のエスケープ</strong>です。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">6</span>CSRF（クロスサイト・リクエスト・フォージェリ）</summary>
+    <div class="d-chips"><span class="chip">R6春 問3</span></div>
+    <div class="d-body">
+      <p>ログイン中の利用者に、本人が意図しない操作を「踏ませる」。</p>
+      <div class="ask"><span class="lbl">こう聞かれた</span>攻撃者が自らのアカウントで取得した <code>csrf_token</code> と一緒に利用者情報をサイトXに送るように構成したわなフォームに、詐欺メールなどで利用者を誘導し、利用者情報を変更させる。</div>
+      <div class="note"><strong>★ トークンがあっても破られる</strong>という応用。「CSRFトークンを導入する」だけでは答えになりません。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="num">7</span>HTTPヘッダ・インジェクション</summary>
+    <div class="d-chips"><span class="chip chip-none">現行形式での出題実績なし</span></div>
+    <div class="d-body"><p>レスポンスヘッダに改行を混ぜ込み、別のヘッダや本文を偽装する。</p></div>
+  </details>
+
+  <details>
+    <summary><span class="num">8</span>メールヘッダ・インジェクション</summary>
+    <div class="d-chips"><span class="chip chip-none">現行形式での出題実績なし</span></div>
+    <div class="d-body"><p>問い合わせフォームから、宛先を勝手に追加されて迷惑メールの踏み台にされる。</p></div>
+  </details>
+
+  <details>
+    <summary><span class="num">9</span>クリックジャッキング</summary>
+    <div class="d-chips"><span class="chip chip-none">現行形式での出題実績なし</span></div>
+    <div class="d-body"><p>透明な枠を重ねて、見えないボタンを押させる。対策は <code>X-Frame-Options</code> / CSP の <code>frame-ancestors</code>。</p></div>
+  </details>
+
+  <details>
+    <summary><span class="num">10</span>バッファオーバーフロー</summary>
+    <div class="d-chips"><span class="chip chip-none">現行形式での出題実績なし</span></div>
+    <div class="d-body"><p>入れ物より大きいデータを入れて、隣の領域を壊す。Web アプリでは出にくい。</p></div>
+  </details>
+
+  <details open>
+    <summary><span class="num">11</span>アクセス制御や認可制御の欠落</summary>
+    <div class="d-chips"><span class="chip">R6春 問1</span><span class="chip">R6秋 問4</span><span class="chip">R7春 問3</span></div>
+    <div class="d-body">
+      <p><strong>XSS に次いで多い。</strong>「ログインはできている」が「その人が見ていいもの」を確認していない。</p>
+      <div class="ans"><span class="lbl">公式解答例（R6春問1）</span>JWT に含まれる利用者 ID が mid の値と一致するかどうかを検証する処理</div>
+      <div class="ans"><span class="lbl">公式解答例（R6秋問4）</span>求職者 ID が推測困難なものになるように、求職者 ID の生成方法を変更する。<br>／ WebAPI のアクセス元 IP アドレスを限定して接続を許可するように変更する。</div>
+      <div class="note"><strong>★ JWT の <code>alg=none</code> は要注意（R6春問1）。</strong>公式解答例は「JWT ヘッダ内の alg に指定された値」が「NONE でないことを検証する。」</div>
+    </div>
+  </details>
+
+  <div class="note">
+    <strong>第1章以外で、実際に出たもの</strong>
+    <ul>
+      <li><strong>HSTS</strong>（R6秋問4）─ 公式解答例「Mサイトへの接続を HTTPS に強制することができる。」</li>
+      <li><strong>X-Content-Type-Options</strong>（R6秋問4）─「Content-Type ヘッダーで指定した MIME タイプを強制的に適用することができる。」</li>
+      <li><strong>多要素認証</strong>（R6秋問4）─「ログインの認証を、多要素認証に変更する。」</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 10大脅威 ============ -->
+<section id="threat">
+  <h2>情報セキュリティ10大脅威 2026（組織編）</h2>
+  <p class="lead"><strong class="em">全20問のうち7問</strong>が、この10項目と直結していました。順位そのものが出題の重みです。</p>
+
+  <div class="scroll">
+  <table>
+    <tr><th>順位</th><th>脅威</th><th>実際の出題</th></tr>
+    <tr><td class="n">1</td><td>ランサム攻撃による被害</td><td><span class="chip">R6秋 問1</span>（マルウェア対策ソフト停止・RDP 侵害）</td></tr>
+    <tr><td class="n">2</td><td><strong>サプライチェーンや委託先を狙った攻撃</strong></td><td><span class="chip">R7春 問1</span><span class="chip">R7秋 問4</span><strong>2回連続</strong></td></tr>
+    <tr><td class="n">3</td><td><strong>AIの利用をめぐるサイバーリスク</strong></td><td><span class="chip chip-none">初登場・出題実績なし</span>→ 下で詳述</td></tr>
+    <tr><td class="n">4</td><td><strong>システムの脆弱性を悪用した攻撃</strong></td><td><span class="chip">R7春 問2</span><span class="chip">R7春 問4</span><span class="chip">R6秋 問4</span></td></tr>
+    <tr><td class="n">5</td><td>機密情報を狙った標的型攻撃</td><td><span class="chip">R5秋 問4</span>（マルウェア添付メール）</td></tr>
+    <tr><td class="n">6</td><td>地政学的リスクに起因するサイバー攻撃</td><td><span class="chip chip-none">なし</span></td></tr>
+    <tr><td class="n">7</td><td>内部不正による情報漏えい等</td><td><span class="chip">R6秋 問1</span>（DLP でファイル持出し制限）</td></tr>
+    <tr><td class="n">8</td><td><strong>リモートワーク等の環境を狙った攻撃</strong></td><td><span class="chip">R6春 問2</span><span class="chip">R7秋 問3</span><strong>2回</strong></td></tr>
+    <tr><td class="n">9</td><td>DDoS攻撃</td><td><span class="chip">R6春 問2</span></td></tr>
+    <tr><td class="n">10</td><td>ビジネスメール詐欺（BEC）</td><td><span class="chip">R6秋 問2</span>（SPF/DKIM/DMARC）</td></tr>
+  </table>
+  </div>
+
+  <h3>2位 サプライチェーン ─ 2回出ているので型を覚える</h3>
+  <div class="card">
+    <div class="ans"><span class="lbl">公式解答例（R7春問1）</span>企画・設計工程からセキュリティ対策を組み込むという考え方 <span class="chip chip-sc">＝ セキュリティ・バイ・デザイン</span></div>
+    <div class="ans"><span class="lbl">公式解答例（R7春問1）</span>L社の業務委託先に要求する対策と同等のセキュリティ対策を<strong>再委託先にも要求させる</strong>こと</div>
+    <div class="ans"><span class="lbl">公式解答例（R7春問1・SBOM の利点）</span>利用しているソフトウェアやそのバージョンが明確になり、脆弱性の影響有無を容易に把握できるから</div>
+    <div class="ans"><span class="lbl">公式解答例（R7秋問4・リスク対応）</span>回避／移転／保有 <span class="chip chip-sc">＋ 低減 の4つ</span></div>
+  </div>
+
+  <h3>10位 BEC ─ メール認証3点セット</h3>
+  <div class="card">
+    <div class="scroll"><table>
+      <tr><th>略語</th><th>正式名称</th><th>何をする</th></tr>
+      <tr><td><strong>SPF</strong></td><td>Sender Policy Framework</td><td>送信元 IP が正規かを DNS で確認</td></tr>
+      <tr><td><strong>DKIM</strong></td><td>DomainKeys Identified Mail</td><td>電子署名で改ざんの有無を確認</td></tr>
+      <tr><td><strong>DMARC</strong></td><td>Domain-based Message Authentication, Reporting and Conformance</td><td>SPF/DKIM が失敗したときの扱いを宣言</td></tr>
+    </table></div>
+    <div class="ans"><span class="lbl">公式解答例（R6秋問2）</span>SPF レコードに、Tサービスのメール送信元 IP アドレスを追加する。</div>
+  </div>
+</section>
+
+<!-- ============ AI リスク ============ -->
+<section id="ai">
+  <h2>AIの利用をめぐるサイバーリスク（3位・初登場）</h2>
+  <p class="lead">2026年版で<strong>初めて選出</strong >された脅威です。<strong class="em">令和8年度はこの版が最新</strong>なので、出る可能性があります。従来の教材には載っていません。</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">3つに分けて覚える</h3>
+    <div class="cnt">
+      <div class="cnt-item"><div class="cnt-n">① 情報漏えい</div><div class="cnt-t">社員が外部の生成AIサービスに<strong>機密情報を入力</strong>してしまう。入力内容が学習や保存に回る。</div></div>
+      <div class="cnt-item"><div class="cnt-n">② AIシステムへの攻撃</div><div class="cnt-t"><strong>プロンプトインジェクション</strong>。特に<strong>間接</strong>型は、AIが読み込む外部データ（Webページ・文書）に指示を仕込み、AIに実行させる。</div></div>
+      <div class="cnt-item"><div class="cnt-n">③ ディープフェイク</div><div class="cnt-t">経営者や取引先の<strong>声・映像を偽造</strong>して不正送金させる。BEC の高度化版。</div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>対策の第一歩は「社内AI利用ルールの整備」</strong>（IPA）。技術的対策と組み合わせることが重要、とされています。<br>
+    記述で書くなら ─ <span class="mono">入力してよい情報の範囲を定めた利用ルールを整備し、周知する。</span>
+  </div>
+
+  <div class="note warn">
+    <strong>★ 実務にも直結します</strong>
+    <p>間接プロンプトインジェクションは、<strong>RAG や エージェントに外部データを読ませる構成</strong>で現実の問題になります。「取り込んだ文書に指示文が埋まっていたら、AI がそれを命令として実行してしまう」という構図です。<strong>信頼できないデータを命令として扱わせない</strong>設計（入力の分離・出力の検証・権限の最小化）が答えになります。</p>
+  </div>
+</section>
+
+<!-- ============ CVSS/EPSS ============ -->
+<section id="cvss">
+  <h2>JVN / CVE / CVSS / EPSS の関係</h2>
+  <p class="lead">R7春は<strong>問2と問4の2問</strong>がここでした。<strong>4つの役割分担</strong>さえ言えれば戦えます。</p>
+
+  <div class="scroll">
+  <table>
+    <tr><th>名前</th><th>正式名称</th><th>役割</th></tr>
+    <tr><td><strong>CVE</strong></td><td>Common Vulnerabilities and Exposures</td><td>脆弱性に付ける<strong>通し番号</strong>。「どの脆弱性か」を一意に指す</td></tr>
+    <tr><td><strong>CVSS</strong></td><td>Common Vulnerability Scoring System</td><td><strong>深刻度</strong>を 0〜10 で表す。<strong class="em">最新は v4.0</strong>（R7春問4 で出題）</td></tr>
+    <tr><td><strong>EPSS</strong></td><td>Exploit Prediction Scoring System</td><td><strong>悪用される確率</strong>。FIRST が公開</td></tr>
+    <tr><td><strong>JVN</strong></td><td>Japan Vulnerability Notes</td><td>JPCERT/CC と IPA が運営する<strong>情報ポータル</strong></td></tr>
+    <tr><td><strong>KEV</strong></td><td>Known Exploited Vulnerabilities</td><td>米CISA が公開する<strong>実際に悪用が確認された</strong>脆弱性の一覧</td></tr>
+  </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">★ 優先度は「深刻度だけ」では決めない</h3>
+    <div class="ans"><span class="lbl">公式解答例（R7春問2）</span>（現状値は）攻撃コードなどの情報を多くの公開サイトにある情報から判断する必要があるから<br>（EPSS値は）FIRST のサイトで公開されている値をそのまま使えばよいから</div>
+    <div class="ans"><span class="lbl">公式解答例（R7春問2）</span>診断時に実際に悪用できることを確認しているから</div>
+    <p style="margin-top:10px"><strong>答えの骨格：</strong><span class="mono">CVSS（深刻度）＋ EPSS/KEV（悪用の現実性）＋ 自社環境での影響</span> の3つで決める。</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">R7春 問4 ─ 資産管理（ASM）</h3>
+    <div class="ans"><span class="lbl">公式解答例</span>終了したサブドメインの CNAME レコードを削除する。<span class="chip chip-sc">＝ サブドメインテイクオーバー対策</span></div>
+    <div class="ans"><span class="lbl">公式解答例</span>ポートスキャンで Web のポートだけが開いていることを確認する。<br>／ 脆弱性スキャナーを実行して、脆弱性の有無を確認する。</div>
+    <p style="margin-top:9px">穴埋めで <code>WHOIS</code>、CVSS の版は <code>4.0</code>。<strong>ASM＝Attack Surface Management</strong>（外から見える資産の棚卸し）。</p>
+  </div>
+</section>
+
+<!-- ============ 読む順番 ============ -->
+<section id="plan">
+  <h2>読む順番と時間配分</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>順</th><th>やること</th><th>目安</th></tr>
+    <tr><td class="n">1</td><td>この資料の「<strong>解答の型と字数の体感</strong>」を読む</td><td class="n">15分</td></tr>
+    <tr><td class="n">2</td><td>「<strong>本物はコードを読ませる</strong>」の3例を手で書き写す</td><td class="n">30分</td></tr>
+    <tr><td class="n">3</td><td>11脆弱性のうち<strong>出題実績チップが付いた5つ</strong>だけ精読</td><td class="n">40分</td></tr>
+    <tr><td class="n">4</td><td>10大脅威の<strong>2位・4位・8位</strong>と、AIリスク</td><td class="n">30分</td></tr>
+    <tr><td class="n">5</td><td>CVSS / EPSS / KEV の役割分担を言えるようにする</td><td class="n">20分</td></tr>
+    <tr><td class="n">6</td><td><strong>IPA 公式の過去問20問</strong>を実際に解く</td><td class="n">★最大</td></tr>
+  </table>
+  </div>
+  <div class="note warn">
+    <strong>★ 6 が本丸です。</strong>1〜5 は、6 を効率よく回すための下準備にすぎません。公式の問題PDFと解答例は<strong>すべて無料で公開</strong>されています。模範解答の備考欄まで読めるのは、公式だけです。
+  </div>
+</section>
+
+<div class="footer">
+  出典はすべて IPA 公式の解答例PDF（令和5年度秋期〜令和7年度秋期）／<br>
+  <a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/">問題冊子・解答例・採点講評（IPA）</a><br>
+  <a href="https://www.ipa.go.jp/security/vuln/websecurity/about.html">安全なウェブサイトの作り方</a> ・
+  <a href="https://www.ipa.go.jp/security/10threats/10threats2026.html">情報セキュリティ10大脅威 2026</a><br>
+  <span style="color:var(--faint)">2026-10-05 作成 ／ 令和8年度 科目B 対策</span>
+</div>
+
+</div>
+</body>
+</html>
