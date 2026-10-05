@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科目B 用語集 | 情報処理安全確保支援士</title>
+<style>
+:root{
+  /* 既存教材（語彙帳・BILI問題集）と同じ slate 基調の常時ダーク */
+  --bg:#0f172a; --card:#1e293b; --card-2:#243244;
+  --border:#334155; --text:#e2e8f0; --muted:#94a3b8; --faint:#7d8a9c;
+  --primary:#818cf8;
+  --sc:#5eead4; --sc-soft:#11312e;
+  --hit:#fb7185; --hit-soft:#3b1420;
+  --amber:#e0a24a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+  background:var(--bg); color:var(--text); padding-bottom:64px;
+  font-size:15px; line-height:1.8; -webkit-text-size-adjust:100%;
+}
+.hero{background:linear-gradient(135deg,#115e59,#0b3b38);color:#eafaf6;padding:26px 20px 22px;text-align:center}
+.hero h1{font-size:1.3rem;font-weight:800;letter-spacing:.02em;line-height:1.4}
+.hero p{font-size:.8rem;opacity:.9;margin-top:8px;line-height:1.7}
+.badge{display:inline-block;background:rgba(94,234,212,.14);border-radius:20px;padding:4px 12px;font-size:.7rem;margin-top:8px;margin-right:4px}
+.container{max-width:760px;margin:0 auto;padding:0 16px}
+
+/* 検索＋分野ジャンプ */
+.bar{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--border);padding:10px 12px 8px}
+.search{display:flex;gap:8px;align-items:center;max-width:760px;margin:0 auto}
+.search input{flex:1;min-width:0;background:var(--card);color:var(--text);border:1px solid var(--border);
+  border-radius:10px;padding:11px 12px;font-size:16px;font-family:inherit;min-height:44px}
+.search input::placeholder{color:var(--faint)}
+.search input:focus{outline:2px solid var(--sc);outline-offset:-1px;border-color:var(--sc)}
+.search button{flex:0 0 auto;background:var(--card);color:var(--muted);border:1px solid var(--border);
+  border-radius:10px;padding:0 14px;min-height:44px;font-size:.8rem;font-weight:700;font-family:inherit;cursor:pointer}
+.search button:hover,.search button:focus-visible{color:var(--sc);border-color:var(--sc);outline:none}
+.hit{text-align:center;font-size:.73rem;color:var(--muted);margin-top:7px;min-height:1.2em}
+nav.jump{display:flex;gap:6px;overflow-x:auto;padding:8px 12px 2px;max-width:760px;margin:0 auto;-webkit-overflow-scrolling:touch}
+nav.jump a{flex:0 0 auto;text-decoration:none;font-size:.72rem;font-weight:700;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:7px 11px;min-height:34px;display:flex;align-items:center;gap:5px}
+nav.jump a b{color:var(--sc);font-weight:800}
+nav.jump a:hover,nav.jump a:focus-visible{color:var(--sc);border-color:var(--sc);outline:none}
+
+section{margin-top:30px;scroll-margin-top:124px}
+h2{font-size:1.02rem;font-weight:800;border-left:4px solid var(--sc);padding-left:10px;
+  display:flex;align-items:baseline;gap:8px;text-wrap:balance}
+.h-n{font-size:.72rem;color:var(--sc);font-weight:700}
+.lead{font-size:.78rem;color:var(--muted);margin:6px 0 2px 14px}
+
+.terms{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.t{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:11px 13px}
+.t-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 9px}
+.t-n{font-size:.98rem;font-weight:800;color:var(--sc)}
+.t-f{font-size:.71rem;color:var(--faint);font-weight:600}
+.t-d{font-size:.88rem;margin-top:5px;line-height:1.75}
+.t-e{font-size:.79rem;color:var(--muted);margin-top:6px;padding-top:6px;border-top:1px dashed var(--border);line-height:1.75}
+.t.off{display:none}
+section.off{display:none}
+
+.intro{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:22px}
+.intro h3{font-size:.95rem;font-weight:800;margin-bottom:6px}
+.intro p{margin:7px 0;font-size:.87rem}
+.intro ul{margin:7px 0 7px 1.2em;font-size:.87rem}
+.intro li{margin:4px 0}
+.em{color:var(--hit);font-weight:800}
+.ok{color:var(--sc);font-weight:800}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:.79rem;min-width:400px}
+th,td{border:1px solid var(--border);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--card-2);font-weight:800;white-space:nowrap}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.footer{text-align:center;margin-top:40px;font-size:.72rem;color:var(--muted);line-height:1.9}
+.footer a{color:var(--sc)}
+a{color:var(--primary)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>科目B 用語集</h1>
+  <p>情報処理安全確保支援士（登録セキスペ）<br>略語の正式名称つき ・ 解きながら引く辞書</p>
+  <span class="badge">225語</span>
+  <span class="badge">出題実績にひもづけ</span>
+</div>
+
+<div class="bar">
+  <div class="search">
+    <input id="q" type="search" placeholder="用語・略語・説明から検索（例: XSS, CVSS, 署名）" autocomplete="off" aria-label="用語を検索">
+    <button id="clear" type="button">クリア</button>
+  </div>
+  <div class="hit" id="hit"></div>
+  <nav class="jump">
+  <a href="#web">Webアプリケーション <b>77</b></a>
+  <a href="#kanri">管理・運用・脆弱性管理 <b>60</b></a>
+  <a href="#nw">ネットワーク・インフラ <b>35</b></a>
+  <a href="#ango">暗号・認証・PKI <b>28</b></a>
+  <a href="#cloud">クラウド・ID <b>25</b></a>
+  </nav>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    <h3>狙うべき分野 ─ 本番で2問をどう選ぶか</h3>
+    <p>科目Bは <strong>4問から2問を選ぶ</strong>（各50点・合計100点・<strong>60点で合格</strong>）。選び方で結果が変わります。</p>
+    <div class="scroll">
+    <table>
+      <tr><th>分野</th><th>20問中</th><th>方針</th></tr>
+      <tr><td><strong>Webアプリ</strong></td><td class="n">8問</td><td>最頻出。<span class="em">捨てると選択肢が足りなくなる</span></td></tr>
+      <tr><td><strong>管理・運用</strong></td><td class="n">6問</td><td>R7で急増。<span class="ok">国語力で部分点を取りやすい</span></td></tr>
+      <tr><td><strong>ネットワーク</strong></td><td class="n">4問</td><td><span class="ok">構成図・権限表が出たら最優先</span>。実務が効く</td></tr>
+      <tr><td>暗号・PKI</td><td class="n">1問</td><td>主題は少ないが小問で頻出</td></tr>
+      <tr><td>クラウド・ID</td><td class="n">1問</td><td>狙って選べない。出てきたら取る</td></tr>
+    </table>
+    </div>
+    <ul>
+      <li><strong>最初の10行で決める。</strong>迷う時間が最大の損失</li>
+      <li><strong>構成図・権限表・ログ</strong>がある問題は、インフラ実務がそのまま効く</li>
+      <li><strong>HTML / JavaScript が大量に出ている問題</strong>は、読み慣れていなければ避ける判断もある</li>
+      <li>設問1は<strong>穴埋め・記号</strong>のことが多い。<span class="ok">選んだ2問の設問1は確実に取る</span></li>
+      <li><strong>白紙にしない。</strong>公式解答例の備考に「左の例に限らず、本文の状況に沿った…が記述されていること」とある</li>
+    </ul>
+  </div>
+
+<section id="web">
+  <h2>Webアプリケーション <span class="h-n">77語</span></h2>
+  <p class="lead">最頻出。20問中8問が主題</p>
+  <div class="terms">
+      <div class="t" data-k="xss cross-site scripting（クロスサイト・スクリプティング） 他人のブラウザで、攻撃者が書いたプログラムを勝手に動かす。 最頻出。公式解答例は一貫して「出力時にエスケープ処理を施す。」">
+        <div class="t-h"><span class="t-n">XSS</span><span class="t-f">Cross-Site Scripting（クロスサイト・スクリプティング）</span></div>
+        <div class="t-d">他人のブラウザで、攻撃者が書いたプログラムを勝手に動かす。</div>
+        <div class="t-e">最頻出。公式解答例は一貫して「出力時にエスケープ処理を施す。」</div>
+      </div>
+      <div class="t" data-k="反射型xss  わなリンクを踏ませた、その場かぎりで動くタイプ。 3種の区別が2回名指しされた。ログ分析では攻撃の形が変わる。">
+        <div class="t-h"><span class="t-n">反射型XSS</span></div>
+        <div class="t-d">わなリンクを踏ませた、その場かぎりで動くタイプ。</div>
+        <div class="t-e">3種の区別が2回名指しされた。ログ分析では攻撃の形が変わる。</div>
+      </div>
+      <div class="t" data-k="格納型xss  掲示板などに保存され、見た人全員で動くタイプ。 r5秋問1・r6秋問3。投稿機能があれば真っ先に疑う。">
+        <div class="t-h"><span class="t-n">格納型XSS</span></div>
+        <div class="t-d">掲示板などに保存され、見た人全員で動くタイプ。</div>
+        <div class="t-e">R5秋問1・R6秋問3。投稿機能があれば真っ先に疑う。</div>
+      </div>
+      <div class="t" data-k="dom based xss  サーバを通らず、ブラウザ内の処理だけで起きるタイプ。 dom を使っていれば dom based、とは限らない。発生箇所で判断する。">
+        <div class="t-h"><span class="t-n">DOM Based XSS</span></div>
+        <div class="t-d">サーバを通らず、ブラウザ内の処理だけで起きるタイプ。</div>
+        <div class="t-e">DOM を使っていれば DOM Based、とは限らない。発生箇所で判断する。</div>
+      </div>
+      <div class="t" data-k="エスケープ処理  記号を「ただの文字」として扱うよう変換すること。 ★「入力時」ではなく「出力時」。公式解答例はすべて出力時。">
+        <div class="t-h"><span class="t-n">エスケープ処理</span></div>
+        <div class="t-d">記号を「ただの文字」として扱うよう変換すること。</div>
+        <div class="t-e">★「入力時」ではなく「出力時」。公式解答例はすべて出力時。</div>
+      </div>
+      <div class="t" data-k="サニタイジング  危険な文字を取り除く・無害化すること。 エスケープとの違いを聞かれることがある。">
+        <div class="t-h"><span class="t-n">サニタイジング</span></div>
+        <div class="t-d">危険な文字を取り除く・無害化すること。</div>
+        <div class="t-e">エスケープとの違いを聞かれることがある。</div>
+      </div>
+      <div class="t" data-k="csp content security policy 読み込んでよいスクリプトの出どころを、サイト側が宣言する仕組み。 r7秋問1で「内容や緩和効果、csp を回避する攻撃手法」まで理解を促された。">
+        <div class="t-h"><span class="t-n">CSP</span><span class="t-f">Content Security Policy</span></div>
+        <div class="t-d">読み込んでよいスクリプトの出どころを、サイト側が宣言する仕組み。</div>
+        <div class="t-e">R7秋問1で「内容や緩和効果、CSP を回避する攻撃手法」まで理解を促された。</div>
+      </div>
+      <div class="t" data-k="csrf cross-site request forgery（クロスサイト・リクエスト・フォージェリ） ログイン中の人に、本人が気づかないまま操作を実行させる。 r6春問3。★トークンがあっても、攻撃者が自分の token を使えば破られる。">
+        <div class="t-h"><span class="t-n">CSRF</span><span class="t-f">Cross-Site Request Forgery（クロスサイト・リクエスト・フォージェリ）</span></div>
+        <div class="t-d">ログイン中の人に、本人が気づかないまま操作を実行させる。</div>
+        <div class="t-e">R6春問3。★トークンがあっても、攻撃者が自分の token を使えば破られる。</div>
+      </div>
+      <div class="t" data-k="csrfトークン  正規の画面から来たことを示す、使い捨ての合言葉。 「導入する」だけでは答えにならない設問がある。">
+        <div class="t-h"><span class="t-n">CSRFトークン</span></div>
+        <div class="t-d">正規の画面から来たことを示す、使い捨ての合言葉。</div>
+        <div class="t-e">「導入する」だけでは答えにならない設問がある。</div>
+      </div>
+      <div class="t" data-k="samesite属性  別のサイトから来たリクエストに cookie を付けない設定。 r5秋問1の公式解答例「スクリプトから別ドメインの url に対して cookie が送られない仕組み」。">
+        <div class="t-h"><span class="t-n">SameSite属性</span></div>
+        <div class="t-d">別のサイトから来たリクエストに cookie を付けない設定。</div>
+        <div class="t-e">R5秋問1の公式解答例「スクリプトから別ドメインの URL に対して cookie が送られない仕組み」。</div>
+      </div>
+      <div class="t" data-k="httponly属性  javascript から cookie を読めなくする設定。 xss で cookie を盗まれる被害を抑える。">
+        <div class="t-h"><span class="t-n">HttpOnly属性</span></div>
+        <div class="t-d">JavaScript から cookie を読めなくする設定。</div>
+        <div class="t-e">XSS で cookie を盗まれる被害を抑える。</div>
+      </div>
+      <div class="t" data-k="secure属性  https のときだけ cookie を送る設定。 hsts とセットで問われやすい。">
+        <div class="t-h"><span class="t-n">Secure属性</span></div>
+        <div class="t-d">HTTPS のときだけ cookie を送る設定。</div>
+        <div class="t-e">HSTS とセットで問われやすい。</div>
+      </div>
+      <div class="t" data-k="セッションid  ログイン中であることを示す、サーバが配る整理番号。 r5秋問1では画像としてアップロードさせて盗む手口が出た。">
+        <div class="t-h"><span class="t-n">セッションID</span></div>
+        <div class="t-d">ログイン中であることを示す、サーバが配る整理番号。</div>
+        <div class="t-e">R5秋問1では画像としてアップロードさせて盗む手口が出た。</div>
+      </div>
+      <div class="t" data-k="セッションフィクセーション  攻撃者が用意した整理番号を使わせ、あとで乗っ取る。 r6秋問4の公式解答例「使用済みの sessionid を無効にした上で、新しい sessionid を発行」。">
+        <div class="t-h"><span class="t-n">セッションフィクセーション</span></div>
+        <div class="t-d">攻撃者が用意した整理番号を使わせ、あとで乗っ取る。</div>
+        <div class="t-e">R6秋問4の公式解答例「使用済みの sessionID を無効にした上で、新しい sessionID を発行」。</div>
+      </div>
+      <div class="t" data-k="セッションハイジャック  整理番号を盗んで、その人になりすます。 xss → cookie 窃取 → なりすまし の流れで出る。">
+        <div class="t-h"><span class="t-n">セッションハイジャック</span></div>
+        <div class="t-d">整理番号を盗んで、その人になりすます。</div>
+        <div class="t-e">XSS → cookie 窃取 → なりすまし の流れで出る。</div>
+      </div>
+      <div class="t" data-k="sqlインジェクション  入力欄にデータベースへの命令を混ぜ込む。 r6秋問3で穴埋め。対策はプレースホルダ。">
+        <div class="t-h"><span class="t-n">SQLインジェクション</span></div>
+        <div class="t-d">入力欄にデータベースへの命令を混ぜ込む。</div>
+        <div class="t-e">R6秋問3で穴埋め。対策はプレースホルダ。</div>
+      </div>
+      <div class="t" data-k="プレースホルダ  値を入れる場所を先に決めておき、あとから値だけ渡す書き方。 sqlインジェクションの根本対策。「バインド機構」も同義。">
+        <div class="t-h"><span class="t-n">プレースホルダ</span></div>
+        <div class="t-d">値を入れる場所を先に決めておき、あとから値だけ渡す書き方。</div>
+        <div class="t-e">SQLインジェクションの根本対策。「バインド機構」も同義。</div>
+      </div>
+      <div class="t" data-k="osコマンドインジェクション  入力値が os への命令として実行されてしまう。 シェルを起動する関数を使わないのが根本対策。">
+        <div class="t-h"><span class="t-n">OSコマンドインジェクション</span></div>
+        <div class="t-d">入力値が OS への命令として実行されてしまう。</div>
+        <div class="t-e">シェルを起動する関数を使わないのが根本対策。</div>
+      </div>
+      <div class="t" data-k="ディレクトリトラバーサル  ../ などを使って、見せてはいけないファイルを取る。 「パス名パラメータの未チェック」として安全なウェブサイトの作り方 第1章にある。">
+        <div class="t-h"><span class="t-n">ディレクトリトラバーサル</span></div>
+        <div class="t-d">../ などを使って、見せてはいけないファイルを取る。</div>
+        <div class="t-e">「パス名パラメータの未チェック」として安全なウェブサイトの作り方 第1章にある。</div>
+      </div>
+      <div class="t" data-k="idor insecure direct object reference（安全でない直接オブジェクト参照） 番号を1つずらすだけで、他人のデータが見えてしまう。 r7春問3「注文番号を 00000001 から順に増やしてダウンロードを試行する。」">
+        <div class="t-h"><span class="t-n">IDOR</span><span class="t-f">Insecure Direct Object Reference（安全でない直接オブジェクト参照）</span></div>
+        <div class="t-d">番号を1つずらすだけで、他人のデータが見えてしまう。</div>
+        <div class="t-e">R7春問3「注文番号を 00000001 から順に増やしてダウンロードを試行する。」</div>
+      </div>
+      <div class="t" data-k="認可  ログインした人が「それを見てよいか」を判断すること。 ★認証（誰か）と認可（何をしてよいか）の違いは頻出。">
+        <div class="t-h"><span class="t-n">認可</span></div>
+        <div class="t-d">ログインした人が「それを見てよいか」を判断すること。</div>
+        <div class="t-e">★認証（誰か）と認可（何をしてよいか）の違いは頻出。</div>
+      </div>
+      <div class="t" data-k="認証  その人が本人かどうかを確かめること。 認可と混同しない。">
+        <div class="t-h"><span class="t-n">認証</span></div>
+        <div class="t-d">その人が本人かどうかを確かめること。</div>
+        <div class="t-e">認可と混同しない。</div>
+      </div>
+      <div class="t" data-k="アクセス制御  誰が何にアクセスできるかを決めて守る仕組み。 安全なウェブサイトの作り方 第1章の11番目。web系で2番目に多い。">
+        <div class="t-h"><span class="t-n">アクセス制御</span></div>
+        <div class="t-d">誰が何にアクセスできるかを決めて守る仕組み。</div>
+        <div class="t-e">安全なウェブサイトの作り方 第1章の11番目。Web系で2番目に多い。</div>
+      </div>
+      <div class="t" data-k="httpヘッダインジェクション  応答ヘッダに改行を混ぜ、別のヘッダや本文を偽装する。 現行形式での出題実績はまだない。">
+        <div class="t-h"><span class="t-n">HTTPヘッダインジェクション</span></div>
+        <div class="t-d">応答ヘッダに改行を混ぜ、別のヘッダや本文を偽装する。</div>
+        <div class="t-e">現行形式での出題実績はまだない。</div>
+      </div>
+      <div class="t" data-k="メールヘッダインジェクション  問い合わせフォームから宛先を追加され、迷惑メールの踏み台にされる。 現行形式での出題実績はまだない。">
+        <div class="t-h"><span class="t-n">メールヘッダインジェクション</span></div>
+        <div class="t-d">問い合わせフォームから宛先を追加され、迷惑メールの踏み台にされる。</div>
+        <div class="t-e">現行形式での出題実績はまだない。</div>
+      </div>
+      <div class="t" data-k="クリックジャッキング  透明な枠を重ねて、見えないボタンを押させる。 対策は x-frame-options / csp の frame-ancestors。">
+        <div class="t-h"><span class="t-n">クリックジャッキング</span></div>
+        <div class="t-d">透明な枠を重ねて、見えないボタンを押させる。</div>
+        <div class="t-e">対策は X-Frame-Options / CSP の frame-ancestors。</div>
+      </div>
+      <div class="t" data-k="x-frame-options  自分のページを他サイトの枠内に表示させない指定。 クリックジャッキング対策。">
+        <div class="t-h"><span class="t-n">X-Frame-Options</span></div>
+        <div class="t-d">自分のページを他サイトの枠内に表示させない指定。</div>
+        <div class="t-e">クリックジャッキング対策。</div>
+      </div>
+      <div class="t" data-k="frame-ancestors  csp で「どのサイトなら枠に入れてよいか」を指定する項目。 x-frame-options の後継にあたる。">
+        <div class="t-h"><span class="t-n">frame-ancestors</span></div>
+        <div class="t-d">CSP で「どのサイトなら枠に入れてよいか」を指定する項目。</div>
+        <div class="t-e">X-Frame-Options の後継にあたる。</div>
+      </div>
+      <div class="t" data-k="バッファオーバーフロー  入れ物より大きいデータを入れて、隣の領域を壊す。 web アプリでは出にくい。c/c++ の文脈。">
+        <div class="t-h"><span class="t-n">バッファオーバーフロー</span></div>
+        <div class="t-d">入れ物より大きいデータを入れて、隣の領域を壊す。</div>
+        <div class="t-e">Web アプリでは出にくい。C/C++ の文脈。</div>
+      </div>
+      <div class="t" data-k="hsts http strict transport security このサイトは必ず https で来てください、とブラウザに覚えさせる。 r6秋問4「m サイトへの接続を https に強制することができる。」">
+        <div class="t-h"><span class="t-n">HSTS</span><span class="t-f">HTTP Strict Transport Security</span></div>
+        <div class="t-d">このサイトは必ず HTTPS で来てください、とブラウザに覚えさせる。</div>
+        <div class="t-e">R6秋問4「M サイトへの接続を HTTPS に強制することができる。」</div>
+      </div>
+      <div class="t" data-k="x-content-type-options  ファイルの種類をブラウザに勝手に推測させない指定。 r6秋問4「content-type ヘッダーで指定した mime タイプを強制的に適用することができる。」">
+        <div class="t-h"><span class="t-n">X-Content-Type-Options</span></div>
+        <div class="t-d">ファイルの種類をブラウザに勝手に推測させない指定。</div>
+        <div class="t-e">R6秋問4「Content-Type ヘッダーで指定した MIME タイプを強制的に適用することができる。」</div>
+      </div>
+      <div class="t" data-k="mimeスニッフィング  ブラウザが中身を見て、勝手にファイル種別を判断してしまうこと。 nosniff で止める。">
+        <div class="t-h"><span class="t-n">MIMEスニッフィング</span></div>
+        <div class="t-d">ブラウザが中身を見て、勝手にファイル種別を判断してしまうこと。</div>
+        <div class="t-e">nosniff で止める。</div>
+      </div>
+      <div class="t" data-k="content-type  これは画像です、これは html です、と伝えるラベル。 拡張子と中身が一致しているかの検証とセットで問われる。">
+        <div class="t-h"><span class="t-n">Content-Type</span></div>
+        <div class="t-d">これは画像です、これは HTML です、と伝えるラベル。</div>
+        <div class="t-e">拡張子と中身が一致しているかの検証とセットで問われる。</div>
+      </div>
+      <div class="t" data-k="cors cross-origin resource sharing 別のサイトからデータを取ってよいか、サーバ側が許可する仕組み。 same-origin policy の例外を作る仕組み。">
+        <div class="t-h"><span class="t-n">CORS</span><span class="t-f">Cross-Origin Resource Sharing</span></div>
+        <div class="t-d">別のサイトからデータを取ってよいか、サーバ側が許可する仕組み。</div>
+        <div class="t-e">Same-Origin Policy の例外を作る仕組み。</div>
+      </div>
+      <div class="t" data-k="同一オリジンポリシー same-origin policy 別のサイトのデータは勝手に読めない、というブラウザの基本ルール。 オリジン＝スキーム＋ホスト＋ポート。">
+        <div class="t-h"><span class="t-n">同一オリジンポリシー</span><span class="t-f">Same-Origin Policy</span></div>
+        <div class="t-d">別のサイトのデータは勝手に読めない、というブラウザの基本ルール。</div>
+        <div class="t-e">オリジン＝スキーム＋ホスト＋ポート。</div>
+      </div>
+      <div class="t" data-k="オリジン  https・ドメイン名・ポート番号の3つの組み合わせ。 webauthn でも「オリジンを確認する」が解答になった（r5秋問3）。">
+        <div class="t-h"><span class="t-n">オリジン</span></div>
+        <div class="t-d">https・ドメイン名・ポート番号の3つの組み合わせ。</div>
+        <div class="t-e">WebAuthn でも「オリジンを確認する」が解答になった（R5秋問3）。</div>
+      </div>
+      <div class="t" data-k="jwt json web token ヘッダ・中身・署名の3つをつないだ、持ち運べる引換券。 r6春問1。ステートレスな api 認証で頻出。">
+        <div class="t-h"><span class="t-n">JWT</span><span class="t-f">JSON Web Token</span></div>
+        <div class="t-d">ヘッダ・中身・署名の3つをつないだ、持ち運べる引換券。</div>
+        <div class="t-e">R6春問1。ステートレスな API 認証で頻出。</div>
+      </div>
+      <div class="t" data-k="alg=none  署名なしでも通してしまう、jwt の危険な設定。 r6春問1の公式解答例「none でないことを検証する。」">
+        <div class="t-h"><span class="t-n">alg=none</span></div>
+        <div class="t-d">署名なしでも通してしまう、JWT の危険な設定。</div>
+        <div class="t-e">R6春問1の公式解答例「NONE でないことを検証する。」</div>
+      </div>
+      <div class="t" data-k="rs256 / hs256  jwt の署名方式。rs256 は公開鍵方式、hs256 は共通鍵方式。 方式を取り違えさせる改ざんが成立しうる。">
+        <div class="t-h"><span class="t-n">RS256 / HS256</span></div>
+        <div class="t-d">JWT の署名方式。RS256 は公開鍵方式、HS256 は共通鍵方式。</div>
+        <div class="t-e">方式を取り違えさせる改ざんが成立しうる。</div>
+      </div>
+      <div class="t" data-k="クレーム  jwt の中に入っている利用者idなどの情報。 r6春問1「利用者 id が mid の値と一致するかどうかを検証する処理」。">
+        <div class="t-h"><span class="t-n">クレーム</span></div>
+        <div class="t-d">JWT の中に入っている利用者IDなどの情報。</div>
+        <div class="t-e">R6春問1「利用者 ID が mid の値と一致するかどうかを検証する処理」。</div>
+      </div>
+      <div class="t" data-k="ステートレス  サーバが利用者の状態を覚えていない作り。 r6春問1の穴埋めで出題。">
+        <div class="t-h"><span class="t-n">ステートレス</span></div>
+        <div class="t-d">サーバが利用者の状態を覚えていない作り。</div>
+        <div class="t-e">R6春問1の穴埋めで出題。</div>
+      </div>
+      <div class="t" data-k="oauth 2.0  パスワードを渡さずに、他サービスへ「この範囲だけ許可」する仕組み。 ★認可の仕組み。認証そのものではない。">
+        <div class="t-h"><span class="t-n">OAuth 2.0</span></div>
+        <div class="t-d">パスワードを渡さずに、他サービスへ「この範囲だけ許可」する仕組み。</div>
+        <div class="t-e">★認可の仕組み。認証そのものではない。</div>
+      </div>
+      <div class="t" data-k="openid connect oidc oauth 2.0 の上に「誰であるか」を足した仕組み。 oauth との違いが問われやすい。">
+        <div class="t-h"><span class="t-n">OpenID Connect</span><span class="t-f">OIDC</span></div>
+        <div class="t-d">OAuth 2.0 の上に「誰であるか」を足した仕組み。</div>
+        <div class="t-e">OAuth との違いが問われやすい。</div>
+      </div>
+      <div class="t" data-k="認可コードフロー  先に引換券をもらい、裏側でアクセストークンと交換する流れ。 最も安全とされる oauth の流れ。">
+        <div class="t-h"><span class="t-n">認可コードフロー</span></div>
+        <div class="t-d">先に引換券をもらい、裏側でアクセストークンと交換する流れ。</div>
+        <div class="t-e">最も安全とされる OAuth の流れ。</div>
+      </div>
+      <div class="t" data-k="アクセストークン  api を使うための、期限つきの通行証。 r7春問3「authorization ヘッダーから取り出す」。">
+        <div class="t-h"><span class="t-n">アクセストークン</span></div>
+        <div class="t-d">API を使うための、期限つきの通行証。</div>
+        <div class="t-e">R7春問3「Authorization ヘッダーから取り出す」。</div>
+      </div>
+      <div class="t" data-k="リフレッシュトークン  通行証が切れたとき、新しいものをもらうための券。 漏えい時の影響が大きい。">
+        <div class="t-h"><span class="t-n">リフレッシュトークン</span></div>
+        <div class="t-d">通行証が切れたとき、新しいものをもらうための券。</div>
+        <div class="t-e">漏えい時の影響が大きい。</div>
+      </div>
+      <div class="t" data-k="スコープ  この通行証で何をしてよいかの範囲。 最小権限の考え方と結びつく。">
+        <div class="t-h"><span class="t-n">スコープ</span></div>
+        <div class="t-d">この通行証で何をしてよいかの範囲。</div>
+        <div class="t-e">最小権限の考え方と結びつく。</div>
+      </div>
+      <div class="t" data-k="pkce proof key for code exchange 引換券を横取りされても使えないようにする追加の鍵。 スマホアプリなど、秘密を保持できない環境で必須。">
+        <div class="t-h"><span class="t-n">PKCE</span><span class="t-f">Proof Key for Code Exchange</span></div>
+        <div class="t-d">引換券を横取りされても使えないようにする追加の鍵。</div>
+        <div class="t-e">スマホアプリなど、秘密を保持できない環境で必須。</div>
+      </div>
+      <div class="t" data-k="saml security assertion markup language 企業で使われる、xml ベースのシングルサインオンの仕組み。 oidc との使い分けで問われる。">
+        <div class="t-h"><span class="t-n">SAML</span><span class="t-f">Security Assertion Markup Language</span></div>
+        <div class="t-d">企業で使われる、XML ベースのシングルサインオンの仕組み。</div>
+        <div class="t-e">OIDC との使い分けで問われる。</div>
+      </div>
+      <div class="t" data-k="sso single sign-on 一度ログインすれば、複数のサービスを使えるようにすること。 便利だが、破られたときの影響範囲が広い。">
+        <div class="t-h"><span class="t-n">SSO</span><span class="t-f">Single Sign-On</span></div>
+        <div class="t-d">一度ログインすれば、複数のサービスを使えるようにすること。</div>
+        <div class="t-e">便利だが、破られたときの影響範囲が広い。</div>
+      </div>
+      <div class="t" data-k="cookie  ブラウザがサイトごとに保管する小さなメモ。 属性（httponly / secure / samesite）が対策の核。">
+        <div class="t-h"><span class="t-n">Cookie</span></div>
+        <div class="t-d">ブラウザがサイトごとに保管する小さなメモ。</div>
+        <div class="t-e">属性（HttpOnly / Secure / SameSite）が対策の核。</div>
+      </div>
+      <div class="t" data-k="waf web application firewall web への攻撃らしい通信を、手前で止める仕組み。 r6春問1「セキュリティ施策は導入前にトレードオフを検討」。根本対策ではない。">
+        <div class="t-h"><span class="t-n">WAF</span><span class="t-f">Web Application Firewall</span></div>
+        <div class="t-d">Web への攻撃らしい通信を、手前で止める仕組み。</div>
+        <div class="t-e">R6春問1「セキュリティ施策は導入前にトレードオフを検討」。根本対策ではない。</div>
+      </div>
+      <div class="t" data-k="フォールスポジティブ 偽陽性 正常なものを「異常だ」と誤って止めてしまうこと。 r6春問2「正常な通信を異常として検知してしまう。」">
+        <div class="t-h"><span class="t-n">フォールスポジティブ</span><span class="t-f">偽陽性</span></div>
+        <div class="t-d">正常なものを「異常だ」と誤って止めてしまうこと。</div>
+        <div class="t-e">R6春問2「正常な通信を異常として検知してしまう。」</div>
+      </div>
+      <div class="t" data-k="フォールスネガティブ 偽陰性 本当の攻撃を見逃してしまうこと。 しきい値を緩めると増える。">
+        <div class="t-h"><span class="t-n">フォールスネガティブ</span><span class="t-f">偽陰性</span></div>
+        <div class="t-d">本当の攻撃を見逃してしまうこと。</div>
+        <div class="t-e">しきい値を緩めると増える。</div>
+      </div>
+      <div class="t" data-k="脆弱性診断  攻撃者の立場で弱点を探して報告すること。 r6秋問4の題材。診断ツールの検出結果から被害を想定させる。">
+        <div class="t-h"><span class="t-n">脆弱性診断</span></div>
+        <div class="t-d">攻撃者の立場で弱点を探して報告すること。</div>
+        <div class="t-e">R6秋問4の題材。診断ツールの検出結果から被害を想定させる。</div>
+      </div>
+      <div class="t" data-k="sast static application security testing 動かさずに、ソースコードを読んで弱点を探す。 r7春問1で sast/dast/iast の特徴理解を促された。">
+        <div class="t-h"><span class="t-n">SAST</span><span class="t-f">Static Application Security Testing</span></div>
+        <div class="t-d">動かさずに、ソースコードを読んで弱点を探す。</div>
+        <div class="t-e">R7春問1で SAST/DAST/IAST の特徴理解を促された。</div>
+      </div>
+      <div class="t" data-k="dast dynamic application security testing 実際に動かして、外から攻撃を試して弱点を探す。 本番に近い環境が要る。">
+        <div class="t-h"><span class="t-n">DAST</span><span class="t-f">Dynamic Application Security Testing</span></div>
+        <div class="t-d">実際に動かして、外から攻撃を試して弱点を探す。</div>
+        <div class="t-e">本番に近い環境が要る。</div>
+      </div>
+      <div class="t" data-k="iast interactive application security testing 動かしながら、内部の動きも計測して弱点を探す。 sast と dast の中間。">
+        <div class="t-h"><span class="t-n">IAST</span><span class="t-f">Interactive Application Security Testing</span></div>
+        <div class="t-d">動かしながら、内部の動きも計測して弱点を探す。</div>
+        <div class="t-e">SAST と DAST の中間。</div>
+      </div>
+      <div class="t" data-k="セキュアコーディング  最初から弱点を作らない書き方をすること。 r6春問4・r7秋問1の題材。">
+        <div class="t-h"><span class="t-n">セキュアコーディング</span></div>
+        <div class="t-d">最初から弱点を作らない書き方をすること。</div>
+        <div class="t-e">R6春問4・R7秋問1の題材。</div>
+      </div>
+      <div class="t" data-k="入力値検証  受け取った値が想定どおりかを確かめること。 保険的対策。根本対策は出力時の処理。">
+        <div class="t-h"><span class="t-n">入力値検証</span></div>
+        <div class="t-d">受け取った値が想定どおりかを確かめること。</div>
+        <div class="t-e">保険的対策。根本対策は出力時の処理。</div>
+      </div>
+      <div class="t" data-k="出力エンコーディング  画面に出すときに、記号を安全な形に変換すること。 xss の根本対策。">
+        <div class="t-h"><span class="t-n">出力エンコーディング</span></div>
+        <div class="t-d">画面に出すときに、記号を安全な形に変換すること。</div>
+        <div class="t-e">XSS の根本対策。</div>
+      </div>
+      <div class="t" data-k="例外処理  エラーが起きたときの後始末の書き方。 r6春問4「例外発生時の動作は脆弱性につながりやすい部分」。">
+        <div class="t-h"><span class="t-n">例外処理</span></div>
+        <div class="t-d">エラーが起きたときの後始末の書き方。</div>
+        <div class="t-e">R6春問4「例外発生時の動作は脆弱性につながりやすい部分」。</div>
+      </div>
+      <div class="t" data-k="finally  エラーが起きても必ず実行される後片付けの場所。 r6春問4の穴埋め。リソースリークを防ぐ。">
+        <div class="t-h"><span class="t-n">finally</span></div>
+        <div class="t-d">エラーが起きても必ず実行される後片付けの場所。</div>
+        <div class="t-e">R6春問4の穴埋め。リソースリークを防ぐ。</div>
+      </div>
+      <div class="t" data-k="リソースリーク  使い終わった資源を返さず、だんだん足りなくなること。 finally で解放するのが基本。">
+        <div class="t-h"><span class="t-n">リソースリーク</span></div>
+        <div class="t-d">使い終わった資源を返さず、だんだん足りなくなること。</div>
+        <div class="t-e">finally で解放するのが基本。</div>
+      </div>
+      <div class="t" data-k="ファイルアップロード  利用者がサーバにファイルを置ける機能。 r7秋問1「拡張子と整合しているかをチェックする。」">
+        <div class="t-h"><span class="t-n">ファイルアップロード</span></div>
+        <div class="t-d">利用者がサーバにファイルを置ける機能。</div>
+        <div class="t-e">R7秋問1「拡張子と整合しているかをチェックする。」</div>
+      </div>
+      <div class="t" data-k="webスキミング  決済画面に仕込んだ script で、カード情報を外部へ送る。 r6秋問3の題材。ec サイトで起きる。">
+        <div class="t-h"><span class="t-n">Webスキミング</span></div>
+        <div class="t-d">決済画面に仕込んだ script で、カード情報を外部へ送る。</div>
+        <div class="t-e">R6秋問3の題材。EC サイトで起きる。</div>
+      </div>
+      <div class="t" data-k="addeventlistener  ボタンを押したときなどに動く処理を登録する命令。 r6秋問3の公式解答例に登場。form の submit を横取りする。">
+        <div class="t-h"><span class="t-n">addEventListener</span></div>
+        <div class="t-d">ボタンを押したときなどに動く処理を登録する命令。</div>
+        <div class="t-e">R6秋問3の公式解答例に登場。form の submit を横取りする。</div>
+      </div>
+      <div class="t" data-k="dom document object model ページの中身をプログラムから触れるようにした構造。 r6秋問3「html、dom の仕組みを利用した画面の書換えは攻撃で悪用される」。">
+        <div class="t-h"><span class="t-n">DOM</span><span class="t-f">Document Object Model</span></div>
+        <div class="t-d">ページの中身をプログラムから触れるようにした構造。</div>
+        <div class="t-e">R6秋問3「HTML、DOM の仕組みを利用した画面の書換えは攻撃で悪用される」。</div>
+      </div>
+      <div class="t" data-k="ecmascript  javascript の仕様そのもの。 ★公式の出題趣旨で3回「読み解いて」と書かれている。">
+        <div class="t-h"><span class="t-n">ECMAScript</span></div>
+        <div class="t-d">JavaScript の仕様そのもの。</div>
+        <div class="t-e">★公式の出題趣旨で3回「読み解いて」と書かれている。</div>
+      </div>
+      <div class="t" data-k="xhr xmlhttprequest ページを切り替えずに裏側で通信する古い仕組み。 r5秋問1の公式解答例に登場。">
+        <div class="t-h"><span class="t-n">XHR</span><span class="t-f">XMLHttpRequest</span></div>
+        <div class="t-d">ページを切り替えずに裏側で通信する古い仕組み。</div>
+        <div class="t-e">R5秋問1の公式解答例に登場。</div>
+      </div>
+      <div class="t" data-k="署名付きurl  期限つきで、その人だけが使える一時的なダウンロード用アドレス。 r7春問3。★生成はサーバ上で行う。アプリ上は解析される。">
+        <div class="t-h"><span class="t-n">署名付きURL</span></div>
+        <div class="t-d">期限つきで、その人だけが使える一時的なダウンロード用アドレス。</div>
+        <div class="t-e">R7春問3。★生成はサーバ上で行う。アプリ上は解析される。</div>
+      </div>
+      <div class="t" data-k="webview  アプリの中に埋め込まれたブラウザ画面。 r7春問3「url の先頭が https://www.a-sha.co.jp/ であるかを検証する。」">
+        <div class="t-h"><span class="t-n">WebView</span></div>
+        <div class="t-d">アプリの中に埋め込まれたブラウザ画面。</div>
+        <div class="t-e">R7春問3「URL の先頭が https://www.a-sha.co.jp/ であるかを検証する。」</div>
+      </div>
+      <div class="t" data-k="クレデンシャル  id とパスワードなど、本人であることを示す情報一式。 r6春問3では imds から奪う流れで出た。">
+        <div class="t-h"><span class="t-n">クレデンシャル</span></div>
+        <div class="t-d">ID とパスワードなど、本人であることを示す情報一式。</div>
+        <div class="t-e">R6春問3では IMDS から奪う流れで出た。</div>
+      </div>
+      <div class="t" data-k="最小権限の原則  必要な分だけ権限を与えること。 web でもクラウドでも共通の答え。">
+        <div class="t-h"><span class="t-n">最小権限の原則</span></div>
+        <div class="t-d">必要な分だけ権限を与えること。</div>
+        <div class="t-e">Web でもクラウドでも共通の答え。</div>
+      </div>
+      <div class="t" data-k="多層防御  1つ破られても次で止まるよう、守りを重ねること。 根本対策と保険的対策の組み合わせ。">
+        <div class="t-h"><span class="t-n">多層防御</span></div>
+        <div class="t-d">1つ破られても次で止まるよう、守りを重ねること。</div>
+        <div class="t-e">根本対策と保険的対策の組み合わせ。</div>
+      </div>
+      <div class="t" data-k="根本対策  脆弱性そのものをなくす直し方。 安全なウェブサイトの作り方 の用語。保険的対策と区別する。">
+        <div class="t-h"><span class="t-n">根本対策</span></div>
+        <div class="t-d">脆弱性そのものをなくす直し方。</div>
+        <div class="t-e">安全なウェブサイトの作り方 の用語。保険的対策と区別する。</div>
+      </div>
+      <div class="t" data-k="保険的対策  脆弱性は残るが、被害を軽くする対策。 waf などが該当。「根本対策ではない」と問われる。">
+        <div class="t-h"><span class="t-n">保険的対策</span></div>
+        <div class="t-d">脆弱性は残るが、被害を軽くする対策。</div>
+        <div class="t-e">WAF などが該当。「根本対策ではない」と問われる。</div>
+      </div>
+  </div>
+</section>
+
+<section id="kanri">
+  <h2>管理・運用・脆弱性管理 <span class="h-n">60語</span></h2>
+  <p class="lead">20問中6問。R7で急増した分野</p>
+  <div class="terms">
+      <div class="t" data-k="cve common vulnerabilities and exposures 見つかった弱点ひとつひとつに付ける世界共通の番号。 「どの脆弱性か」を一意に指す。深刻度は表さない。">
+        <div class="t-h"><span class="t-n">CVE</span><span class="t-f">Common Vulnerabilities and Exposures</span></div>
+        <div class="t-d">見つかった弱点ひとつひとつに付ける世界共通の番号。</div>
+        <div class="t-e">「どの脆弱性か」を一意に指す。深刻度は表さない。</div>
+      </div>
+      <div class="t" data-k="cvss common vulnerability scoring system 弱点の深刻さを 0〜10 の点数で表す物差し。 r7春問4の穴埋めは「4.0」。★最新は v4.0。">
+        <div class="t-h"><span class="t-n">CVSS</span><span class="t-f">Common Vulnerability Scoring System</span></div>
+        <div class="t-d">弱点の深刻さを 0〜10 の点数で表す物差し。</div>
+        <div class="t-e">R7春問4の穴埋めは「4.0」。★最新は v4.0。</div>
+      </div>
+      <div class="t" data-k="cvss 基本値 base score 弱点そのものの性質だけで決まる点数。時間が経っても変わらない。 現状値・環境値との違いを押さえる。">
+        <div class="t-h"><span class="t-n">CVSS 基本値</span><span class="t-f">Base Score</span></div>
+        <div class="t-d">弱点そのものの性質だけで決まる点数。時間が経っても変わらない。</div>
+        <div class="t-e">現状値・環境値との違いを押さえる。</div>
+      </div>
+      <div class="t" data-k="cvss 現状値 temporal score 攻撃コードが出回ったかなど、そのときの状況を反映した点数。 r7春問2「公開サイトにある情報から判断する必要がある」＝手間がかかる。">
+        <div class="t-h"><span class="t-n">CVSS 現状値</span><span class="t-f">Temporal Score</span></div>
+        <div class="t-d">攻撃コードが出回ったかなど、そのときの状況を反映した点数。</div>
+        <div class="t-e">R7春問2「公開サイトにある情報から判断する必要がある」＝手間がかかる。</div>
+      </div>
+      <div class="t" data-k="cvss 環境値 environmental score 自社の環境での重要度を加味した点数。 同じ脆弱性でも組織によって優先度が変わる根拠。">
+        <div class="t-h"><span class="t-n">CVSS 環境値</span><span class="t-f">Environmental Score</span></div>
+        <div class="t-d">自社の環境での重要度を加味した点数。</div>
+        <div class="t-e">同じ脆弱性でも組織によって優先度が変わる根拠。</div>
+      </div>
+      <div class="t" data-k="ac attack complexity（攻撃条件の複雑さ） 攻撃を成功させるのがどれくらい難しいか。 ★r7春問2で c と取り違える誤答が多かった指標。">
+        <div class="t-h"><span class="t-n">AC</span><span class="t-f">Attack Complexity（攻撃条件の複雑さ）</span></div>
+        <div class="t-d">攻撃を成功させるのがどれくらい難しいか。</div>
+        <div class="t-e">★R7春問2で C と取り違える誤答が多かった指標。</div>
+      </div>
+      <div class="t" data-k="av attack vector（攻撃元区分） どこから攻撃できるか。ネットワーク越しか、手元からか。 ネットワーク越しほど危険度が高い。">
+        <div class="t-h"><span class="t-n">AV</span><span class="t-f">Attack Vector（攻撃元区分）</span></div>
+        <div class="t-d">どこから攻撃できるか。ネットワーク越しか、手元からか。</div>
+        <div class="t-e">ネットワーク越しほど危険度が高い。</div>
+      </div>
+      <div class="t" data-k="pr privileges required（必要な特権レベル） 攻撃に権限が要るかどうか。 権限不要ほど危険。">
+        <div class="t-h"><span class="t-n">PR</span><span class="t-f">Privileges Required（必要な特権レベル）</span></div>
+        <div class="t-d">攻撃に権限が要るかどうか。</div>
+        <div class="t-e">権限不要ほど危険。</div>
+      </div>
+      <div class="t" data-k="ui user interaction（利用者の関与） 利用者が何か操作しないと成立しないか。 関与不要ほど危険。">
+        <div class="t-h"><span class="t-n">UI</span><span class="t-f">User Interaction（利用者の関与）</span></div>
+        <div class="t-d">利用者が何か操作しないと成立しないか。</div>
+        <div class="t-e">関与不要ほど危険。</div>
+      </div>
+      <div class="t" data-k="c / i / a confidentiality / integrity / availability 機密性・完全性・可用性への影響度。 ★ac（攻撃条件）と c（機密性）は別物。">
+        <div class="t-h"><span class="t-n">C / I / A</span><span class="t-f">Confidentiality / Integrity / Availability</span></div>
+        <div class="t-d">機密性・完全性・可用性への影響度。</div>
+        <div class="t-e">★AC（攻撃条件）と C（機密性）は別物。</div>
+      </div>
+      <div class="t" data-k="epss exploit prediction scoring system その弱点が実際に攻撃される確率の予測値。 r7春問2「first のサイトで公開されている値をそのまま使えばよい」＝手間がかからない。">
+        <div class="t-h"><span class="t-n">EPSS</span><span class="t-f">Exploit Prediction Scoring System</span></div>
+        <div class="t-d">その弱点が実際に攻撃される確率の予測値。</div>
+        <div class="t-e">R7春問2「FIRST のサイトで公開されている値をそのまま使えばよい」＝手間がかからない。</div>
+      </div>
+      <div class="t" data-k="kev known exploited vulnerabilities 実際に悪用が確認された弱点の一覧（米cisa が公開）。 r7春問4「kev カタログが現状の評価に活用される」。">
+        <div class="t-h"><span class="t-n">KEV</span><span class="t-f">Known Exploited Vulnerabilities</span></div>
+        <div class="t-d">実際に悪用が確認された弱点の一覧（米CISA が公開）。</div>
+        <div class="t-e">R7春問4「KEV カタログが現状の評価に活用される」。</div>
+      </div>
+      <div class="t" data-k="jvn japan vulnerability notes 日本の脆弱性情報ポータル。jpcert/cc と ipa が運営。 r7春問3の出題趣旨に名指しで登場。">
+        <div class="t-h"><span class="t-n">JVN</span><span class="t-f">Japan Vulnerability Notes</span></div>
+        <div class="t-d">日本の脆弱性情報ポータル。JPCERT/CC と IPA が運営。</div>
+        <div class="t-e">R7春問3の出題趣旨に名指しで登場。</div>
+      </div>
+      <div class="t" data-k="nvd national vulnerability database 米国の脆弱性データベース。cve に cvss 値が付く。 jvn ipedia と並ぶ情報源。">
+        <div class="t-h"><span class="t-n">NVD</span><span class="t-f">National Vulnerability Database</span></div>
+        <div class="t-d">米国の脆弱性データベース。CVE に CVSS 値が付く。</div>
+        <div class="t-e">JVN iPedia と並ぶ情報源。</div>
+      </div>
+      <div class="t" data-k="first forum of incident response and security teams cvss や epss を策定・公開している国際団体。 r7春問2の公式解答例に登場。">
+        <div class="t-h"><span class="t-n">FIRST</span><span class="t-f">Forum of Incident Response and Security Teams</span></div>
+        <div class="t-d">CVSS や EPSS を策定・公開している国際団体。</div>
+        <div class="t-e">R7春問2の公式解答例に登場。</div>
+      </div>
+      <div class="t" data-k="sbom software bill of materials（ソフトウェア部品表） そのソフトが何の部品でできているかの一覧表。 ★r7春問1は「定義ではなく利点」を問うた。影響有無を容易に把握できる、が答え。">
+        <div class="t-h"><span class="t-n">SBOM</span><span class="t-f">Software Bill of Materials（ソフトウェア部品表）</span></div>
+        <div class="t-d">そのソフトが何の部品でできているかの一覧表。</div>
+        <div class="t-e">★R7春問1は「定義ではなく利点」を問うた。影響有無を容易に把握できる、が答え。</div>
+      </div>
+      <div class="t" data-k="asm attack surface management 外から見えてしまっている自社の資産を洗い出して管理すること。 r7春問4の題材。未把握の公開 it 資産を見つける。">
+        <div class="t-h"><span class="t-n">ASM</span><span class="t-f">Attack Surface Management</span></div>
+        <div class="t-d">外から見えてしまっている自社の資産を洗い出して管理すること。</div>
+        <div class="t-e">R7春問4の題材。未把握の公開 IT 資産を見つける。</div>
+      </div>
+      <div class="t" data-k="アタックサーフェス 攻撃対象領域 攻撃者から狙える入口の広がり。 減らすことが対策になる。">
+        <div class="t-h"><span class="t-n">アタックサーフェス</span><span class="t-f">攻撃対象領域</span></div>
+        <div class="t-d">攻撃者から狙える入口の広がり。</div>
+        <div class="t-e">減らすことが対策になる。</div>
+      </div>
+      <div class="t" data-k="サブドメインテイクオーバー  使わなくなったサブドメインを他人に乗っ取られること。 r7春問4「終了したサブドメインの cname レコードを削除する。」">
+        <div class="t-h"><span class="t-n">サブドメインテイクオーバー</span></div>
+        <div class="t-d">使わなくなったサブドメインを他人に乗っ取られること。</div>
+        <div class="t-e">R7春問4「終了したサブドメインの CNAME レコードを削除する。」</div>
+      </div>
+      <div class="t" data-k="cname  あるドメイン名を別の名前の別名として設定する dns の記録。 消し忘れがテイクオーバーの原因になる。">
+        <div class="t-h"><span class="t-n">CNAME</span></div>
+        <div class="t-d">あるドメイン名を別の名前の別名として設定する DNS の記録。</div>
+        <div class="t-e">消し忘れがテイクオーバーの原因になる。</div>
+      </div>
+      <div class="t" data-k="whois  ドメインやipアドレスの登録者を調べる仕組み。 r7春問4の穴埋め。資産の棚卸しに使う。">
+        <div class="t-h"><span class="t-n">WHOIS</span></div>
+        <div class="t-d">ドメインやIPアドレスの登録者を調べる仕組み。</div>
+        <div class="t-e">R7春問4の穴埋め。資産の棚卸しに使う。</div>
+      </div>
+      <div class="t" data-k="ポートスキャン  どの通信口が開いているかを外から調べること。 r7春問4「web のポートだけが開いていることを確認する。」">
+        <div class="t-h"><span class="t-n">ポートスキャン</span></div>
+        <div class="t-d">どの通信口が開いているかを外から調べること。</div>
+        <div class="t-e">R7春問4「Web のポートだけが開いていることを確認する。」</div>
+      </div>
+      <div class="t" data-k="脆弱性スキャナ  既知の弱点がないかを自動で調べる道具。 ポートスキャンの次の段階として出た。">
+        <div class="t-h"><span class="t-n">脆弱性スキャナ</span></div>
+        <div class="t-d">既知の弱点がないかを自動で調べる道具。</div>
+        <div class="t-e">ポートスキャンの次の段階として出た。</div>
+      </div>
+      <div class="t" data-k="ペネトレーションテスト 侵入テスト 実際に攻撃を試して、本当に侵入できるか確かめること。 脆弱性診断より踏み込む。">
+        <div class="t-h"><span class="t-n">ペネトレーションテスト</span><span class="t-f">侵入テスト</span></div>
+        <div class="t-d">実際に攻撃を試して、本当に侵入できるか確かめること。</div>
+        <div class="t-e">脆弱性診断より踏み込む。</div>
+      </div>
+      <div class="t" data-k="パッチマネジメント  修正プログラムを漏れなく当てていく運用。 資産管理ができていないと成立しない。">
+        <div class="t-h"><span class="t-n">パッチマネジメント</span></div>
+        <div class="t-d">修正プログラムを漏れなく当てていく運用。</div>
+        <div class="t-e">資産管理ができていないと成立しない。</div>
+      </div>
+      <div class="t" data-k="it資産管理  どんな機器・ソフトを持っているかを把握し続けること。 r7春問4の題材。台帳と実態のズレが狙われる。">
+        <div class="t-h"><span class="t-n">IT資産管理</span></div>
+        <div class="t-d">どんな機器・ソフトを持っているかを把握し続けること。</div>
+        <div class="t-e">R7春問4の題材。台帳と実態のズレが狙われる。</div>
+      </div>
+      <div class="t" data-k="cmdb configuration management database 構成情報をまとめて管理するデータベース。 資産管理の基盤。">
+        <div class="t-h"><span class="t-n">CMDB</span><span class="t-f">Configuration Management Database</span></div>
+        <div class="t-d">構成情報をまとめて管理するデータベース。</div>
+        <div class="t-e">資産管理の基盤。</div>
+      </div>
+      <div class="t" data-k="サプライチェーン攻撃  取引先や使っている部品を経由して本命を狙う攻撃。 ★10大脅威2026 の2位。r7春問1・r7秋問4 で2回連続。">
+        <div class="t-h"><span class="t-n">サプライチェーン攻撃</span></div>
+        <div class="t-d">取引先や使っている部品を経由して本命を狙う攻撃。</div>
+        <div class="t-e">★10大脅威2026 の2位。R7春問1・R7秋問4 で2回連続。</div>
+      </div>
+      <div class="t" data-k="委託先管理  仕事を任せた相手にも、同じ水準の対策を求めること。 r7春問1「再委託先にも要求させること」。">
+        <div class="t-h"><span class="t-n">委託先管理</span></div>
+        <div class="t-d">仕事を任せた相手にも、同じ水準の対策を求めること。</div>
+        <div class="t-e">R7春問1「再委託先にも要求させること」。</div>
+      </div>
+      <div class="t" data-k="セキュリティ・バイ・デザイン  作り始める前からセキュリティを組み込む考え方。 r7春問1「企画・設計工程からセキュリティ対策を組み込むという考え方」。">
+        <div class="t-h"><span class="t-n">セキュリティ・バイ・デザイン</span></div>
+        <div class="t-d">作り始める前からセキュリティを組み込む考え方。</div>
+        <div class="t-e">R7春問1「企画・設計工程からセキュリティ対策を組み込むという考え方」。</div>
+      </div>
+      <div class="t" data-k="リスクアセスメント  危険を洗い出し、分析し、評価するまでの一連の流れ。 r5秋問4の題材。特定→分析→評価→対応。">
+        <div class="t-h"><span class="t-n">リスクアセスメント</span></div>
+        <div class="t-d">危険を洗い出し、分析し、評価するまでの一連の流れ。</div>
+        <div class="t-e">R5秋問4の題材。特定→分析→評価→対応。</div>
+      </div>
+      <div class="t" data-k="リスク特定  どんな危険があるかを洗い出す工程。 r5秋問4「具体性に欠けると、分析段階で評価できない」。">
+        <div class="t-h"><span class="t-n">リスク特定</span></div>
+        <div class="t-d">どんな危険があるかを洗い出す工程。</div>
+        <div class="t-e">R5秋問4「具体性に欠けると、分析段階で評価できない」。</div>
+      </div>
+      <div class="t" data-k="リスク分析  起きる可能性と、起きたときの大きさを見積もる工程。 特定が具体的でないと分析できない。">
+        <div class="t-h"><span class="t-n">リスク分析</span></div>
+        <div class="t-d">起きる可能性と、起きたときの大きさを見積もる工程。</div>
+        <div class="t-e">特定が具体的でないと分析できない。</div>
+      </div>
+      <div class="t" data-k="リスク評価  分析した結果から、対応が必要かを判断する工程。 基準と照らして優先順位を付ける。">
+        <div class="t-h"><span class="t-n">リスク評価</span></div>
+        <div class="t-d">分析した結果から、対応が必要かを判断する工程。</div>
+        <div class="t-e">基準と照らして優先順位を付ける。</div>
+      </div>
+      <div class="t" data-k="リスク対応  評価した危険にどう手を打つかを決める工程。 回避・低減・移転・保有 の4つ。">
+        <div class="t-h"><span class="t-n">リスク対応</span></div>
+        <div class="t-d">評価した危険にどう手を打つかを決める工程。</div>
+        <div class="t-e">回避・低減・移転・保有 の4つ。</div>
+      </div>
+      <div class="t" data-k="リスク回避  そもそも危険な活動をやめること。 r7秋問4の穴埋めに登場。">
+        <div class="t-h"><span class="t-n">リスク回避</span></div>
+        <div class="t-d">そもそも危険な活動をやめること。</div>
+        <div class="t-e">R7秋問4の穴埋めに登場。</div>
+      </div>
+      <div class="t" data-k="リスク低減  対策を打って、危険を小さくすること。 最も一般的な対応。">
+        <div class="t-h"><span class="t-n">リスク低減</span></div>
+        <div class="t-d">対策を打って、危険を小さくすること。</div>
+        <div class="t-e">最も一般的な対応。</div>
+      </div>
+      <div class="t" data-k="リスク移転  保険や委託で、他者に引き受けてもらうこと。 r7秋問4の穴埋めに登場。">
+        <div class="t-h"><span class="t-n">リスク移転</span></div>
+        <div class="t-d">保険や委託で、他者に引き受けてもらうこと。</div>
+        <div class="t-e">R7秋問4の穴埋めに登場。</div>
+      </div>
+      <div class="t" data-k="リスク保有  許容できる範囲として、あえて受け入れること。 r7秋問4の穴埋めに登場。">
+        <div class="t-h"><span class="t-n">リスク保有</span></div>
+        <div class="t-d">許容できる範囲として、あえて受け入れること。</div>
+        <div class="t-e">R7秋問4の穴埋めに登場。</div>
+      </div>
+      <div class="t" data-k="残留リスク  対策をしても、なお残る危険。 受容の判断が要る。">
+        <div class="t-h"><span class="t-n">残留リスク</span></div>
+        <div class="t-d">対策をしても、なお残る危険。</div>
+        <div class="t-e">受容の判断が要る。</div>
+      </div>
+      <div class="t" data-k="csirt computer security incident response team 事故が起きたときに対応する専門チーム。 社内の体制として問われる。">
+        <div class="t-h"><span class="t-n">CSIRT</span><span class="t-f">Computer Security Incident Response Team</span></div>
+        <div class="t-d">事故が起きたときに対応する専門チーム。</div>
+        <div class="t-e">社内の体制として問われる。</div>
+      </div>
+      <div class="t" data-k="soc security operation center ログや警報を常時監視する部隊。 csirt との役割分担が問われる。">
+        <div class="t-h"><span class="t-n">SOC</span><span class="t-f">Security Operation Center</span></div>
+        <div class="t-d">ログや警報を常時監視する部隊。</div>
+        <div class="t-e">CSIRT との役割分担が問われる。</div>
+      </div>
+      <div class="t" data-k="インシデントレスポンス  事故が起きてから収束までの対応の流れ。 検知→封じ込め→根絶→復旧→再発防止。">
+        <div class="t-h"><span class="t-n">インシデントレスポンス</span></div>
+        <div class="t-d">事故が起きてから収束までの対応の流れ。</div>
+        <div class="t-e">検知→封じ込め→根絶→復旧→再発防止。</div>
+      </div>
+      <div class="t" data-k="フォレンジック  何が起きたかを証拠を壊さずに調べること。 ログや媒体の保全が前提。">
+        <div class="t-h"><span class="t-n">フォレンジック</span></div>
+        <div class="t-d">何が起きたかを証拠を壊さずに調べること。</div>
+        <div class="t-e">ログや媒体の保全が前提。</div>
+      </div>
+      <div class="t" data-k="封じ込め  被害が広がらないよう、まず切り離すこと。 r6秋問1「ip アドレスによる接続元制限」など。">
+        <div class="t-h"><span class="t-n">封じ込め</span></div>
+        <div class="t-d">被害が広がらないよう、まず切り離すこと。</div>
+        <div class="t-e">R6秋問1「IP アドレスによる接続元制限」など。</div>
+      </div>
+      <div class="t" data-k="根絶  原因そのものを取り除くこと。 封じ込めの次の段階。">
+        <div class="t-h"><span class="t-n">根絶</span></div>
+        <div class="t-d">原因そのものを取り除くこと。</div>
+        <div class="t-e">封じ込めの次の段階。</div>
+      </div>
+      <div class="t" data-k="復旧  業務を元の状態に戻すこと。 ★r7秋問4は「いかに早く復旧するか」を問うた。予防策を書くと外す。">
+        <div class="t-h"><span class="t-n">復旧</span></div>
+        <div class="t-d">業務を元の状態に戻すこと。</div>
+        <div class="t-e">★R7秋問4は「いかに早く復旧するか」を問うた。予防策を書くと外す。</div>
+      </div>
+      <div class="t" data-k="レジリエンス  やられても立て直せる力。 r7秋問4「経緯の解明より事業の復旧を優先する場合もある」。">
+        <div class="t-h"><span class="t-n">レジリエンス</span></div>
+        <div class="t-d">やられても立て直せる力。</div>
+        <div class="t-e">R7秋問4「経緯の解明より事業の復旧を優先する場合もある」。</div>
+      </div>
+      <div class="t" data-k="dlp data loss prevention 機密ファイルの持ち出しを検知・制限する仕組み。 r6秋問1「dlp を導入し、ファイルの持出しを制限する」。">
+        <div class="t-h"><span class="t-n">DLP</span><span class="t-f">Data Loss Prevention</span></div>
+        <div class="t-d">機密ファイルの持ち出しを検知・制限する仕組み。</div>
+        <div class="t-e">R6秋問1「DLP を導入し、ファイルの持出しを制限する」。</div>
+      </div>
+      <div class="t" data-k="edr endpoint detection and response 端末の不審な動きを検知して対応する仕組み。 r5秋問4「edr を導入し、不審な動作が起きていないかを監視」。">
+        <div class="t-h"><span class="t-n">EDR</span><span class="t-f">Endpoint Detection and Response</span></div>
+        <div class="t-d">端末の不審な動きを検知して対応する仕組み。</div>
+        <div class="t-e">R5秋問4「EDR を導入し、不審な動作が起きていないかを監視」。</div>
+      </div>
+      <div class="t" data-k="siem security information and event management 各所のログを集めて相関分析する仕組み。 どのログを突き合わせるかが問われる。">
+        <div class="t-h"><span class="t-n">SIEM</span><span class="t-f">Security Information and Event Management</span></div>
+        <div class="t-d">各所のログを集めて相関分析する仕組み。</div>
+        <div class="t-e">どのログを突き合わせるかが問われる。</div>
+      </div>
+      <div class="t" data-k="プロキシログ  社内から外へ出た通信の記録。 ★r6秋問1「どのログを確認するかの記述がない解答が多かった」。">
+        <div class="t-h"><span class="t-n">プロキシログ</span></div>
+        <div class="t-d">社内から外へ出た通信の記録。</div>
+        <div class="t-e">★R6秋問1「どのログを確認するかの記述がない解答が多かった」。</div>
+      </div>
+      <div class="t" data-k="アクセスログ  web サーバが受けたリクエストの記録。 r6秋問3「リクエスト uri から情報を取得する。」">
+        <div class="t-h"><span class="t-n">アクセスログ</span></div>
+        <div class="t-d">Web サーバが受けたリクエストの記録。</div>
+        <div class="t-e">R6秋問3「リクエスト URI から情報を取得する。」</div>
+      </div>
+      <div class="t" data-k="監査ログ  誰が何をしたかを後から追える記録。 改ざんされない保管が前提。">
+        <div class="t-h"><span class="t-n">監査ログ</span></div>
+        <div class="t-d">誰が何をしたかを後から追える記録。</div>
+        <div class="t-e">改ざんされない保管が前提。</div>
+      </div>
+      <div class="t" data-k="情報セキュリティ10大脅威  ipa が毎年公表する、組織・個人向けの脅威ランキング。 ★20問中7問が組織編の項目と直結。出題趣旨にも名指しで登場。">
+        <div class="t-h"><span class="t-n">情報セキュリティ10大脅威</span></div>
+        <div class="t-d">IPA が毎年公表する、組織・個人向けの脅威ランキング。</div>
+        <div class="t-e">★20問中7問が組織編の項目と直結。出題趣旨にも名指しで登場。</div>
+      </div>
+      <div class="t" data-k="標的型攻撃  特定の組織を狙い撃ちにする攻撃。 10大脅威 2026 の5位。">
+        <div class="t-h"><span class="t-n">標的型攻撃</span></div>
+        <div class="t-d">特定の組織を狙い撃ちにする攻撃。</div>
+        <div class="t-e">10大脅威 2026 の5位。</div>
+      </div>
+      <div class="t" data-k="ランサム攻撃  データを暗号化して身代金を要求する攻撃。 10大脅威 2026 の1位。復旧の備え（バックアップ）が答えになる。">
+        <div class="t-h"><span class="t-n">ランサム攻撃</span></div>
+        <div class="t-d">データを暗号化して身代金を要求する攻撃。</div>
+        <div class="t-e">10大脅威 2026 の1位。復旧の備え（バックアップ）が答えになる。</div>
+      </div>
+      <div class="t" data-k="内部不正  権限のある人が、意図的に情報を持ち出すこと。 10大脅威 2026 の7位。dlp や権限分離が対策。">
+        <div class="t-h"><span class="t-n">内部不正</span></div>
+        <div class="t-d">権限のある人が、意図的に情報を持ち出すこと。</div>
+        <div class="t-e">10大脅威 2026 の7位。DLP や権限分離が対策。</div>
+      </div>
+      <div class="t" data-k="bcp business continuity plan（事業継続計画） 大きな障害が起きても事業を続けるための計画。 レジリエンスと結びつく。">
+        <div class="t-h"><span class="t-n">BCP</span><span class="t-f">Business Continuity Plan（事業継続計画）</span></div>
+        <div class="t-d">大きな障害が起きても事業を続けるための計画。</div>
+        <div class="t-e">レジリエンスと結びつく。</div>
+      </div>
+      <div class="t" data-k="バックアップ  元に戻せるよう、別に取っておく複製。 r7秋問4「迅速な復旧のためには平常時に何を行うかが重要」。">
+        <div class="t-h"><span class="t-n">バックアップ</span></div>
+        <div class="t-d">元に戻せるよう、別に取っておく複製。</div>
+        <div class="t-e">R7秋問4「迅速な復旧のためには平常時に何を行うかが重要」。</div>
+      </div>
+  </div>
+</section>
+
+<section id="nw">
+  <h2>ネットワーク・インフラ <span class="h-n">35語</span></h2>
+  <p class="lead">20問中4問。構成図が読めれば強い</p>
+  <div class="terms">
+      <div class="t" data-k="dns domain name system 名前を ip アドレスに変換する、インターネットの電話帳。 r6秋問2・r7春問4・r7秋問3 と繰り返し出る。">
+        <div class="t-h"><span class="t-n">DNS</span><span class="t-f">Domain Name System</span></div>
+        <div class="t-d">名前を IP アドレスに変換する、インターネットの電話帳。</div>
+        <div class="t-e">R6秋問2・R7春問4・R7秋問3 と繰り返し出る。</div>
+      </div>
+      <div class="t" data-k="権威dnsサーバ  そのドメインの正式な答えを持っているサーバ。 r7春問4の公式解答例に登場。">
+        <div class="t-h"><span class="t-n">権威DNSサーバ</span></div>
+        <div class="t-d">そのドメインの正式な答えを持っているサーバ。</div>
+        <div class="t-e">R7春問4の公式解答例に登場。</div>
+      </div>
+      <div class="t" data-k="キャッシュdnsサーバ  一度調べた答えをしばらく覚えておくサーバ。 ポイズニングの対象になる。">
+        <div class="t-h"><span class="t-n">キャッシュDNSサーバ</span></div>
+        <div class="t-d">一度調べた答えをしばらく覚えておくサーバ。</div>
+        <div class="t-e">ポイズニングの対象になる。</div>
+      </div>
+      <div class="t" data-k="dnsキャッシュポイズニング  電話帳に嘘の番号を覚え込ませる攻撃。 対策は dnssec。">
+        <div class="t-h"><span class="t-n">DNSキャッシュポイズニング</span></div>
+        <div class="t-d">電話帳に嘘の番号を覚え込ませる攻撃。</div>
+        <div class="t-e">対策は DNSSEC。</div>
+      </div>
+      <div class="t" data-k="dnssec dns security extensions dns の答えに電子署名を付けて、偽物を見分ける仕組み。 r7秋問3の穴埋め。">
+        <div class="t-h"><span class="t-n">DNSSEC</span><span class="t-f">DNS Security Extensions</span></div>
+        <div class="t-d">DNS の答えに電子署名を付けて、偽物を見分ける仕組み。</div>
+        <div class="t-e">R7秋問3の穴埋め。</div>
+      </div>
+      <div class="t" data-k="doh dns over https dns の問い合わせを https に包んで隠す方式。 r7秋問3の穴埋め。社内監視を回避してしまう面もある。">
+        <div class="t-h"><span class="t-n">DoH</span><span class="t-f">DNS over HTTPS</span></div>
+        <div class="t-d">DNS の問い合わせを HTTPS に包んで隠す方式。</div>
+        <div class="t-e">R7秋問3の穴埋め。社内監視を回避してしまう面もある。</div>
+      </div>
+      <div class="t" data-k="dot dns over tls dns の問い合わせを tls で暗号化する方式。 doh との違いはポートと見分けやすさ。">
+        <div class="t-h"><span class="t-n">DoT</span><span class="t-f">DNS over TLS</span></div>
+        <div class="t-d">DNS の問い合わせを TLS で暗号化する方式。</div>
+        <div class="t-e">DoH との違いはポートと見分けやすさ。</div>
+      </div>
+      <div class="t" data-k="spf sender policy framework そのドメインのメールを送ってよい送信元 ip を dns で宣言する。 ★subject は判定対象ではない。r6秋問2。">
+        <div class="t-h"><span class="t-n">SPF</span><span class="t-f">Sender Policy Framework</span></div>
+        <div class="t-d">そのドメインのメールを送ってよい送信元 IP を DNS で宣言する。</div>
+        <div class="t-e">★Subject は判定対象ではない。R6秋問2。</div>
+      </div>
+      <div class="t" data-k="dkim domainkeys identified mail メールに電子署名を付けて、改ざんされていないことを示す。 ★h タグに subject を含められる。件名を変えると認証が失敗する。">
+        <div class="t-h"><span class="t-n">DKIM</span><span class="t-f">DomainKeys Identified Mail</span></div>
+        <div class="t-d">メールに電子署名を付けて、改ざんされていないことを示す。</div>
+        <div class="t-e">★h タグに Subject を含められる。件名を変えると認証が失敗する。</div>
+      </div>
+      <div class="t" data-k="dmarc domain-based message authentication, reporting and conformance spf や dkim が失敗したメールをどう扱うかを宣言する。 r6秋問2の題材。なりすまし対策の要。">
+        <div class="t-h"><span class="t-n">DMARC</span><span class="t-f">Domain-based Message Authentication, Reporting and Conformance</span></div>
+        <div class="t-d">SPF や DKIM が失敗したメールをどう扱うかを宣言する。</div>
+        <div class="t-e">R6秋問2の題材。なりすまし対策の要。</div>
+      </div>
+      <div class="t" data-k="s/mime secure/multipurpose internet mail extensions メールの本文と添付を暗号化・署名する方式。 ★smtp の通信を暗号化する方式ではない。">
+        <div class="t-h"><span class="t-n">S/MIME</span><span class="t-f">Secure/Multipurpose Internet Mail Extensions</span></div>
+        <div class="t-d">メールの本文と添付を暗号化・署名する方式。</div>
+        <div class="t-e">★SMTP の通信を暗号化する方式ではない。</div>
+      </div>
+      <div class="t" data-k="smtps  smtp の通信そのものを暗号化する方式。 r6秋問2の穴埋め。s/mime と取り違えやすい。">
+        <div class="t-h"><span class="t-n">SMTPS</span></div>
+        <div class="t-d">SMTP の通信そのものを暗号化する方式。</div>
+        <div class="t-e">R6秋問2の穴埋め。S/MIME と取り違えやすい。</div>
+      </div>
+      <div class="t" data-k="starttls  平文で始めた通信を、途中から暗号化に切り替える仕組み。 対応していない相手には平文のままになる。">
+        <div class="t-h"><span class="t-n">STARTTLS</span></div>
+        <div class="t-d">平文で始めた通信を、途中から暗号化に切り替える仕組み。</div>
+        <div class="t-e">対応していない相手には平文のままになる。</div>
+      </div>
+      <div class="t" data-k="bec business email compromise（ビジネスメール詐欺） 取引先や上司になりすまして送金させる詐欺。 10大脅威 2026 の10位。">
+        <div class="t-h"><span class="t-n">BEC</span><span class="t-f">Business Email Compromise（ビジネスメール詐欺）</span></div>
+        <div class="t-d">取引先や上司になりすまして送金させる詐欺。</div>
+        <div class="t-e">10大脅威 2026 の10位。</div>
+      </div>
+      <div class="t" data-k="vpn virtual private network インターネット上に、専用線のような安全な通り道を作る。 r6春問2・r7秋問3。10大脅威8位と直結。">
+        <div class="t-h"><span class="t-n">VPN</span><span class="t-f">Virtual Private Network</span></div>
+        <div class="t-d">インターネット上に、専用線のような安全な通り道を作る。</div>
+        <div class="t-e">R6春問2・R7秋問3。10大脅威8位と直結。</div>
+      </div>
+      <div class="t" data-k="ipsec  ip の層で暗号化する vpn の方式。 拠点間接続でよく使う。">
+        <div class="t-h"><span class="t-n">IPsec</span></div>
+        <div class="t-d">IP の層で暗号化する VPN の方式。</div>
+        <div class="t-e">拠点間接続でよく使う。</div>
+      </div>
+      <div class="t" data-k="ssl-vpn  ブラウザなどから tls を使って接続する vpn。 機器の脆弱性が狙われやすい。">
+        <div class="t-h"><span class="t-n">SSL-VPN</span></div>
+        <div class="t-d">ブラウザなどから TLS を使って接続する VPN。</div>
+        <div class="t-e">機器の脆弱性が狙われやすい。</div>
+      </div>
+      <div class="t" data-k="ゼロトラスト  社内だからといって信用せず、毎回確かめる考え方。 境界防御の限界が前提にある。">
+        <div class="t-h"><span class="t-n">ゼロトラスト</span></div>
+        <div class="t-d">社内だからといって信用せず、毎回確かめる考え方。</div>
+        <div class="t-e">境界防御の限界が前提にある。</div>
+      </div>
+      <div class="t" data-k="ファイアウォール fw 通してよい通信とダメな通信を仕分ける関所。 r7秋問4「図3中の（け）の箇所に、追加で fw」。">
+        <div class="t-h"><span class="t-n">ファイアウォール</span><span class="t-f">FW</span></div>
+        <div class="t-d">通してよい通信とダメな通信を仕分ける関所。</div>
+        <div class="t-e">R7秋問4「図3中の（け）の箇所に、追加で FW」。</div>
+      </div>
+      <div class="t" data-k="utm unified threat management fw・ips・アンチウイルスなどをまとめた機器。 中小規模で使われる。">
+        <div class="t-h"><span class="t-n">UTM</span><span class="t-f">Unified Threat Management</span></div>
+        <div class="t-d">FW・IPS・アンチウイルスなどをまとめた機器。</div>
+        <div class="t-e">中小規模で使われる。</div>
+      </div>
+      <div class="t" data-k="ids intrusion detection system（侵入検知システム） 怪しい通信を見つけて知らせる。止めはしない。 ips との違いが問われる。">
+        <div class="t-h"><span class="t-n">IDS</span><span class="t-f">Intrusion Detection System（侵入検知システム）</span></div>
+        <div class="t-d">怪しい通信を見つけて知らせる。止めはしない。</div>
+        <div class="t-e">IPS との違いが問われる。</div>
+      </div>
+      <div class="t" data-k="ips intrusion prevention system（侵入防止システム） 怪しい通信を見つけて、実際に止める。 r6春問2「ips 機能の仕様を反対に理解している解答が散見」。">
+        <div class="t-h"><span class="t-n">IPS</span><span class="t-f">Intrusion Prevention System（侵入防止システム）</span></div>
+        <div class="t-d">怪しい通信を見つけて、実際に止める。</div>
+        <div class="t-e">R6春問2「IPS 機能の仕様を反対に理解している解答が散見」。</div>
+      </div>
+      <div class="t" data-k="アノマリ型  普段と違う動きを異常とみなす検知方式。 しきい値を厳しくすると誤検知が増える。">
+        <div class="t-h"><span class="t-n">アノマリ型</span></div>
+        <div class="t-d">普段と違う動きを異常とみなす検知方式。</div>
+        <div class="t-e">しきい値を厳しくすると誤検知が増える。</div>
+      </div>
+      <div class="t" data-k="シグネチャ型  既知の攻撃パターンと照合する検知方式。 未知の攻撃は見逃す。">
+        <div class="t-h"><span class="t-n">シグネチャ型</span></div>
+        <div class="t-d">既知の攻撃パターンと照合する検知方式。</div>
+        <div class="t-e">未知の攻撃は見逃す。</div>
+      </div>
+      <div class="t" data-k="プロキシ  社内から外へ出る通信を代理で中継する仕組み。 url フィルタリングとログ取得の要。">
+        <div class="t-h"><span class="t-n">プロキシ</span></div>
+        <div class="t-d">社内から外へ出る通信を代理で中継する仕組み。</div>
+        <div class="t-e">URL フィルタリングとログ取得の要。</div>
+      </div>
+      <div class="t" data-k="リバースプロキシ  外から来る通信を受けて、裏のサーバへ振り分ける仕組み。 waf と組み合わせることが多い。">
+        <div class="t-h"><span class="t-n">リバースプロキシ</span></div>
+        <div class="t-d">外から来る通信を受けて、裏のサーバへ振り分ける仕組み。</div>
+        <div class="t-e">WAF と組み合わせることが多い。</div>
+      </div>
+      <div class="t" data-k="cdn content delivery network 世界中に置いた拠点から、近い場所で配信する仕組み。 r6春問2「ddos 対策機能を有する cdn サービス」。">
+        <div class="t-h"><span class="t-n">CDN</span><span class="t-f">Content Delivery Network</span></div>
+        <div class="t-d">世界中に置いた拠点から、近い場所で配信する仕組み。</div>
+        <div class="t-e">R6春問2「DDoS 対策機能を有する CDN サービス」。</div>
+      </div>
+      <div class="t" data-k="ddos攻撃 distributed denial of service 大量の通信を浴びせて、サービスを使えなくする攻撃。 10大脅威 2026 の9位。r6春問2。">
+        <div class="t-h"><span class="t-n">DDoS攻撃</span><span class="t-f">Distributed Denial of Service</span></div>
+        <div class="t-d">大量の通信を浴びせて、サービスを使えなくする攻撃。</div>
+        <div class="t-e">10大脅威 2026 の9位。R6春問2。</div>
+      </div>
+      <div class="t" data-k="http flood  正規に見える http リクエストを大量に送る ddos。 r6春問2「http get リクエストを繰返し送る。」">
+        <div class="t-h"><span class="t-n">HTTP Flood</span></div>
+        <div class="t-d">正規に見える HTTP リクエストを大量に送る DDoS。</div>
+        <div class="t-e">R6春問2「HTTP GET リクエストを繰返し送る。」</div>
+      </div>
+      <div class="t" data-k="spa single packet authorization 1つのパケットで認証し、それ以外は port を閉じておく方式。 r6春問2「spa パケットはユニークであり、同じパケットを再利用すると破棄される」。">
+        <div class="t-h"><span class="t-n">SPA</span><span class="t-f">Single Packet Authorization</span></div>
+        <div class="t-d">1つのパケットで認証し、それ以外は port を閉じておく方式。</div>
+        <div class="t-e">R6春問2「SPA パケットはユニークであり、同じパケットを再利用すると破棄される」。</div>
+      </div>
+      <div class="t" data-k="リプレイ攻撃  盗み見た通信をそのまま再送して、なりすます攻撃。 r6春問2「盗聴したパケットと同じ順番で通信要求を送信する。」">
+        <div class="t-h"><span class="t-n">リプレイ攻撃</span></div>
+        <div class="t-d">盗み見た通信をそのまま再送して、なりすます攻撃。</div>
+        <div class="t-e">R6春問2「盗聴したパケットと同じ順番で通信要求を送信する。」</div>
+      </div>
+      <div class="t" data-k="無線lan  ケーブルを使わない社内ネットワーク。 r5秋問2の題材。来客用との分離が論点。">
+        <div class="t-h"><span class="t-n">無線LAN</span></div>
+        <div class="t-d">ケーブルを使わない社内ネットワーク。</div>
+        <div class="t-e">R5秋問2の題材。来客用との分離が論点。</div>
+      </div>
+      <div class="t" data-k="radius remote authentication dial in user service ネットワーク接続時の認証をまとめて行うサーバ。 r5秋問2の穴埋め。">
+        <div class="t-h"><span class="t-n">RADIUS</span><span class="t-f">Remote Authentication Dial In User Service</span></div>
+        <div class="t-d">ネットワーク接続時の認証をまとめて行うサーバ。</div>
+        <div class="t-e">R5秋問2の穴埋め。</div>
+      </div>
+      <div class="t" data-k="eap-tls  クライアント証明書を使う、無線lan の強い認証方式。 r5秋問2「必要な認証情報は、業務 pc にしか格納できないから」。">
+        <div class="t-h"><span class="t-n">EAP-TLS</span></div>
+        <div class="t-d">クライアント証明書を使う、無線LAN の強い認証方式。</div>
+        <div class="t-e">R5秋問2「必要な認証情報は、業務 PC にしか格納できないから」。</div>
+      </div>
+      <div class="t" data-k="ネットワーク分離  重要な区画を、ほかから切り離しておくこと。 r7秋問4「scada、工作機械及び製造監視用 pc だけの独立した lan」。">
+        <div class="t-h"><span class="t-n">ネットワーク分離</span></div>
+        <div class="t-d">重要な区画を、ほかから切り離しておくこと。</div>
+        <div class="t-e">R7秋問4「SCADA、工作機械及び製造監視用 PC だけの独立した LAN」。</div>
+      </div>
+  </div>
+</section>
+
+<section id="ango">
+  <h2>暗号・認証・PKI <span class="h-n">28語</span></h2>
+  <p class="lead">主題は1問だが小問で頻出</p>
+  <div class="terms">
+      <div class="t" data-k="共通鍵暗号  暗号化と復号で同じ鍵を使う方式。速い。 鍵の配送が課題。">
+        <div class="t-h"><span class="t-n">共通鍵暗号</span></div>
+        <div class="t-d">暗号化と復号で同じ鍵を使う方式。速い。</div>
+        <div class="t-e">鍵の配送が課題。</div>
+      </div>
+      <div class="t" data-k="公開鍵暗号  公開鍵で暗号化し、秘密鍵で復号する方式。 ★r5秋問2で「秘密鍵」を「公開鍵」と誤答する例があった。">
+        <div class="t-h"><span class="t-n">公開鍵暗号</span></div>
+        <div class="t-d">公開鍵で暗号化し、秘密鍵で復号する方式。</div>
+        <div class="t-e">★R5秋問2で「秘密鍵」を「公開鍵」と誤答する例があった。</div>
+      </div>
+      <div class="t" data-k="aes advanced encryption standard いま最も使われている共通鍵暗号。 r7春問3「aes-cbc で復号する」。">
+        <div class="t-h"><span class="t-n">AES</span><span class="t-f">Advanced Encryption Standard</span></div>
+        <div class="t-d">いま最も使われている共通鍵暗号。</div>
+        <div class="t-e">R7春問3「AES-CBC で復号する」。</div>
+      </div>
+      <div class="t" data-k="aes-cbc cipher block chaining 前のブロックと混ぜながら暗号化する利用モード。 初期ベクトル（iv）が必要。">
+        <div class="t-h"><span class="t-n">AES-CBC</span><span class="t-f">Cipher Block Chaining</span></div>
+        <div class="t-d">前のブロックと混ぜながら暗号化する利用モード。</div>
+        <div class="t-e">初期ベクトル（IV）が必要。</div>
+      </div>
+      <div class="t" data-k="初期ベクトル iv（initialization vector） 暗号化のはじめに使う、毎回変えるべき値。 使い回すと同じ平文が同じ暗号文になる。">
+        <div class="t-h"><span class="t-n">初期ベクトル</span><span class="t-f">IV（Initialization Vector）</span></div>
+        <div class="t-d">暗号化のはじめに使う、毎回変えるべき値。</div>
+        <div class="t-e">使い回すと同じ平文が同じ暗号文になる。</div>
+      </div>
+      <div class="t" data-k="rsa  大きな数の素因数分解の難しさを使う公開鍵暗号。 署名にも暗号化にも使える。">
+        <div class="t-h"><span class="t-n">RSA</span></div>
+        <div class="t-d">大きな数の素因数分解の難しさを使う公開鍵暗号。</div>
+        <div class="t-e">署名にも暗号化にも使える。</div>
+      </div>
+      <div class="t" data-k="楕円曲線暗号 ecc 短い鍵で rsa と同等の強さを出せる公開鍵暗号。 モバイルや iot で有利。">
+        <div class="t-h"><span class="t-n">楕円曲線暗号</span><span class="t-f">ECC</span></div>
+        <div class="t-d">短い鍵で RSA と同等の強さを出せる公開鍵暗号。</div>
+        <div class="t-e">モバイルや IoT で有利。</div>
+      </div>
+      <div class="t" data-k="ハッシュ関数  どんな長さのデータも、決まった長さの要約値に変える関数。 元に戻せない。改ざん検知に使う。">
+        <div class="t-h"><span class="t-n">ハッシュ関数</span></div>
+        <div class="t-d">どんな長さのデータも、決まった長さの要約値に変える関数。</div>
+        <div class="t-e">元に戻せない。改ざん検知に使う。</div>
+      </div>
+      <div class="t" data-k="sha-256  いま標準的に使われるハッシュ関数。 r6春問4の穴埋めは sha-256 / sha-384 / sha-512。">
+        <div class="t-h"><span class="t-n">SHA-256</span></div>
+        <div class="t-d">いま標準的に使われるハッシュ関数。</div>
+        <div class="t-e">R6春問4の穴埋めは SHA-256 / SHA-384 / SHA-512。</div>
+      </div>
+      <div class="t" data-k="ソルト  パスワードに混ぜる、利用者ごとに違う追加の文字列。 同じパスワードでも違うハッシュになる。">
+        <div class="t-h"><span class="t-n">ソルト</span></div>
+        <div class="t-d">パスワードに混ぜる、利用者ごとに違う追加の文字列。</div>
+        <div class="t-e">同じパスワードでも違うハッシュになる。</div>
+      </div>
+      <div class="t" data-k="ストレッチング  ハッシュ計算を何度も繰り返して、総当たりを遅くすること。 ソルトとセットで問われる。">
+        <div class="t-h"><span class="t-n">ストレッチング</span></div>
+        <div class="t-d">ハッシュ計算を何度も繰り返して、総当たりを遅くすること。</div>
+        <div class="t-e">ソルトとセットで問われる。</div>
+      </div>
+      <div class="t" data-k="デジタル署名  秘密鍵で署名し、公開鍵で検証する。本人が出したことを示す。 ★改ざん検知＋否認防止。mac との違いが名指しで出た。">
+        <div class="t-h"><span class="t-n">デジタル署名</span></div>
+        <div class="t-d">秘密鍵で署名し、公開鍵で検証する。本人が出したことを示す。</div>
+        <div class="t-e">★改ざん検知＋否認防止。MAC との違いが名指しで出た。</div>
+      </div>
+      <div class="t" data-k="メッセージ認証符号 mac（message authentication code） 共通鍵を使って、改ざんされていないことを確かめる値。 ★r7秋問2で「デジタル署名」と誤答が多かった。否認防止はできない。">
+        <div class="t-h"><span class="t-n">メッセージ認証符号</span><span class="t-f">MAC（Message Authentication Code）</span></div>
+        <div class="t-d">共通鍵を使って、改ざんされていないことを確かめる値。</div>
+        <div class="t-e">★R7秋問2で「デジタル署名」と誤答が多かった。否認防止はできない。</div>
+      </div>
+      <div class="t" data-k="hmac hash-based mac ハッシュ関数を使って作る mac。 jwt の hs256 の中身。">
+        <div class="t-h"><span class="t-n">HMAC</span><span class="t-f">Hash-based MAC</span></div>
+        <div class="t-d">ハッシュ関数を使って作る MAC。</div>
+        <div class="t-e">JWT の HS256 の中身。</div>
+      </div>
+      <div class="t" data-k="公開鍵証明書  この公開鍵は確かにこの人のものだと、第三者が保証する書類。 サーバ証明書もこの一種。">
+        <div class="t-h"><span class="t-n">公開鍵証明書</span></div>
+        <div class="t-d">この公開鍵は確かにこの人のものだと、第三者が保証する書類。</div>
+        <div class="t-e">サーバ証明書もこの一種。</div>
+      </div>
+      <div class="t" data-k="認証局 ca（certificate authority） 証明書を発行する、信頼される第三者。 ルート認証局と中間認証局がある。">
+        <div class="t-h"><span class="t-n">認証局</span><span class="t-f">CA（Certificate Authority）</span></div>
+        <div class="t-d">証明書を発行する、信頼される第三者。</div>
+        <div class="t-e">ルート認証局と中間認証局がある。</div>
+      </div>
+      <div class="t" data-k="ルート証明書  信頼の起点となる、認証局自身の証明書。 ★r7春問3「端末にインストールすると検証エラーが解消する」＝tlsインスペクションと同じ。">
+        <div class="t-h"><span class="t-n">ルート証明書</span></div>
+        <div class="t-d">信頼の起点となる、認証局自身の証明書。</div>
+        <div class="t-e">★R7春問3「端末にインストールすると検証エラーが解消する」＝TLSインスペクションと同じ。</div>
+      </div>
+      <div class="t" data-k="証明書チェーン  サーバ証明書からルートまで、信頼をたどる道筋。 どこか欠けると検証に失敗する。">
+        <div class="t-h"><span class="t-n">証明書チェーン</span></div>
+        <div class="t-d">サーバ証明書からルートまで、信頼をたどる道筋。</div>
+        <div class="t-e">どこか欠けると検証に失敗する。</div>
+      </div>
+      <div class="t" data-k="サーバ証明書の検証  信頼できる認証局の発行か・名前が一致するか・期限内かを確かめる。 ★r5秋問2「具体的にどういった事項を検証するのかまで含めて」。">
+        <div class="t-h"><span class="t-n">サーバ証明書の検証</span></div>
+        <div class="t-d">信頼できる認証局の発行か・名前が一致するか・期限内かを確かめる。</div>
+        <div class="t-e">★R5秋問2「具体的にどういった事項を検証するのかまで含めて」。</div>
+      </div>
+      <div class="t" data-k="crl certificate revocation list（証明書失効リスト） 無効になった証明書の一覧。 サイズが大きくなりやすい。">
+        <div class="t-h"><span class="t-n">CRL</span><span class="t-f">Certificate Revocation List（証明書失効リスト）</span></div>
+        <div class="t-d">無効になった証明書の一覧。</div>
+        <div class="t-e">サイズが大きくなりやすい。</div>
+      </div>
+      <div class="t" data-k="ocsp online certificate status protocol その証明書が今も有効かを、1件ずつ問い合わせる仕組み。 crl との使い分けが問われる。">
+        <div class="t-h"><span class="t-n">OCSP</span><span class="t-f">Online Certificate Status Protocol</span></div>
+        <div class="t-d">その証明書が今も有効かを、1件ずつ問い合わせる仕組み。</div>
+        <div class="t-e">CRL との使い分けが問われる。</div>
+      </div>
+      <div class="t" data-k="tls 1.3  通信を暗号化する最新の標準。handshake が速い。 r7秋問3の穴埋め。古い方式は廃止された。">
+        <div class="t-h"><span class="t-n">TLS 1.3</span></div>
+        <div class="t-d">通信を暗号化する最新の標準。handshake が速い。</div>
+        <div class="t-e">R7秋問3の穴埋め。古い方式は廃止された。</div>
+      </div>
+      <div class="t" data-k="hsm hardware security module 鍵を外に取り出せない形で保管し、中で暗号処理を行う専用機器。 r5秋問3「使う利点に加えて、暗号技術の適正な利用方法についても」。">
+        <div class="t-h"><span class="t-n">HSM</span><span class="t-f">Hardware Security Module</span></div>
+        <div class="t-d">鍵を外に取り出せない形で保管し、中で暗号処理を行う専用機器。</div>
+        <div class="t-e">R5秋問3「使う利点に加えて、暗号技術の適正な利用方法についても」。</div>
+      </div>
+      <div class="t" data-k="多要素認証 mfa（multi-factor authentication） 知識・所持・生体のうち2つ以上を組み合わせる認証。 r6秋問4「ログインの認証を、多要素認証に変更する。」">
+        <div class="t-h"><span class="t-n">多要素認証</span><span class="t-f">MFA（Multi-Factor Authentication）</span></div>
+        <div class="t-d">知識・所持・生体のうち2つ以上を組み合わせる認証。</div>
+        <div class="t-e">R6秋問4「ログインの認証を、多要素認証に変更する。」</div>
+      </div>
+      <div class="t" data-k="totp time-based one-time password 30秒ごとに変わる使い捨ての数字。 ★r5秋問3「偽サイトに入力された totp を、有効な間に使う」＝フィッシングに弱い。">
+        <div class="t-h"><span class="t-n">TOTP</span><span class="t-f">Time-based One-Time Password</span></div>
+        <div class="t-d">30秒ごとに変わる使い捨ての数字。</div>
+        <div class="t-e">★R5秋問3「偽サイトに入力された TOTP を、有効な間に使う」＝フィッシングに弱い。</div>
+      </div>
+      <div class="t" data-k="webauthn  端末の鍵を使い、オリジンを確認するフィッシングに強い認証。 ★r5秋問3でクライアント証明書認証などと誤認する解答が多かった。">
+        <div class="t-h"><span class="t-n">WebAuthn</span></div>
+        <div class="t-d">端末の鍵を使い、オリジンを確認するフィッシングに強い認証。</div>
+        <div class="t-e">★R5秋問3でクライアント証明書認証などと誤認する解答が多かった。</div>
+      </div>
+      <div class="t" data-k="passkey  webauthn の鍵を複数端末で使えるようにした新しい方式。 r5秋問3の講評で「新たな方式も登場し、普及し始めている」。">
+        <div class="t-h"><span class="t-n">Passkey</span></div>
+        <div class="t-d">WebAuthn の鍵を複数端末で使えるようにした新しい方式。</div>
+        <div class="t-e">R5秋問3の講評で「新たな方式も登場し、普及し始めている」。</div>
+      </div>
+      <div class="t" data-k="サイドチャネル攻撃  音や電磁波など、処理の「ついでに漏れるもの」から鍵を推測する攻撃。 r7秋問2「作動音や放出される電磁波を観測し、署名鍵 s を推測する。」">
+        <div class="t-h"><span class="t-n">サイドチャネル攻撃</span></div>
+        <div class="t-d">音や電磁波など、処理の「ついでに漏れるもの」から鍵を推測する攻撃。</div>
+        <div class="t-e">R7秋問2「作動音や放出される電磁波を観測し、署名鍵 S を推測する。」</div>
+      </div>
+  </div>
+</section>
+
+<section id="cloud">
+  <h2>クラウド・ID <span class="h-n">25語</span></h2>
+  <p class="lead">主題は1問。ただし小問に混ざり続ける</p>
+  <div class="terms">
+      <div class="t" data-k="責任共有モデル  クラウド事業者と利用者で、守る範囲を分担する考え方。 どちらの責任かを問われる。">
+        <div class="t-h"><span class="t-n">責任共有モデル</span></div>
+        <div class="t-d">クラウド事業者と利用者で、守る範囲を分担する考え方。</div>
+        <div class="t-e">どちらの責任かを問われる。</div>
+      </div>
+      <div class="t" data-k="iaas / paas / saas  基盤だけ借りる / 実行環境まで借りる / 完成品を使う、の3段階。 上に行くほど利用者の責任範囲は狭い。">
+        <div class="t-h"><span class="t-n">IaaS / PaaS / SaaS</span></div>
+        <div class="t-d">基盤だけ借りる / 実行環境まで借りる / 完成品を使う、の3段階。</div>
+        <div class="t-e">上に行くほど利用者の責任範囲は狭い。</div>
+      </div>
+      <div class="t" data-k="iam identity and access management 誰が何にアクセスできるかを管理する仕組み。 最小権限が答えの軸になる。">
+        <div class="t-h"><span class="t-n">IAM</span><span class="t-f">Identity and Access Management</span></div>
+        <div class="t-d">誰が何にアクセスできるかを管理する仕組み。</div>
+        <div class="t-e">最小権限が答えの軸になる。</div>
+      </div>
+      <div class="t" data-k="ロール  一時的に借りられる権限のまとまり。 固定のアクセスキーより安全。">
+        <div class="t-h"><span class="t-n">ロール</span></div>
+        <div class="t-d">一時的に借りられる権限のまとまり。</div>
+        <div class="t-e">固定のアクセスキーより安全。</div>
+      </div>
+      <div class="t" data-k="アクセスキー  プログラムからクラウドを操作するための鍵。 r7春問3の題材。漏れると全部触られる。">
+        <div class="t-h"><span class="t-n">アクセスキー</span></div>
+        <div class="t-d">プログラムからクラウドを操作するための鍵。</div>
+        <div class="t-e">R7春問3の題材。漏れると全部触られる。</div>
+      </div>
+      <div class="t" data-k="一時認証情報  期限付きで発行される、使い捨ての認証情報。 長期キーを置かないための仕組み。">
+        <div class="t-h"><span class="t-n">一時認証情報</span></div>
+        <div class="t-d">期限付きで発行される、使い捨ての認証情報。</div>
+        <div class="t-e">長期キーを置かないための仕組み。</div>
+      </div>
+      <div class="t" data-k="imds instance metadata service 仮想サーバが自分の情報や認証情報を取り出せる内部の窓口。 ★r6春問3「imds のクレデンシャル情報を返す url に変更する。」">
+        <div class="t-h"><span class="t-n">IMDS</span><span class="t-f">Instance Metadata Service</span></div>
+        <div class="t-d">仮想サーバが自分の情報や認証情報を取り出せる内部の窓口。</div>
+        <div class="t-e">★R6春問3「IMDS のクレデンシャル情報を返す URL に変更する。」</div>
+      </div>
+      <div class="t" data-k="ssrf server-side request forgery サーバに、攻撃者の指定した先へ通信させる攻撃。 imds を叩かせてクラウドの鍵を盗む流れが定番。">
+        <div class="t-h"><span class="t-n">SSRF</span><span class="t-f">Server-Side Request Forgery</span></div>
+        <div class="t-d">サーバに、攻撃者の指定した先へ通信させる攻撃。</div>
+        <div class="t-e">IMDS を叩かせてクラウドの鍵を盗む流れが定番。</div>
+      </div>
+      <div class="t" data-k="casb cloud access security broker 社員のクラウド利用を可視化・制御する仕組み。 シャドーit対策。">
+        <div class="t-h"><span class="t-n">CASB</span><span class="t-f">Cloud Access Security Broker</span></div>
+        <div class="t-d">社員のクラウド利用を可視化・制御する仕組み。</div>
+        <div class="t-e">シャドーIT対策。</div>
+      </div>
+      <div class="t" data-k="cspm cloud security posture management クラウドの設定ミスを継続的に見つける仕組み。 公開バケットなどを検出する。">
+        <div class="t-h"><span class="t-n">CSPM</span><span class="t-f">Cloud Security Posture Management</span></div>
+        <div class="t-d">クラウドの設定ミスを継続的に見つける仕組み。</div>
+        <div class="t-e">公開バケットなどを検出する。</div>
+      </div>
+      <div class="t" data-k="コンテナ  アプリを動かすのに必要なものを一式詰めた軽い箱。 ★r5秋問3「どのような権限や仕組みによって実行されるか」。">
+        <div class="t-h"><span class="t-n">コンテナ</span></div>
+        <div class="t-d">アプリを動かすのに必要なものを一式詰めた軽い箱。</div>
+        <div class="t-e">★R5秋問3「どのような権限や仕組みによって実行されるか」。</div>
+      </div>
+      <div class="t" data-k="/proc  linux で、動いているプロセスの情報が見える特別な場所。 r5秋問3「/proc ファイルシステムから環境変数を読み取った。」">
+        <div class="t-h"><span class="t-n">/proc</span></div>
+        <div class="t-d">Linux で、動いているプロセスの情報が見える特別な場所。</div>
+        <div class="t-e">R5秋問3「/proc ファイルシステムから環境変数を読み取った。」</div>
+      </div>
+      <div class="t" data-k="イメージスキャン  コンテナの元になる箱に、既知の弱点がないか調べること。 ci/cd に組み込むのが基本。">
+        <div class="t-h"><span class="t-n">イメージスキャン</span></div>
+        <div class="t-d">コンテナの元になる箱に、既知の弱点がないか調べること。</div>
+        <div class="t-e">CI/CD に組み込むのが基本。</div>
+      </div>
+      <div class="t" data-k="ci/cd continuous integration / continuous delivery ビルドからデプロイまでを自動で流す仕組み。 r5秋問3・r7春問1 の題材。ここが乗っ取られると全部に広がる。">
+        <div class="t-h"><span class="t-n">CI/CD</span><span class="t-f">Continuous Integration / Continuous Delivery</span></div>
+        <div class="t-d">ビルドからデプロイまでを自動で流す仕組み。</div>
+        <div class="t-e">R5秋問3・R7春問1 の題材。ここが乗っ取られると全部に広がる。</div>
+      </div>
+      <div class="t" data-k="パイプライン  ci/cd の処理の流れそのもの。 r7春問1「ci/cd パイプラインの管理機能を使って自動実行」。">
+        <div class="t-h"><span class="t-n">パイプライン</span></div>
+        <div class="t-d">CI/CD の処理の流れそのもの。</div>
+        <div class="t-e">R7春問1「CI/CD パイプラインの管理機能を使って自動実行」。</div>
+      </div>
+      <div class="t" data-k="踏み台サーバ  内部へ入るときに必ず経由させる、入口専用のサーバ。 r7春問1「開発環境の踏み台サーバで共用アカウントを利用している。」">
+        <div class="t-h"><span class="t-n">踏み台サーバ</span></div>
+        <div class="t-d">内部へ入るときに必ず経由させる、入口専用のサーバ。</div>
+        <div class="t-e">R7春問1「開発環境の踏み台サーバで共用アカウントを利用している。」</div>
+      </div>
+      <div class="t" data-k="共用アカウント  複数人で使い回しているアカウント。 誰がやったか追えなくなる。r7春問1で問題点として問われた。">
+        <div class="t-h"><span class="t-n">共用アカウント</span></div>
+        <div class="t-d">複数人で使い回しているアカウント。</div>
+        <div class="t-e">誰がやったか追えなくなる。R7春問1で問題点として問われた。</div>
+      </div>
+      <div class="t" data-k="シークレット管理  パスワードや鍵を、コードに書かず安全に預けておくこと。 ソースコードへの直書きが典型的な事故。">
+        <div class="t-h"><span class="t-n">シークレット管理</span></div>
+        <div class="t-d">パスワードや鍵を、コードに書かず安全に預けておくこと。</div>
+        <div class="t-e">ソースコードへの直書きが典型的な事故。</div>
+      </div>
+      <div class="t" data-k="オブジェクトストレージ  ファイルを大量に置いておけるクラウドの保管庫。 公開設定のミスが情報漏えいに直結する。">
+        <div class="t-h"><span class="t-n">オブジェクトストレージ</span></div>
+        <div class="t-d">ファイルを大量に置いておけるクラウドの保管庫。</div>
+        <div class="t-e">公開設定のミスが情報漏えいに直結する。</div>
+      </div>
+      <div class="t" data-k="パブリックアクセスブロック  保管庫がうっかり全世界に公開されないようにする設定。 設定ミス対策の定番。">
+        <div class="t-h"><span class="t-n">パブリックアクセスブロック</span></div>
+        <div class="t-d">保管庫がうっかり全世界に公開されないようにする設定。</div>
+        <div class="t-e">設定ミス対策の定番。</div>
+      </div>
+      <div class="t" data-k="コード署名  配布するプログラムが本物だと示す電子署名。 r5秋問3「有効なコード署名が付与された偽のアプリ」。">
+        <div class="t-h"><span class="t-n">コード署名</span></div>
+        <div class="t-d">配布するプログラムが本物だと示す電子署名。</div>
+        <div class="t-e">R5秋問3「有効なコード署名が付与された偽のアプリ」。</div>
+      </div>
+      <div class="t" data-k="サイネージ / ot operational technology 工場や設備など、現場の機械を動かす技術領域。 r7秋問4の scada が該当。it と分けて考える。">
+        <div class="t-h"><span class="t-n">サイネージ / OT</span><span class="t-f">Operational Technology</span></div>
+        <div class="t-d">工場や設備など、現場の機械を動かす技術領域。</div>
+        <div class="t-e">R7秋問4の SCADA が該当。IT と分けて考える。</div>
+      </div>
+      <div class="t" data-k="scada supervisory control and data acquisition 工場の設備を監視・制御する仕組み。 ★r7秋問4「マルウェア対策として利用者認証の強化は効果が薄い」。">
+        <div class="t-h"><span class="t-n">SCADA</span><span class="t-f">Supervisory Control and Data Acquisition</span></div>
+        <div class="t-d">工場の設備を監視・制御する仕組み。</div>
+        <div class="t-e">★R7秋問4「マルウェア対策として利用者認証の強化は効果が薄い」。</div>
+      </div>
+      <div class="t" data-k="ログ集約  あちこちのログを一か所に集めること。 消されても残るよう、別の場所に送るのが基本。">
+        <div class="t-h"><span class="t-n">ログ集約</span></div>
+        <div class="t-d">あちこちのログを一か所に集めること。</div>
+        <div class="t-e">消されても残るよう、別の場所に送るのが基本。</div>
+      </div>
+      <div class="t" data-k="cloudwatch logs 的なログ基盤  クラウド上でログをためて検索できるようにする仕組み。 保持期間と削除保護の設定が問われうる。">
+        <div class="t-h"><span class="t-n">CloudWatch Logs 的なログ基盤</span></div>
+        <div class="t-d">クラウド上でログをためて検索できるようにする仕組み。</div>
+        <div class="t-e">保持期間と削除保護の設定が問われうる。</div>
+      </div>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  出題実績は IPA 公式の解答例・採点講評（令和5年度秋期〜令和7年度秋期）に基づく<br>
+  <a href="../SC/SC_ipa_guide.html">科目B 一次資料ガイド</a> ・
+  <a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/">問題冊子・解答例（IPA）</a><br>
+  <span style="color:var(--faint)">2026-10-05 作成 ／ 令和8年度 科目B 対策</span>
+</div>
+
+<script>
+(function () {
+  var q = document.getElementById('q');
+  var clear = document.getElementById('clear');
+  var hit = document.getElementById('hit');
+  var terms = Array.prototype.slice.call(document.querySelectorAll('.t'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var total = terms.length;
+
+  function apply() {
+    var v = q.value.trim().toLowerCase();
+    if (!v) {
+      terms.forEach(function (t) { t.classList.remove('off'); });
+      secs.forEach(function (s) { s.classList.remove('off'); });
+      hit.textContent = '';
+      return;
+    }
+    var n = 0;
+    terms.forEach(function (t) {
+      var m = t.dataset.k.indexOf(v) !== -1;
+      t.classList.toggle('off', !m);
+      if (m) n++;
+    });
+    secs.forEach(function (s) {
+      s.classList.toggle('off', s.querySelectorAll('.t:not(.off)').length === 0);
+    });
+    hit.textContent = n + ' 件 / ' + total + ' 語';
+  }
+
+  q.addEventListener('input', apply);
+  clear.addEventListener('click', function () { q.value = ''; apply(); q.focus(); });
+})();
+</script>
+
+</body>
+</html>
