@@ -33,7 +33,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
       border-radius:20px;padding:.38rem .8rem;font-size:.75rem;font-weight:700;
       cursor:pointer;font-family:inherit;white-space:nowrap;flex:0 0 auto}
 .chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;margin-top:.5rem}
+.tools{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem;margin-top:.5rem}
 .tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
       border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
       font-family:inherit;min-height:40px;line-height:1.3}
@@ -82,7 +82,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
 @media (max-width:600px){
   .wrap{padding:.9rem .6rem 4rem}
   .head h1{font-size:1.02rem}
-  .tools{grid-template-columns:repeat(2,1fr)}
+  .tools{grid-template-columns:repeat(3,1fr)}
   .card{padding:.85rem .85rem}
   .qt{padding:.6rem .7rem;font-size:.92rem}
   .opt{font-size:.87rem;padding:.55rem .7rem}
@@ -100,6 +100,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
   <div class="bar">
     <div class="chips" id="chips"></div>
     <div class="tools">
+      <button id="showAns">答えを表示</button>
       <button id="wrongOnly">間違えた問題だけ</button>
       <button id="todo">未解答だけ</button>
       <button id="shuffle">順番シャッフル</button>
@@ -116,7 +117,7 @@ const DATA = [{"cat": "問1-2 AI", "q": "AI における教師あり学習での
 const CATS = ["問1-2 AI", "問3-7 基礎", "問8-10 DB", "問11-15 NW", "問11-15 Sec", "問16-17 開発", "問18-19 PM", "問20 SM", "問21-22 監査", "問23-25 戦略", "問26-28 経営", "問29-30 法務"];
 const LB = ["ア","イ","ウ","エ"];
 const KEY = "a1-v2";
-let filter=null, wrongOnly=false, todoOnly=false;
+let filter=null, wrongOnly=false, todoOnly=false, showAll=false;
 let order = DATA.map((_,i)=>i);
 let res = JSON.parse(localStorage.getItem(KEY) || "{}");
 // 選択肢の並びを問題ごとに固定（リロードしても同じ）
@@ -142,6 +143,7 @@ function render(){
     if(todoOnly && (i in res)) return;
     n++;
     const idx=perm[i], answered=(i in res);
+    const open = answered || showAll;
     const card=document.createElement("div");
     card.className="card"+(answered&&res[i]?" ok":"");
     const mk = !answered ? "" :
@@ -158,9 +160,9 @@ function render(){
       '</div>';
     const opts=card.querySelector(".opts"), ans=card.querySelector(".ans");
     idx.forEach((oi,pos)=>{
-      const b=document.createElement("button"); b.className="opt"; b.disabled=answered;
+      const b=document.createElement("button"); b.className="opt"; b.disabled=open;
       b.innerHTML='<span class="lb">'+LB[pos]+'</span><span>'+esc(d.opts[oi])+'</span>';
-      if(answered && oi===d.ans) b.classList.add("correct");
+      if(open && oi===d.ans) b.classList.add("correct");
       b.onclick=()=>{
         if(b.disabled) return;
         const hit=(oi===d.ans);
@@ -175,7 +177,7 @@ function render(){
       };
       opts.appendChild(b);
     });
-    if(answered) ans.hidden=false;
+    if(open) ans.hidden=false;
     list.appendChild(card);
   });
   document.getElementById("count").textContent="表示 "+n+" / 全 "+DATA.length+" 問";
@@ -187,6 +189,12 @@ function score(){
   document.getElementById("score").textContent=
     "正解 "+ok+" / "+k.length+"（"+pct+"%）　未解答 "+(DATA.length-k.length);
 }
+document.getElementById("showAns").onclick=e=>{
+  showAll=!showAll;
+  e.target.textContent = showAll ? "答えを隠す" : "答えを表示";
+  e.target.classList.toggle("on",showAll);
+  render();
+};
 document.getElementById("wrongOnly").onclick=e=>{wrongOnly=!wrongOnly;todoOnly=false;
   e.target.classList.toggle("on",wrongOnly);document.getElementById("todo").classList.remove("on");render();};
 document.getElementById("todo").onclick=e=>{todoOnly=!todoOnly;wrongOnly=false;
