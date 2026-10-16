@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1e3a5f">
+<title>科目A-1 マネジメント系 30問</title>
+<style>
+:root{
+  --bg:#f0f4f8; --card:#ffffff; --border:#e2e8f0;
+  --text:#1e293b; --muted:#64748b; --navy:#1e3a5f;
+  --en-bg:#f8fafc; --en-border:#94a3b8;
+  --ja-bg:#eff6ff; --ja-border:#3b82f6;
+  --ans-bg:#ecfdf5; --ans-border:#10b981; --ans-text:#065f46;
+  --exp-bg:#fffbeb; --exp-border:#f59e0b; --exp-label:#92400e; --exp-text:#3d1a00;
+  --plus-bg:#f5f3ff; --plus-border:#8b5cf6; --plus-label:#5b21b6; --plus-text:#2e1065;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+              "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.75;
+  overflow-wrap:anywhere;
+}
+.wrap{max-width:820px;margin:0 auto;padding:1.2rem 1rem 5rem}
+
+/* ヘッダー */
+.head{margin-bottom:.9rem}
+.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;letter-spacing:.02em;line-height:1.35}
+.head .sub{margin:0;font-size:.78rem;color:var(--muted);line-height:1.6}
+
+/* 操作バー */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);
+     padding:.6rem 0 .7rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;
+       scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+      border-radius:20px;padding:.38rem .8rem;font-size:.76rem;font-weight:700;
+      cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap;flex:0 0 auto}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;margin-top:.5rem}
+.tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
+      border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
+      font-family:inherit;min-height:40px;line-height:1.3}
+.tools button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem;
+      margin-top:.5rem;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* カード */
+.card{background:var(--card);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;
+      box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--border)}
+.card.ok{background:#fbfdfc;border-color:#c7ebdd}
+.q-header{display:flex;align-items:center;gap:.45rem;margin-bottom:.75rem;flex-wrap:wrap}
+.q-num{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
+       font-weight:700;font-size:.78rem;flex-shrink:0;letter-spacing:.03em}
+.q-cat{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
+       color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
+.q-chk{margin-left:auto;background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+       border-radius:20px;padding:.4rem .8rem;font-size:.73rem;font-weight:700;
+       cursor:pointer;font-family:inherit;white-space:nowrap;min-height:34px}
+.card.ok .q-chk{background:var(--ans-border);border-color:var(--ans-border);color:#fff}
+.q-text{font-size:.94rem;line-height:1.75;padding:.7rem .85rem;margin:0 0 .7rem;
+        background:var(--ja-bg);border-left:3px solid var(--ja-border);
+        border-radius:0 6px 6px 0;color:var(--text)}
+.card.ok .q-text{margin-bottom:0}
+
+/* 答え・解説 */
+.a{font-size:.99rem;font-weight:800;line-height:1.6;margin:0 0 .5rem;
+   padding:.6rem .85rem;background:var(--ans-bg);border-left:4px solid var(--ans-border);
+   border-radius:0 7px 7px 0;color:var(--ans-text)}
+.abbr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.76rem;line-height:1.65;margin:0 0 .55rem;padding:.5rem .85rem;
+      background:var(--en-bg);border-left:3px solid var(--en-border);
+      border-radius:0 6px 6px 0;color:var(--muted)}
+.expl{background:var(--exp-bg);border-left:4px solid var(--exp-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem;margin-bottom:.5rem}
+.expl-label{font-size:.68rem;font-weight:800;color:var(--exp-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.expl-body{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
+.plus{background:var(--plus-bg);border-left:4px solid var(--plus-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem}
+.plus-label{font-size:.68rem;font-weight:800;color:var(--plus-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.plus-body{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
+
+.foot{margin-top:1.6rem;font-size:.72rem;line-height:1.7;color:var(--muted);text-align:center}
+
+/* スマホ */
+@media (max-width:600px){
+  .wrap{padding:.9rem .6rem 4rem}
+  .head h1{font-size:1.02rem}
+  .head .sub{font-size:.72rem}
+  .bar{padding:.5rem 0 .6rem;margin-bottom:.8rem}
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .card{padding:.85rem .85rem;border-radius:10px}
+  .q-header{gap:.35rem}
+  .q-chk{margin-left:auto;padding:.42rem .75rem;min-height:36px}
+  .q-text{padding:.6rem .7rem;font-size:.92rem}
+  .a{padding:.55rem .7rem;font-size:.95rem}
+  .abbr{padding:.45rem .7rem;font-size:.73rem}
+  .expl,.plus{padding:.7rem .75rem}
+  .expl-body{font-size:.87rem}
+  .plus-body{font-size:.84rem}
+}
+@media (max-width:380px){
+  .q-cat{font-size:.65rem;padding:.14rem .45rem}
+  .tools button{font-size:.69rem}
+}
+@media print{
+  .bar{display:none}
+  .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
+  body{background:#fff}
+  .card.ok .body{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>科目A-1 マネジメント系 30問</h1>
+    <p class="sub">情報処理安全確保支援士試験 科目A-1（旧 午前I）／ 暗記用・解説一覧 ／ 計算問題なし</p>
+  </div>
+
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <div class="tools">
+      <button id="hideAns">答えを隠す</button>
+      <button id="todo">未チェックだけ</button>
+      <button id="shuffle">シャッフル</button>
+      <button id="reset">チェック解除</button>
+    </div>
+    <div class="meta"><span id="count"></span><span id="prog"></span></div>
+  </div>
+
+  <div id="list"></div>
+  <p class="foot">出典: IPA 試験要綱 Ver.5.6（2026年10月から適用）<br>出題範囲 科目A-1（共通知識・技術レベル3）</p>
+</div>
+
+<script>
+const DATA = [{"cat": "14 プロジェクトマネジメント", "q": "プロジェクトマネジメントの知識体系を、スコープ・スケジュール・コストなどの領域に整理した標準的なガイドはどれか。", "a": "PMBOK", "abbr": "PMBOK = Project Management Body of Knowledge", "note": "米国 PMI がまとめたプロジェクト管理の教科書。第6版までは5プロセス群×10知識エリア、第7版からは「原理原則」中心へ変わった。", "plus": "PMBOK＝米国 PMI。資格は PMP。英国系の PRINCE2 と並ぶ二大流派で、日本の P2M は PMBOK を拡張したもの。ISO 21500 は PMBOK を基にした国際規格。"}, {"cat": "14 プロジェクトマネジメント", "q": "プロジェクトの成果物を階層的に分解し、管理可能な作業単位まで細分化した構造図はどれか。", "a": "WBS（作業分解構成図）", "abbr": "WBS = Work Breakdown Structure", "note": "「大きな仕事を分けて、見積もれる大きさにする」。最小単位をワークパッケージといい、ここに担当・工数・期限を付ける。", "plus": "WBS に入れる単位は「成果物」であって「工程」ではない点に注意。各ワークパッケージに責任者を割り当てた表が RAM（責任分担マトリックス）で、RACI チャートが代表例。"}, {"cat": "14 プロジェクトマネジメント", "q": "プロジェクトの作業の順序関係と所要日数を矢印で表し、全体日程を求める図法はどれか。", "a": "アローダイアグラム（PERT図）", "abbr": "PERT = Program Evaluation and Review Technique", "note": "最も長い経路がクリティカルパス。そこが1日遅れると全体が1日遅れるので、重点的に監視する。", "plus": "最早開始日と最遅開始日の差が余裕日数（フロート／スラック）。クリティカルパス上の作業はこの余裕がゼロ。日程短縮の手段はクラッシング（人を足す）とファストトラッキング（並行化）。"}, {"cat": "14 プロジェクトマネジメント", "q": "作業の開始・終了予定と実績を横棒で表し、進捗を視覚的に把握する図はどれか。", "a": "ガントチャート", "abbr": "―", "note": "横軸が時間、縦軸が作業。進捗が一目で分かるが、作業同士の依存関係はアローダイアグラムのほうが表しやすい。", "plus": "似た図に マイルストーンチャート（節目だけ）と バーンダウンチャート（残作業量の推移・アジャイルで使う）がある。問題文の「依存関係」「残量」というキーワードで見分ける。"}, {"cat": "14 プロジェクトマネジメント", "q": "出来高・計画値・実コストを金額に換算し、進捗とコストを同じ尺度で管理する手法はどれか。", "a": "EVM（アーンドバリューマネジメント）", "abbr": "EVM = Earned Value Management ／ PV = Planned Value ／ EV = Earned Value ／ AC = Actual Cost", "note": "「予定どおり進んでいるか」と「予算内か」を同時に見る。SV = EV − PV（日程差異）、CV = EV − AC（コスト差異）で、マイナスなら遅れ・超過。", "plus": "指数で見るときは SPI = EV ÷ PV、CPI = EV ÷ AC。どちらも 1 未満なら悪化。完成時総コストの予測は EAC = BAC ÷ CPI。"}, {"cat": "14 プロジェクトマネジメント", "q": "プロジェクトの目的・成果物・制約条件などを記し、プロジェクトの開始を正式に承認する文書はどれか。", "a": "プロジェクト憲章", "abbr": "―", "note": "「このプロジェクトをやります」という公式な宣言。プロジェクトマネージャの権限もここで与えられる。", "plus": "憲章＝立ち上げ、プロジェクトマネジメント計画書＝計画。似た名前だが段階が違う。ステークホルダを洗い出した一覧がステークホルダ登録簿。"}, {"cat": "14 プロジェクトマネジメント", "q": "いったん合意したスコープに、承認を経ずに作業が少しずつ追加されていく現象はどれか。", "a": "スコープクリープ", "abbr": "―", "note": "「ついでにこれも」が積み重なって破綻する。防ぐには変更管理のプロセスを通すことを徹底する。", "plus": "似た用語のゴールドプレーティングは「頼まれていない機能を良かれと思って足す」こと。どちらも合意外の作業で、スコープ管理の失敗。"}, {"cat": "14 プロジェクトマネジメント", "q": "リスクへの対応のうち、保険をかけたり外部へ委託したりして、影響を第三者に移す戦略はどれか。", "a": "転嫁（移転）", "abbr": "―", "note": "リスク対応は 回避・軽減・転嫁・受容 の4つ。クラウド利用やアウトソースは転嫁の一種。", "plus": "回避＝やり方を変えてリスクをなくす、軽減＝発生確率や影響を小さくする、受容＝あえて受け入れる。好機（プラスのリスク）側は 活用・強化・共有・受容 の4つ。"}, {"cat": "14 プロジェクトマネジメント", "q": "開発規模から工数と期間を見積もる手法のうち、過去の類似プロジェクトの実績を基にするものはどれか。", "a": "類推見積法（トップダウン見積法）", "abbr": "―", "note": "早いが精度は低い。WBS の下位から積み上げるのがボトムアップ見積法で、時間はかかるが精度は高い。", "plus": "見積手法は 類推法・係数モデル法（COCOMO など）・ボトムアップ法・ファンクションポイント法 の4つを比較で覚える。精度と手間はトレードオフ。"}, {"cat": "14 プロジェクトマネジメント", "q": "ソフトウェアの機能数と複雑さから規模を算出し、工数を見積もる手法はどれか。", "a": "ファンクションポイント法", "abbr": "FP = Function Point", "note": "画面・帳票・ファイルなど「利用者から見える機能」を数える。プログラム言語に依存しないのが利点。", "plus": "対になる指標が LOC（Lines Of Code＝行数）。LOC は言語で大きく変わるので比較に向かない。FP は外部入力・外部出力・外部照会・内部論理ファイル・外部インタフェースファイルの5種類を数える。"}, {"cat": "14 プロジェクトマネジメント", "q": "複数の専門家に匿名でアンケートを繰り返し、意見を収束させて見積もりや予測を行う手法はどれか。", "a": "デルファイ法", "abbr": "―", "note": "匿名なので、声の大きい人に引きずられない。結果を共有して再回答させることで、だんだん意見がそろう。", "plus": "対面で自由に意見を出すのがブレーンストーミング（批判禁止・質より量）。匿名で収束させるのがデルファイ法。目的が逆（発散 vs 収束）。"}, {"cat": "15 サービスマネジメント", "q": "ITサービスマネジメントのベストプラクティスを体系化したフレームワークはどれか。", "a": "ITIL", "abbr": "ITIL = Information Technology Infrastructure Library", "note": "英国政府がまとめた「ITサービス運用の定石集」。最新は ITIL 4。対応する国際規格が ISO/IEC 20000。", "plus": "ITIL＝実務の定石（認証は個人が取る）。ISO/IEC 20000＝組織が取る認証規格。COBIT＝経営から見た統制。3つの立ち位置の違いが問われる。"}, {"cat": "15 サービスマネジメント", "q": "サービスの中断や品質低下を、可能な限り迅速に回復させることを目的とする活動はどれか。", "a": "インシデント管理", "abbr": "―", "note": "目的は「早く復旧すること」。原因究明は別活動（問題管理）に任せ、まず止血する。", "plus": "暫定的に業務を回復させる手段がワークアラウンド（回避策）。根本原因が特定されていない状態を「既知のエラー」として記録し、問題管理へ引き継ぐ。"}, {"cat": "15 サービスマネジメント", "q": "インシデントの根本原因を究明し、再発を防止することを目的とする活動はどれか。", "a": "問題管理", "abbr": "―", "note": "インシデント管理が「早く直す」、問題管理が「二度と起こさない」。役割が違うので分けて管理する。", "plus": "根本原因分析の手法に なぜなぜ分析・特性要因図（フィッシュボーン）・パレート図 がある。「上位2割の原因が8割の障害を生む」のがパレートの法則。"}, {"cat": "15 サービスマネジメント", "q": "IT環境への変更を、リスクを評価したうえで承認・記録し、計画的に実施する活動はどれか。", "a": "変更管理", "abbr": "―", "note": "変更は障害の最大の原因。影響評価・承認・切り戻し手順をセットにして進める。", "plus": "影響の大きい変更を審議する会議体が CAB（Change Advisory Board）。緊急時は ECAB。通常変更・標準変更（事前承認済みの定型）・緊急変更の3分類も頻出。"}, {"cat": "15 サービスマネジメント", "q": "変更されたソフトウェアやハードウェアを、本番環境へ計画的に展開する活動はどれか。", "a": "リリース管理および展開管理", "abbr": "―", "note": "変更管理が「やってよいか決める」、リリース管理が「実際に出す」。承認と実施を分けるのが統制の基本。", "plus": "本番と同じ構成で事前検証する環境がステージング環境。段階的に切り替える手法にブルーグリーンデプロイメント、カナリアリリースがある。"}, {"cat": "15 サービスマネジメント", "q": "ITサービスを構成するハードウェア・ソフトウェア・文書などの情報と、相互関係を管理する活動はどれか。", "a": "構成管理", "abbr": "CMDB = Configuration Management Database", "note": "「何がどこにあり、何とつながっているか」の台帳。これがないと変更の影響範囲が読めない。", "plus": "管理対象の一つひとつが CI（構成アイテム）。CMDB には CI 同士の関係まで持たせる。これがあると「このサーバを止めたら何が止まるか」が分かる。"}, {"cat": "15 サービスマネジメント", "q": "利用者からの問合せを受け付ける単一の窓口を何というか。", "a": "サービスデスク", "abbr": "SPOC = Single Point Of Contact", "note": "窓口を1つにすることで、利用者は「どこに言えばいいか」を迷わない。記録も一元化できる。", "plus": "設置形態は ローカル（拠点ごと）・中央集中・バーチャル（分散だが一元化）・フォロー・ザ・サン（時差を使って24時間）の4つ。"}, {"cat": "15 サービスマネジメント", "q": "合意したサービス水準を達成できているかを継続的に監視・報告し、改善につなげる活動はどれか。", "a": "サービスレベル管理", "abbr": "SLM = Service Level Management ／ SLA = Service Level Agreement", "note": "SLA を結んで終わりではなく、測って報告して直すまでが SLM。社内部門間で結ぶものは OLA という。", "plus": "SLA＝顧客との合意、OLA（Operational Level Agreement）＝社内部門間、UC（Underpinning Contract）＝外部委託先との契約。3層で支える構図。"}, {"cat": "15 サービスマネジメント", "q": "将来の需要を予測し、ITリソースを過不足なく確保することを目的とする活動はどれか。", "a": "キャパシティ管理", "abbr": "―", "note": "足りないと遅くなり、余らせると無駄。クラウドの自動スケールは、この考え方を自動化したもの。", "plus": "3つの視点 ── 事業キャパシティ（将来の業務量）、サービスキャパシティ（サービス単位の性能）、コンポーネントキャパシティ（CPU・回線など個々の資源）。"}, {"cat": "15 サービスマネジメント", "q": "災害などでサービスが停止した場合に備え、復旧の目標時間と手順をあらかじめ定めておく計画はどれか。", "a": "ITサービス継続計画", "abbr": "RTO = Recovery Time Objective ／ RPO = Recovery Point Objective", "note": "RTO＝「いつまでに復旧するか」、RPO＝「どの時点のデータまで戻せるか」。RPO が4時間なら、最大4時間分のデータは失われる前提。", "plus": "対になるのが BCP（事業継続計画）。ITサービス継続計画は BCP の IT 部分。目標復旧レベル（RLO）を加えて3指標で語ることもある。"}, {"cat": "15 サービスマネジメント", "q": "コンピュータの運用を、ジョブの実行順序や異常時の処置まで含めて自動制御する仕組みはどれか。", "a": "ジョブ管理（ジョブスケジューラ）", "abbr": "―", "note": "夜間バッチなどを時刻や先行ジョブの完了を条件に自動実行する。異常終了時の再実行の扱いを決めておくことが運用設計の肝。", "plus": "ジョブの流れを定義する言語が JCL。先行ジョブの成否で分岐させる、多重度を制限する、といった制御も含む。異常終了時のリラン手順を決めておくのが運用設計。"}, {"cat": "16 システム監査", "q": "情報システムが適切に管理・運用されているかを、独立した立場で点検・評価する活動はどれか。", "a": "システム監査", "abbr": "―", "note": "大事なのは「独立性」。自分が作ったものを自分で監査しては意味がない。外観上も独立していることが求められる。", "plus": "日本では経済産業省の「システム監査基準」「システム管理基準」が拠りどころ。監査人は助言型（改善提案）と保証型（適正性の表明）の2つの立場を取りうる。"}, {"cat": "16 システム監査", "q": "システム監査人が、監査の結論を裏づけるために入手する資料や記録を何というか。", "a": "監査証拠", "abbr": "―", "note": "「言った・聞いた」ではなく、ログ・設定画面・承認記録などの形に残ったものを集める。十分かつ適切であることが求められる。", "plus": "集め方は 閲覧・観察・質問・再実施・突合 など。質問だけでは弱く、記録との突合が求められる。コンピュータを使って集める手法が CAAT（監査技法）。"}, {"cat": "16 システム監査", "q": "監査の実施過程と判断の根拠を記録し、監査報告書の裏づけとなる文書はどれか。", "a": "監査調書", "abbr": "―", "note": "何を見て、どう考えて、どう結論したかの記録。後から第三者が追えるように残す。", "plus": "監査証拠が「集めた事実」、監査調書が「その記録と判断」。監査報告書は結論だけを書くので、根拠は調書に残す。"}, {"cat": "16 システム監査", "q": "システムの処理過程を、入力から出力まで追跡できるようにした記録や仕組みはどれか。", "a": "監査証跡", "abbr": "―", "note": "「このデータは誰がいつ入れたか」をたどれる状態。ログの保全と改ざん防止がセットで必要。", "plus": "英語では Audit Trail。確保するには ログの取得・保全・改ざん防止・十分な保存期間 が要る。ログがあっても消せる権限が運用者にあると証跡として弱い。"}, {"cat": "16 システム監査", "q": "組織の目標達成を阻害する要因に対応し、業務の有効性・報告の信頼性・法令順守・資産保全を確保する仕組みはどれか。", "a": "内部統制", "abbr": "―", "note": "4つの目的と6つの基本的要素（統制環境・リスク評価と対応・統制活動・情報と伝達・モニタリング・ITへの対応）からなる。", "plus": "日本の金融商品取引法に基づく制度が J-SOX。IT 統制は IT全社的統制・IT全般統制（ITGC）・IT業務処理統制 の3層。アクセス権限管理や変更管理は ITGC。"}, {"cat": "16 システム監査", "q": "不正や誤りを防ぐため、一人の担当者に申請から承認までを行わせない統制はどれか。", "a": "職務の分離", "abbr": "―", "note": "「頼む人」と「承認する人」を分ける。開発者が本番環境へ直接リリースできない運用も、同じ考え方。", "plus": "相互牽制ともいう。分けるべき組合せは 申請と承認、開発と運用、出納と記帳。1人でやらざるを得ない小規模組織では、上長の事後確認で補う。"}, {"cat": "16 システム監査", "q": "ITガバナンスの枠組みとして、ITの統制目標を体系化した国際的なフレームワークはどれか。", "a": "COBIT", "abbr": "COBIT = Control Objectives for Information and related Technology", "note": "ISACA が策定。ITIL が「運用の実務」なのに対し、COBIT は「経営から見た統制と評価」の枠組み。", "plus": "ITIL＝運用の実務、PMBOK＝プロジェクト、COBIT＝ガバナンスと統制、CMMI＝開発プロセスの成熟度。4つの守備範囲の違いで出題される。"}, {"cat": "16 システム監査", "q": "監査の結果、改善が必要と判断された事項について、被監査部門に対応を求め、その実施状況を確認する活動はどれか。", "a": "フォローアップ", "abbr": "―", "note": "報告して終わりにしない。「指摘 → 改善計画 → 実施確認」まででワンセット。", "plus": "監査の流れは 計画 → 予備調査 → 本調査 → 評価・結論 → 報告 → フォローアップ。監査人は改善を「指示」する権限はなく、あくまで助言・勧告にとどまる点も問われる。"}];
+const CATS = ["14 プロジェクトマネジメント", "15 サービスマネジメント", "16 システム監査"];
+const KEY = "a1-mgmt-ok";
+let filter = null, todoOnly = false, hideAll = false;
+let order = DATA.map((_,i)=>i);
+let ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify([...ok])); }catch(e){} }
+function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function chips(){
+  const el = document.getElementById("chips");
+  el.innerHTML = "";
+  const mk = (label, val) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = label;
+    b.setAttribute("aria-pressed", filter === val);
+    b.onclick = () => { filter = val; chips(); render(); el.scrollLeft = 0; };
+    el.appendChild(b);
+  };
+  mk("すべて", null);
+  CATS.forEach(c => mk(c, c));
+}
+
+function render(){
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  let shown = 0;
+  order.forEach(i => {
+    const d = DATA[i];
+    if (filter && d.cat !== filter) return;
+    if (todoOnly && ok.has(i)) return;
+    shown++;
+    const folded = ok.has(i) || hideAll;
+    const card = document.createElement("div");
+    card.className = "card" + (ok.has(i) ? " ok" : "");
+    card.innerHTML =
+      '<div class="q-header">' +
+        '<span class="q-num">Q' + String(i+1).padStart(3,"0") + '</span>' +
+        '<span class="q-cat">' + esc(d.cat) + '</span>' +
+        '<button class="q-chk">' + (ok.has(i) ? "覚えた" : "未チェック") + '</button>' +
+      '</div>' +
+      '<p class="q-text">' + esc(d.q) + '</p>' +
+      '<div class="body"' + (folded ? ' hidden' : '') + '>' +
+        '<p class="a">' + esc(d.a) + '</p>' +
+        (d.abbr !== "―" ? '<p class="abbr">' + esc(d.abbr) + '</p>' : '') +
+        '<div class="expl"><div class="expl-label">かんたん解説</div>' +
+        '<p class="expl-body">' + esc(d.note) + '</p></div>' +
+        (d.plus ? '<div class="plus"><div class="plus-label">あわせて覚える</div>' +
+                  '<p class="plus-body">' + esc(d.plus) + '</p></div>' : '') +
+      '</div>';
+
+    const body = card.querySelector(".body");
+    const chk = card.querySelector(".q-chk");
+    chk.onclick = () => {
+      if (ok.has(i)) {
+        ok.delete(i); card.classList.remove("ok");
+        chk.textContent = "未チェック"; body.hidden = hideAll;
+      } else {
+        ok.add(i); card.classList.add("ok");
+        chk.textContent = "覚えた"; body.hidden = true;
+      }
+      save(); progress();
+      if (todoOnly && ok.has(i)) render();
+    };
+
+    // 「答えを隠す」でたたまれているものは、設問をタップすると開く
+    if (folded && !ok.has(i)) {
+      const q = card.querySelector(".q-text");
+      q.style.cursor = "pointer";
+      q.title = "タップで答えを表示";
+      q.onclick = () => { body.hidden = false; };
+    }
+    list.appendChild(card);
+  });
+  document.getElementById("count").textContent = "表示 " + shown + " / 全 " + DATA.length + " 問";
+  progress();
+}
+
+function progress(){
+  document.getElementById("prog").textContent =
+    "覚えた " + ok.size + " / " + DATA.length + "（" + Math.round(ok.size/DATA.length*100) + "%）";
+}
+
+document.getElementById("hideAns").onclick = (e) => {
+  hideAll = !hideAll;
+  e.target.textContent = hideAll ? "答えを表示" : "答えを隠す";
+  e.target.classList.toggle("on", hideAll);
+  render();
+};
+document.getElementById("todo").onclick = (e) => {
+  todoOnly = !todoOnly;
+  e.target.classList.toggle("on", todoOnly);
+  render();
+};
+document.getElementById("shuffle").onclick = () => {
+  for (let i = order.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i],order[j]]=[order[j],order[i]]; }
+  render(); window.scrollTo(0,0);
+};
+document.getElementById("reset").onclick = () => { ok = new Set(); save(); render(); };
+
+chips(); render();
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1e3a5f">
+<title>科目A-1 テクノロジ系 102問</title>
+<style>
+:root{
+  --bg:#f0f4f8; --card:#ffffff; --border:#e2e8f0;
+  --text:#1e293b; --muted:#64748b; --navy:#1e3a5f;
+  --en-bg:#f8fafc; --en-border:#94a3b8;
+  --ja-bg:#eff6ff; --ja-border:#3b82f6;
+  --ans-bg:#ecfdf5; --ans-border:#10b981; --ans-text:#065f46;
+  --exp-bg:#fffbeb; --exp-border:#f59e0b; --exp-label:#92400e; --exp-text:#3d1a00;
+  --plus-bg:#f5f3ff; --plus-border:#8b5cf6; --plus-label:#5b21b6; --plus-text:#2e1065;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+              "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.75;
+  overflow-wrap:anywhere;
+}
+.wrap{max-width:820px;margin:0 auto;padding:1.2rem 1rem 5rem}
+
+/* ヘッダー */
+.head{margin-bottom:.9rem}
+.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;letter-spacing:.02em;line-height:1.35}
+.head .sub{margin:0;font-size:.78rem;color:var(--muted);line-height:1.6}
+
+/* 操作バー */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);
+     padding:.6rem 0 .7rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;
+       scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+      border-radius:20px;padding:.38rem .8rem;font-size:.76rem;font-weight:700;
+      cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap;flex:0 0 auto}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;margin-top:.5rem}
+.tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
+      border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
+      font-family:inherit;min-height:40px;line-height:1.3}
+.tools button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem;
+      margin-top:.5rem;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* カード */
+.card{background:var(--card);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;
+      box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--border)}
+.card.ok{background:#fbfdfc;border-color:#c7ebdd}
+.q-header{display:flex;align-items:center;gap:.45rem;margin-bottom:.75rem;flex-wrap:wrap}
+.q-num{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
+       font-weight:700;font-size:.78rem;flex-shrink:0;letter-spacing:.03em}
+.q-cat{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
+       color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
+.q-chk{margin-left:auto;background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+       border-radius:20px;padding:.4rem .8rem;font-size:.73rem;font-weight:700;
+       cursor:pointer;font-family:inherit;white-space:nowrap;min-height:34px}
+.card.ok .q-chk{background:var(--ans-border);border-color:var(--ans-border);color:#fff}
+.q-text{font-size:.94rem;line-height:1.75;padding:.7rem .85rem;margin:0 0 .7rem;
+        background:var(--ja-bg);border-left:3px solid var(--ja-border);
+        border-radius:0 6px 6px 0;color:var(--text)}
+.card.ok .q-text{margin-bottom:0}
+
+/* 答え・解説 */
+.a{font-size:.99rem;font-weight:800;line-height:1.6;margin:0 0 .5rem;
+   padding:.6rem .85rem;background:var(--ans-bg);border-left:4px solid var(--ans-border);
+   border-radius:0 7px 7px 0;color:var(--ans-text)}
+.abbr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.76rem;line-height:1.65;margin:0 0 .55rem;padding:.5rem .85rem;
+      background:var(--en-bg);border-left:3px solid var(--en-border);
+      border-radius:0 6px 6px 0;color:var(--muted)}
+.expl{background:var(--exp-bg);border-left:4px solid var(--exp-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem;margin-bottom:.5rem}
+.expl-label{font-size:.68rem;font-weight:800;color:var(--exp-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.expl-body{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
+.plus{background:var(--plus-bg);border-left:4px solid var(--plus-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem}
+.plus-label{font-size:.68rem;font-weight:800;color:var(--plus-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.plus-body{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
+
+.foot{margin-top:1.6rem;font-size:.72rem;line-height:1.7;color:var(--muted);text-align:center}
+
+/* スマホ */
+@media (max-width:600px){
+  .wrap{padding:.9rem .6rem 4rem}
+  .head h1{font-size:1.02rem}
+  .head .sub{font-size:.72rem}
+  .bar{padding:.5rem 0 .6rem;margin-bottom:.8rem}
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .card{padding:.85rem .85rem;border-radius:10px}
+  .q-header{gap:.35rem}
+  .q-chk{margin-left:auto;padding:.42rem .75rem;min-height:36px}
+  .q-text{padding:.6rem .7rem;font-size:.92rem}
+  .a{padding:.55rem .7rem;font-size:.95rem}
+  .abbr{padding:.45rem .7rem;font-size:.73rem}
+  .expl,.plus{padding:.7rem .75rem}
+  .expl-body{font-size:.87rem}
+  .plus-body{font-size:.84rem}
+}
+@media (max-width:380px){
+  .q-cat{font-size:.65rem;padding:.14rem .45rem}
+  .tools button{font-size:.69rem}
+}
+@media print{
+  .bar{display:none}
+  .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
+  body{background:#fff}
+  .card.ok .body{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>科目A-1 テクノロジ系 102問</h1>
+    <p class="sub">情報処理安全確保支援士試験 科目A-1（旧 午前I）／ 暗記用・解説一覧 ／ 計算問題なし</p>
+  </div>
+
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <div class="tools">
+      <button id="hideAns">答えを隠す</button>
+      <button id="todo">未チェックだけ</button>
+      <button id="shuffle">シャッフル</button>
+      <button id="reset">チェック解除</button>
+    </div>
+    <div class="meta"><span id="count"></span><span id="prog"></span></div>
+  </div>
+
+  <div id="list"></div>
+  <p class="foot">出典: IPA 試験要綱 Ver.5.6（2026年10月から適用）<br>出題範囲 科目A-1（共通知識・技術レベル3）</p>
+</div>
+
+<script>
+const DATA = [{"cat": "1 基礎理論", "q": "文字コードのうち、世界中の文字を一つの体系で扱うことを目的に策定されたものはどれか。", "a": "Unicode", "abbr": "ASCII = American Standard Code for Information Interchange", "note": "Unicode は「世界中の文字に1つずつ番号を振る」規格。その番号を実際のバイト列にする方式が UTF-8 / UTF-16。文字化けは、この番号とバイト列の対応を取り違えたときに起きる。", "plus": "符号化方式は UTF-8（可変長・ASCII互換・Web標準）、UTF-16、UTF-32。日本語環境の文字化けは Shift_JIS と UTF-8 の取り違えが大半。BOM の有無でも化ける。"}, {"cat": "1 基礎理論", "q": "誤り検出・訂正符号のうち、1ビットの誤りを訂正し、2ビットの誤りを検出できるものはどれか。", "a": "ハミング符号", "abbr": "CRC = Cyclic Redundancy Check", "note": "パリティは「誤りがあること」しか分からない。ハミング符号は冗長ビットを複数持つので「どこが誤りか」まで特定でき、直せる。メモリの ECC がこれ。", "plus": "誤り検出だけなら パリティ（1ビット検出）、CRC（バースト誤りに強い・通信で使用）、チェックサム。訂正までするのが ハミング符号・ECC・リードソロモン符号。"}, {"cat": "1 基礎理論", "q": "複数の事象が同時に起こる確率を求めるとき、事象が互いに影響しない場合に成り立つ関係はどれか。", "a": "独立事象の積の法則", "abbr": "―", "note": "「AかつB」が起きる確率 = P(A)×P(B)。影響し合う（従属）なら条件付き確率になり、その計算に使うのがベイズの定理。", "plus": "条件付き確率 P(A|B) = P(A∩B) ÷ P(B)。原因の確率を結果から逆算するのがベイズの定理で、迷惑メールフィルタの判定に使われる。"}, {"cat": "1 基礎理論", "q": "集合A と 集合B の両方に属する要素の集合を表す演算はどれか。", "a": "積集合", "abbr": "―", "note": "積集合＝AND＝重なった部分。和集合＝OR＝どちらかに属する全部。データベースの INNER JOIN が積集合の考え方。", "plus": "ベン図で考えると速い。ド・モルガンの法則 ── (A∪B)の補集合 = Aの補集合 ∩ Bの補集合。論理演算でも同じ形が成り立つ。"}, {"cat": "1 基礎理論", "q": "有限個の状態と、入力による状態遷移で動作を表現するモデルはどれか。", "a": "有限オートマトン", "abbr": "―", "note": "「今どの状態か」と「何が来たか」で次の状態が決まるモデル。正規表現や字句解析の裏側で使われている。", "plus": "状態遷移図と状態遷移表はどちらも同じ内容を表す。正規表現 ↔ 有限オートマトンは相互に変換できる。より強力なモデルが プッシュダウンオートマトン、チューリングマシン。"}, {"cat": "1 基礎理論", "q": "待ち行列理論において、客の到着がポアソン分布、サービス時間が指数分布、窓口が1つのモデルを表す記法はどれか。", "a": "M/M/1", "abbr": "―", "note": "記法は「到着/サービス/窓口数」。M は Markov（ランダム）、D は Deterministic（一定）。利用率が1に近づくと待ち時間が急に伸びる。", "plus": "平均待ち時間 = 平均サービス時間 × ρ ÷ (1−ρ)（ρ＝利用率）。ρ が 0.8 を超えると急激に悪化する。サーバのCPU使用率を上げすぎない理由がこれ。"}, {"cat": "2 アルゴリズムとプログラミング", "q": "データ構造のうち、最後に入れたものを最初に取り出す方式はどれか。", "a": "スタック", "abbr": "LIFO = Last In First Out", "note": "スタック＝積み重ねた皿。関数の呼び出し履歴がこれで管理される（コールスタック）。先入れ先出しのキューは FIFO で、印刷待ち行列などに使う。", "plus": "主な操作は push（積む）と pop（取る）。逆ポーランド記法の計算、括弧の対応チェック、深さ優先探索に使う。キューは enqueue / dequeue で、幅優先探索に使う。"}, {"cat": "2 アルゴリズムとプログラミング", "q": "整列アルゴリズムのうち、平均計算量が O(n log n) で、分割統治法を用いるものはどれか。", "a": "クイックソート", "abbr": "―", "note": "基準値で2つに分け、それぞれをさらに分ける。平均は速いが、最悪は O(n²)。マージソートは最悪でも O(n log n)。", "plus": "計算量の整理 ── バブル・選択・挿入は O(n²)、クイック・マージ・ヒープは O(n log n)。安定ソート（同じ値の順序が保たれる）は 挿入・マージ・バブル。"}, {"cat": "2 アルゴリズムとプログラミング", "q": "探索アルゴリズムのうち、整列済みのデータに対して探索範囲を半分ずつ絞り込む方式はどれか。", "a": "二分探索", "abbr": "―", "note": "1000件を10回ほどで見つけられる（2^10=1024）。計算量 O(log n)。ただし「あらかじめ並んでいること」が前提。", "plus": "線形探索 O(n)、二分探索 O(log n)、ハッシュ探索 O(1)。二分探索木は平均 O(log n) だが、偏ると O(n) になるので平衡木（AVL木・B木）で防ぐ。"}, {"cat": "2 アルゴリズムとプログラミング", "q": "キーから格納位置を直接計算して要素を特定するデータ構造はどれか。", "a": "ハッシュ表", "abbr": "―", "note": "計算量は平均 O(1)。別々のキーが同じ位置になることをシノニム（衝突）といい、チェイン法などで対処する。", "plus": "衝突（シノニム）の解決法は チェイン法（連結リストでつなぐ）と オープンアドレス法（空きを探す）。格納率が高いほど衝突が増えるので、余裕を持たせる。"}, {"cat": "2 アルゴリズムとプログラミング", "q": "再帰呼び出しを行うプログラムが、正しく終了するために必ず必要なものはどれか。", "a": "終了条件（基底ケース）", "abbr": "―", "note": "「これ以上呼ばない」条件がないと、スタックを食い尽くして落ちる（スタックオーバーフロー）。", "plus": "再帰で解ける代表例は 階乗・フィボナッチ・ハノイの塔・二分探索・クイックソート。同じ計算を繰り返す場合は、結果を保存するメモ化で高速化できる。"}, {"cat": "2 アルゴリズムとプログラミング", "q": "オブジェクト指向において、上位クラスの性質を下位クラスが引き継ぐ仕組みはどれか。", "a": "継承", "abbr": "―", "note": "共通部分を親にまとめて、子は差分だけ書く。カプセル化＝中身を隠す、ポリモーフィズム＝同じ呼び方で違う動作。3つセットで出る。", "plus": "3本柱は カプセル化（内部を隠す）・継承（引き継ぐ）・ポリモーフィズム（同じ呼び方で違う動き）。関係の種類は 汎化（is-a）、集約・コンポジション（has-a）。"}, {"cat": "3 コンピュータ構成要素", "q": "CPU 内部で、次に実行する命令のアドレスを保持するレジスタはどれか。", "a": "プログラムカウンタ", "abbr": "PC = Program Counter", "note": "「次はここを読む」を覚えている。分岐命令はこの値を書き換えることで実現される。", "plus": "命令実行の流れは 命令フェッチ → デコード → オペランド読出し → 実行。関連レジスタは 命令レジスタ、アキュムレータ、汎用レジスタ、インデックスレジスタ、ベースレジスタ。"}, {"cat": "3 コンピュータ構成要素", "q": "複数の命令を段階に分けて並行処理し、スループットを高める方式はどれか。", "a": "パイプライン処理", "abbr": "―", "note": "「読み込み」「解読」「実行」を流れ作業にする。分岐があると先読みが無駄になり、パイプラインハザードが起きる。", "plus": "妨げになるのが ハザード（構造・データ・制御）。対策は 分岐予測、投機実行、アウトオブオーダ実行。複数パイプラインを並べるのがスーパスカラ。"}, {"cat": "3 コンピュータ構成要素", "q": "主記憶と CPU の速度差を埋めるために置かれる、小容量で高速なメモリはどれか。", "a": "キャッシュメモリ", "abbr": "―", "note": "よく使うデータを手元に置く。見つかることをヒット、なければミスといい、ヒット率が性能を決める。", "plus": "実効アクセス時間 = ヒット率×キャッシュ時間 + (1−ヒット率)×主記憶時間。書き込み方式は ライトスルー（都度主記憶へ）と ライトバック（追い出すときに書く）。"}, {"cat": "3 コンピュータ構成要素", "q": "リフレッシュ動作が必要で、主記憶に使われる揮発性メモリはどれか。", "a": "DRAM", "abbr": "DRAM = Dynamic Random Access Memory", "note": "コンデンサに電気をためるので、放っておくと消える → 定期的に書き直す（リフレッシュ）。SRAM は不要で速いが高価、キャッシュに使う。", "plus": "揮発性＝DRAM・SRAM。不揮発性＝ROM・フラッシュメモリ・SSD。速度順は レジスタ > キャッシュ(SRAM) > 主記憶(DRAM) > SSD > HDD。"}, {"cat": "3 コンピュータ構成要素", "q": "CPU を介さずに、入出力装置と主記憶の間で直接データ転送を行う方式はどれか。", "a": "DMA", "abbr": "DMA = Direct Memory Access", "note": "CPU は「転送しておいて」と指示するだけで、本来の処理に戻れる。終わったら割込みで知らせてもらう。", "plus": "入出力の制御方式は プログラム制御（CPUが面倒を見る）→ 割込み → DMA → チャネル制御（専用プロセッサ）の順に CPU の負担が軽くなる。"}, {"cat": "3 コンピュータ構成要素", "q": "システムの性能指標のうち、単位時間あたりに処理できる仕事量を表すものはどれか。", "a": "スループット", "abbr": "―", "note": "スループット＝さばける量、レスポンスタイム＝1件が返るまでの速さ。両立しないことがあり、どちらを優先するかが設計判断。", "plus": "ターンアラウンドタイム＝依頼してから結果が全部返るまで（バッチ向き）。レスポンスタイム＝最初の反応まで（対話向き）。ベンチマークには TPC・SPEC がある。"}, {"cat": "3 コンピュータ構成要素", "q": "GPU の特性として最も適切なものはどれか。", "a": "多数の単純なコアで同種の演算を並列処理する", "abbr": "GPU = Graphics Processing Unit", "note": "同じ計算を大量のデータに一斉にかけるのが得意。だから機械学習の行列演算に向く。逐次の複雑な処理は CPU のほうが速い。", "plus": "並列処理の分類が フリンの分類 ── SISD・SIMD・MISD・MIMD。GPU は SIMD 型。汎用計算に使うことを GPGPU という。"}, {"cat": "3 コンピュータ構成要素", "q": "命令セットを単純化し、1命令あたりの実行を高速化する設計思想はどれか。", "a": "RISC", "abbr": "RISC = Reduced Instruction Set Computer", "note": "命令を減らして、1つ1つを速く回す。Apple Silicon や AWS Graviton が採用する Arm は RISC 系。x86 は CISC 系。", "plus": "RISC＝命令が単純・固定長・レジスタ間演算中心（Arm、RISC-V）。CISC＝命令が複雑・可変長（x86）。現在の x86 は内部で RISC 的に分解して実行している。"}, {"cat": "4 システム構成要素", "q": "2台のシステムを用意し、常用系に障害が発生したら待機系へ切り替える構成はどれか。", "a": "デュプレックスシステム", "abbr": "―", "note": "デュプレックス＝主系と待機系。デュアル＝2台が同じ処理をして結果を照合する（より高価・高信頼）。言葉が似ているので要注意。", "plus": "待機の仕方で ホットスタンバイ（すぐ切替）、ウォーム、コールド（電源断）に分かれる。2台で同じ処理をして照合するのがデュアルシステム。"}, {"cat": "4 システム構成要素", "q": "システムの稼働率を表す式として正しいものはどれか。", "a": "MTBF ÷ (MTBF + MTTR)", "abbr": "MTBF = Mean Time Between Failures ／ MTTR = Mean Time To Repair", "note": "「動いていた時間 ÷ 全体の時間」。MTBF は平均故障間隔（長いほど壊れにくい）、MTTR は平均修復時間（短いほど早く直る）。", "plus": "直列は 稼働率の積（どちらか壊れると止まる）。並列は 1−(1−A)(1−B)（両方壊れないと止まらない）。信頼性の指標 MTBF、保守性の指標 MTTR。"}, {"cat": "4 システム構成要素", "q": "複数のディスクにデータを分散して書き込み、性能を高めるが冗長性を持たない RAID レベルはどれか。", "a": "RAID0", "abbr": "RAID = Redundant Arrays of Inexpensive Disks", "note": "RAID0＝ストライピング（速いが1台壊れたら全滅）、RAID1＝ミラーリング（丸ごと複製）、RAID5＝パリティ分散（1台まで耐える）、RAID6＝2台まで耐える。", "plus": "RAID1+0（ミラーを束ねてストライプ）は性能と冗長性を両立。必要台数は RAID0が2台〜、RAID1が2台、RAID5が3台〜、RAID6が4台〜。"}, {"cat": "4 システム構成要素", "q": "障害が発生したとき、機能を縮退させてでもシステムを動かし続ける設計思想はどれか。", "a": "フェールソフト", "abbr": "―", "note": "フェールソフト＝性能を落としても止めない。フェールセーフ＝壊れるときは安全側に倒す（信号機を赤にする）。フールプルーフ＝誤操作をさせない。", "plus": "似た用語の整理 ── フォールトトレラント（故障しても機能を落とさない）、フォールトアボイダンス（そもそも壊れにくくする）、フェールセーフ（安全側へ）、フールプルーフ（誤操作防止）。"}, {"cat": "4 システム構成要素", "q": "複数のサーバへ処理を振り分け、負荷を均等化する装置・機能はどれか。", "a": "ロードバランサ", "abbr": "―", "note": "振り分け方式はラウンドロビン（順番）、最小コネクション（空いている方）、加重（性能差を考慮）など。", "plus": "セッションを同じサーバへ固定するのがスティッキーセッション（セッションアフィニティ）。ヘルスチェックで異常なサーバを振り分け対象から外す。"}, {"cat": "4 システム構成要素", "q": "システムの処理能力が限界に近づいたとき、サーバの台数を増やして対応する方式はどれか。", "a": "スケールアウト", "abbr": "―", "note": "スケールアウト＝台数を増やす（横に伸ばす）。スケールアップ＝1台を高性能にする（縦に伸ばす）。減らすのが イン／ダウン。", "plus": "スケールアウトは Web サーバのように並べやすい層に向く。データベースは整合性の都合でスケールアップが基本だが、読み取りはレプリカで分散できる。"}, {"cat": "4 システム構成要素", "q": "クライアントには画面転送だけを行い、処理とデータをサーバ側に集約する方式はどれか。", "a": "シンクライアント", "abbr": "―", "note": "端末にデータが残らないので情報漏えいに強い。反面、ネットワークが切れると何もできない。", "plus": "方式は 画面転送型（VDI・サーバベース）と ネットワークブート型。VDI は Virtual Desktop Infrastructure。"}, {"cat": "4 システム構成要素", "q": "複数の仮想マシンを1台の物理サーバ上で動かすための制御ソフトウェアはどれか。", "a": "ハイパバイザ", "abbr": "―", "note": "ハードウェア上で直接動くのがタイプ1（ベアメタル）、OS 上で動くのがタイプ2。コンテナは OS カーネルを共有するので、仮想マシンより軽い。", "plus": "仮想マシン＝OS ごと仮想化（重いが分離が強い）。コンテナ＝カーネル共有（軽いが分離は弱い）。複数コンテナの管理に Kubernetes を使う。"}, {"cat": "5 ソフトウェア", "q": "OS のタスク管理において、実行可能状態のタスクに CPU を割り当てる処理はどれか。", "a": "ディスパッチ", "abbr": "―", "note": "「実行可能」の行列から1つ選んで CPU を渡す。選び方の方針がスケジューリング（ラウンドロビン、優先度順など）。", "plus": "タスクの状態は 実行可能・実行中・待ち の3つ。スケジューリング方式は ラウンドロビン、優先度順、到着順、処理時間順。優先度の低いタスクが永久に実行されないのがスタベーション。"}, {"cat": "5 ソフトウェア", "q": "主記憶の容量を超えるプログラムを、補助記憶を用いて実行できるようにする仕組みはどれか。", "a": "仮想記憶", "abbr": "―", "note": "必要な部分だけ主記憶に載せ、残りはディスクに置く。載せ替えが頻発して処理が進まなくなる現象がスラッシング。", "plus": "方式は ページング（固定長）と セグメンテーション（可変長）。ページ置換えアルゴリズムは LRU（最も長く未使用）、FIFO、LFU。"}, {"cat": "5 ソフトウェア", "q": "複数のプロセスが互いに相手の資源の解放を待ち、処理が進まなくなる状態はどれか。", "a": "デッドロック", "abbr": "―", "note": "AがBの持つ資源を、BがAの持つ資源を待つ状態。防ぐには資源の取得順序を全体で統一するのが基本。", "plus": "発生条件は 相互排除・保持と待機・横取り不可・循環待ち の4つ。1つでも崩せば起きない。対策は 予防・回避（銀行家アルゴリズム）・検出と回復。"}, {"cat": "5 ソフトウェア", "q": "ページング方式において、参照されたページが主記憶に存在しない場合に発生する事象はどれか。", "a": "ページフォールト", "abbr": "―", "note": "「ない」とわかってからディスクから読み込む。どのページを追い出すかの方式が LRU（最も長く使われていないもの）など。", "plus": "多重度を上げすぎてページング処理ばかりになる状態がスラッシング。対策は 主記憶の増設、多重度の抑制、ワーキングセットの考慮。"}, {"cat": "5 ソフトウェア", "q": "印刷データを一時的に補助記憶に書き出し、CPU と低速な装置の速度差を吸収する機能はどれか。", "a": "スプーリング", "abbr": "―", "note": "プリンタが遅くてもアプリはすぐ次の処理に移れる。Spool は Simultaneous Peripheral Operation On-Line の頭字語とされる。", "plus": "バッファは主記憶、スプールは補助記憶を使う点が違う。どちらも 速度差のある装置の間に置いて待ち時間を減らす仕組み。"}, {"cat": "5 ソフトウェア", "q": "ソースコードが公開され、改変・再配布が認められているソフトウェアを指す用語はどれか。", "a": "OSS", "abbr": "OSS = Open Source Software", "note": "「無料」ではなく「ソースが開かれている」が定義。OSI の定義では再配布の自由、派生物の許可など10項目を満たす必要がある。", "plus": "ライセンスは GPL（コピーレフト強）、LGPL・MPL（弱）、MIT・BSD・Apache（ゆるい）。Apache 2.0 は特許条項を持つ。商用利用の前に必ず確認する。"}, {"cat": "5 ソフトウェア", "q": "複数のプログラムから共通して利用される機能をまとめ、実行時に結合されるファイルはどれか。", "a": "動的リンクライブラリ", "abbr": "DLL = Dynamic Link Library", "note": "実行時に読み込むので、本体が小さくなり更新も差し替えだけで済む。反面、版が合わないと動かない（DLL地獄）。", "plus": "静的リンク＝実行ファイルに取り込む（大きいが単体で動く）。動的リンク＝実行時に読む（小さいが依存する）。Linux では共有ライブラリ（.so）。"}, {"cat": "5 ソフトウェア", "q": "アプリケーションを、実行環境ごと一つのイメージにまとめて可搬性を高める技術はどれか。", "a": "コンテナ", "abbr": "―", "note": "OS カーネルはホストと共有し、アプリと依存ライブラリだけを包む。起動が速く、イメージが小さい。", "plus": "イメージの定義が Dockerfile、起動単位がコンテナ。複数ホストにまたがる運用が オーケストレーション（Kubernetes）。仮想マシンとの違いはカーネルを共有するかどうか。"}, {"cat": "6 ハードウェア", "q": "論理回路のうち、入力がともに1のときだけ出力が1となるものはどれか。", "a": "AND回路", "abbr": "―", "note": "AND＝両方とも。OR＝どちらか。XOR＝どちらか一方だけ（違うとき1）。NAND は AND の否定で、これだけで全回路が作れる。", "plus": "真理値表で覚える。NAND と NOR はそれぞれ単独で全論理回路を構成できる（完全系）。XOR は加算器の桁の計算に使う。"}, {"cat": "6 ハードウェア", "q": "クロック信号に同期して動作し、1ビットの情報を保持する基本的な記憶回路はどれか。", "a": "フリップフロップ", "abbr": "―", "note": "1ビットの記憶素子。これを並べるとレジスタになり、さらに集めると SRAM になる。", "plus": "種類は RS型・D型・JK型・T型。組合せ回路（出力が入力だけで決まる）と 順序回路（過去の状態にも依存）の違いも頻出。"}, {"cat": "6 ハードウェア", "q": "設計後に利用者が論理回路を書き換えられる集積回路はどれか。", "a": "FPGA", "abbr": "FPGA = Field Programmable Gate Array", "note": "現場（Field）で書き換えられるゲートの配列。ASIC（Application Specific IC）は専用に焼くので速くて安いが、後から変えられない。", "plus": "開発コストと量産単価は逆。少量・仕様変更ありなら FPGA、大量・仕様固定なら ASIC。記述言語は VHDL・Verilog HDL。"}, {"cat": "6 ハードウェア", "q": "機器に組み込まれ、ハードウェアを直接制御する基本ソフトウェアを指す用語はどれか。", "a": "ファームウェア", "abbr": "―", "note": "ROM に書き込まれた「ハードに近いソフト」。ルータやプリンタの更新で「ファームウェアアップデート」と出てくるあれ。", "plus": "格納先は ROM／フラッシュ。更新できるものを フラッシュ ROM に置く。組込みシステムでは リアルタイム OS（RTOS）と組み合わせることが多い。"}, {"cat": "6 ハードウェア", "q": "機器の消費電力や発熱を抑えるため、処理負荷に応じて動作周波数と電圧を変える技術はどれか。", "a": "DVFS", "abbr": "DVFS = Dynamic Voltage and Frequency Scaling", "note": "暇なときは遅く・低電圧で動かす。消費電力は電圧の2乗に比例するので、電圧を下げる効果が大きい。", "plus": "消費電力 P ∝ 静電容量 × 電圧² × 周波数。だから電圧を下げる効果が大きい。関連語に クロックゲーティング（使わない回路のクロックを止める）、パワーゲーティング（電源を切る）。"}, {"cat": "7 ユーザーインタフェース", "q": "年齢や障害の有無にかかわらず、できるだけ多くの人が利用できるように設計する考え方はどれか。", "a": "ユニバーサルデザイン", "abbr": "―", "note": "ユニバーサルデザイン＝最初からみんなが使える設計。アクセシビリティ＝利用のしやすさ・到達可能性で、特に障害者・高齢者を想定した指標として使われる。", "plus": "7原則 ── 公平・自由度・単純さ・分かりやすさ・安全性・省体力・空間確保。Web の指針が WCAG、日本工業規格が JIS X 8341。"}, {"cat": "7 ユーザーインタフェース", "q": "画面サイズに応じてレイアウトを可変させ、PC・スマートフォンの双方で見やすくする設計手法はどれか。", "a": "レスポンシブWebデザイン", "abbr": "―", "note": "CSS のメディアクエリで切り替えるのが代表的な実装。1つの HTML で複数の画面幅に対応する。", "plus": "手段は メディアクエリ、可変グリッド、可変画像。スマホを先に設計するのがモバイルファースト。"}, {"cat": "7 ユーザーインタフェース", "q": "利用者が操作した結果を、画面表示や音などで即座に知らせることを何というか。", "a": "フィードバック", "abbr": "―", "note": "「押したことが分かる」こと。アフォーダンスは「それが何に使えるか」を形が示すこと（取っ手は引きたくなる）。", "plus": "ノーマンの設計6原則 ── 可視性・フィードバック・対応づけ・制約・一貫性・アフォーダンス。シグニファイアは「どう使うかの手がかり」。"}, {"cat": "7 ユーザーインタフェース", "q": "Webページの利用者が、目的の情報まで何回のクリックで到達できるかを示す指標に関係する設計原則はどれか。", "a": "3クリックルール", "abbr": "―", "note": "フィッツの法則＝対象が大きく近いほど速く押せる。ヒックの法則＝選択肢が多いほど迷う。ミラーの法則＝人が一度に覚えられるのは7±2 個。", "plus": "評価手法は ユーザビリティテスト（実際に使わせる）、ヒューリスティック評価（専門家が指針で点検）、アイトラッキング。ISO 9241-11 がユーザビリティの定義。"}, {"cat": "8 情報メディア", "q": "静止画の圧縮方式のうち、非可逆圧縮で写真に適しているものはどれか。", "a": "JPEG", "abbr": "JPEG = Joint Photographic Experts Group", "note": "非可逆＝元に戻らないが小さくなる。写真向き。PNG は可逆で、図やスクリーンショット向き。GIF は256色でアニメ可。", "plus": "可逆＝PNG・GIF・BMP。非可逆＝JPEG。写真は JPEG、図やスクショは PNG、アニメは GIF／APNG。近年は WebP・AVIF が両対応で高圧縮。"}, {"cat": "8 情報メディア", "q": "動画圧縮の国際標準のうち、現在のインターネット配信で広く使われているものはどれか。", "a": "H.264/MPEG-4 AVC", "abbr": "AVC = Advanced Video Coding", "note": "MPEG-2 は地上デジタル放送・DVD。H.264 は Web配信・Blu-ray。後継の H.265（HEVC）はさらに圧縮率が高い。", "plus": "MPEG-1＝VideoCD、MPEG-2＝DVD・地デジ、MPEG-4＝Web・携帯。音声は MP3（MPEG-1 Audio Layer3）、AAC。配信方式に HLS・MPEG-DASH。"}, {"cat": "8 情報メディア", "q": "現実の風景にコンピュータが生成した情報を重ねて表示する技術はどれか。", "a": "AR", "abbr": "AR = Augmented Reality（拡張現実）", "note": "VR（Virtual Reality）は現実を遮断して仮想空間に入る。AR は現実に情報を足す。MR（Mixed Reality）は両者を融合し、仮想物体と現実が相互作用する。", "plus": "VR＝完全に仮想、AR＝現実に重ねる、MR＝相互作用する、SR＝代替現実。総称が XR。位置合わせに マーカ型と マーカレス型がある。"}, {"cat": "8 情報メディア", "q": "3次元のモデルに対して、光源の位置を考慮して明暗や影を計算し、画像を生成する処理はどれか。", "a": "レンダリング", "abbr": "―", "note": "レンダリング＝最終的な絵を作る工程。アンチエイリアシングは斜め線のギザギザを滑らかにする処理で、レンダリングの一部。", "plus": "3DCG の流れは モデリング → テクスチャマッピング → ライティング → レンダリング。手法に レイトレーシング（光線追跡・高品質）、ラジオシティ（相互反射）。"}, {"cat": "9 データベース", "q": "関係データベースにおいて、行を一意に識別するために定める列（または列の組）はどれか。", "a": "主キー", "abbr": "―", "note": "主キーは NULL を許さず、重複もしない。候補キーのうち1つを選んだものが主キーで、選ばれなかったものが代替キー。", "plus": "候補キーのうち選ばれたものが主キー、残りが代替キー。複数列の組合せでもよい（複合キー）。他に スーパキー（一意に決まる列の集合）。"}, {"cat": "9 データベース", "q": "他の表の主キーを参照し、表と表の関連を表す列はどれか。", "a": "外部キー", "abbr": "―", "note": "参照先に存在しない値を入れさせない仕組みが参照整合性制約。親の行を消すときの挙動（CASCADE など）もここで決める。", "plus": "参照整合性の違反を防ぐ動作は CASCADE（連鎖）、RESTRICT／NO ACTION（拒否）、SET NULL。設計時にどれを選ぶかを決めておく。"}, {"cat": "9 データベース", "q": "第3正規形の条件として適切なものはどれか。", "a": "主キー以外の項目に従属する項目がない", "abbr": "―", "note": "第1＝繰返しをなくす、第2＝部分関数従属をなくす、第3＝推移的関数従属をなくす。「キー以外がキー以外を決めている」のを分離するのが第3。", "plus": "正規化の目的は 更新時異常の排除。進めるほど表が増えて結合が多くなり、性能は落ちる。意図的に戻すのが 非正規化。"}, {"cat": "9 データベース", "q": "トランザクションが満たすべき4つの性質を表す用語はどれか。", "a": "ACID", "abbr": "ACID = Atomicity / Consistency / Isolation / Durability", "note": "原子性（全部やるか全部やらないか）・一貫性・独立性・耐久性。分散DBでこれを緩めた考え方が BASE。", "plus": "分離レベルは READ UNCOMMITTED／READ COMMITTED／REPEATABLE READ／SERIALIZABLE。緩いほど速いが、ダーティリード・ファントムリードが起きる。"}, {"cat": "9 データベース", "q": "複数のトランザクションを同時実行しても、逐次実行した場合と同じ結果になる性質はどれか。", "a": "直列化可能性", "abbr": "―", "note": "同時に動かしても「順番にやったのと同じ」になること。これを保つ代表的な方式が2相ロッキングプロトコル。", "plus": "実現方式は ロック方式（2相ロック）と 時刻印（タイムスタンプ）方式、楽観的方式。ロックの粒度は 表・ページ・行 で、細かいほど同時実行性が高い。"}, {"cat": "9 データベース", "q": "障害発生時に、更新前のデータを用いてトランザクション開始前の状態に戻す処理はどれか。", "a": "ロールバック", "abbr": "―", "note": "ロールバック＝前に戻す（更新前ログを使う）。ロールフォワード＝バックアップから進める（更新後ログを使う）。どちらを使うかは障害の種類で決まる。", "plus": "障害の種類で復旧が違う ── トランザクション障害＝ロールバック、システム障害＝ログで再実行、媒体障害＝バックアップ＋ロールフォワード。チェックポイントは復旧の起点。"}, {"cat": "9 データベース", "q": "検索を高速化するために、特定の列の値と行の位置を別に保持する仕組みはどれか。", "a": "インデックス", "abbr": "―", "note": "本の索引と同じ。検索は速くなるが、更新時に索引も直すので書き込みは遅くなる。張りすぎは逆効果。", "plus": "方式は B木（範囲検索に強い・標準）、ハッシュ（等価検索のみ）、ビットマップ（値の種類が少ない列）。実行計画で使われているか確認する。"}, {"cat": "9 データベース", "q": "実表から必要な列・行だけを取り出して定義する、仮想的な表はどれか。", "a": "ビュー", "abbr": "―", "note": "実データは持たず、SELECT 文に名前を付けたもの。見せたくない列を隠すなど、権限制御にも使える。", "plus": "更新できるビューには制限がある（集計や結合を含むと不可のことが多い）。実データを持たせたものが マテリアライズドビュー。"}, {"cat": "9 データベース", "q": "関係データベースの表から、条件に合う行を取り出す演算はどれか。", "a": "選択", "abbr": "―", "note": "選択＝行を絞る（横に切る）、射影＝列を絞る（縦に切る）、結合＝複数表をつなぐ。SQL では WHERE / SELECT句 / JOIN。", "plus": "関係代数は 選択・射影・結合・和・差・積・商。SQL との対応は 選択＝WHERE、射影＝SELECT句、結合＝JOIN。"}, {"cat": "9 データベース", "q": "構造が固定されないデータを柔軟に扱え、水平スケールに適したデータベースの総称はどれか。", "a": "NoSQL", "abbr": "―", "note": "キーバリュー型・ドキュメント型・列指向・グラフ型の4分類。スキーマレスで大量データに強いが、複雑な結合は苦手。", "plus": "分散システムは CAP 定理（一貫性・可用性・分断耐性のうち2つまで）に縛られる。RDB は ACID、NoSQL は BASE（結果整合性）寄り。"}, {"cat": "10 ネットワーク", "q": "OSI 基本参照モデルにおいて、経路選択（ルーティング）を担う層はどれか。", "a": "ネットワーク層", "abbr": "OSI = Open Systems Interconnection", "note": "下から 物理・データリンク・ネットワーク・トランスポート・セション・プレゼンテーション・アプリケーション の7層。第3層がルータの担当。", "plus": "層と機器の対応 ── 物理層＝リピータ／ハブ、データリンク層＝ブリッジ／L2スイッチ、ネットワーク層＝ルータ／L3スイッチ、トランスポート層以上＝ゲートウェイ。"}, {"cat": "10 ネットワーク", "q": "TCP の特徴として適切なものはどれか。", "a": "コネクション型で順序制御・再送制御を行う", "abbr": "TCP = Transmission Control Protocol", "note": "3ウェイハンドシェイクで接続を確立し、届いたか確認しながら送る。確認しない代わりに軽いのが UDP で、音声・動画向き。", "plus": "TCP は 3ウェイハンドシェイク（SYN → SYN/ACK → ACK）で接続。ウィンドウ制御で流量を、スロースタートで輻輳を制御する。UDP はこれらを持たない。"}, {"cat": "10 ネットワーク", "q": "IPアドレス 192.168.10.0/24 のネットワークで、ホストに割り当てられるアドレスの個数はどれか。", "a": "254個", "abbr": "―", "note": "/24 は 2^8 = 256 個。先頭（ネットワークアドレス）と末尾（ブロードキャストアドレス）は使えないので 254 個。", "plus": "計算の型 ── ホスト数 = 2^(32−プレフィックス長) − 2。/30 は2台、/29 は6台、/28 は14台。CIDR 表記とサブネットマスクの対応も確認。"}, {"cat": "10 ネットワーク", "q": "プライベートIPアドレスをグローバルIPアドレスへ変換し、ポート番号も併せて変換する技術はどれか。", "a": "NAPT（IPマスカレード）", "abbr": "NAPT = Network Address Port Translation", "note": "NAT は1対1、NAPT はポート番号も変えるので多対1。家庭のルータがこれで、複数端末が1つのグローバルIPを共有できる。", "plus": "プライベートIPの範囲は 10.0.0.0/8、172.16.0.0/12、192.168.0.0/16。外から中へ通したいときは ポートフォワーディング（静的NAT）を設定する。"}, {"cat": "10 ネットワーク", "q": "ドメイン名から IPアドレスを得る仕組みはどれか。", "a": "DNS", "abbr": "DNS = Domain Name System", "note": "名前 → IP が正引き、IP → 名前が逆引き。ARP は同一セグメント内で IP → MAC を解決する別の仕組み。", "plus": "レコード種別は A（IPv4）、AAAA（IPv6）、CNAME（別名）、MX（メール）、NS（ネームサーバ）、TXT（SPF 等）。偽の応答を信じ込ませる攻撃が DNS キャッシュポイズニング、対策が DNSSEC。"}, {"cat": "10 ネットワーク", "q": "IPアドレスやデフォルトゲートウェイなどのネットワーク設定を、端末へ自動で配布するプロトコルはどれか。", "a": "DHCP", "abbr": "DHCP = Dynamic Host Configuration Protocol", "note": "貸し出しには期限（リース期間）がある。端末が増減する環境で手作業の設定をなくせる。", "plus": "やり取りは DISCOVER → OFFER → REQUEST → ACK。別セグメントの DHCP サーバを使うには DHCP リレーエージェントが要る。"}, {"cat": "10 ネットワーク", "q": "同一セグメント内で、IPアドレスから MACアドレスを求めるプロトコルはどれか。", "a": "ARP", "abbr": "ARP = Address Resolution Protocol", "note": "「このIPの人、MAC教えて」とブロードキャストする。結果はARPテーブルに一定時間キャッシュされる。", "plus": "偽の応答で通信を乗っ取る攻撃が ARP スプーフィング。IPv6 では ARP の代わりに ND（近隣探索）プロトコルを使う。"}, {"cat": "10 ネットワーク", "q": "ネットワークの疎通確認に用いる ping コマンドが使用するプロトコルはどれか。", "a": "ICMP", "abbr": "ICMP = Internet Control Message Protocol", "note": "エコー要求を送り、エコー応答が返るかを見る。TCP/UDP と違いポート番号を持たないので、ファイアウォールでは別枠で許可する必要がある。", "plus": "ping＝エコー要求／応答、traceroute＝TTL を1ずつ増やして経路を調べる。ICMP を悪用した攻撃に Smurf 攻撃、Ping of Death。"}, {"cat": "10 ネットワーク", "q": "レイヤ2スイッチが、フレームの転送先を決定するために参照する情報はどれか。", "a": "MACアドレス", "abbr": "MAC = Media Access Control", "note": "どのポートにどの MAC がいるかを学習してテーブルを作る。IPを見て転送するのはレイヤ3スイッチ／ルータ。", "plus": "48ビットで、前半24ビットがベンダ識別子（OUI）。宛先不明のフレームは全ポートへ流す（フラッディング）。スイッチは全二重・衝突なし、ハブは半二重・衝突あり。"}, {"cat": "10 ネットワーク", "q": "物理的な配線を変えずに、論理的にネットワークを分割する技術はどれか。", "a": "VLAN", "abbr": "VLAN = Virtual LAN", "note": "同じスイッチにつながっていても、別のネットワークとして扱える。部署ごとに分けてブロードキャストを抑える用途が多い。", "plus": "分け方は ポートベース（静的）と タグ VLAN（IEEE 802.1Q・1本の線で複数VLANを運ぶ）。VLAN 間の通信にはルータか L3スイッチが要る。"}, {"cat": "10 ネットワーク", "q": "スイッチを冗長構成にしたとき、ループの発生を防ぐプロトコルはどれか。", "a": "STP", "abbr": "STP = Spanning Tree Protocol", "note": "ループがあるとブロードキャストが無限に回って回線が死ぬ（ブロードキャストストーム）。STP は余分な経路を論理的に遮断する。", "plus": "収束が速い改良版が RSTP（802.1w）、VLAN ごとに木を作るのが MSTP。回線を束ねて帯域を増やすのは LACP（リンクアグリゲーション）。"}, {"cat": "10 ネットワーク", "q": "公衆回線上に暗号化された仮想的な専用線を構築する技術はどれか。", "a": "VPN", "abbr": "VPN = Virtual Private Network", "note": "拠点間を結ぶサイト間VPNと、個人端末が社内に入るリモートアクセスVPNがある。IPsec や TLS が使われる。", "plus": "方式は IPsec-VPN（ネットワーク層・拠点間向き）と SSL/TLS-VPN（アプリ層・ブラウザで使える）。IPsec のモードは トランスポートモードとトンネルモード。"}, {"cat": "11 セキュリティ", "q": "情報セキュリティの3要素として正しい組合せはどれか。", "a": "機密性・完全性・可用性", "abbr": "CIA = Confidentiality / Integrity / Availability", "note": "機密性＝見せない、完全性＝改ざんされない、可用性＝使えなくならない。これに真正性・責任追跡性・否認防止・信頼性を足して7要素とすることもある。", "plus": "追加の4要素は 真正性（なりすましでない）、責任追跡性（誰がやったか追える）、否認防止（やっていないと言わせない）、信頼性（意図どおり動く）。"}, {"cat": "11 セキュリティ", "q": "共通鍵暗号方式の特徴として適切なものはどれか。", "a": "暗号化と復号で同じ鍵を使い、処理が高速である", "abbr": "AES = Advanced Encryption Standard", "note": "速いが、相手ごとに鍵を安全に渡す問題（鍵配送問題）がある。n人なら n(n−1)/2 個の鍵が必要。", "plus": "代表は AES（標準）、3DES（旧）、ChaCha20。方式は ブロック暗号（AES）と ストリーム暗号。鍵配送問題を解く手段が 公開鍵暗号や Diffie-Hellman 鍵交換。"}, {"cat": "11 セキュリティ", "q": "公開鍵暗号方式において、送信者が暗号化に用いる鍵はどれか。", "a": "受信者の公開鍵", "abbr": "RSA = Rivest-Shamir-Adleman", "note": "「受信者の公開鍵で暗号化 → 受信者の秘密鍵で復号」。これなら受信者本人しか読めない。署名のときは逆（自分の秘密鍵で署名）。", "plus": "実務では ハイブリッド暗号 ── 共通鍵でデータを暗号化し、その共通鍵を公開鍵暗号で送る。速さと鍵配送の両方を解決する。TLS がこの方式。"}, {"cat": "11 セキュリティ", "q": "ディジタル署名において、署名の作成に用いる鍵はどれか。", "a": "署名者の秘密鍵", "abbr": "―", "note": "自分の秘密鍵で署名し、相手は公開鍵で検証する。秘密鍵を持つのは本人だけなので「本人が書いた」「改ざんされていない」が示せる。", "plus": "手順は ①本文のハッシュを取る ②自分の秘密鍵で暗号化＝署名 ③相手は公開鍵で復号し、自分で計算したハッシュと比較。本人性と非改ざん性が同時に示せる。"}, {"cat": "11 セキュリティ", "q": "公開鍵が確かに本人のものであることを第三者が保証する仕組みはどれか。", "a": "PKI", "abbr": "PKI = Public Key Infrastructure ／ CA = Certification Authority", "note": "認証局（CA）が公開鍵に電子署名した証明書を発行する。ブラウザの鍵マークは、この連鎖（チェーン）が検証できた印。", "plus": "証明書の規格は X.509。失効の確認は CRL（失効リスト）と OCSP（都度問合せ）。ルート認証局から順に信頼が伝わるのが 証明書チェーン。"}, {"cat": "11 セキュリティ", "q": "任意長のデータから固定長の値を生成し、元のデータの復元が困難な関数はどれか。", "a": "ハッシュ関数", "abbr": "SHA = Secure Hash Algorithm", "note": "一方向で、少しでも変えると値が大きく変わる。改ざん検知やパスワード保存に使う。SHA-256 が標準で、MD5・SHA-1 はもう使わない。", "plus": "性質は 一方向性、衝突耐性、雪崩効果。用途は 改ざん検知、パスワード保存、ブロックチェーン。MD5・SHA-1 は衝突が見つかっており使用非推奨。"}, {"cat": "11 セキュリティ", "q": "パスワードをハッシュ化して保存する際、利用者ごとに異なる値を加えて同じパスワードでも異なるハッシュにする手法はどれか。", "a": "ソルト", "abbr": "―", "note": "同じパスワードなら同じハッシュになる弱点をなくす。レインボーテーブル攻撃への対策。何度もハッシュを繰り返すストレッチングと併用する。", "plus": "ソルト＝利用者ごとの付加値（DBに保存）。ペッパー＝全体共通の秘密値（DBの外に保存）。ストレッチング＝ハッシュを数千〜数万回繰り返す。3つ併用が定石。"}, {"cat": "11 セキュリティ", "q": "利用者が入力した文字列をそのままSQL文に組み込むことで、意図しないデータベース操作を許す脆弱性はどれか。", "a": "SQLインジェクション", "abbr": "―", "note": "対策はプレースホルダ（バインド機構）を使うこと。入力値のエスケープだけに頼る対策は漏れが出やすい。", "plus": "対策の優先順位は ①プレースホルダ（バインド機構）②エスケープ処理 ③最小権限のDBユーザ ④エラーメッセージを返さない。WAF は補助。"}, {"cat": "11 セキュリティ", "q": "Webページに不正なスクリプトを埋め込み、閲覧者のブラウザ上で実行させる攻撃はどれか。", "a": "XSS", "abbr": "XSS = Cross Site Scripting", "note": "出力時のエスケープが基本対策。Cookie を盗まれないよう HttpOnly 属性を付けるのも併用する。", "plus": "種類は 反射型（URLに仕込む）、格納型（DBに保存される・被害大）、DOM型（JavaScript内で発生）。対策は 出力エスケープ、CSP、HttpOnly、入力値検証。"}, {"cat": "11 セキュリティ", "q": "ログイン済みの利用者に、本人が意図しないリクエストを送信させる攻撃はどれか。", "a": "CSRF", "abbr": "CSRF = Cross Site Request Forgery", "note": "対策はリクエストごとにトークンを埋め込み、サーバ側で照合すること。SameSite Cookie も有効。", "plus": "XSS は「スクリプトを実行させる」、CSRF は「正規のリクエストを送らせる」。対策はトークン照合、Referer 確認、SameSite Cookie、重要操作での再認証。"}, {"cat": "11 セキュリティ", "q": "複数の経路から一斉に大量のパケットを送り、サービスを停止させる攻撃はどれか。", "a": "DDoS攻撃", "abbr": "DDoS = Distributed Denial of Service", "note": "1か所からが DoS、多数の踏み台からが DDoS。送信元が分散するのでIP遮断だけでは防げない。", "plus": "手口は SYN フラッド、UDP フラッド、DNS／NTP リフレクション（増幅攻撃）。対策は CDN・スクラビングセンタ・レート制限。踏み台にされない設定も重要。"}, {"cat": "11 セキュリティ", "q": "特定の組織を狙い、業務を装ったメールなどで長期間にわたり侵入を試みる攻撃はどれか。", "a": "標的型攻撃", "abbr": "APT = Advanced Persistent Threat", "note": "不特定多数を狙うフィッシングと違い、相手を調べてから狙い撃つ。水飲み場型は、標的がよく見るサイトを改ざんして待ち伏せる手口。", "plus": "侵入後の流れは 初期侵入 → 内部活動（横展開）→ 情報収集 → 持ち出し。対策は 多層防御、EDR、ネットワーク分離、ゼロトラスト。"}, {"cat": "11 セキュリティ", "q": "既知の脆弱性に対する修正プログラムが公開される前に行われる攻撃はどれか。", "a": "ゼロデイ攻撃", "abbr": "―", "note": "対策（パッチ）が存在しない期間を突く。防ぐには多層防御（EDR、WAF、権限最小化）で「入られても広がらない」形にする。", "plus": "脆弱性の識別は CVE（番号）、深刻度は CVSS（0〜10のスコア）、種類は CWE。情報源は JVN、JPCERT/CC。パッチ適用までの暫定策が 緩和策（ミティゲーション）。"}, {"cat": "11 セキュリティ", "q": "通信を途中で傍受し、当事者になりすまして情報を盗む攻撃はどれか。", "a": "中間者攻撃", "abbr": "MITM = Man In The Middle", "note": "公衆Wi-Fiで起きやすい。TLS でサーバ証明書を検証していれば、なりすましに気づける。", "plus": "類似に リプレイ攻撃（盗んだ通信をそのまま再送）、セッションハイジャック。対策は TLS、証明書検証、ワンタイムトークン、ナンス。"}, {"cat": "11 セキュリティ", "q": "知識・所持・生体のうち、異なる2つ以上の要素を組み合わせて本人確認を行う方式はどれか。", "a": "多要素認証", "abbr": "MFA = Multi-Factor Authentication", "note": "パスワード（知識）＋スマホのコード（所持）＋指紋（生体）。「パスワード2回」は段階が2つでも要素は1つなので多要素ではない。", "plus": "3要素は 知識（パスワード）、所持（トークン・スマホ）、生体（指紋・顔）。生体認証の誤りは 本人拒否率（FRR）と 他人受入率（FAR）で評価し、両者は トレードオフ。"}, {"cat": "11 セキュリティ", "q": "一度の認証で複数のシステムを利用できるようにする仕組みはどれか。", "a": "シングルサインオン", "abbr": "SSO = Single Sign-On", "note": "利便性は上がるが、1つ破られると全部に入られる。SAML や OpenID Connect が代表的な実装方式。", "plus": "方式は エージェント型、リバースプロキシ型、フェデレーション型（SAML、OpenID Connect）。認可の仕組みが OAuth 2.0（認証ではない点に注意）。"}, {"cat": "11 セキュリティ", "q": "組織の情報セキュリティを継続的に管理・改善する仕組みを定めた規格はどれか。", "a": "ISO/IEC 27001", "abbr": "ISMS = Information Security Management System", "note": "27001＝情報セキュリティ。9001＝品質、14001＝環境、20000＝ITサービス管理。番号と対象をセットで覚える。", "plus": "ISMS の構築は PDCA。付属書Aに管理策が並ぶ（2022年版で93項目・4テーマへ再編）。実践規範が ISO/IEC 27002。"}, {"cat": "11 セキュリティ", "q": "内部ネットワークと外部ネットワークの間に設け、公開サーバを配置する領域はどれか。", "a": "DMZ", "abbr": "DMZ = DeMilitarized Zone（非武装地帯）", "note": "外部に公開するサーバを、内部LANとは別の区画に置く。万一そこが乗っ取られても、内部へ直接は行けないようにする。", "plus": "ファイアウォールの方式は パケットフィルタリング、ステートフルインスペクション、アプリケーションゲートウェイ（プロキシ）。侵入検知が IDS、遮断まで行うのが IPS、Web 特化が WAF。"}, {"cat": "12 システム開発技術", "q": "システム開発を、要件定義から運用まで順に進め、前工程へ戻らないことを原則とするモデルはどれか。", "a": "ウォータフォールモデル", "abbr": "―", "note": "工程ごとに成果物を固めるので管理しやすいが、後から要件が変わると手戻りが大きい。", "plus": "派生に V字モデル（各工程と対応するテストを結ぶ）。反復型に スパイラルモデル、インクリメンタルモデル、プロトタイピング。"}, {"cat": "12 システム開発技術", "q": "短い期間の反復で開発を進め、変化する要求に対応する開発手法の総称はどれか。", "a": "アジャイル開発", "abbr": "―", "note": "スクラムやXPが代表例。動くものを早く出して、フィードバックで直していく。", "plus": "アジャイルソフトウェア開発宣言の4つの価値。スクラムの3つの役割（プロダクトオーナー・スクラムマスター・開発者）と、スプリント・デイリースクラム・レトロスペクティブ。"}, {"cat": "12 システム開発技術", "q": "2人1組で、1人がコードを書き、もう1人がその場で確認しながら開発する手法はどれか。", "a": "ペアプログラミング", "abbr": "XP = eXtreme Programming", "note": "書きながらレビューするので、欠陥が早く見つかる。3人以上で画面を囲むのがモブプログラミング。", "plus": "XP のプラクティスは テスト駆動開発、ペアプログラミング、リファクタリング、継続的インテグレーション、オンサイト顧客、小さなリリース など。"}, {"cat": "12 システム開発技術", "q": "外部仕様だけを基にテストケースを作成し、内部構造を考慮しないテスト手法はどれか。", "a": "ブラックボックステスト", "abbr": "―", "note": "入力と出力だけを見る。同値分割・限界値分析でケースを作る。内部のコード経路を見るのがホワイトボックス。", "plus": "設計技法は 同値分割（代表値で試す）、限界値分析（境界の前後）、原因結果グラフ、デシジョンテーブル。境界は誤りが出やすいので重点的に。"}, {"cat": "12 システム開発技術", "q": "プログラム中のすべての命令を少なくとも1回は実行することを求めるテストの網羅基準はどれか。", "a": "命令網羅", "abbr": "―", "note": "命令網羅がいちばん緩い。判定条件網羅（分岐網羅）は if の真偽の両方を通す。上に行くほど厳しくケース数が増える。", "plus": "網羅の強さは 命令網羅 < 判定条件網羅（分岐網羅）< 条件網羅 < 判定条件／条件網羅 < 複数条件網羅。上ほどケース数が増える。"}, {"cat": "12 システム開発技術", "q": "モジュールを結合せず、単体で動作を確認するテストで、下位モジュールの代わりに用いる仮のモジュールはどれか。", "a": "スタブ", "abbr": "―", "note": "スタブ＝呼ばれる側の代役（トップダウンで使う）。ドライバ＝呼ぶ側の代役（ボトムアップで使う）。向きが逆。", "plus": "結合テストの進め方は トップダウン（スタブを使う）、ボトムアップ（ドライバを使う）、サンドイッチ（併用）、ビッグバン（一気に結合）。"}, {"cat": "12 システム開発技術", "q": "外部から見た振る舞いを変えずに、プログラムの内部構造を改善する作業はどれか。", "a": "リファクタリング", "abbr": "―", "note": "動作は同じまま、読みやすく直す。テストが揃っていることが前提で、壊していないことを都度確認する。", "plus": "前提は 自動テストがあること。リファクタリングで直す兆候が コードの臭い（重複、長すぎるメソッド、巨大クラスなど）。"}, {"cat": "12 システム開発技術", "q": "稼働中のシステムからプログラム仕様や設計情報を抽出する作業はどれか。", "a": "リバースエンジニアリング", "abbr": "―", "note": "設計書がない古いシステムを引き継ぐときに行う。抽出した設計から作り直すところまで含めるとリエンジニアリング。", "plus": "フォワード＝設計から実装へ。リバース＝実装から設計へ。両者を回して作り直すのが リエンジニアリング。他社製品の解析はライセンスや法律に抵触しうる点に注意。"}, {"cat": "13 ソフトウェア開発管理技術", "q": "ソースコードの変更履歴を記録し、複数人の並行作業を支援する仕組みはどれか。", "a": "構成管理（バージョン管理）", "abbr": "―", "note": "誰がいつ何を変えたかを残し、過去に戻せる。Git が代表例で、分岐（ブランチ）と統合（マージ）で並行作業を可能にする。", "plus": "集中型（Subversion）と 分散型（Git）。Git の基本は commit・branch・merge・pull request。変更の単位を小さく保つのがコツ。"}, {"cat": "13 ソフトウェア開発管理技術", "q": "コードの変更をリポジトリへ頻繁に統合し、その都度自動でビルドとテストを行う手法はどれか。", "a": "CI", "abbr": "CI = Continuous Integration（継続的インテグレーション）", "note": "「まとめて統合すると壊れる」を防ぐ。統合に続けて本番までの配置を自動化するのが CD（Continuous Delivery / Deployment）。", "plus": "CI の次が CD。Continuous Delivery＝本番直前まで自動、Continuous Deployment＝本番まで自動。環境をコードで作るのが IaC（Terraform、CloudFormation）。"}, {"cat": "13 ソフトウェア開発管理技術", "q": "テストコードを先に書き、それが通るように実装を進める開発手法はどれか。", "a": "TDD", "abbr": "TDD = Test Driven Development（テスト駆動開発）", "note": "「失敗するテストを書く → 通す → 整える」の繰り返し。仕様がテストとして残るので、後から安心して直せる。", "plus": "サイクルは レッド（失敗するテスト）→ グリーン（通す）→ リファクタ。振る舞いを自然言語で書くのが BDD、業務領域を中心に設計するのが DDD。"}, {"cat": "13 ソフトウェア開発管理技術", "q": "開発チームと運用チームが協調し、リリースの頻度と品質を同時に高める考え方はどれか。", "a": "DevOps", "abbr": "―", "note": "Development と Operations の合成語。「作る人」と「動かす人」の壁をなくす文化と、それを支える自動化の総称。", "plus": "さらにセキュリティを組み込むのが DevSecOps。指標に 4つのキーメトリクス（デプロイ頻度・変更リードタイム・変更失敗率・復旧時間）。"}, {"cat": "13 ソフトウェア開発管理技術", "q": "ソフトウェア開発組織の成熟度を5段階で評価するモデルはどれか。", "a": "CMMI", "abbr": "CMMI = Capability Maturity Model Integration", "note": "レベル1「場当たり的」からレベル5「最適化している」まで。プロセスがどれだけ定義・測定・改善されているかを見る。", "plus": "5段階は 初期 → 管理された → 定義された → 定量的に管理された → 最適化している。プロセス改善の枠組みとしては SPICE（ISO/IEC 15504）もある。"}];
+const CATS = ["1 基礎理論", "2 アルゴリズムとプログラミング", "3 コンピュータ構成要素", "4 システム構成要素", "5 ソフトウェア", "6 ハードウェア", "7 ユーザーインタフェース", "8 情報メディア", "9 データベース", "10 ネットワーク", "11 セキュリティ", "12 システム開発技術", "13 ソフトウェア開発管理技術"];
+const KEY = "a1-tech-ok";
+let filter = null, todoOnly = false, hideAll = false;
+let order = DATA.map((_,i)=>i);
+let ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify([...ok])); }catch(e){} }
+function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function chips(){
+  const el = document.getElementById("chips");
+  el.innerHTML = "";
+  const mk = (label, val) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = label;
+    b.setAttribute("aria-pressed", filter === val);
+    b.onclick = () => { filter = val; chips(); render(); el.scrollLeft = 0; };
+    el.appendChild(b);
+  };
+  mk("すべて", null);
+  CATS.forEach(c => mk(c, c));
+}
+
+function render(){
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  let shown = 0;
+  order.forEach(i => {
+    const d = DATA[i];
+    if (filter && d.cat !== filter) return;
+    if (todoOnly && ok.has(i)) return;
+    shown++;
+    const folded = ok.has(i) || hideAll;
+    const card = document.createElement("div");
+    card.className = "card" + (ok.has(i) ? " ok" : "");
+    card.innerHTML =
+      '<div class="q-header">' +
+        '<span class="q-num">Q' + String(i+1).padStart(3,"0") + '</span>' +
+        '<span class="q-cat">' + esc(d.cat) + '</span>' +
+        '<button class="q-chk">' + (ok.has(i) ? "覚えた" : "未チェック") + '</button>' +
+      '</div>' +
+      '<p class="q-text">' + esc(d.q) + '</p>' +
+      '<div class="body"' + (folded ? ' hidden' : '') + '>' +
+        '<p class="a">' + esc(d.a) + '</p>' +
+        (d.abbr !== "―" ? '<p class="abbr">' + esc(d.abbr) + '</p>' : '') +
+        '<div class="expl"><div class="expl-label">かんたん解説</div>' +
+        '<p class="expl-body">' + esc(d.note) + '</p></div>' +
+        (d.plus ? '<div class="plus"><div class="plus-label">あわせて覚える</div>' +
+                  '<p class="plus-body">' + esc(d.plus) + '</p></div>' : '') +
+      '</div>';
+
+    const body = card.querySelector(".body");
+    const chk = card.querySelector(".q-chk");
+    chk.onclick = () => {
+      if (ok.has(i)) {
+        ok.delete(i); card.classList.remove("ok");
+        chk.textContent = "未チェック"; body.hidden = hideAll;
+      } else {
+        ok.add(i); card.classList.add("ok");
+        chk.textContent = "覚えた"; body.hidden = true;
+      }
+      save(); progress();
+      if (todoOnly && ok.has(i)) render();
+    };
+
+    // 「答えを隠す」でたたまれているものは、設問をタップすると開く
+    if (folded && !ok.has(i)) {
+      const q = card.querySelector(".q-text");
+      q.style.cursor = "pointer";
+      q.title = "タップで答えを表示";
+      q.onclick = () => { body.hidden = false; };
+    }
+    list.appendChild(card);
+  });
+  document.getElementById("count").textContent = "表示 " + shown + " / 全 " + DATA.length + " 問";
+  progress();
+}
+
+function progress(){
+  document.getElementById("prog").textContent =
+    "覚えた " + ok.size + " / " + DATA.length + "（" + Math.round(ok.size/DATA.length*100) + "%）";
+}
+
+document.getElementById("hideAns").onclick = (e) => {
+  hideAll = !hideAll;
+  e.target.textContent = hideAll ? "答えを表示" : "答えを隠す";
+  e.target.classList.toggle("on", hideAll);
+  render();
+};
+document.getElementById("todo").onclick = (e) => {
+  todoOnly = !todoOnly;
+  e.target.classList.toggle("on", todoOnly);
+  render();
+};
+document.getElementById("shuffle").onclick = () => {
+  for (let i = order.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i],order[j]]=[order[j],order[i]]; }
+  render(); window.scrollTo(0,0);
+};
+document.getElementById("reset").onclick = () => { ok = new Set(); save(); render(); };
+
+chips(); render();
+</script>
+</body>
+</html>

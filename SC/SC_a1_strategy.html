@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1e3a5f">
+<title>科目A-1 ストラテジ系 49問</title>
+<style>
+:root{
+  --bg:#f0f4f8; --card:#ffffff; --border:#e2e8f0;
+  --text:#1e293b; --muted:#64748b; --navy:#1e3a5f;
+  --en-bg:#f8fafc; --en-border:#94a3b8;
+  --ja-bg:#eff6ff; --ja-border:#3b82f6;
+  --ans-bg:#ecfdf5; --ans-border:#10b981; --ans-text:#065f46;
+  --exp-bg:#fffbeb; --exp-border:#f59e0b; --exp-label:#92400e; --exp-text:#3d1a00;
+  --plus-bg:#f5f3ff; --plus-border:#8b5cf6; --plus-label:#5b21b6; --plus-text:#2e1065;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+              "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.75;
+  overflow-wrap:anywhere;
+}
+.wrap{max-width:820px;margin:0 auto;padding:1.2rem 1rem 5rem}
+
+/* ヘッダー */
+.head{margin-bottom:.9rem}
+.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;letter-spacing:.02em;line-height:1.35}
+.head .sub{margin:0;font-size:.78rem;color:var(--muted);line-height:1.6}
+
+/* 操作バー */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);
+     padding:.6rem 0 .7rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;
+       scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+      border-radius:20px;padding:.38rem .8rem;font-size:.76rem;font-weight:700;
+      cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap;flex:0 0 auto}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;margin-top:.5rem}
+.tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
+      border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
+      font-family:inherit;min-height:40px;line-height:1.3}
+.tools button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem;
+      margin-top:.5rem;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* カード */
+.card{background:var(--card);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;
+      box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--border)}
+.card.ok{background:#fbfdfc;border-color:#c7ebdd}
+.q-header{display:flex;align-items:center;gap:.45rem;margin-bottom:.75rem;flex-wrap:wrap}
+.q-num{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
+       font-weight:700;font-size:.78rem;flex-shrink:0;letter-spacing:.03em}
+.q-cat{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
+       color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
+.q-chk{margin-left:auto;background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+       border-radius:20px;padding:.4rem .8rem;font-size:.73rem;font-weight:700;
+       cursor:pointer;font-family:inherit;white-space:nowrap;min-height:34px}
+.card.ok .q-chk{background:var(--ans-border);border-color:var(--ans-border);color:#fff}
+.q-text{font-size:.94rem;line-height:1.75;padding:.7rem .85rem;margin:0 0 .7rem;
+        background:var(--ja-bg);border-left:3px solid var(--ja-border);
+        border-radius:0 6px 6px 0;color:var(--text)}
+.card.ok .q-text{margin-bottom:0}
+
+/* 答え・解説 */
+.a{font-size:.99rem;font-weight:800;line-height:1.6;margin:0 0 .5rem;
+   padding:.6rem .85rem;background:var(--ans-bg);border-left:4px solid var(--ans-border);
+   border-radius:0 7px 7px 0;color:var(--ans-text)}
+.abbr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.76rem;line-height:1.65;margin:0 0 .55rem;padding:.5rem .85rem;
+      background:var(--en-bg);border-left:3px solid var(--en-border);
+      border-radius:0 6px 6px 0;color:var(--muted)}
+.expl{background:var(--exp-bg);border-left:4px solid var(--exp-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem;margin-bottom:.5rem}
+.expl-label{font-size:.68rem;font-weight:800;color:var(--exp-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.expl-body{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
+.plus{background:var(--plus-bg);border-left:4px solid var(--plus-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem}
+.plus-label{font-size:.68rem;font-weight:800;color:var(--plus-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.plus-body{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
+
+.foot{margin-top:1.6rem;font-size:.72rem;line-height:1.7;color:var(--muted);text-align:center}
+
+/* スマホ */
+@media (max-width:600px){
+  .wrap{padding:.9rem .6rem 4rem}
+  .head h1{font-size:1.02rem}
+  .head .sub{font-size:.72rem}
+  .bar{padding:.5rem 0 .6rem;margin-bottom:.8rem}
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .card{padding:.85rem .85rem;border-radius:10px}
+  .q-header{gap:.35rem}
+  .q-chk{margin-left:auto;padding:.42rem .75rem;min-height:36px}
+  .q-text{padding:.6rem .7rem;font-size:.92rem}
+  .a{padding:.55rem .7rem;font-size:.95rem}
+  .abbr{padding:.45rem .7rem;font-size:.73rem}
+  .expl,.plus{padding:.7rem .75rem}
+  .expl-body{font-size:.87rem}
+  .plus-body{font-size:.84rem}
+}
+@media (max-width:380px){
+  .q-cat{font-size:.65rem;padding:.14rem .45rem}
+  .tools button{font-size:.69rem}
+}
+@media print{
+  .bar{display:none}
+  .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
+  body{background:#fff}
+  .card.ok .body{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>科目A-1 ストラテジ系 49問</h1>
+    <p class="sub">情報処理安全確保支援士試験 科目A-1（旧 午前I）／ 暗記用・解説一覧 ／ 計算問題なし</p>
+  </div>
+
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <div class="tools">
+      <button id="hideAns">答えを隠す</button>
+      <button id="todo">未チェックだけ</button>
+      <button id="shuffle">シャッフル</button>
+      <button id="reset">チェック解除</button>
+    </div>
+    <div class="meta"><span id="count"></span><span id="prog"></span></div>
+  </div>
+
+  <div id="list"></div>
+  <p class="foot">出典: IPA 試験要綱 Ver.5.6（2026年10月から適用）<br>出題範囲 科目A-1（共通知識・技術レベル3）</p>
+</div>
+
+<script>
+const DATA = [{"cat": "17 システム戦略", "q": "企業の情報システムのあるべき姿を、業務・データ・アプリケーション・技術の4つの体系で整理し、全体最適を図る手法はどれか。", "a": "EA（エンタープライズアーキテクチャ）", "abbr": "EA = Enterprise Architecture", "note": "会社全体の情報システムの「設計図」。部署ごとにバラバラに作ると二重投資が起きるので、全体を4階層（業務／データ／アプリ／技術）で描いて揃える。", "plus": "4体系は BA（ビジネス）・DA（データ）・AA（アプリケーション）・TA（テクノロジ）。現状（As-Is）と理想（To-Be）を描き、移行計画を立てるところまでが EA。"}, {"cat": "17 システム戦略", "q": "現状の業務や情報システムを「As-Is」、あるべき姿を「To-Be」とし、その差を埋める計画を立てる分析手法はどれか。", "a": "ギャップ分析", "abbr": "―", "note": "「今こう」「理想はこう」「差はこれ」の3点セット。現状把握がないとギャップは出せない。", "plus": "As-Is / To-Be と並んで、達成までの道筋を示すのがロードマップ。差の原因を掘るには なぜなぜ分析や特性要因図を使う。"}, {"cat": "17 システム戦略", "q": "情報システムの調達で、発注側が要件や目的を示して提案を募る文書はどれか。", "a": "RFP（提案依頼書）", "abbr": "RFP = Request For Proposal", "note": "「こういうものが欲しいので提案してください」という文書。先に出す RFI（Request For Information＝情報提供依頼書）は「何ができますか？」を聞く段階で、RFP より前。", "plus": "流れは RFI（情報提供依頼）→ RFP（提案依頼）→ 提案書受領 → 評価・選定 → 契約。見積りだけを求めるのが RFQ（Request For Quotation）。"}, {"cat": "17 システム戦略", "q": "業務プロセスを抜本的に再設計し、コスト・品質・スピードを劇的に改善する経営手法はどれか。", "a": "BPR（ビジネスプロセスリエンジニアリング）", "abbr": "BPR = Business Process Re-engineering", "note": "「今のやり方を改善する」ではなく「やり方ごと作り直す」。少しずつ直す BPM（Business Process Management）とは別物。", "plus": "継続的に少しずつ改善するのが BPM／カイゼン。BPR は不連続な作り直し。業務の流れを図にする手法が BPMN（記法）。"}, {"cat": "17 システム戦略", "q": "複数の企業や組織で、業務システムを共同利用する形態はどれか。", "a": "シェアードサービス", "abbr": "―", "note": "経理・人事などの間接業務を1か所に集約して、グループ各社で共用する。重複をなくしてコストを下げるのが狙い。", "plus": "外部へ委託するのがアウトソーシング、海外へ出すのがオフショア、近隣国がニアショア、国内地方がニアショア／地方拠点。社内に集約するのがシェアードサービス。"}, {"cat": "17 システム戦略", "q": "情報システム部門が提供するサービスの水準を、可用性・性能などの数値で合意した文書はどれか。", "a": "SLA（サービスレベル合意書）", "abbr": "SLA = Service Level Agreement", "note": "「月間稼働率99.9%」のような約束。守れなかったときの措置（減額など）までセットで決めるのが普通。", "plus": "指標の例は 稼働率・応答時間・復旧時間・障害件数。測れないものは SLA に書かない、が原則。達成度を管理する活動が SLM。"}, {"cat": "18 システム企画", "q": "システム化の目的・効果・費用・リスクを整理し、投資判断の材料とする文書はどれか。", "a": "システム化計画書", "abbr": "―", "note": "「やる・やらない」を決めるための資料。これが通ってから要件定義に進む。", "plus": "企画プロセスの流れは システム化構想の立案 → システム化計画の策定 → 要件定義。共通フレーム（SLCP-JCF）が各工程の用語を統一している。"}, {"cat": "18 システム企画", "q": "調達において、複数の候補から価格・技術・体制などを総合的に評価して発注先を選ぶ方式はどれか。", "a": "総合評価方式", "abbr": "―", "note": "値段だけで選ぶ「最低価格落札方式」の反対。安かろう悪かろうを避けるための方式。", "plus": "評価項目に重み付けをして点数化する。IT 調達では価格点と技術点の配分が論点になる。特定の製品を指名しない「機能要求」で書くのが原則。"}, {"cat": "18 システム企画", "q": "システムのライフサイクル全体（導入から廃棄まで）にかかる総費用を表す指標はどれか。", "a": "TCO（総所有コスト）", "abbr": "TCO = Total Cost of Ownership", "note": "買ったときの値段だけでなく、運用・保守・電気代・撤去費まで全部足したもの。オンプレとクラウドの比較で必ず出てくる。", "plus": "内訳は イニシャルコスト（導入時）と ランニングコスト（運用時）。運用が全体の7〜8割を占めることが多く、初期費用の安さだけで選ぶと損をする。"}, {"cat": "18 システム企画", "q": "情報システムへの投資について、投資額に対する利益の割合を示す指標はどれか。", "a": "ROI（投資利益率）", "abbr": "ROI = Return On Investment", "note": "「100万円かけて何万円得したか」。ROI = 利益 ÷ 投資額。似た用語の ROA は Return On Assets（総資産利益率）。", "plus": "投資評価の指標は他に NPV（正味現在価値）、IRR（内部収益率）、PBP（回収期間法）。NPV は将来のお金を現在価値に割り引いて評価する。"}, {"cat": "18 システム企画", "q": "ソフトウェアを自社開発せず、既製品のパッケージを導入してそのまま使うことを何というか。", "a": "ノンカスタマイズ導入（Fit to Standard）", "abbr": "―", "note": "製品に業務を合わせる考え方。逆に製品を業務に合わせるのが「カスタマイズ」で、こちらは保守費が膨らみやすい。", "plus": "対になるのが Fit & Gap 分析（製品と業務の差を洗い出す）。差を埋める手段は カスタマイズ・アドオン・業務変更 の3つで、保守コストは この順に安くなる。"}, {"cat": "18 システム企画", "q": "発注者と受注者が、成果物ではなく作業時間に対して報酬を支払う契約形態はどれか。", "a": "準委任契約", "abbr": "―", "note": "「完成」を約束しない代わりに、善管注意義務（きちんとやる義務）を負う。完成を約束するのが請負契約。瑕疵担保（契約不適合）責任の有無が大きな違い。", "plus": "請負＝完成責任あり・契約不適合責任あり。準委任＝善管注意義務。派遣＝指揮命令権が派遣先にある。発注者が受注者の社員へ直接指示すると偽装請負。"}, {"cat": "19 経営戦略マネジメント", "q": "市場成長率と相対的市場占有率の2軸で事業を4つに分類し、資源配分を決める手法はどれか。", "a": "PPM（プロダクトポートフォリオマネジメント）", "abbr": "PPM = Product Portfolio Management", "note": "「花形・金のなる木・問題児・負け犬」の4象限。金のなる木で稼いだ金を問題児に突っ込む、という判断に使う。", "plus": "縦軸が市場成長率、横軸が相対的市場占有率。花形＝両方高い、金のなる木＝成長低・占有高、問題児＝成長高・占有低、負け犬＝両方低い。"}, {"cat": "19 経営戦略マネジメント", "q": "自社の強み・弱み・機会・脅威を整理して戦略を立てる分析手法はどれか。", "a": "SWOT分析", "abbr": "SWOT = Strengths / Weaknesses / Opportunities / Threats", "note": "強み弱みは「社内」、機会脅威は「社外」。内と外を分けるのがポイント。", "plus": "SWOT を掛け合わせて戦略を作るのがクロス SWOT（強み×機会＝積極化戦略 など）。外部環境を広く見るのが PEST 分析（政治・経済・社会・技術）。"}, {"cat": "19 経営戦略マネジメント", "q": "業界の競争要因を「新規参入の脅威」「代替品の脅威」「買い手の交渉力」「売り手の交渉力」「競合」の5つで分析する手法はどれか。", "a": "ファイブフォース分析", "abbr": "―", "note": "業界そのものが儲かるかを見る。SWOT が自社視点なのに対し、こちらは業界構造の視点。", "plus": "業界構造を見るのがファイブフォース、自社の活動を見るのがバリューチェーン分析（主活動と支援活動に分ける）。外部環境は PEST。3点セットで覚える。"}, {"cat": "19 経営戦略マネジメント", "q": "財務・顧客・業務プロセス・学習と成長の4つの視点で経営を評価する手法はどれか。", "a": "BSC（バランススコアカード）", "abbr": "BSC = Balanced Scorecard", "note": "売上だけ見ると現場が疲弊するので、人材育成や業務改善も同時に測る。4視点はこの順に因果関係でつながる。", "plus": "因果の向きは 学習と成長 → 業務プロセス → 顧客 → 財務。各視点に KGI・KPI・CSF（重要成功要因）を設定し、戦略マップで関係を描く。"}, {"cat": "19 経営戦略マネジメント", "q": "既存事業の成長を、製品（既存・新規）と市場（既存・新規）の2軸4象限で考える手法はどれか。", "a": "アンゾフの成長マトリクス", "abbr": "―", "note": "市場浸透・新製品開発・新市場開拓・多角化の4つ。右下（多角化）がいちばんリスクが高い。", "plus": "4象限は 市場浸透・新市場開拓・新製品開発・多角化。多角化はさらに 水平・垂直・集中・集成（コングロマリット）に分かれる。"}, {"cat": "19 経営戦略マネジメント", "q": "他社の優れた業務プロセスを指標として比較し、自社の改善に生かす手法はどれか。", "a": "ベンチマーキング", "abbr": "―", "note": "「ベストプラクティスを真似る」。性能測定の benchmark と同じ語だが、経営では業務比較の意味。", "plus": "比べる相手は 競合に限らず、他業種の優良企業でもよい。似た用語の ベストプラクティスは「最も良いやり方」そのものを指す。"}, {"cat": "19 経営戦略マネジメント", "q": "顧客との関係を長期的に維持・強化し、収益の最大化を図る考え方・システムはどれか。", "a": "CRM（顧客関係管理）", "abbr": "CRM = Customer Relationship Management", "note": "新規獲得より既存顧客を大事にするほうが安い、という発想。SFA（Sales Force Automation＝営業支援）は CRM の一部。", "plus": "関連する用語は SFA（営業支援）、MA（マーケティングオートメーション）、LTV（顧客生涯価値）、ワントゥワンマーケティング。顧客を層に分けるのが RFM 分析（最新購買日・頻度・金額）。"}, {"cat": "19 経営戦略マネジメント", "q": "原材料の調達から販売までの流れ全体を最適化し、在庫やリードタイムを削減する手法はどれか。", "a": "SCM（サプライチェーンマネジメント）", "abbr": "SCM = Supply Chain Management", "note": "自社だけ効率化しても、仕入先が遅ければ意味がない。取引先まで含めて全体を見る。", "plus": "需要の変動が上流ほど増幅される現象がブルウィップ効果。在庫方式では JIT（必要なときに必要なだけ）、かんばん方式が関連語。"}, {"cat": "19 経営戦略マネジメント", "q": "企業内に散在する知識・ノウハウを共有・活用して競争力を高める経営手法はどれか。", "a": "ナレッジマネジメント", "abbr": "―", "note": "「あの人しか知らない」をなくす活動。暗黙知（経験・勘）を形式知（文書）に変えるのが肝。", "plus": "暗黙知と形式知の循環モデルが SECI モデル（共同化・表出化・連結化・内面化）。実践のための集まりがコミュニティ・オブ・プラクティス。"}, {"cat": "20 技術戦略マネジメント", "q": "技術の進歩が、当初はゆるやかで、やがて急激に進み、最後は限界に近づいて頭打ちになる曲線はどれか。", "a": "技術のSカーブ", "abbr": "―", "note": "グラフが S の字。頭打ちが見えたら次の技術へ乗り換える判断に使う。", "plus": "技術経営は MOT（Management Of Technology）。優れた企業が既存顧客を見すぎて新技術に乗り遅れる現象が イノベーションのジレンマ。"}, {"cat": "20 技術戦略マネジメント", "q": "新技術が市場に普及する過程で、初期採用者と前期多数派の間にある深い溝を何というか。", "a": "キャズム", "abbr": "―", "note": "「新しもの好き」には売れたのに、一般層に広がらず死ぬ谷。英語の chasm＝深い裂け目。", "plus": "普及の段階は イノベータ → アーリーアダプタ → アーリーマジョリティ → レイトマジョリティ → ラガード。キャズムは2番目と3番目の間にある。"}, {"cat": "20 技術戦略マネジメント", "q": "自社だけでなく外部の技術やアイデアを積極的に取り込んで革新を生む考え方はどれか。", "a": "オープンイノベーション", "abbr": "―", "note": "自前主義（クローズドイノベーション）の逆。他社・大学・スタートアップと組む。", "plus": "関連手法に 産学連携、M&A、CVC（コーポレートベンチャーキャピタル）、アクセラレータプログラム、リビングラボ がある。"}, {"cat": "20 技術戦略マネジメント", "q": "研究開発から事業化までの間にある、資金・人材が不足しやすい障壁を何というか。", "a": "死の谷", "abbr": "―", "note": "研究は終わったが製品にならない期間。さらに事業化後、黒字化までの壁を「ダーウィンの海」という。", "plus": "順番は 魔の川（研究→開発）→ 死の谷（開発→事業化）→ ダーウィンの海（事業化→産業化）。3つセットで問われる。"}, {"cat": "21 ビジネスインダストリ", "q": "インターネット上で商品の受発注・決済を行う取引全般を指す用語はどれか。", "a": "EC（電子商取引）", "abbr": "EC = Electronic Commerce", "note": "企業間は BtoB、企業対個人は BtoC、個人間は CtoC。", "plus": "決済まわりは EDI（企業間の電子データ交換）、SET、3-Dセキュア。ロングテールは「売れ筋以外の多品種少量が合計すると大きい」という EC 特有の現象。"}, {"cat": "21 ビジネスインダストリ", "q": "IC タグ（RFID）を用いて、電波で非接触に複数の商品を一括して読み取る仕組みはどれか。", "a": "RFID", "abbr": "RFID = Radio Frequency IDentification", "note": "バーコードと違い、箱を開けずに中身を一括で読める。ユニクロのレジが代表例。", "plus": "周波数帯により読取距離が違う。NFC は近距離（数cm）の規格で、交通系ICや スマホ決済に使う。バーコードの二次元版が QR コード。"}, {"cat": "21 ビジネスインダストリ", "q": "製造業において、生産設備や製品をネットワークに接続し、データを活用して効率化する取り組みはどれか。", "a": "インダストリー4.0（第4次産業革命）", "abbr": "―", "note": "ドイツ発の国家戦略。蒸気→電力→コンピュータ に続く4番目。IoT がその中核技術。", "plus": "現実の設備を仮想空間に再現して検証する技術がデジタルツイン。製造実行システムが MES、生産管理が ERP の一部。"}, {"cat": "21 ビジネスインダストリ", "q": "需要予測や在庫管理を小売業者ではなく供給業者が行い、補充する方式はどれか。", "a": "VMI（ベンダー管理在庫）", "abbr": "VMI = Vendor Managed Inventory", "note": "「在庫が減ったら勝手に補充しに来てくれる」。コンビニの一部商品や、オフィスのお菓子置きサービスも同じ発想。", "plus": "関連語は CRP（継続的補充）、QR（クイックレスポンス）、ECR（効率的消費者対応）。いずれも流通を効率化する取り組み。"}, {"cat": "21 ビジネスインダストリ", "q": "自動車の自動運転におけるレベル分けで、システムがすべての運転操作を行い、運転者が不要となる段階はどれか。", "a": "レベル5（完全自動運転）", "abbr": "―", "note": "レベル3＝条件付き自動（緊急時は人が対応）、レベル4＝特定条件下で無人、レベル5＝どこでも無人。", "plus": "レベル0〜2は運転支援（人が主体）、レベル3以上は自動運転（システムが主体）。責任の所在が変わる境目がレベル3。"}, {"cat": "21 ビジネスインダストリ", "q": "位置情報・決済・配車などを組み合わせ、移動を一つのサービスとして提供する概念はどれか。", "a": "MaaS", "abbr": "MaaS = Mobility as a Service", "note": "電車・バス・タクシー・レンタサイクルを一つのアプリで検索・予約・決済できるようにする考え方。", "plus": "レベル0（統合なし）〜レベル4（政策との統合）で段階が示される。関連語に CASE（Connected・Autonomous・Shared・Electric）。"}, {"cat": "22 企業活動", "q": "国際的な標準として取り決められた会計基準の総称であり、会計情報の比較可能性や均質性を担保するものはどれか。", "a": "IFRS（国際財務報告基準）", "abbr": "IFRS = International Financial Reporting Standards", "note": "国ごとに会計ルールが違うと、海外投資家が比べられない。それを揃えるための国際ルール。読みは「イファース」「アイファース」。", "plus": "日本では 日本基準・米国基準・IFRS・修正国際基準 の4つが選べる（任意適用）。IFRS は「原則主義」で、細かい規則より考え方を重視する。"}, {"cat": "22 企業活動", "q": "企業の一定時点における資産・負債・純資産の状態を表す財務諸表はどれか。", "a": "貸借対照表（B/S）", "abbr": "B/S = Balance Sheet", "note": "「ある日時点の財産の状態」。左が資産、右が負債＋純資産で、必ず左右が一致する。", "plus": "読み方の指標は 自己資本比率（純資産÷総資産）、流動比率（流動資産÷流動負債）。財務3表は B/S・P/L・C/F。"}, {"cat": "22 企業活動", "q": "企業の一定期間における収益と費用から、利益を表す財務諸表はどれか。", "a": "損益計算書（P/L）", "abbr": "P/L = Profit and Loss statement", "note": "「1年間でいくら儲けたか」。B/S が写真なら P/L は動画。", "plus": "利益は5段階 ── 売上総利益（粗利）→ 営業利益 → 経常利益 → 税引前当期純利益 → 当期純利益。どの段階の話かで意味が変わる。"}, {"cat": "22 企業活動", "q": "企業の一定期間における現金の増減を、営業・投資・財務の3区分で表す財務諸表はどれか。", "a": "キャッシュフロー計算書（C/F）", "abbr": "C/F = Cash Flow statement", "note": "利益が出ていても現金がなければ倒産する（黒字倒産）。それを見抜くための表。", "plus": "営業CF がプラス、投資CF がマイナス、財務CF がマイナスなのが健全な形（稼いで投資して借金を返す）。営業CF がマイナスなら本業で現金が減っている。"}, {"cat": "22 企業活動", "q": "売上高の増減にかかわらず一定額発生する費用を何というか。", "a": "固定費", "abbr": "―", "note": "家賃・正社員の給与など。売上に比例するのが変動費（材料費など）。損益分岐点の計算で必ず使う。", "plus": "損益分岐点売上高 = 固定費 ÷ 限界利益率。限界利益率 = (売上 − 変動費) ÷ 売上。固定費が大きいほど、売上の増減で利益が大きく振れる。"}, {"cat": "22 企業活動", "q": "ある品目について、発注から納品までに要する期間を何というか。", "a": "リードタイム", "abbr": "―", "note": "「頼んでから届くまで」。短いほど在庫を減らせる。", "plus": "在庫管理では 発注点 = 1日あたり使用量 × 調達リードタイム + 安全在庫。定量発注方式（発注点で一定量）と定期発注方式（一定期間ごと）がある。"}, {"cat": "22 企業活動", "q": "在庫品目を金額の大きい順に並べ、A・B・Cの3グループに分けて管理の重点を変える手法はどれか。", "a": "ABC分析", "abbr": "―", "note": "パレートの法則（上位2割が全体の8割）の応用。Aグループだけ厳密に管理すれば効率がいい。", "plus": "図にするとパレート図（棒グラフ＋累積折れ線）。QC七つ道具は パレート図・特性要因図・ヒストグラム・散布図・管理図・チェックシート・層別。"}, {"cat": "22 企業活動", "q": "複数の作業からなるプロジェクトで、最も時間がかかる経路を特定し、全体の所要日数を求める手法はどれか。", "a": "CPM（クリティカルパス法）", "abbr": "CPM = Critical Path Method", "note": "この経路が1日遅れると、全体が1日遅れる。アローダイアグラムとセットで出る。", "plus": "アローダイアグラムとセット。余裕日数（フロート）がゼロの経路がクリティカルパス。所要時間を3点見積り（楽観・最頻・悲観）で推定するのが PERT。"}, {"cat": "22 企業活動", "q": "製品の企画段階で目標原価を設定し、それを達成するように設計・製造を行う手法はどれか。", "a": "原価企画", "abbr": "―", "note": "「できたものの原価を計算する」のではなく「この値段で作る」と先に決める。トヨタ発祥。", "plus": "原価計算の分類は 標準原価計算（あるべき原価と比較）、実際原価計算、直接原価計算（変動費だけ製品原価にする）、ABC（活動基準原価計算）。"}, {"cat": "22 企業活動", "q": "組織の目標達成度を測るために設定する、定量的な評価指標はどれか。", "a": "KPI（重要業績評価指標）", "abbr": "KPI = Key Performance Indicator", "note": "最終目標が KGI（Key Goal Indicator）で、そこへ至る中間指標が KPI。「売上10億（KGI）」のために「商談数100件（KPI）」。", "plus": "KGI＝最終目標、CSF＝それを達成する鍵、KPI＝鍵の進み具合を測る数値。BSC の4視点それぞれに設定する。"}, {"cat": "23 法務", "q": "プログラムの著作権について、著作権法上の保護対象となるものはどれか。", "a": "プログラムの表現（ソースコード・オブジェクトコード）", "abbr": "―", "note": "守られるのは「書き方」であって、アルゴリズムや仕様などのアイデアは守られない。アイデアを守りたいなら特許。", "plus": "知的財産権は 著作権（表現・申請不要）、特許権（発明・出願必要・20年）、実用新案、意匠、商標。アルゴリズムは特許の対象になりうるが著作権では守られない。"}, {"cat": "23 法務", "q": "企業の営業秘密を保護し、不正な取得・使用・開示を規制する法律はどれか。", "a": "不正競争防止法", "abbr": "―", "note": "営業秘密と認められるには3条件（秘密管理性・有用性・非公知性）が必要。「鍵をかけて管理していたか」が争点になりやすい。", "plus": "営業秘密の3要件は 秘密管理性・有用性・非公知性。限定提供データの保護や、ドメイン名の不正取得、形態模倣（デッドコピー）もこの法律が扱う。"}, {"cat": "23 法務", "q": "個人情報取扱事業者が、本人の同意なく第三者へ個人データを提供することを原則禁止している法律はどれか。", "a": "個人情報保護法", "abbr": "―", "note": "例外は法令に基づく場合・生命の保護・公衆衛生など。2022年改正で漏えい時の報告が義務化された。", "plus": "要配慮個人情報（人種・信条・病歴など）は取得にも本人同意が要る。匿名加工情報・仮名加工情報にすれば一定の条件下で利活用できる。漏えい時は個人情報保護委員会への報告と本人通知が義務。"}, {"cat": "23 法務", "q": "労働者派遣において、派遣先が派遣労働者に直接業務指示を行えるのはどの契約形態か。", "a": "労働者派遣契約", "abbr": "―", "note": "請負・準委任では、発注者が相手の社員に直接指示を出すと「偽装請負」になる。指揮命令権の所在が分かれ目。", "plus": "派遣は 指揮命令権が派遣先。請負・準委任は受注者側。偽装請負は職業安定法・労働者派遣法違反。派遣期間は原則3年（事業所単位・個人単位）。"}, {"cat": "23 法務", "q": "不正アクセス行為を禁止し、他人のID・パスワードを無断で使用する行為を処罰する法律はどれか。", "a": "不正アクセス禁止法", "abbr": "―", "note": "正式名称は「不正アクセス行為の禁止等に関する法律」。ID・パスワードを他人に教える（助長行為）だけでも罰則対象。", "plus": "禁止されるのは 不正アクセス行為・識別符号の不正取得・不正保管・助長行為（他人のIDを提供する）・入力を不正に要求する行為（フィッシング）。"}, {"cat": "23 法務", "q": "ソフトウェアの使用許諾において、改変・再配布を認める代わりに、派生物にも同じライセンスの適用を求める考え方はどれか。", "a": "コピーレフト", "abbr": "―", "note": "GPL が代表例。自社製品に GPL のコードを混ぜると、自社コードも公開義務が生じうる。OSS 利用時の最重要注意点。", "plus": "強いコピーレフト＝GPL（派生物も GPL）、弱い＝LGPL・MPL（改変部分のみ）、非コピーレフト＝MIT・BSD・Apache（制限がゆるい）。利用前にライセンス種別の確認が必須。"}, {"cat": "23 法務", "q": "情報セキュリティマネジメントシステムの要求事項を定めた国際規格はどれか。", "a": "ISO/IEC 27001", "abbr": "ISMS = Information Security Management System", "note": "27001 が「認証を取るための要求事項」、27002 が「具体的な実践規範」。セットで覚える。", "plus": "ISMS の構築は PDCA。付属書Aに管理策が並ぶ（2022年版で93項目・4テーマへ再編）。実践規範が ISO/IEC 27002。"}, {"cat": "23 法務", "q": "内部統制の整備・運用を経営者に義務付け、財務報告の信頼性を確保する日本の制度はどれか。", "a": "内部統制報告制度（J-SOX）", "abbr": "SOX = Sarbanes-Oxley Act（米国企業改革法）", "note": "米国の SOX 法の日本版。金融商品取引法に基づく。IT 統制（ITGC）もこの一部で、アクセス権限管理や変更管理が監査対象になる。", "plus": "内部統制の4目的（業務の有効性と効率性・財務報告の信頼性・法令等の遵守・資産の保全）と6要素は セットで問われる。経営者が評価し、監査人が監査する。"}];
+const CATS = ["17 システム戦略", "18 システム企画", "19 経営戦略マネジメント", "20 技術戦略マネジメント", "21 ビジネスインダストリ", "22 企業活動", "23 法務"];
+const KEY = "a1-strategy-ok";
+let filter = null, todoOnly = false, hideAll = false;
+let order = DATA.map((_,i)=>i);
+let ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify([...ok])); }catch(e){} }
+function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function chips(){
+  const el = document.getElementById("chips");
+  el.innerHTML = "";
+  const mk = (label, val) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = label;
+    b.setAttribute("aria-pressed", filter === val);
+    b.onclick = () => { filter = val; chips(); render(); el.scrollLeft = 0; };
+    el.appendChild(b);
+  };
+  mk("すべて", null);
+  CATS.forEach(c => mk(c, c));
+}
+
+function render(){
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  let shown = 0;
+  order.forEach(i => {
+    const d = DATA[i];
+    if (filter && d.cat !== filter) return;
+    if (todoOnly && ok.has(i)) return;
+    shown++;
+    const folded = ok.has(i) || hideAll;
+    const card = document.createElement("div");
+    card.className = "card" + (ok.has(i) ? " ok" : "");
+    card.innerHTML =
+      '<div class="q-header">' +
+        '<span class="q-num">Q' + String(i+1).padStart(3,"0") + '</span>' +
+        '<span class="q-cat">' + esc(d.cat) + '</span>' +
+        '<button class="q-chk">' + (ok.has(i) ? "覚えた" : "未チェック") + '</button>' +
+      '</div>' +
+      '<p class="q-text">' + esc(d.q) + '</p>' +
+      '<div class="body"' + (folded ? ' hidden' : '') + '>' +
+        '<p class="a">' + esc(d.a) + '</p>' +
+        (d.abbr !== "―" ? '<p class="abbr">' + esc(d.abbr) + '</p>' : '') +
+        '<div class="expl"><div class="expl-label">かんたん解説</div>' +
+        '<p class="expl-body">' + esc(d.note) + '</p></div>' +
+        (d.plus ? '<div class="plus"><div class="plus-label">あわせて覚える</div>' +
+                  '<p class="plus-body">' + esc(d.plus) + '</p></div>' : '') +
+      '</div>';
+
+    const body = card.querySelector(".body");
+    const chk = card.querySelector(".q-chk");
+    chk.onclick = () => {
+      if (ok.has(i)) {
+        ok.delete(i); card.classList.remove("ok");
+        chk.textContent = "未チェック"; body.hidden = hideAll;
+      } else {
+        ok.add(i); card.classList.add("ok");
+        chk.textContent = "覚えた"; body.hidden = true;
+      }
+      save(); progress();
+      if (todoOnly && ok.has(i)) render();
+    };
+
+    // 「答えを隠す」でたたまれているものは、設問をタップすると開く
+    if (folded && !ok.has(i)) {
+      const q = card.querySelector(".q-text");
+      q.style.cursor = "pointer";
+      q.title = "タップで答えを表示";
+      q.onclick = () => { body.hidden = false; };
+    }
+    list.appendChild(card);
+  });
+  document.getElementById("count").textContent = "表示 " + shown + " / 全 " + DATA.length + " 問";
+  progress();
+}
+
+function progress(){
+  document.getElementById("prog").textContent =
+    "覚えた " + ok.size + " / " + DATA.length + "（" + Math.round(ok.size/DATA.length*100) + "%）";
+}
+
+document.getElementById("hideAns").onclick = (e) => {
+  hideAll = !hideAll;
+  e.target.textContent = hideAll ? "答えを表示" : "答えを隠す";
+  e.target.classList.toggle("on", hideAll);
+  render();
+};
+document.getElementById("todo").onclick = (e) => {
+  todoOnly = !todoOnly;
+  e.target.classList.toggle("on", todoOnly);
+  render();
+};
+document.getElementById("shuffle").onclick = () => {
+  for (let i = order.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i],order[j]]=[order[j],order[i]]; }
+  render(); window.scrollTo(0,0);
+};
+document.getElementById("reset").onclick = () => { ok = new Set(); save(); render(); };
+
+chips(); render();
+</script>
+</body>
+</html>
