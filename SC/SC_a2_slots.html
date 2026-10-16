@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1e3a5f">
+<title>科目A-2 出題枠別 50問</title>
+<style>
+:root{
+  --bg:#f0f4f8; --card:#ffffff; --border:#e2e8f0;
+  --text:#1e293b; --muted:#64748b; --navy:#1e3a5f;
+  --en-bg:#f8fafc; --en-border:#94a3b8;
+  --ja-bg:#eff6ff; --ja-border:#3b82f6;
+  --ans-bg:#ecfdf5; --ans-border:#10b981; --ans-text:#065f46;
+  --exp-bg:#fffbeb; --exp-border:#f59e0b; --exp-label:#92400e; --exp-text:#3d1a00;
+  --plus-bg:#f5f3ff; --plus-border:#8b5cf6; --plus-label:#5b21b6; --plus-text:#2e1065;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+              "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.75;
+  overflow-wrap:anywhere;
+}
+.wrap{max-width:820px;margin:0 auto;padding:1.2rem 1rem 5rem}
+
+/* ヘッダー */
+.head{margin-bottom:.9rem}
+.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;letter-spacing:.02em;line-height:1.35}
+.head .sub{margin:0;font-size:.78rem;color:var(--muted);line-height:1.6}
+
+/* 操作バー */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);
+     padding:.6rem 0 .7rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;
+       scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+      border-radius:20px;padding:.38rem .8rem;font-size:.76rem;font-weight:700;
+      cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap;flex:0 0 auto}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;margin-top:.5rem}
+.tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
+      border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
+      font-family:inherit;min-height:40px;line-height:1.3}
+.tools button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem;
+      margin-top:.5rem;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* カード */
+.card{background:var(--card);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;
+      box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--border)}
+.card.ok{background:#fbfdfc;border-color:#c7ebdd}
+.q-header{display:flex;align-items:center;gap:.45rem;margin-bottom:.75rem;flex-wrap:wrap}
+.q-num{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
+       font-weight:700;font-size:.78rem;flex-shrink:0;letter-spacing:.03em}
+.q-cat{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
+       color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
+.q-chk{margin-left:auto;background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+       border-radius:20px;padding:.4rem .8rem;font-size:.73rem;font-weight:700;
+       cursor:pointer;font-family:inherit;white-space:nowrap;min-height:34px}
+.card.ok .q-chk{background:var(--ans-border);border-color:var(--ans-border);color:#fff}
+.q-text{font-size:.94rem;line-height:1.75;padding:.7rem .85rem;margin:0 0 .7rem;
+        background:var(--ja-bg);border-left:3px solid var(--ja-border);
+        border-radius:0 6px 6px 0;color:var(--text)}
+.card.ok .q-text{margin-bottom:0}
+
+/* 答え・解説 */
+.a{font-size:.99rem;font-weight:800;line-height:1.6;margin:0 0 .5rem;
+   padding:.6rem .85rem;background:var(--ans-bg);border-left:4px solid var(--ans-border);
+   border-radius:0 7px 7px 0;color:var(--ans-text)}
+.abbr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.76rem;line-height:1.65;margin:0 0 .55rem;padding:.5rem .85rem;
+      background:var(--en-bg);border-left:3px solid var(--en-border);
+      border-radius:0 6px 6px 0;color:var(--muted)}
+.expl{background:var(--exp-bg);border-left:4px solid var(--exp-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem;margin-bottom:.5rem}
+.expl-label{font-size:.68rem;font-weight:800;color:var(--exp-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.expl-body{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
+.plus{background:var(--plus-bg);border-left:4px solid var(--plus-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem}
+.plus-label{font-size:.68rem;font-weight:800;color:var(--plus-label);
+      letter-spacing:.06em;margin-bottom:.35rem}
+.plus-body{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
+
+.foot{margin-top:1.6rem;font-size:.72rem;line-height:1.7;color:var(--muted);text-align:center}
+
+/* スマホ */
+@media (max-width:600px){
+  .wrap{padding:.9rem .6rem 4rem}
+  .head h1{font-size:1.02rem}
+  .head .sub{font-size:.72rem}
+  .bar{padding:.5rem 0 .6rem;margin-bottom:.8rem}
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .card{padding:.85rem .85rem;border-radius:10px}
+  .q-header{gap:.35rem}
+  .q-chk{margin-left:auto;padding:.42rem .75rem;min-height:36px}
+  .q-text{padding:.6rem .7rem;font-size:.92rem}
+  .a{padding:.55rem .7rem;font-size:.95rem}
+  .abbr{padding:.45rem .7rem;font-size:.73rem}
+  .expl,.plus{padding:.7rem .75rem}
+  .expl-body{font-size:.87rem}
+  .plus-body{font-size:.84rem}
+}
+@media (max-width:380px){
+  .q-cat{font-size:.65rem;padding:.14rem .45rem}
+  .tools button{font-size:.69rem}
+}
+@media print{
+  .bar{display:none}
+  .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
+  body{background:#fff}
+  .card.ok .body{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>科目A-2 出題枠別 50問</h1>
+    <p class="sub">情報処理安全確保支援士試験 科目A-2（旧 午前II）／ 出題枠に即した構成 ／ sc-siken 31回分・776解答の実績から 弱い枠を厚く配分</p>
+  </div>
+
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <div class="tools">
+      <button id="hideAns">答えを隠す</button>
+      <button id="todo">未チェックだけ</button>
+      <button id="shuffle">シャッフル</button>
+      <button id="reset">チェック解除</button>
+    </div>
+    <div class="meta"><span id="count"></span><span id="prog"></span></div>
+  </div>
+
+  <div id="list"></div>
+  <p class="foot">出典: IPA 試験要綱 Ver.5.6（2026年10月から適用）<br>出題範囲 科目A-1（共通知識・技術レベル3）</p>
+</div>
+
+<script>
+const DATA = [{"cat": "問18-20 ネットワーク", "q": "TCP/IP ネットワークで、宛先までの経路上の MTU を超えるパケットを分割せずに送るため、経路上の最小 MTU を調べる仕組みはどれか。", "a": "Path MTU Discovery", "abbr": "MTU = Maximum Transmission Unit", "note": "一度に送れるサイズは経路ごとに違う。大きすぎると途中で分割され効率が落ちるので、あらかじめ最小値を調べて合わせる。", "plus": "ICMP の「Fragmentation Needed」を使うため、ICMP を全遮断すると Path MTU Discovery が壊れ、通信が止まる（ブラックホール現象）。ファイアウォール設計で踏みやすい罠。"}, {"cat": "問18-20 ネットワーク", "q": "IPv6 において、IPv4 の ARP に相当する役割を担うプロトコルはどれか。", "a": "NDP（近隣探索プロトコル）", "abbr": "NDP = Neighbor Discovery Protocol", "note": "IPv6 には ARP がない。代わりに ICMPv6 を使う NDP が、隣のノードの MAC アドレスを調べる。", "plus": "NDP は アドレス自動設定（SLAAC）、ルータ探索、重複アドレス検出も担う。偽の広告を送る NDP スプーフィング対策が RA Guard、SEND。"}, {"cat": "問18-20 ネットワーク", "q": "送信元を偽装したパケットを、インタフェースの経路情報と照合して破棄する機能はどれか。", "a": "uRPF（ユニキャストリバースパス転送）", "abbr": "uRPF = unicast Reverse Path Forwarding", "note": "「その送信元IPなら、本来このインタフェースから来るはず」を逆引きして確認する。合わなければ偽装とみなして捨てる。", "plus": "IP スプーフィングの基本対策。Strict モード（経路が完全一致）と Loose モード（経路表にあればよい）がある。DDoS の踏み台化を防ぐ。"}, {"cat": "問18-20 ネットワーク", "q": "VLAN をまたぐ通信を不正に行うため、タグを二重に付与して別の VLAN へ侵入する攻撃はどれか。", "a": "VLAN ホッピング（ダブルタギング）", "abbr": "―", "note": "802.1Q のタグを2つ重ねる。最初のスイッチが1つ目を外すと、2つ目のタグで別 VLAN に届いてしまう。", "plus": "対策は ネイティブ VLAN を未使用の VLAN にする、トランクポートの自動ネゴシエーション（DTP）を無効にする、アクセスポートを明示設定する。"}, {"cat": "問18-20 ネットワーク", "q": "IPsec において、認証のみを提供し、暗号化は行わないプロトコルはどれか。", "a": "AH（認証ヘッダ）", "abbr": "AH = Authentication Header ／ ESP = Encapsulating Security Payload", "note": "AH は「改ざんされていないこと」だけ保証する。暗号化もするのが ESP で、実務ではほぼ ESP を使う。", "plus": "AH は IP ヘッダまで認証対象に含むため、NAT を通ると壊れる。NAT 環境では ESP ＋ NAT トラバーサル（UDP 4500 でカプセル化）を使う。"}, {"cat": "問18-20 ネットワーク", "q": "IPsec で、通信相手の認証と暗号鍵の共有を行うプロトコルはどれか。", "a": "IKE（鍵交換プロトコル）", "abbr": "IKE = Internet Key Exchange", "note": "本番の暗号通信を始める前に、「お互い本物か」を確かめ、使う鍵を安全に決める。IKEv2 が現行。", "plus": "フェーズ1で ISAKMP SA（管理用の安全な通路）を作り、フェーズ2で IPsec SA（実データ用）を作る2段構え。鍵共有の数学的基盤が Diffie-Hellman。"}, {"cat": "問18-20 ネットワーク", "q": "IPsec のモードのうち、元の IP ヘッダごと暗号化し、新しい IP ヘッダを付け直すものはどれか。", "a": "トンネルモード", "abbr": "―", "note": "中身も宛先も隠れるので、拠点間 VPN に使う。元のヘッダを残して中身だけ暗号化するのがトランスポートモード。", "plus": "拠点間VPN＝トンネルモード（ルータ間）。ホスト間の直接通信＝トランスポートモード。リモートアクセスVPNでは トンネルモードが一般的。"}, {"cat": "問18-20 ネットワーク", "q": "無線LAN の暗号化方式のうち、現在推奨されるものはどれか。", "a": "WPA3", "abbr": "WPA = Wi-Fi Protected Access ／ SAE = Simultaneous Authentication of Equals", "note": "WEP と WPA は解読済みで使ってはいけない。WPA2 も KRACK 攻撃が知られており、現行は WPA3。", "plus": "WPA3-Personal は SAE（Dragonfly）で、オフライン辞書攻撃に耐える。WPA2 の PSK は4ウェイハンドシェイクを捕まえると総当たりができた。Enterprise は IEEE 802.1X ＋ RADIUS。"}, {"cat": "問18-20 ネットワーク", "q": "ネットワークに接続する端末の認証を、スイッチやアクセスポイントの入口で行う規格はどれか。", "a": "IEEE 802.1X", "abbr": "EAP = Extensible Authentication Protocol", "note": "つないだだけでは通信させず、まず認証する。認証が通るまでポートは閉じたまま。", "plus": "構成要素は サプリカント（端末）・オーセンティケータ（スイッチ／AP）・認証サーバ（RADIUS）。EAP-TLS は証明書、PEAP は ID/パスワード。検疫ネットワークの基盤。"}, {"cat": "問18-20 ネットワーク", "q": "DNS の応答に電子署名を付け、改ざんされていないことを検証できるようにする拡張はどれか。", "a": "DNSSEC", "abbr": "DNSSEC = DNS Security Extensions", "note": "DNS の応答が本物かを署名で確かめる。偽の応答を信じ込ませる DNS キャッシュポイズニングへの根本対策。", "plus": "署名の鍵は ZSK（ゾーン署名鍵）と KSK（鍵署名鍵）。上位ゾーンに DS レコードを登録して信頼の連鎖を作る。暗号化はしない点に注意（秘匿性ではなく真正性）。"}, {"cat": "問18-20 ネットワーク", "q": "DNS の問合せ自体を暗号化し、経路上での盗聴や改ざんを防ぐ方式はどれか。", "a": "DoH / DoT", "abbr": "DoH = DNS over HTTPS ／ DoT = DNS over TLS", "note": "DNSSEC が「応答の真正性」なのに対し、DoH / DoT は「問合せ内容の秘匿」。守るものが違う。", "plus": "DoH は HTTPS（443番）に紛れるため、企業のフィルタリングを回避してしまう副作用がある。社内では DoH を無効化する運用も取られる。"}, {"cat": "問18-20 ネットワーク", "q": "送信ドメイン認証のうち、メール本文とヘッダに電子署名を付けて検証する方式はどれか。", "a": "DKIM", "abbr": "DKIM = DomainKeys Identified Mail", "note": "送信側が秘密鍵で署名し、公開鍵を DNS に置く。受信側が照合して「本当にそのドメインが送ったか」を確かめる。", "plus": "SPF＝送信元IPで検証（転送されると失敗する）。DKIM＝署名で検証（転送に強い）。DMARC＝両者の結果を受けて none / quarantine / reject を宣言し、レポートも受け取る。"}, {"cat": "問18-20 ネットワーク", "q": "TCP コネクションの確立要求だけを大量に送り、サーバの資源を枯渇させる攻撃はどれか。", "a": "SYN フラッド攻撃", "abbr": "―", "note": "3ウェイハンドシェイクの途中で放置する。サーバは「待ち」の状態を大量に抱えて動けなくなる。", "plus": "対策は SYN Cookie（状態を持たずに検証する）、バックログの拡大、タイムアウト短縮。反射・増幅を使うのが DNS／NTP リフレクション攻撃。"}, {"cat": "問18-20 ネットワーク", "q": "正規のアクセスポイントになりすまし、利用者の通信を傍受する無線LAN の攻撃はどれか。", "a": "Evil Twin（悪魔の双子）", "abbr": "―", "note": "同じ SSID の偽アクセスポイントを立てる。電波の強いほうに自動接続する性質を悪用する。", "plus": "社内に勝手に置かれた機器が ロゲ（不正）アクセスポイント。対策は 無線IDS/IPS での検知、802.1X による相互認証、VPN の併用。"}, {"cat": "問18-20 ネットワーク", "q": "ネットワークを細かく区切り、内部で感染が広がるのを防ぐ考え方はどれか。", "a": "マイクロセグメンテーション", "abbr": "―", "note": "「入られても横に広がれない」ようにする。サーバ単位・ワークロード単位で通信を絞る。", "plus": "従来の境界型防御は「外と内」の1本線。内部に入られると自由に動かれる（ラテラルムーブメント）。ゼロトラストの中核要素のひとつ。"}, {"cat": "問18-20 ネットワーク", "q": "ネットワーク機器の設定や状態を監視・管理するためのプロトコルはどれか。", "a": "SNMP", "abbr": "SNMP = Simple Network Management Protocol ／ MIB = Management Information Base", "note": "機器の情報を MIB という木構造で持ち、マネージャが取りに行く（ポーリング）か、機器から通知する（トラップ）。", "plus": "v1/v2c は コミュニティ名が平文で流れるため危険。v3 で認証と暗号化に対応した。監視設計では v3 を使うのが原則。"}, {"cat": "問18-20 ネットワーク", "q": "機器のログを集中管理するために、ネットワーク越しにログを転送するプロトコルはどれか。", "a": "syslog", "abbr": "―", "note": "各機器のログを1か所に集める。機器側のディスクが溢れても、消される前に退避できる。", "plus": "UDP 514 が既定で、到達保証がない。確実に届けたい場合は TCP／TLS 版を使う。時刻がずれると突合できないので NTP での時刻同期が前提。"}, {"cat": "問18-20 ネットワーク", "q": "機器間の時刻を同期させるプロトコルはどれか。", "a": "NTP", "abbr": "NTP = Network Time Protocol", "note": "ログの時刻がずれていると、複数機器の記録を突き合わせられない。証跡として成立しなくなる。", "plus": "階層構造を Stratum で表す（0が原子時計）。外部に開いていると NTP リフレクション攻撃の踏み台にされるため、monlist の無効化とアクセス制限が必要。"}, {"cat": "問18-20 ネットワーク", "q": "Web サーバの手前に置き、クライアントからの要求を受けて内部サーバへ転送する機器はどれか。", "a": "リバースプロキシ", "abbr": "―", "note": "外から見える窓口を1つにして、内部構成を隠す。TLS の終端、負荷分散、キャッシュも担える。", "plus": "フォワードプロキシ＝内部の利用者が外へ出るときに通す（出口対策・ログ取得）。向きが逆。WAF はリバースプロキシ型で実装されることが多い。"}, {"cat": "問18-20 ネットワーク", "q": "拠点とクラウドの間を、インターネットを経由せず閉じた経路で接続するサービスはどれか。", "a": "専用線接続（Direct Connect 等）", "abbr": "―", "note": "インターネットを通らないので、帯域が安定し、盗聴の経路も減る。コストは高い。", "plus": "インターネットVPN＝安価だが品質は保証されない。専用線＝高価だが安定。冗長化のため、専用線＋VPN をバックアップとして併用する構成が多い。"}, {"cat": "問21 データベース", "q": "データベースで、権限のない利用者から特定の列を隠すために用いる機能はどれか。", "a": "ビュー", "abbr": "―", "note": "必要な列だけを見せる仮想的な表を作り、そこにアクセス権を与える。元の表には直接触らせない。", "plus": "列単位の制御は 列レベル権限でも可能。行単位で絞るのが 行レベルセキュリティ（RLS）。どちらも「最小権限の原則」の実装手段。"}, {"cat": "問21 データベース", "q": "データベース内の特定の列だけを暗号化し、アプリケーションの改修を最小限にする方式はどれか。", "a": "列単位暗号化（カラム暗号化）", "abbr": "TDE = Transparent Data Encryption", "note": "クレジットカード番号など、守るべき列だけを暗号化する。全体を暗号化するより性能影響が小さい。", "plus": "TDE＝データファイル全体を透過的に暗号化（アプリ改修不要・媒体の持ち出し対策）。列暗号化＝特定列のみ（DB管理者からも隠せる）。守る相手が違う。"}, {"cat": "問21 データベース", "q": "データベースへのアクセス内容を記録し、不正操作の追跡を可能にする仕組みはどれか。", "a": "データベース監査ログ", "abbr": "―", "note": "誰がいつどの表に何をしたかを残す。特権ユーザの操作こそ記録対象。", "plus": "DBA 自身がログを消せると証跡にならないため、別領域や別サーバへ転送する。専用製品が DAM（Database Activity Monitoring）。"}, {"cat": "問21 データベース", "q": "本番データを開発環境で使う際、個人を特定できないよう置き換える処理はどれか。", "a": "データマスキング（匿名化）", "abbr": "―", "note": "氏名や口座番号を、形式は保ったまま別の値に置き換える。テストはできるが本人は分からない。", "plus": "静的マスキング＝コピー時に書き換える。動的マスキング＝参照時に伏せる。個人情報保護法の 匿名加工情報・仮名加工情報とは法的な位置づけが別なので混同しない。"}, {"cat": "問21 データベース", "q": "SQL インジェクションの対策として、最も確実なものはどれか。", "a": "プレースホルダ（バインド機構）の利用", "abbr": "―", "note": "値を SQL 文の一部としてではなく「データ」として渡す。文字列を組み立てないので、何を入れられても構造が変わらない。", "plus": "エスケープ処理は実装漏れが起きやすく次善策。加えて DB 接続ユーザの権限最小化、エラーメッセージを返さない、WAF での緩和を多層で組む。"}, {"cat": "問21 データベース", "q": "複数のトランザクションが互いの資源を待ち合って停止する状態を、データベースが検出したときの一般的な処置はどれか。", "a": "一方のトランザクションをロールバックする", "abbr": "―", "note": "どちらかを犠牲にして止め、もう一方を進める。犠牲になったほうはアプリ側で再実行する。", "plus": "デッドロックの4条件（相互排除・保持と待機・横取り不可・循環待ち）。アプリ側の対策は 資源の取得順序を統一する、トランザクションを短くする。"}, {"cat": "問21 データベース", "q": "データベースのバックアップのうち、前回のフルバックアップ以降に変更された分だけを取得する方式はどれか。", "a": "差分バックアップ", "abbr": "―", "note": "毎回フルより速いが、日が経つほどサイズが増える。復旧は「フル＋最新の差分」の2つでよい。", "plus": "増分バックアップ＝前回のバックアップ（種類を問わない）以降の変更分。取得は最速だが、復旧に「フル＋すべての増分」が要る。取得時間と復旧時間のトレードオフ。"}, {"cat": "問21 データベース", "q": "データベースの可用性を高めるため、同一データを別サーバへ継続的に複製する仕組みはどれか。", "a": "レプリケーション", "abbr": "―", "note": "本番とは別にコピーを持つ。障害時に切り替えたり、参照を分散して負荷を下げたりできる。", "plus": "同期＝両方に書けてから完了（RPO ゼロだが遅い）。非同期＝先に完了を返す（速いが遅延分が失われうる）。RPO の設計がそのまま方式の選択になる。"}, {"cat": "問22 システム開発技術", "q": "設計や実装の段階から、セキュリティを作り込む考え方はどれか。", "a": "セキュリティ・バイ・デザイン", "abbr": "―", "note": "後から対策を足すより、最初から組み込むほうが安く確実。リリース直前に見つかると直せない。", "plus": "プライバシー・バイ・デザイン＝個人情報保護を最初から組み込む。シフトレフト＝テストやセキュリティ検証を開発の早い段階へ前倒しする考え方。"}, {"cat": "問22 システム開発技術", "q": "ソースコードを実行せずに解析し、脆弱性を検出する手法はどれか。", "a": "SAST（静的アプリケーションセキュリティテスト）", "abbr": "SAST = Static Application Security Testing", "note": "コードを読んで危険な書き方を見つける。開発中の早い段階で回せるが、誤検知が多い。", "plus": "DAST＝動かして外から攻撃を試す（実際に動く状態が必要・誤検知は少ない）。IAST＝両者の併用。SCA＝利用している OSS の既知脆弱性を洗い出す。"}, {"cat": "問22 システム開発技術", "q": "システムに実際に攻撃を試み、侵入可能かを検証するテストはどれか。", "a": "ペネトレーションテスト", "abbr": "―", "note": "「実際に破れるか」を試す。脆弱性の有無を網羅的に調べる脆弱性診断とは目的が違う。", "plus": "脆弱性診断＝広く浅く、既知の弱点を洗い出す。ペネトレーションテスト＝狭く深く、目的（情報の奪取など）を達成できるかを検証する。実施前に書面での許可が必須。"}, {"cat": "問22 システム開発技術", "q": "想定外の値や異常なデータを大量に入力し、異常終了や脆弱性を探す手法はどれか。", "a": "ファジング", "abbr": "―", "note": "でたらめな入力を機械的に浴びせて、落ちるところを探す。人が思いつかない入力を試せる。", "plus": "境界値分析が「設計された境界」を狙うのに対し、ファジングは「設計されていない入力」を狙う。バッファオーバフローや例外処理漏れの発見に強い。"}, {"cat": "問22 システム開発技術", "q": "想定される攻撃者の視点でシステムを分析し、対策を検討する手法はどれか。", "a": "脅威モデリング", "abbr": "STRIDE = Spoofing / Tampering / Repudiation / Information disclosure / Denial of service / Elevation of privilege", "note": "設計段階で「どこをどう攻められるか」を洗い出す。STRIDE は脅威を6分類する枠組み。", "plus": "攻撃の経路を木構造で表すのが アタックツリー。リスクの大きさを点数化する枠組みが DREAD。CVSS は個々の脆弱性の深刻度を測る別の指標。"}, {"cat": "問22 システム開発技術", "q": "ソフトウェアに含まれる部品（OSS やライブラリ）の一覧を機械可読な形で管理するものはどれか。", "a": "SBOM（ソフトウェア部品表）", "abbr": "SBOM = Software Bill Of Materials", "note": "「この製品は何でできているか」の部品表。脆弱性が公表されたとき、影響範囲を即座に特定できる。", "plus": "Log4Shell で「自社製品が Log4j を使っているか分からない」事態が多発したことが普及の契機。形式は SPDX、CycloneDX。サプライチェーン攻撃対策の基盤。"}, {"cat": "問23 開発管理", "q": "ソフトウェアの構成要素とその変更履歴を管理し、任意の時点の状態を再現できるようにする活動はどれか。", "a": "構成管理", "abbr": "―", "note": "「いつ誰が何を変えたか」を残し、過去に戻せる状態を保つ。改ざんの検知にもつながる。", "plus": "ベースライン＝正式に承認され、以後は変更管理を通さないと変えられない基準点。変更管理とセットで運用する。"}, {"cat": "問23 開発管理", "q": "開発工程に自動テストと脆弱性検査を組み込み、継続的に安全性を確認する取り組みはどれか。", "a": "DevSecOps", "abbr": "―", "note": "リリースのたびに人手で検査すると間に合わない。パイプラインに組み込んで自動で回す。", "plus": "CI/CD に組み込む検査は SAST・SCA・コンテナイメージスキャン・IaC スキャン。デプロイ後の実行時保護は RASP、CSPM（クラウド設定の継続的検査）。"}, {"cat": "問23 開発管理", "q": "外部に委託して開発したソフトウェアについて、発注者が品質やセキュリティを確認するために行うべきことはどれか。", "a": "成果物の受入れ検査とソースコードの権利・管理の取決め", "abbr": "―", "note": "「できたものを受け取る」だけでは、中身に何が入っているか分からない。契約段階で検査権と権利の帰属を決めておく。", "plus": "委託先管理のポイントは 再委託の可否、秘密保持、脆弱性対応の責任分界、監査権、契約終了時のデータ返却・消去。供給網を通じた攻撃がサプライチェーン攻撃。"}, {"cat": "問23 開発管理", "q": "OSS を製品に組み込む際、ライセンス条件の違反を避けるために最初に行うべきことはどれか。", "a": "利用する OSS とライセンス種別の洗い出し", "abbr": "―", "note": "何を使っているか分からないと、守るべき条件も分からない。まず棚卸しをする。", "plus": "GPL（派生物も GPL・強いコピーレフト）、LGPL／MPL（改変部分のみ）、MIT／BSD／Apache（制限がゆるい）。自動で検出するのが SCA ツール。SBOM と組み合わせる。"}, {"cat": "問23 開発管理", "q": "正規の開発元を装ったり、更新の仕組みを乗っ取ったりして、利用者に不正なプログラムを配布する攻撃はどれか。", "a": "サプライチェーン攻撃", "abbr": "―", "note": "本丸を直接狙わず、取引先や部品の供給経路を経由して侵入する。信頼されている経路なので気づきにくい。", "plus": "対策は コード署名の検証、SBOM による部品の把握、委託先のセキュリティ要求、更新サーバの保護。SolarWinds 事件が代表例。"}, {"cat": "問24 サービスマネジメント", "q": "情報セキュリティインシデントの発生時に、被害の拡大を防ぐため最初に行うべき活動はどれか。", "a": "封じ込め（影響範囲の限定）", "abbr": "―", "note": "まず広がりを止める。原因究明や復旧より先。ネットワークから切り離す、該当アカウントを無効化する、など。", "plus": "NIST の対応サイクルは 準備 → 検知と分析 → 封じ込め・根絶・復旧 → 事後活動。封じ込めの際は、証拠保全（フォレンジック）のために電源を落とす判断を慎重に行う。"}, {"cat": "問24 サービスマネジメント", "q": "インシデント発生後、原因究明や法的手続のために電子的証拠を保全・分析する活動はどれか。", "a": "ディジタルフォレンジックス", "abbr": "―", "note": "証拠が改ざんされていないことを示せる形で保全する。手順を誤ると証拠として使えなくなる。", "plus": "要点は 証拠保全の順序（揮発性の高いものから：メモリ → ネットワーク接続 → ディスク）と、Chain of Custody（誰がいつ扱ったかの記録）、ハッシュ値による同一性証明。"}, {"cat": "問24 サービスマネジメント", "q": "利用者の操作ログやシステムログを集約し、相関分析して脅威を検知する仕組みはどれか。", "a": "SIEM", "abbr": "SIEM = Security Information and Event Management", "note": "バラバラのログを1か所に集め、横断して分析する。単独では異常に見えない事象も、組み合わせると攻撃と分かる。", "plus": "SOC が SIEM を使って監視する。対応の自動化まで行うのが SOAR。端末側の挙動を記録・分析するのが EDR、それを横断したのが XDR。"}, {"cat": "問24 サービスマネジメント", "q": "サービス停止を伴う作業を、業務影響が小さい時間帯に計画的に実施するために定める枠はどれか。", "a": "変更可能時間帯（メンテナンスウィンドウ）", "abbr": "―", "note": "「この時間なら止めてよい」をあらかじめ決めておく。都度調整すると時間がかかり、対応が遅れる。", "plus": "SLA の稼働率計算では、計画停止を除外するかどうかを明記しておく。除外しないと、保守のたびに SLA 違反になる。"}, {"cat": "問24 サービスマネジメント", "q": "情報システムの運用を外部に委託する場合、委託元が果たすべき責任はどれか。", "a": "委託先の選定・監督と、セキュリティ要求事項の明示", "abbr": "―", "note": "委託しても責任はなくならない。個人情報保護法でも、委託先の監督は委託元の義務とされている。", "plus": "契約で決めるべきは 再委託の可否、監査権、インシデント時の報告義務と期限、終了時のデータ返却・消去。クラウドでは 責任共有モデルで分界点を確認する。"}, {"cat": "問25 システム監査", "q": "システム監査人に求められる、監査対象から独立した立場を何というか。", "a": "独立性（外観上の独立性と精神上の独立性）", "abbr": "―", "note": "自分が作ったものを自分で監査しては意味がない。実際に公正であること（精神上）と、第三者から見てもそう見えること（外観上）の両方が要る。", "plus": "内部監査でも、被監査部門から組織上独立していることが求められる。システム監査基準は 一般基準・実施基準・報告基準 の3部構成。"}, {"cat": "問25 システム監査", "q": "監査の結論を裏づけるために、コンピュータを利用して大量データを検証する技法はどれか。", "a": "CAAT（コンピュータ支援監査技法）", "abbr": "CAAT = Computer Assisted Audit Techniques", "note": "全件を人の目で見るのは無理なので、ツールで抽出・突合する。サンプリングではなく全数検査ができる。", "plus": "具体的技法は テストデータ法（検証用データを流す）、監査モジュール法（本番処理に監査用の仕掛けを組み込む）、並行シミュレーション法（別プログラムで再計算して比較）。"}, {"cat": "問25 システム監査", "q": "IT 全般統制に該当するものはどれか。", "a": "アクセス権限の管理、プログラム変更管理、運用管理", "abbr": "ITGC = IT General Controls", "note": "個々の業務処理ではなく、システム全体を支える土台の統制。ここが崩れると、業務処理統制も信頼できない。", "plus": "IT 業務処理統制＝入力チェック、自動計算、承認フローなど個別処理に組み込まれた統制。IT 全社的統制＝方針や体制。3層の関係を押さえる。"}, {"cat": "問25 システム監査", "q": "クラウドサービス事業者の内部統制を、第三者の監査人が評価して報告する仕組みはどれか。", "a": "SOC 報告書", "abbr": "SOC = Service Organization Control", "note": "利用者が自分で監査に行けないので、事業者が第三者の監査を受けて報告書を出す。利用者はそれを使って自社の監査を通す。", "plus": "SOC1＝財務報告に関する統制、SOC2＝セキュリティ等の5つの規準（トラストサービス基準）、SOC3＝SOC2 の一般公開版。Type1 は設計、Type2 は一定期間の運用状況まで評価。"}, {"cat": "問25 システム監査", "q": "監査手続のうち、対象の全体から一部を抽出して検証する方法はどれか。", "a": "サンプリング（試査）", "abbr": "―", "note": "全部は見きれないので一部を抜いて調べる。抜き方に偏りがあると結論を誤る。", "plus": "精査＝全件を調べる。統計的サンプリング＝確率論に基づき抽出し、結果を母集団へ推定できる。非統計的サンプリング＝監査人の判断で抽出する。"}, {"cat": "問25 システム監査", "q": "監査報告書で指摘した事項について、改善の実施状況を確認する活動はどれか。", "a": "フォローアップ", "abbr": "―", "note": "報告して終わりにしない。改善されたかを確かめるまでが監査人の役割。", "plus": "監査人には改善を「命令」する権限はなく、助言・勧告にとどまる。実施の責任は被監査部門にある。この区別が選択肢の引っかけになる。"}];
+const CATS = ["問18-20 ネットワーク", "問21 データベース", "問22 システム開発技術", "問23 開発管理", "問24 サービスマネジメント", "問25 システム監査"];
+const KEY = "a2-ok";
+let filter = null, todoOnly = false, hideAll = false;
+let order = DATA.map((_,i)=>i);
+let ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify([...ok])); }catch(e){} }
+function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function chips(){
+  const el = document.getElementById("chips");
+  el.innerHTML = "";
+  const mk = (label, val) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = label;
+    b.setAttribute("aria-pressed", filter === val);
+    b.onclick = () => { filter = val; chips(); render(); el.scrollLeft = 0; };
+    el.appendChild(b);
+  };
+  mk("すべて", null);
+  CATS.forEach(c => mk(c, c));
+}
+
+function render(){
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  let shown = 0;
+  order.forEach(i => {
+    const d = DATA[i];
+    if (filter && d.cat !== filter) return;
+    if (todoOnly && ok.has(i)) return;
+    shown++;
+    const folded = ok.has(i) || hideAll;
+    const card = document.createElement("div");
+    card.className = "card" + (ok.has(i) ? " ok" : "");
+    card.innerHTML =
+      '<div class="q-header">' +
+        '<span class="q-num">Q' + String(i+1).padStart(3,"0") + '</span>' +
+        '<span class="q-cat">' + esc(d.cat) + '</span>' +
+        '<button class="q-chk">' + (ok.has(i) ? "覚えた" : "未チェック") + '</button>' +
+      '</div>' +
+      '<p class="q-text">' + esc(d.q) + '</p>' +
+      '<div class="body"' + (folded ? ' hidden' : '') + '>' +
+        '<p class="a">' + esc(d.a) + '</p>' +
+        (d.abbr !== "―" ? '<p class="abbr">' + esc(d.abbr) + '</p>' : '') +
+        '<div class="expl"><div class="expl-label">かんたん解説</div>' +
+        '<p class="expl-body">' + esc(d.note) + '</p></div>' +
+        (d.plus ? '<div class="plus"><div class="plus-label">あわせて覚える</div>' +
+                  '<p class="plus-body">' + esc(d.plus) + '</p></div>' : '') +
+      '</div>';
+
+    const body = card.querySelector(".body");
+    const chk = card.querySelector(".q-chk");
+    chk.onclick = () => {
+      if (ok.has(i)) {
+        ok.delete(i); card.classList.remove("ok");
+        chk.textContent = "未チェック"; body.hidden = hideAll;
+      } else {
+        ok.add(i); card.classList.add("ok");
+        chk.textContent = "覚えた"; body.hidden = true;
+      }
+      save(); progress();
+      if (todoOnly && ok.has(i)) render();
+    };
+
+    // 「答えを隠す」でたたまれているものは、設問をタップすると開く
+    if (folded && !ok.has(i)) {
+      const q = card.querySelector(".q-text");
+      q.style.cursor = "pointer";
+      q.title = "タップで答えを表示";
+      q.onclick = () => { body.hidden = false; };
+    }
+    list.appendChild(card);
+  });
+  document.getElementById("count").textContent = "表示 " + shown + " / 全 " + DATA.length + " 問";
+  progress();
+}
+
+function progress(){
+  document.getElementById("prog").textContent =
+    "覚えた " + ok.size + " / " + DATA.length + "（" + Math.round(ok.size/DATA.length*100) + "%）";
+}
+
+document.getElementById("hideAns").onclick = (e) => {
+  hideAll = !hideAll;
+  e.target.textContent = hideAll ? "答えを表示" : "答えを隠す";
+  e.target.classList.toggle("on", hideAll);
+  render();
+};
+document.getElementById("todo").onclick = (e) => {
+  todoOnly = !todoOnly;
+  e.target.classList.toggle("on", todoOnly);
+  render();
+};
+document.getElementById("shuffle").onclick = () => {
+  for (let i = order.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i],order[j]]=[order[j],order[i]]; }
+  render(); window.scrollTo(0,0);
+};
+document.getElementById("reset").onclick = () => { ok = new Set(); save(); render(); };
+
+chips(); render();
+</script>
+</body>
+</html>
