@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>科目A-1 計算パターン（30分で拾う）</title>
+<style>
+:root{
+  --bg:#f0f4f8; --card:#ffffff; --border:#e2e8f0;
+  --text:#1e293b; --muted:#64748b; --navy:#1e3a5f;
+  --en-bg:#f8fafc; --en-border:#94a3b8;
+  --ja-bg:#eff6ff; --ja-border:#3b82f6;
+  --ok-bg:#ecfdf5; --ok-border:#10b981; --ok-text:#065f46;
+  --ng-bg:#fef2f2; --ng-border:#ef4444; --ng-text:#991b1b;
+  --exp-bg:#fffbeb; --exp-border:#f59e0b; --exp-label:#92400e; --exp-text:#3d1a00;
+  --plus-bg:#f5f3ff; --plus-border:#8b5cf6; --plus-label:#5b21b6; --plus-text:#2e1065;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+     "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+     background:var(--bg);color:var(--text);margin:0;line-height:1.75;overflow-wrap:anywhere}
+.wrap{max-width:860px;margin:0 auto;padding:1.2rem 1rem 5rem}
+.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;line-height:1.35}
+.head .sub{margin:0 0 .9rem;font-size:.78rem;color:var(--muted);line-height:1.6}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);
+     padding:.6rem 0 .7rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);
+      border-radius:20px;padding:.38rem .8rem;font-size:.75rem;font-weight:700;
+      cursor:pointer;font-family:inherit;white-space:nowrap;flex:0 0 auto}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tools{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem;margin-top:.5rem}
+.tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
+      border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
+      font-family:inherit;min-height:40px;line-height:1.3}
+.tools button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem;
+      margin-top:.5rem;font-size:.73rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.score{font-weight:700;color:var(--navy)}
+.card{background:var(--card);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;
+      box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--border)}
+.card.ok{background:#fbfdfc;border-color:#c7ebdd}
+.qh{display:flex;align-items:center;gap:.45rem;margin-bottom:.7rem;flex-wrap:wrap}
+.qn{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
+    font-weight:700;font-size:.78rem;letter-spacing:.03em}
+.qc{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
+    color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
+.mk{margin-left:auto;font-weight:800;font-size:.85rem}
+.qt{font-size:.94rem;line-height:1.78;padding:.7rem .85rem;margin:0 0 .7rem;
+    background:var(--ja-bg);border-left:3px solid var(--ja-border);
+    border-radius:0 6px 6px 0}
+.opts{display:flex;flex-direction:column;gap:.4rem}
+.opt{display:flex;gap:.6rem;align-items:flex-start;width:100%;text-align:left;
+     background:var(--card);border:1.5px solid var(--border);border-radius:8px;
+     padding:.6rem .8rem;font-size:.89rem;line-height:1.7;color:var(--text);
+     cursor:pointer;font-family:inherit;transition:.12s;min-height:42px}
+.opt:hover:not(:disabled){border-color:var(--ja-border);background:var(--ja-bg)}
+.opt:disabled{cursor:default}
+.opt .lb{font-weight:800;color:var(--muted);flex-shrink:0;min-width:1.3em}
+.opt.correct{background:var(--ok-bg);border-color:var(--ok-border);color:var(--ok-text)}
+.opt.correct .lb{color:var(--ok-border)}
+.opt.wrong{background:var(--ng-bg);border-color:var(--ng-border);color:var(--ng-text)}
+.opt.wrong .lb{color:var(--ng-border)}
+.ans{margin-top:.85rem}
+.abbr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.76rem;line-height:1.65;margin:0 0 .55rem;padding:.5rem .85rem;
+      background:var(--en-bg);border-left:3px solid var(--en-border);
+      border-radius:0 6px 6px 0;color:var(--muted)}
+.expl{background:var(--exp-bg);border-left:4px solid var(--exp-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem;margin-bottom:.5rem}
+.el{font-size:.68rem;font-weight:800;color:var(--exp-label);letter-spacing:.06em;margin-bottom:.35rem}
+.eb{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
+.plus{background:var(--plus-bg);border-left:4px solid var(--plus-border);
+      border-radius:0 8px 8px 0;padding:.8rem .95rem}
+.pl{font-size:.68rem;font-weight:800;color:var(--plus-label);letter-spacing:.06em;margin-bottom:.35rem}
+.pb{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
+.foot{margin-top:1.6rem;font-size:.72rem;line-height:1.7;color:var(--muted);text-align:center}
+@media (max-width:600px){
+  .wrap{padding:.9rem .6rem 4rem}
+  .head h1{font-size:1.02rem}
+  .tools{grid-template-columns:repeat(3,1fr)}
+  .card{padding:.85rem .85rem}
+  .qt{padding:.6rem .7rem;font-size:.92rem}
+  .opt{font-size:.87rem;padding:.55rem .7rem}
+  .expl,.plus{padding:.7rem .75rem}
+}
+@media print{.bar{display:none}.card{break-inside:avoid;box-shadow:none}body{background:#fff}}
+
+.cn{display:inline-block;background:var(--navy);color:#fff;border-radius:6px;
+    padding:.1rem .5rem;font-weight:700;margin-right:.5rem}
+.cname{font-weight:700;font-size:1.02rem}
+.freq{float:right;font-size:.72rem;font-weight:700;color:#92400e;background:#fffbeb;
+    border:1px solid #f59e0b;border-radius:12px;padding:.1rem .55rem}
+.ch{margin-bottom:.35rem}
+.kai{margin:.1rem 0 .7rem;font-size:.75rem;color:var(--muted)}
+.tagline{color:#5b21b6;font-weight:700}
+.fbox{background:#0f172a;border-radius:8px;padding:.7rem .85rem;margin:.5rem 0 .8rem}
+.f{color:#e2e8f0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+   font-size:.82rem;line-height:1.9;overflow-x:auto;white-space:pre}
+.drill{background:#ecfdf5;border-left:4px solid #10b981;border-radius:6px;
+   padding:.55rem .75rem;margin-top:.6rem}
+.dl{font-size:.7rem;font-weight:700;color:#065f46;margin-bottom:.2rem}
+.db{margin:0;font-size:.84rem;color:#064e3b}
+.note{background:#fff;border:1px solid var(--border);border-radius:10px;
+   padding:.9rem 1rem;margin-bottom:1.1rem;font-size:.85rem}
+.note b{color:#991b1b}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;
+   padding:1rem 1.1rem;margin-bottom:1.1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>科目A-1 計算パターン ── 30分で拾う</h1>
+    <p class="sub">情報処理安全確保支援士試験 科目A-1 ／ 計算問題は 8回平均 5.6問（19%）／
+    最多 9問（R6春）・最少 1問（R5春）<br>2026-10-19 作成</p>
+  </div>
+
+  <div class="note">
+    <p style="margin:0 0 .5rem"><b>計算を全部捨てると、当たり回で基準点に届きません。</b></p>
+    <table style="width:100%;border-collapse:collapse;font-size:.8rem">
+      <tr style="border-bottom:1px solid #e2e8f0">
+        <th style="text-align:left;padding:.25rem">　</th><th style="text-align:right;padding:.25rem">暗記問題</th>
+        <th style="text-align:right;padding:.25rem">当てずっぽう</th><th style="text-align:right;padding:.25rem">18問に必要な暗記正答率</th></tr>
+      <tr><td style="padding:.25rem">8回平均（計算5.6問）</td><td style="text-align:right">24.4問</td>
+        <td style="text-align:right">1.4問</td><td style="text-align:right"><b>68.0%</b></td></tr>
+      <tr><td style="padding:.25rem">当たり回（計算9問・R6春）</td><td style="text-align:right">21問</td>
+        <td style="text-align:right">2.25問</td><td style="text-align:right"><b>75.0%</b></td></tr>
+    </table>
+    <p style="margin:.6rem 0 0">暗記だけで <b>75%</b> を安定して出すのは楽ではない。
+    しかも過去問演習の正答率は既出問題の反復を含むので、初出テーマが6割以上を占める本番では
+    その数字より下がる方向に働く。<br>
+    下の ①〜③ で 2問確実に取れれば、必要な暗記正答率は <b>68.0% → 61.9%</b>、
+    当たり回でも <b>75.0% → 67.5%</b> まで下がる。<b>公式7行、30分の投資で6ポイント。</b></p>
+  </div>
+
+  <p class="sub" style="margin:-.4rem 0 .9rem">
+  ①〜③ が本命（8回分で実際に出題あり）。④⑤ は公式が短いので余裕があれば。</p>
+
+
+<div class="card">
+  <div class="ch"><span class="cn">①</span><span class="cname">EVM（出来高管理）</span>
+    <span class="freq">★ 8回中3回</span></div>
+  <p class="kai">R7春問18 ／ R6春問18 ／ R4春問18　<span class="tagline">最頻出。しかも3回とも 問18</span></p>
+  <div class="fbox"><div class='f'>CPI = EV ÷ AC    （コスト効率）</div><div class='f'>SPI = EV ÷ PV    （スケジュール効率）</div><div class='f'>EAC = BAC ÷ CPI  （完成時の総コスト見積り）</div></div>
+  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">どちらも <b>1 が基準</b>。1未満＝悪い、1超＝良い。PV＝計画した価値、EV＝実際に出来上がった価値、AC＝実際に使ったお金。EV（出来高）を AC で割ればコスト効率、PV で割ればスケジュール効率になる。</p></div>
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb"><b>グラフで出たら計算不要。</b>3本の線の上下だけ見る。<b>EV が一番下＝両方悪い</b>／EV が一番上＝両方良い／EV が真ん中＝片方だけ悪い。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">CPI 0.9・SPI 1.1 → コストは超過、スケジュールは前倒し。BAC100・EV40・AC60 → CPI = 40÷60 = 2/3 → EAC = 100 ÷ (2/3) = <b>150</b>。</p></div>
+</div>
+<div class="card">
+  <div class="ch"><span class="cn">②</span><span class="cname">損益分岐点売上高</span>
+    <span class="freq">2回</span></div>
+  <p class="kai">R7春問29 ／ R7秋問29　<span class="tagline">直近2回で連続。計算問題として出た</span></p>
+  <div class="fbox"><div class='f'>損益分岐点売上高 = 固定費 ÷ 限界利益率</div><div class='f'>限界利益率 = (売上 − 変動費) ÷ 売上 = 1 − 変動費率</div></div>
+  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">限界利益＝売上から変動費を引いた残りで、これが固定費の回収に充てられる。固定費をこの率で割ると、ちょうど固定費を回収しきる売上高が出る。ここを超えた分がそのまま利益。</p></div>
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">選択肢に「固定費 ÷ 変動費率」が必ず混ざる。<b>割るのは限界利益率</b>。変動費率と限界利益率は足して 1 になる関係。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">固定費300万・変動費率60% → 限界利益率 40% → 300 ÷ 0.4 = <b>750万円</b>。</p></div>
+</div>
+<div class="card">
+  <div class="ch"><span class="cn">③</span><span class="cname">M/M/1 待ち行列</span>
+    <span class="freq">★ 8回中2回</span></div>
+  <p class="kai">R7秋問1 ／ R6春問1　<span class="tagline">2回とも 問1。冒頭に出る</span></p>
+  <div class="fbox"><div class='f'>平均待ち時間 = 平均サービス時間 × ρ ÷ (1 − ρ)</div><div class='f'>平均系内時間（待ち＋処理）= 平均サービス時間 ÷ (1 − ρ)</div><div class='f'>ρ（ロー）= 利用率</div></div>
+  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">ρ が 1 に近づくと分母が 0 に近づき、待ち時間が<b>爆発的に</b>伸びる。ρ=0.5 なら待ちはサービス時間と同じ、0.9 なら 9 倍、0.95 なら 19 倍。サーバの CPU 使用率を 100% 近くまで上げてはいけない理由がこれ。</p></div>
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb"><b>計算させない出題が多い。</b>「利用率が高くなると待ち時間はどうなるか」なら<b>「1 に近づくと急激に増える」</b>を選ぶだけ。記法は「到着/サービス/窓口数」でM＝ランダム、D＝一定。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">サービス時間 0.2 秒・ρ=0.8 → 0.2 × 0.8 ÷ 0.2 = <b>0.8 秒</b>。</p></div>
+</div>
+<div class="card">
+  <div class="ch"><span class="cn">④</span><span class="cname">稼働率・MTBF / MTTR</span>
+    <span class="freq">予備</span></div>
+  <p class="kai">8回分では未出題（古典的頻出）　<span class="tagline">出なければ捨ててよい。公式は3行</span></p>
+  <div class="fbox"><div class='f'>稼働率 = MTBF ÷ (MTBF + MTTR)</div><div class='f'>直列（両方動いて初めて動く）= A × B</div><div class='f'>並列（どちらか動けばよい）= 1 − (1 − A)(1 − B)</div></div>
+  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">MTBF＝平均故障間隔（壊れにくさ＝信頼性）、MTTR＝平均修復時間（直す速さ＝保守性）。稼働率は MTTR ÷ MTBF の<b>比だけ</b>で決まるので、両方を10倍しても稼働率は変わらない。</p></div>
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">直列は必ず各要素より<b>下がる</b>、並列は必ず<b>上がる</b>。計算せずとも選択肢の大小で切れることがある。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">MTBF 95時間・MTTR 5時間 → 95 ÷ 100 = <b>0.95</b>。稼働率0.9 を2台並列 → 1 − 0.1×0.1 = <b>0.99</b>。</p></div>
+</div>
+<div class="card">
+  <div class="ch"><span class="cn">⑤</span><span class="cname">実効メモリアクセス時間</span>
+    <span class="freq">予備</span></div>
+  <p class="kai">8回分では未出題（古典的頻出）　<span class="tagline">出なければ捨ててよい。公式は1行</span></p>
+  <div class="fbox"><div class='f'>実効時間 = ヒット率 × 高速側 + (1 − ヒット率) × 低速側</div></div>
+  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">キャッシュは「当たって当たり前、外れると痛い」。ヒット率95%・キャッシュが主記憶の1/30 なら、0.95×(1/30) + 0.05×1 ≒ 0.032 + 0.05 = <b>0.082</b>。<b>たった5%のミスのほうが、95%のヒットより大きい。</b></p></div>
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">同じ形が ディスクキャッシュ・CDN・ページング でも使える。「当たったとき」と「外れたとき」の加重平均、と覚えれば式を忘れない。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">ヒット率90%・キャッシュ10ns・主記憶100ns → 0.9×10 + 0.1×100 = <b>19ns</b>。</p></div>
+</div>
+
+  <p class="foot">出題実績は IPA 公開の過去問 8回分（令和4年春〜令和7年秋）の分析による。<br>
+  本命3パターンの根拠：EVM 3回・損益分岐点 2回・M/M/1 2回。④⑤ は8回分では未出題だが古典的頻出のため予備。</p>
+</div>
+</body>
+</html>
