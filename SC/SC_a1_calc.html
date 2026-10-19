@@ -94,13 +94,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
 .cname{font-weight:700;font-size:1.02rem}
 .freq{float:right;font-size:.72rem;font-weight:700;color:#92400e;background:#fffbeb;
     border:1px solid #f59e0b;border-radius:12px;padding:.1rem .55rem}
+.freq.lvsub{color:var(--muted);background:#f8fafc;border-color:var(--border)}
+.lv{display:inline-block;font-size:.68rem;font-weight:700;border-radius:4px;
+    padding:.05rem .4rem;margin-right:.4rem;vertical-align:.1rem}
+.lv-honmei{background:#fee2e2;color:#991b1b;border:1px solid #ef4444}
+.lv-yobi{background:#f1f5f9;color:#64748b;border:1px solid var(--border)}
 .ch{margin-bottom:.35rem}
 .kai{margin:.1rem 0 .7rem;font-size:.75rem;color:var(--muted)}
 .tagline{color:#5b21b6;font-weight:700}
 .fbox{background:#0f172a;border-radius:8px;padding:.7rem .85rem;margin:.5rem 0 .8rem}
 .f{color:#e2e8f0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
    font-size:.82rem;line-height:1.9;overflow-x:auto;white-space:pre}
-.drill{background:#ecfdf5;border-left:4px solid #10b981;border-radius:6px;
+.drill{background:#ecfdf5;border-left:4px solid #10b981;border-radius:0 6px 6px 0;
    padding:.55rem .75rem;margin-top:.6rem}
 .dl{font-size:.7rem;font-weight:700;color:#065f46;margin-bottom:.2rem}
 .db{margin:0;font-size:.84rem;color:#064e3b}
@@ -109,6 +114,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
 .note b{color:#991b1b}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;
    padding:1rem 1.1rem;margin-bottom:1.1rem}
+.ex{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;
+   padding:.65rem .8rem;margin:.55rem 0}
+.exh{font-size:.72rem;font-weight:700;color:#1e40af;margin-bottom:.35rem}
+.exq{margin:0 0 .4rem;font-size:.85rem;font-weight:600}
+.exo{margin:0 0 .4rem;font-size:.82rem;color:#334155;line-height:1.8}
+.exa{margin:0;font-size:.82rem;background:#fff;border-left:3px solid #3b82f6;
+   padding:.4rem .6rem;border-radius:0 4px 4px 0}
 </style>
 </head>
 <body>
@@ -116,7 +128,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
   <div class="head">
     <h1>科目A-1 計算パターン ── 30分で拾う</h1>
     <p class="sub">情報処理安全確保支援士試験 科目A-1 ／ 計算問題は 8回平均 5.6問（19%）／
-    最多 9問（R6春）・最少 1問（R5春）<br>2026-10-19 作成</p>
+    最多 9問（R6春）・最少 1問（R5春）<br>
+    2026-10-19 作成 ／ 10-19 改訂：出題実績を春・秋に分け、② を予備から本命へ格上げ</p>
   </div>
 
   <div class="note">
@@ -133,62 +146,90 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
     <p style="margin:.6rem 0 0">暗記だけで <b>75%</b> を安定して出すのは楽ではない。
     しかも過去問演習の正答率は既出問題の反復を含むので、初出テーマが6割以上を占める本番では
     その数字より下がる方向に働く。<br>
-    下の ①〜③ で 2問確実に取れれば、必要な暗記正答率は <b>68.0% → 61.9%</b>、
-    当たり回でも <b>75.0% → 67.5%</b> まで下がる。<b>公式7行、30分の投資で6ポイント。</b></p>
+    下の本命パターンで 2問確実に取れれば、必要な暗記正答率は <b>68.0% → 61.9%</b>、
+    当たり回でも <b>75.0% → 67.9%</b> まで下がる。<b>公式8行、30分の投資で6ポイント。</b></p>
   </div>
 
-  <p class="sub" style="margin:-.4rem 0 .9rem">
-  ①〜③ が本命（8回分で実際に出題あり）。④⑤ は公式が短いので余裕があれば。</p>
+  <div class="note" style="border-color:#f59e0b">
+    <p style="margin:0"><b>10/27 は「春期相当」です。</b>
+    IPA は令和8年度前期を従来の春期試験に相当すると位置づけている。
+    出題実績を春・秋で分けると <b>EVM は春4回中3回（秋は0回）</b>で、他と差が開く。
+    迷ったら <b>① に時間を使う</b>。<br>
+    <span style="color:var(--muted);font-weight:400">※ CBT 化で問題プールの構成が変わる可能性はあるので、春の傾向が続く保証はない。</span></p>
+  </div>
 
 
 <div class="card">
-  <div class="ch"><span class="cn">①</span><span class="cname">EVM（出来高管理）</span>
-    <span class="freq">★ 8回中3回</span></div>
-  <p class="kai">R7春問18 ／ R6春問18 ／ R4春問18　<span class="tagline">最頻出。しかも3回とも 問18</span></p>
+  <div class="ch"><span class="cn">①</span>
+    <span class="lv lv-honmei">本命</span><span class="cname">EVM（出来高管理）</span>
+    <span class="freq">春4回中 ★3回</span></div>
+  <p class="kai">R7春問18 ／ R6春問18 ／ R4春問18　── <b>3回とも 問18</b>。秋は0回<br><span class="tagline">春相当の 10/27 では 最優先</span></p>
   <div class="fbox"><div class='f'>CPI = EV ÷ AC    （コスト効率）</div><div class='f'>SPI = EV ÷ PV    （スケジュール効率）</div><div class='f'>EAC = BAC ÷ CPI  （完成時の総コスト見積り）</div></div>
-  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">どちらも <b>1 が基準</b>。1未満＝悪い、1超＝良い。PV＝計画した価値、EV＝実際に出来上がった価値、AC＝実際に使ったお金。EV（出来高）を AC で割ればコスト効率、PV で割ればスケジュール効率になる。</p></div>
+  <div class="expl"><div class="el">なぜそうなるか</div><p class="eb">どちらの指数も <b>1 が基準</b>。1未満＝悪い、1超＝良い。PV＝計画した価値、EV＝実際に出来上がった価値、AC＝実際に使ったお金。EV（出来高）を AC で割ればコスト効率、PV で割ればスケジュール効率になる。EAC は「今の効率がこのまま続くなら総額はいくらか」を割り戻したもの。</p></div>
+  <div class='ex'><div class='exh'>出題パターン1 ── 指数から状況を読む（R7春問18 型）</div><p class='exq'>EVM で管理しているプロジェクトにおいて、CPI が 0.9、SPI が 1.1 であるときの状況は？</p><p class='exo'>ア コストが予算を超えているが、スケジュールには余裕がある　←<b>正解</b><br>イ コストには余裕があるが、スケジュールが遅れている<br>ウ コストもスケジュールも計画どおり<br>エ コストもスケジュールも計画より悪化</p><p class='exa'>CPI 0.9 &lt; 1 → コスト<b>超過</b>。SPI 1.1 &gt; 1 → スケジュール<b>前倒し</b>。<b>1を基準に大小を見るだけ</b>で、計算は一切不要。</p></div><div class='ex'><div class='exh'>出題パターン2 ── EAC を計算する（R4春問18 型）</div><p class='exq'>BAC＝100万円、PV＝50万円、EV＝40万円、AC＝60万円。完成時総コスト見積り（EAC）は？</p><p class='exo'>ア 100万円　イ 120万円　ウ <b>150万円</b> ←<b>正解</b>　エ 180万円</p><p class='exa'>CPI = EV ÷ AC = 40 ÷ 60 = <b>2/3</b>。EAC = BAC ÷ CPI = 100 ÷ (2/3) = <b>150万円</b>。<b>CPI を先に出す</b>のが手順。割り算の向きを間違えないこと（EV が分子）。</p></div><div class='ex'><div class='exh'>出題パターン3 ── グラフを読む（R6春問18 型）</div><p class='exq'>現時点で PV &gt; AC &gt; EV のとき、今後の見通しは？</p><p class='exo'>ア コストは多くなり、完了は遅くなる　←<b>正解</b><br>イ コストは多くなり、完了は早くなる<br>ウ コストは少なくなり、完了は遅くなる<br>エ コストは少なくなり、完了は早くなる</p><p class='exa'><b>EV が一番下</b>＝出来高が最も少ない。AC &gt; EV なのでコスト超過、PV &gt; EV なので進捗遅れ。<b>両方悪い</b>。線の上下だけで即答できる。</p></div>
   <div class="plus"><div class="pl">本番での切り方</div><p class="pb"><b>グラフで出たら計算不要。</b>3本の線の上下だけ見る。<b>EV が一番下＝両方悪い</b>／EV が一番上＝両方良い／EV が真ん中＝片方だけ悪い。</p></div>
-  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">CPI 0.9・SPI 1.1 → コストは超過、スケジュールは前倒し。BAC100・EV40・AC60 → CPI = 40÷60 = 2/3 → EAC = 100 ÷ (2/3) = <b>150</b>。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">覚える順序は <b>EV が主役</b>。EV÷AC が CPI、EV÷PV が SPI、BAC÷CPI が EAC。差で問われたら CV = EV − AC、SV = EV − PV（こちらは <b>0 が基準</b>）。</p></div>
 </div>
 <div class="card">
-  <div class="ch"><span class="cn">②</span><span class="cname">損益分岐点売上高</span>
-    <span class="freq">2回</span></div>
-  <p class="kai">R7春問29 ／ R7秋問29　<span class="tagline">直近2回で連続。計算問題として出た</span></p>
+  <div class="ch"><span class="cn">②</span>
+    <span class="lv lv-honmei">本命</span><span class="cname">実効メモリアクセス時間</span>
+    <span class="freq">8回中 1回</span></div>
+  <p class="kai">R6秋問10（キャッシュ 1/30・ヒット率95% → 0.08）<br><span class="tagline">公式1行。同じ形が ディスクキャッシュ・CDN・ページング にも効く</span></p>
+  <div class="fbox"><div class='f'>実効時間 = ヒット率 × 高速側 + (1 − ヒット率) × 低速側</div></div>
+  <div class="expl"><div class="el">なぜそうなるか</div><p class="eb">キャッシュは「当たって当たり前、外れると痛い」。ヒット率95%・キャッシュが主記憶の1/30 なら 0.95×(1/30) + 0.05×1 ≒ 0.032 + 0.05 = <b>0.082</b>。<b>たった5%のミスのほうが、95%のヒットより大きい</b>のがこの式の肝。</p></div>
+  
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">「当たったとき」と「外れたとき」の<b>加重平均</b>、と覚えれば式を忘れない。低速側を 1 と置いて計算すると分数のまま扱えて速い。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">ヒット率90%・キャッシュ10ns・主記憶100ns → 0.9×10 + 0.1×100 = <b>19ns</b>。</p></div>
+</div>
+<div class="card">
+  <div class="ch"><span class="cn">③</span>
+    <span class="lv lv-honmei">本命</span><span class="cname">損益分岐点売上高</span>
+    <span class="freq">春1回 / 秋1回</span></div>
+  <p class="kai">R7春問29 ／ R7秋問29　── 直近2回で連続<br><span class="tagline">計算問題として出た。公式2行</span></p>
   <div class="fbox"><div class='f'>損益分岐点売上高 = 固定費 ÷ 限界利益率</div><div class='f'>限界利益率 = (売上 − 変動費) ÷ 売上 = 1 − 変動費率</div></div>
-  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">限界利益＝売上から変動費を引いた残りで、これが固定費の回収に充てられる。固定費をこの率で割ると、ちょうど固定費を回収しきる売上高が出る。ここを超えた分がそのまま利益。</p></div>
-  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">選択肢に「固定費 ÷ 変動費率」が必ず混ざる。<b>割るのは限界利益率</b>。変動費率と限界利益率は足して 1 になる関係。</p></div>
+  <div class="expl"><div class="el">なぜそうなるか</div><p class="eb">限界利益＝売上から変動費を引いた残りで、これが固定費の回収に充てられる。固定費をこの率で割ると、ちょうど固定費を回収しきる売上高が出る。超えた分がそのまま利益。</p></div>
+  
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">選択肢に「固定費 ÷ <b>変動費率</b>」が必ず混ざる。<b>割るのは限界利益率</b>。変動費率と限界利益率は足して 1。</p></div>
   <div class="drill"><div class="dl">30秒ドリル</div><p class="db">固定費300万・変動費率60% → 限界利益率 40% → 300 ÷ 0.4 = <b>750万円</b>。</p></div>
 </div>
 <div class="card">
-  <div class="ch"><span class="cn">③</span><span class="cname">M/M/1 待ち行列</span>
-    <span class="freq">★ 8回中2回</span></div>
-  <p class="kai">R7秋問1 ／ R6春問1　<span class="tagline">2回とも 問1。冒頭に出る</span></p>
+  <div class="ch"><span class="cn">④</span>
+    <span class="lv lv-honmei">本命</span><span class="cname">M/M/1 待ち行列</span>
+    <span class="freq">春1回 / 秋1回</span></div>
+  <p class="kai">R7秋問1 ／ R6春問1　── 2回とも 問1<br><span class="tagline">計算させない出題が多い。傾向だけで切れる</span></p>
   <div class="fbox"><div class='f'>平均待ち時間 = 平均サービス時間 × ρ ÷ (1 − ρ)</div><div class='f'>平均系内時間（待ち＋処理）= 平均サービス時間 ÷ (1 − ρ)</div><div class='f'>ρ（ロー）= 利用率</div></div>
-  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">ρ が 1 に近づくと分母が 0 に近づき、待ち時間が<b>爆発的に</b>伸びる。ρ=0.5 なら待ちはサービス時間と同じ、0.9 なら 9 倍、0.95 なら 19 倍。サーバの CPU 使用率を 100% 近くまで上げてはいけない理由がこれ。</p></div>
-  <div class="plus"><div class="pl">本番での切り方</div><p class="pb"><b>計算させない出題が多い。</b>「利用率が高くなると待ち時間はどうなるか」なら<b>「1 に近づくと急激に増える」</b>を選ぶだけ。記法は「到着/サービス/窓口数」でM＝ランダム、D＝一定。</p></div>
-  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">サービス時間 0.2 秒・ρ=0.8 → 0.2 × 0.8 ÷ 0.2 = <b>0.8 秒</b>。</p></div>
+  <div class="expl"><div class="el">なぜそうなるか</div><p class="eb">ρ が 1 に近づくと分母が 0 に近づき、待ち時間が<b>爆発的に</b>伸びる。ρ=0.5 なら待ちはサービス時間と同じ、0.9 なら 9 倍、0.95 なら 19 倍。サーバの CPU 使用率を 100% 近くまで上げてはいけない理由がこれ。</p></div>
+  
+  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">「利用率が高くなると待ち時間はどうなるか」と問われたら<b>「1 に近づくと急激に増える」</b>を選ぶだけ。記法は「到着/サービス/窓口数」で M＝ランダム、D＝一定。</p></div>
+  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">サービス時間 0.2 秒・ρ=0.8 → 0.2 × 0.8 ÷ (1 − 0.8) = 0.2 × 4 = <b>0.8 秒</b>。</p></div>
 </div>
 <div class="card">
-  <div class="ch"><span class="cn">④</span><span class="cname">稼働率・MTBF / MTTR</span>
-    <span class="freq">予備</span></div>
-  <p class="kai">8回分では未出題（古典的頻出）　<span class="tagline">出なければ捨ててよい。公式は3行</span></p>
+  <div class="ch"><span class="cn">⑤</span>
+    <span class="lv lv-yobi">予備</span><span class="cname">稼働率・MTBF / MTTR</span>
+    <span class="freq">8回分では未出題</span></div>
+  <p class="kai">古典的頻出。公式3行なので余裕があれば<br><span class="tagline">出なければ捨ててよい</span></p>
   <div class="fbox"><div class='f'>稼働率 = MTBF ÷ (MTBF + MTTR)</div><div class='f'>直列（両方動いて初めて動く）= A × B</div><div class='f'>並列（どちらか動けばよい）= 1 − (1 − A)(1 − B)</div></div>
-  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">MTBF＝平均故障間隔（壊れにくさ＝信頼性）、MTTR＝平均修復時間（直す速さ＝保守性）。稼働率は MTTR ÷ MTBF の<b>比だけ</b>で決まるので、両方を10倍しても稼働率は変わらない。</p></div>
+  <div class="expl"><div class="el">なぜそうなるか</div><p class="eb">MTBF＝平均故障間隔（壊れにくさ＝信頼性）、MTTR＝平均修復時間（直す速さ＝保守性）。稼働率は <b>MTTR ÷ MTBF の比だけ</b>で決まるので、両方を10倍しても稼働率は変わらない。</p></div>
+  
   <div class="plus"><div class="pl">本番での切り方</div><p class="pb">直列は必ず各要素より<b>下がる</b>、並列は必ず<b>上がる</b>。計算せずとも選択肢の大小で切れることがある。</p></div>
   <div class="drill"><div class="dl">30秒ドリル</div><p class="db">MTBF 95時間・MTTR 5時間 → 95 ÷ 100 = <b>0.95</b>。稼働率0.9 を2台並列 → 1 − 0.1×0.1 = <b>0.99</b>。</p></div>
 </div>
-<div class="card">
-  <div class="ch"><span class="cn">⑤</span><span class="cname">実効メモリアクセス時間</span>
-    <span class="freq">予備</span></div>
-  <p class="kai">8回分では未出題（古典的頻出）　<span class="tagline">出なければ捨ててよい。公式は1行</span></p>
-  <div class="fbox"><div class='f'>実効時間 = ヒット率 × 高速側 + (1 − ヒット率) × 低速側</div></div>
-  <div class="exp"><div class="el">なぜそうなるか</div><p class="eb">キャッシュは「当たって当たり前、外れると痛い」。ヒット率95%・キャッシュが主記憶の1/30 なら、0.95×(1/30) + 0.05×1 ≒ 0.032 + 0.05 = <b>0.082</b>。<b>たった5%のミスのほうが、95%のヒットより大きい。</b></p></div>
-  <div class="plus"><div class="pl">本番での切り方</div><p class="pb">同じ形が ディスクキャッシュ・CDN・ページング でも使える。「当たったとき」と「外れたとき」の加重平均、と覚えれば式を忘れない。</p></div>
-  <div class="drill"><div class="dl">30秒ドリル</div><p class="db">ヒット率90%・キャッシュ10ns・主記憶100ns → 0.9×10 + 0.1×100 = <b>19ns</b>。</p></div>
-</div>
+
+  <div class="card">
+    <div class="ch"><span class="cn">⑥</span><span class="cname">1行で足せるもの（余裕があれば）</span>
+      <span class="freq lvsub">予備</span></div>
+    <p class="kai">R6秋 問9・問28。秋の出題なので 10/27（春相当）に効くとは限らないが、どちらも公式1行</p>
+    <div class="fbox">
+      <div class="f">帯域幅 = データ量 ÷ 許容時間   ★バイト↔ビットの ×8 に注意</div>
+      <div class="f">正味所要量 = 総所要量 − 在庫 − 発注残</div>
+    </div>
+    <div class="plus"><div class="pl">本番での切り方</div>
+      <p class="pb">帯域幅は<b>単位換算だけ</b>が勝負。「MB」と書いてあったら 8 倍して Mbit にする。
+      正味所要量は<b>引き算だけ</b>。どちらも公式を知っていれば 30秒で終わる。</p></div>
+  </div>
 
   <p class="foot">出題実績は IPA 公開の過去問 8回分（令和4年春〜令和7年秋）の分析による。<br>
-  本命3パターンの根拠：EVM 3回・損益分岐点 2回・M/M/1 2回。④⑤ は8回分では未出題だが古典的頻出のため予備。</p>
+  本命の根拠：EVM 春4回中3回・実効アクセス時間 R6秋問10・損益分岐点 春秋各1回・M/M/1 春秋各1回。</p>
 </div>
 </body>
 </html>
