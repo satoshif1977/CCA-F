@@ -216,16 +216,54 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
 </div>
 
   <div class="card">
-    <div class="ch"><span class="cn">⑥</span><span class="cname">1行で足せるもの（余裕があれば）</span>
-      <span class="freq lvsub">予備</span></div>
-    <p class="kai">R6秋 問9・問28。秋の出題なので 10/27（春相当）に効くとは限らないが、どちらも公式1行</p>
+    <div class="ch"><span class="cn">⑥</span>
+      <span class="lv lv-yobi">予備</span><span class="cname">1行で足せるもの（余裕があれば）</span>
+      <span class="freq lvsub">R6秋 問9・問28</span></div>
+    <p class="kai">秋の出題なので 10/27（春相当）に効くとは限らないが、どちらも公式1行<br>
+      <span class="tagline">合わせて5分。知っていれば確実に1問</span></p>
     <div class="fbox">
-      <div class="f">帯域幅 = データ量 ÷ 許容時間   ★バイト↔ビットの ×8 に注意</div>
+      <div class="f">帯域幅（回線速度） = データ量[bit] ÷ 許容時間[秒] ÷ 伝送効率</div>
+      <div class="f">   ★1バイト = 8ビット。「MB」と書いてあったら まず ×8</div>
+      <div class="f"></div>
       <div class="f">正味所要量 = 総所要量 − 在庫 − 発注残</div>
+      <div class="f">   ★総所要量 = 親製品の数量 × 1個あたりの員数</div>
     </div>
+
+    <div class="expl"><div class="el">なぜそうなるか</div>
+      <p class="eb"><b>帯域幅</b>：回線速度は「1秒あたり何ビット送れるか」なので、
+      送りたいビット数を秒数で割れば必要な速度が出る。実際の回線は制御情報などで
+      100% は使えないため、<b>伝送効率で割って必要量を増やす</b>（÷0.8 は ×1.25）。<br>
+      <b>正味所要量</b>：いま手元にある在庫と、すでに発注して届く予定のぶんは作らなくてよい。
+      だから必要な総量から<b>その2つを引く</b>。MRP（資材所要量計画）の基本計算。</p></div>
+
+    <div class="ex"><div class="exh">出題パターン1 ── 帯域幅（R6秋問9 型）</div>
+      <p class="exq">10M バイトのファイルを、伝送効率 80% の回線を使って 20 秒以内に転送したい。
+      最低限必要な回線速度は何 Mbps か。</p>
+      <p class="exo">ア 4Mbps　イ <b>5Mbps</b> ←<b>正解</b>　ウ 8Mbps　エ 10Mbps</p>
+      <p class="exa">① <b>単位をビットへ</b>：10M バイト × 8 = <b>80M ビット</b><br>
+      ② <b>秒で割る</b>：80 ÷ 20 = 4Mbps（これは実際に流れる量）<br>
+      ③ <b>伝送効率で割る</b>：4 ÷ 0.8 = <b>5Mbps</b><br>
+      ★ ×8 を忘れると 0.5Mbps、効率で割り忘れると 4Mbps。
+      <b>選択肢に両方が罠として置いてある</b>ので、2段階とも忘れないこと。</p></div>
+
+    <div class="ex"><div class="exh">出題パターン2 ── 正味所要量（R6秋問28 型）</div>
+      <p class="exq">製品 A を 10 個生産する。製品 A 1 個につき部品 B を 3 個使用する。
+      部品 B の在庫が 12 個、発注残が 5 個あるとき、部品 B の正味所要量は何個か。</p>
+      <p class="exo">ア 5個　イ <b>13個</b> ←<b>正解</b>　ウ 18個　エ 30個</p>
+      <p class="exa">① <b>総所要量</b>：10 個 × 3 個 = <b>30 個</b><br>
+      ② <b>引く</b>：30 − 在庫 12 − 発注残 5 = <b>13 個</b><br>
+      ★ 「発注残」を引き忘れると 18 個（＝選択肢ウ）。
+      <b>発注残＝もう注文済みで届く予定のぶん</b>なので、作らなくてよい。ここが唯一の引っかけ。</p></div>
+
     <div class="plus"><div class="pl">本番での切り方</div>
-      <p class="pb">帯域幅は<b>単位換算だけ</b>が勝負。「MB」と書いてあったら 8 倍して Mbit にする。
-      正味所要量は<b>引き算だけ</b>。どちらも公式を知っていれば 30秒で終わる。</p></div>
+      <p class="pb">帯域幅は<b>単位換算だけ</b>が勝負。「MB」を見たら反射で ×8。
+      伝送効率が書いてあれば必ず最後に割る（<b>割る＝必要量は増える</b>）。<br>
+      正味所要量は<b>引き算だけ</b>。引く対象は<b>在庫と発注残の2つ</b>で、
+      片方しか引かない選択肢が必ず混ざっている。</p></div>
+
+    <div class="drill"><div class="dl">30秒ドリル</div>
+      <p class="db">1M バイトを 伝送効率 50% の 回線で 2 秒以内に → 8 ÷ 2 ÷ 0.5 = <b>8Mbps</b>。<br>
+      総所要量 100・在庫 30・発注残 20 → 100 − 30 − 20 = <b>50 個</b>。</p></div>
   </div>
 
   <p class="foot">出題実績は IPA 公開の過去問 8回分（令和4年春〜令和7年秋）の分析による。<br>
