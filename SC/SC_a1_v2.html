@@ -118,7 +118,10 @@ const LB = ["ア","イ","ウ","エ"];
 const KEY = "a1-v2";
 let filter=null, wrongOnly=false, todoOnly=false, showAll=false;
 const order = DATA.map((_,i)=>i);   // 出題順は固定（シャッフル機能は廃止）
-let res = JSON.parse(localStorage.getItem(KEY) || "{}");
+let res = {};
+// プライベートウィンドウやサイトデータを拒否した環境では localStorage の
+// 読み取り自体が例外を投げる。囲っていないとページ全体が真っ白になる。
+try{ res = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){ res = {}; }
 // 選択肢は原文（IPA 本番）の並びのまま表示する。
 // ★シャッフルすると、解説「あわせて覚える」の「アは〜」「エの内容は〜」が合わなくなる
 //   （2026-10-19 修正。55問で記号がズレていた）

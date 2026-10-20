@@ -4,238 +4,201 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1e3a5f">
-<title>科目A-2 出題枠別 50問</title>
+<title>科目A-2 出題枠別 68問</title>
 <style>
 :root{
   --bg:#f0f4f8; --card:#ffffff; --border:#e2e8f0;
   --text:#1e293b; --muted:#64748b; --navy:#1e3a5f;
   --en-bg:#f8fafc; --en-border:#94a3b8;
   --ja-bg:#eff6ff; --ja-border:#3b82f6;
-  --ans-bg:#ecfdf5; --ans-border:#10b981; --ans-text:#065f46;
+  --ok-bg:#ecfdf5; --ok-border:#10b981; --ok-text:#065f46;
+  --ng-bg:#fef2f2; --ng-border:#ef4444; --ng-text:#991b1b;
   --exp-bg:#fffbeb; --exp-border:#f59e0b; --exp-label:#92400e; --exp-text:#3d1a00;
   --plus-bg:#f5f3ff; --plus-border:#8b5cf6; --plus-label:#5b21b6; --plus-text:#2e1065;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
-              "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
-  background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.75;
-  overflow-wrap:anywhere;
-}
-.wrap{max-width:820px;margin:0 auto;padding:1.2rem 1rem 5rem}
-
-/* ヘッダー */
-.head{margin-bottom:.9rem}
-.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;letter-spacing:.02em;line-height:1.35}
-.head .sub{margin:0;font-size:.78rem;color:var(--muted);line-height:1.6}
-
-/* 操作バー */
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+     "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+     background:var(--bg);color:var(--text);margin:0;line-height:1.75;overflow-wrap:anywhere}
+.wrap{max-width:860px;margin:0 auto;padding:1.2rem 1rem 5rem}
+.head h1{margin:0 0 .25rem;font-size:1.2rem;font-weight:700;line-height:1.35}
+.head .sub{margin:0 0 .9rem;font-size:.78rem;color:var(--muted);line-height:1.6}
 .bar{position:sticky;top:0;z-index:5;background:var(--bg);
      padding:.6rem 0 .7rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
-.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;
-       scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.3rem;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);
-      border-radius:20px;padding:.38rem .8rem;font-size:.76rem;font-weight:700;
-      cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap;flex:0 0 auto}
+      border-radius:20px;padding:.38rem .8rem;font-size:.75rem;font-weight:700;
+      cursor:pointer;font-family:inherit;white-space:nowrap;flex:0 0 auto}
 .chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;margin-top:.5rem}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;margin-top:.5rem}
 .tools button{background:var(--card);border:1px solid var(--border);color:var(--muted);
       border-radius:8px;padding:.5rem .3rem;font-size:.73rem;cursor:pointer;
       font-family:inherit;min-height:40px;line-height:1.3}
 .tools button.on{background:var(--navy);border-color:var(--navy);color:#fff}
-.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem;
-      margin-top:.5rem;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
-
-/* カード */
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem;
+      margin-top:.5rem;font-size:.73rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.score{font-weight:700;color:var(--navy)}
 .card{background:var(--card);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;
       box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--border)}
 .card.ok{background:#fbfdfc;border-color:#c7ebdd}
-.q-header{display:flex;align-items:center;gap:.45rem;margin-bottom:.75rem;flex-wrap:wrap}
-.q-num{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
-       font-weight:700;font-size:.78rem;flex-shrink:0;letter-spacing:.03em}
-.q-cat{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
-       color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
-.q-chk{margin-left:auto;background:var(--card);border:1.5px solid var(--border);color:var(--muted);
-       border-radius:20px;padding:.4rem .8rem;font-size:.73rem;font-weight:700;
-       cursor:pointer;font-family:inherit;white-space:nowrap;min-height:34px}
-.card.ok .q-chk{background:var(--ans-border);border-color:var(--ans-border);color:#fff}
-.q-text{font-size:.94rem;line-height:1.75;padding:.7rem .85rem;margin:0 0 .7rem;
-        background:var(--ja-bg);border-left:3px solid var(--ja-border);
-        border-radius:0 6px 6px 0;color:var(--text)}
-.card.ok .q-text{margin-bottom:0}
-
-/* 答え・解説 */
-.a{font-size:.99rem;font-weight:800;line-height:1.6;margin:0 0 .5rem;
-   padding:.6rem .85rem;background:var(--ans-bg);border-left:4px solid var(--ans-border);
-   border-radius:0 7px 7px 0;color:var(--ans-text)}
+.qh{display:flex;align-items:center;gap:.45rem;margin-bottom:.7rem;flex-wrap:wrap}
+.qn{background:var(--navy);color:#fff;padding:.2rem .6rem;border-radius:6px;
+    font-weight:700;font-size:.78rem;letter-spacing:.03em}
+.qc{padding:.16rem .55rem;border-radius:20px;border:1.5px solid var(--ja-border);
+    color:var(--ja-border);font-size:.7rem;font-weight:700;white-space:nowrap}
+.mk{margin-left:auto;font-weight:800;font-size:.85rem}
+.qt{font-size:.94rem;line-height:1.78;padding:.7rem .85rem;margin:0 0 .7rem;
+    background:var(--ja-bg);border-left:3px solid var(--ja-border);
+    border-radius:0 6px 6px 0}
+.opts{display:flex;flex-direction:column;gap:.4rem}
+.opt{display:flex;gap:.6rem;align-items:flex-start;width:100%;text-align:left;
+     background:var(--card);border:1.5px solid var(--border);border-radius:8px;
+     padding:.6rem .8rem;font-size:.89rem;line-height:1.7;color:var(--text);
+     cursor:pointer;font-family:inherit;transition:.12s;min-height:42px}
+.opt:hover:not(:disabled){border-color:var(--ja-border);background:var(--ja-bg)}
+.opt:disabled{cursor:default}
+.opt .lb{font-weight:800;color:var(--muted);flex-shrink:0;min-width:1.3em}
+.opt.correct{background:var(--ok-bg);border-color:var(--ok-border);color:var(--ok-text)}
+.opt.correct .lb{color:var(--ok-border)}
+.opt.wrong{background:var(--ng-bg);border-color:var(--ng-border);color:var(--ng-text)}
+.opt.wrong .lb{color:var(--ng-border)}
+.ans{margin-top:.85rem}
 .abbr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
       font-size:.76rem;line-height:1.65;margin:0 0 .55rem;padding:.5rem .85rem;
       background:var(--en-bg);border-left:3px solid var(--en-border);
       border-radius:0 6px 6px 0;color:var(--muted)}
 .expl{background:var(--exp-bg);border-left:4px solid var(--exp-border);
       border-radius:0 8px 8px 0;padding:.8rem .95rem;margin-bottom:.5rem}
-.expl-label{font-size:.68rem;font-weight:800;color:var(--exp-label);
-      letter-spacing:.06em;margin-bottom:.35rem}
-.expl-body{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
+.el{font-size:.68rem;font-weight:800;color:var(--exp-label);letter-spacing:.06em;margin-bottom:.35rem}
+.eb{font-size:.89rem;color:var(--exp-text);line-height:1.85;margin:0}
 .plus{background:var(--plus-bg);border-left:4px solid var(--plus-border);
       border-radius:0 8px 8px 0;padding:.8rem .95rem}
-.plus-label{font-size:.68rem;font-weight:800;color:var(--plus-label);
-      letter-spacing:.06em;margin-bottom:.35rem}
-.plus-body{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
-
+.pl{font-size:.68rem;font-weight:800;color:var(--plus-label);letter-spacing:.06em;margin-bottom:.35rem}
+.pb{font-size:.86rem;color:var(--plus-text);line-height:1.85;margin:0}
 .foot{margin-top:1.6rem;font-size:.72rem;line-height:1.7;color:var(--muted);text-align:center}
-
-/* スマホ */
 @media (max-width:600px){
   .wrap{padding:.9rem .6rem 4rem}
   .head h1{font-size:1.02rem}
-  .head .sub{font-size:.72rem}
-  .bar{padding:.5rem 0 .6rem;margin-bottom:.8rem}
-  .tools{grid-template-columns:repeat(2,1fr)}
-  .card{padding:.85rem .85rem;border-radius:10px}
-  .q-header{gap:.35rem}
-  .q-chk{margin-left:auto;padding:.42rem .75rem;min-height:36px}
-  .q-text{padding:.6rem .7rem;font-size:.92rem}
-  .a{padding:.55rem .7rem;font-size:.95rem}
-  .abbr{padding:.45rem .7rem;font-size:.73rem}
+  .tools{grid-template-columns:repeat(3,1fr)}
+  .card{padding:.85rem .85rem}
+  .qt{padding:.6rem .7rem;font-size:.92rem}
+  .opt{font-size:.87rem;padding:.55rem .7rem}
   .expl,.plus{padding:.7rem .75rem}
-  .expl-body{font-size:.87rem}
-  .plus-body{font-size:.84rem}
 }
-@media (max-width:380px){
-  .q-cat{font-size:.65rem;padding:.14rem .45rem}
-  .tools button{font-size:.69rem}
-}
-@media print{
-  .bar{display:none}
-  .card{break-inside:avoid;box-shadow:none;border-color:#ccc}
-  body{background:#fff}
-  .card.ok .body{display:block!important}
-}
+@media print{.bar{display:none}.card{break-inside:avoid;box-shadow:none}body{background:#fff}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="head">
-    <h1>科目A-2 出題枠別 50問</h1>
-    <p class="sub">情報処理安全確保支援士試験 科目A-2（旧 午前II）／ 出題枠に即した構成 ／ sc-siken 31回分・776解答の実績から 弱い枠を厚く配分</p>
+    <h1>科目A-2 出題枠別 68問</h1>
+    <p class="sub">情報処理安全確保支援士試験 科目A-2（旧 午前II）の <b>問18〜25</b>／ 四肢択一<br>IPA 試験要綱 Ver.5.6（2026年10月の試験から適用）の出題範囲と、公開過去問8回分（令和4年春〜令和7年秋）の問18〜25・計64問の実測頻度に合わせて構成<br>2026-10-20 全面改訂：セキュリティ寄りだった旧50問を、実際の出題分野に合わせて作り直し</p>
   </div>
-
   <div class="bar">
     <div class="chips" id="chips"></div>
     <div class="tools">
-      <button id="hideAns">答えを隠す</button>
-      <button id="todo">未チェックだけ</button>
-      <button id="reset">チェック解除</button>
+      <button id="showAns">答えを表示</button>
+      <button id="wrongOnly">間違えた問題だけ</button>
+      <button id="todo">未解答だけ</button>
+      <button id="reset">記録を消す</button>
     </div>
-    <div class="meta"><span id="count"></span><span id="prog"></span></div>
+    <div class="meta"><span id="count"></span><span class="score" id="score"></span></div>
   </div>
-
   <div id="list"></div>
-  <p class="foot">出典: IPA 試験要綱 Ver.5.6（2026年10月から適用）<br>出題範囲 科目A-1（共通知識・技術レベル3）</p>
+  <p class="foot">出典: IPA 試験要綱 Ver.5.6「試験区分別出題分野一覧表」および「科目A-2 の出題範囲」<br>問18〜25 は <b>セキュリティ以外</b>の枠。支援士の科目A-2 では <b>ネットワークだけが セキュリティと並ぶ重点分野（◎・技術レベル4）</b>で、ほかは ○・レベル3（データベース／システム開発技術／ソフトウェア開発管理技術／サービスマネジメント／システム監査）<br>システム監査基準は令和5年改訂版に準拠（平成30年版の「一般基準・実施基準・報告基準」区分は廃止）</p>
 </div>
-
 <script>
-const DATA = [{"cat": "問18-20 ネットワーク", "q": "TCP/IP ネットワークで、宛先までの経路上の MTU を超えるパケットを分割せずに送るため、経路上の最小 MTU を調べる仕組みはどれか。", "a": "Path MTU Discovery", "abbr": "MTU = Maximum Transmission Unit", "note": "一度に送れるサイズは経路ごとに違う。大きすぎると途中で分割され効率が落ちるので、あらかじめ最小値を調べて合わせる。", "plus": "ICMP の「Fragmentation Needed」を使うため、ICMP を全遮断すると Path MTU Discovery が壊れ、通信が止まる（ブラックホール現象）。ファイアウォール設計で踏みやすい罠。"}, {"cat": "問18-20 ネットワーク", "q": "IPv6 において、IPv4 の ARP に相当する役割を担うプロトコルはどれか。", "a": "NDP（近隣探索プロトコル）", "abbr": "NDP = Neighbor Discovery Protocol", "note": "IPv6 には ARP がない。代わりに ICMPv6 を使う NDP が、隣のノードの MAC アドレスを調べる。", "plus": "NDP は アドレス自動設定（SLAAC）、ルータ探索、重複アドレス検出も担う。偽の広告を送る NDP スプーフィング対策が RA Guard、SEND。"}, {"cat": "問18-20 ネットワーク", "q": "送信元を偽装したパケットを、インタフェースの経路情報と照合して破棄する機能はどれか。", "a": "uRPF（ユニキャストリバースパス転送）", "abbr": "uRPF = unicast Reverse Path Forwarding", "note": "「その送信元IPなら、本来このインタフェースから来るはず」を逆引きして確認する。合わなければ偽装とみなして捨てる。", "plus": "IP スプーフィングの基本対策。Strict モード（経路が完全一致）と Loose モード（経路表にあればよい）がある。DDoS の踏み台化を防ぐ。"}, {"cat": "問18-20 ネットワーク", "q": "VLAN をまたぐ通信を不正に行うため、タグを二重に付与して別の VLAN へ侵入する攻撃はどれか。", "a": "VLAN ホッピング（ダブルタギング）", "abbr": "―", "note": "802.1Q のタグを2つ重ねる。最初のスイッチが1つ目を外すと、2つ目のタグで別 VLAN に届いてしまう。", "plus": "対策は ネイティブ VLAN を未使用の VLAN にする、トランクポートの自動ネゴシエーション（DTP）を無効にする、アクセスポートを明示設定する。"}, {"cat": "問18-20 ネットワーク", "q": "IPsec において、認証のみを提供し、暗号化は行わないプロトコルはどれか。", "a": "AH（認証ヘッダ）", "abbr": "AH = Authentication Header ／ ESP = Encapsulating Security Payload", "note": "AH は「改ざんされていないこと」だけ保証する。暗号化もするのが ESP で、実務ではほぼ ESP を使う。", "plus": "AH は IP ヘッダまで認証対象に含むため、NAT を通ると壊れる。NAT 環境では ESP ＋ NAT トラバーサル（UDP 4500 でカプセル化）を使う。"}, {"cat": "問18-20 ネットワーク", "q": "IPsec で、通信相手の認証と暗号鍵の共有を行うプロトコルはどれか。", "a": "IKE（鍵交換プロトコル）", "abbr": "IKE = Internet Key Exchange", "note": "本番の暗号通信を始める前に、「お互い本物か」を確かめ、使う鍵を安全に決める。IKEv2 が現行。", "plus": "フェーズ1で ISAKMP SA（管理用の安全な通路）を作り、フェーズ2で IPsec SA（実データ用）を作る2段構え。鍵共有の数学的基盤が Diffie-Hellman。"}, {"cat": "問18-20 ネットワーク", "q": "IPsec のモードのうち、元の IP ヘッダごと暗号化し、新しい IP ヘッダを付け直すものはどれか。", "a": "トンネルモード", "abbr": "―", "note": "中身も宛先も隠れるので、拠点間 VPN に使う。元のヘッダを残して中身だけ暗号化するのがトランスポートモード。", "plus": "拠点間VPN＝トンネルモード（ルータ間）。ホスト間の直接通信＝トランスポートモード。リモートアクセスVPNでは トンネルモードが一般的。"}, {"cat": "問18-20 ネットワーク", "q": "無線LAN の暗号化方式のうち、現在推奨されるものはどれか。", "a": "WPA3", "abbr": "WPA = Wi-Fi Protected Access ／ SAE = Simultaneous Authentication of Equals", "note": "WEP と WPA は解読済みで使ってはいけない。WPA2 も KRACK 攻撃が知られており、現行は WPA3。", "plus": "WPA3-Personal は SAE（Dragonfly）で、オフライン辞書攻撃に耐える。WPA2 の PSK は4ウェイハンドシェイクを捕まえると総当たりができた。Enterprise は IEEE 802.1X ＋ RADIUS。"}, {"cat": "問18-20 ネットワーク", "q": "ネットワークに接続する端末の認証を、スイッチやアクセスポイントの入口で行う規格はどれか。", "a": "IEEE 802.1X", "abbr": "EAP = Extensible Authentication Protocol", "note": "つないだだけでは通信させず、まず認証する。認証が通るまでポートは閉じたまま。", "plus": "構成要素は サプリカント（端末）・オーセンティケータ（スイッチ／AP）・認証サーバ（RADIUS）。EAP-TLS は証明書、PEAP は ID/パスワード。検疫ネットワークの基盤。"}, {"cat": "問18-20 ネットワーク", "q": "DNS の応答に電子署名を付け、改ざんされていないことを検証できるようにする拡張はどれか。", "a": "DNSSEC", "abbr": "DNSSEC = DNS Security Extensions", "note": "DNS の応答が本物かを署名で確かめる。偽の応答を信じ込ませる DNS キャッシュポイズニングへの根本対策。", "plus": "署名の鍵は ZSK（ゾーン署名鍵）と KSK（鍵署名鍵）。上位ゾーンに DS レコードを登録して信頼の連鎖を作る。暗号化はしない点に注意（秘匿性ではなく真正性）。"}, {"cat": "問18-20 ネットワーク", "q": "DNS の問合せ自体を暗号化し、経路上での盗聴や改ざんを防ぐ方式はどれか。", "a": "DoH / DoT", "abbr": "DoH = DNS over HTTPS ／ DoT = DNS over TLS", "note": "DNSSEC が「応答の真正性」なのに対し、DoH / DoT は「問合せ内容の秘匿」。守るものが違う。", "plus": "DoH は HTTPS（443番）に紛れるため、企業のフィルタリングを回避してしまう副作用がある。社内では DoH を無効化する運用も取られる。"}, {"cat": "問18-20 ネットワーク", "q": "送信ドメイン認証のうち、メール本文とヘッダに電子署名を付けて検証する方式はどれか。", "a": "DKIM", "abbr": "DKIM = DomainKeys Identified Mail", "note": "送信側が秘密鍵で署名し、公開鍵を DNS に置く。受信側が照合して「本当にそのドメインが送ったか」を確かめる。", "plus": "SPF＝送信元IPで検証（転送されると失敗する）。DKIM＝署名で検証（転送に強い）。DMARC＝両者の結果を受けて none / quarantine / reject を宣言し、レポートも受け取る。"}, {"cat": "問18-20 ネットワーク", "q": "TCP コネクションの確立要求だけを大量に送り、サーバの資源を枯渇させる攻撃はどれか。", "a": "SYN フラッド攻撃", "abbr": "―", "note": "3ウェイハンドシェイクの途中で放置する。サーバは「待ち」の状態を大量に抱えて動けなくなる。", "plus": "対策は SYN Cookie（状態を持たずに検証する）、バックログの拡大、タイムアウト短縮。反射・増幅を使うのが DNS／NTP リフレクション攻撃。"}, {"cat": "問18-20 ネットワーク", "q": "正規のアクセスポイントになりすまし、利用者の通信を傍受する無線LAN の攻撃はどれか。", "a": "Evil Twin（悪魔の双子）", "abbr": "―", "note": "同じ SSID の偽アクセスポイントを立てる。電波の強いほうに自動接続する性質を悪用する。", "plus": "社内に勝手に置かれた機器が ロゲ（不正）アクセスポイント。対策は 無線IDS/IPS での検知、802.1X による相互認証、VPN の併用。"}, {"cat": "問18-20 ネットワーク", "q": "ネットワークを細かく区切り、内部で感染が広がるのを防ぐ考え方はどれか。", "a": "マイクロセグメンテーション", "abbr": "―", "note": "「入られても横に広がれない」ようにする。サーバ単位・ワークロード単位で通信を絞る。", "plus": "従来の境界型防御は「外と内」の1本線。内部に入られると自由に動かれる（ラテラルムーブメント）。ゼロトラストの中核要素のひとつ。"}, {"cat": "問18-20 ネットワーク", "q": "ネットワーク機器の設定や状態を監視・管理するためのプロトコルはどれか。", "a": "SNMP", "abbr": "SNMP = Simple Network Management Protocol ／ MIB = Management Information Base", "note": "機器の情報を MIB という木構造で持ち、マネージャが取りに行く（ポーリング）か、機器から通知する（トラップ）。", "plus": "v1/v2c は コミュニティ名が平文で流れるため危険。v3 で認証と暗号化に対応した。監視設計では v3 を使うのが原則。"}, {"cat": "問18-20 ネットワーク", "q": "機器のログを集中管理するために、ネットワーク越しにログを転送するプロトコルはどれか。", "a": "syslog", "abbr": "―", "note": "各機器のログを1か所に集める。機器側のディスクが溢れても、消される前に退避できる。", "plus": "UDP 514 が既定で、到達保証がない。確実に届けたい場合は TCP／TLS 版を使う。時刻がずれると突合できないので NTP での時刻同期が前提。"}, {"cat": "問18-20 ネットワーク", "q": "機器間の時刻を同期させるプロトコルはどれか。", "a": "NTP", "abbr": "NTP = Network Time Protocol", "note": "ログの時刻がずれていると、複数機器の記録を突き合わせられない。証跡として成立しなくなる。", "plus": "階層構造を Stratum で表す（0が原子時計）。外部に開いていると NTP リフレクション攻撃の踏み台にされるため、monlist の無効化とアクセス制限が必要。"}, {"cat": "問18-20 ネットワーク", "q": "Web サーバの手前に置き、クライアントからの要求を受けて内部サーバへ転送する機器はどれか。", "a": "リバースプロキシ", "abbr": "―", "note": "外から見える窓口を1つにして、内部構成を隠す。TLS の終端、負荷分散、キャッシュも担える。", "plus": "フォワードプロキシ＝内部の利用者が外へ出るときに通す（出口対策・ログ取得）。向きが逆。WAF はリバースプロキシ型で実装されることが多い。"}, {"cat": "問18-20 ネットワーク", "q": "拠点とクラウドの間を、インターネットを経由せず閉じた経路で接続するサービスはどれか。", "a": "専用線接続（Direct Connect 等）", "abbr": "―", "note": "インターネットを通らないので、帯域が安定し、盗聴の経路も減る。コストは高い。", "plus": "インターネットVPN＝安価だが品質は保証されない。専用線＝高価だが安定。冗長化のため、専用線＋VPN をバックアップとして併用する構成が多い。"}, {"cat": "問21 データベース", "q": "データベースで、権限のない利用者から特定の列を隠すために用いる機能はどれか。", "a": "ビュー", "abbr": "―", "note": "必要な列だけを見せる仮想的な表を作り、そこにアクセス権を与える。元の表には直接触らせない。", "plus": "列単位の制御は 列レベル権限でも可能。行単位で絞るのが 行レベルセキュリティ（RLS）。どちらも「最小権限の原則」の実装手段。"}, {"cat": "問21 データベース", "q": "データベース内の特定の列だけを暗号化し、アプリケーションの改修を最小限にする方式はどれか。", "a": "列単位暗号化（カラム暗号化）", "abbr": "TDE = Transparent Data Encryption", "note": "クレジットカード番号など、守るべき列だけを暗号化する。全体を暗号化するより性能影響が小さい。", "plus": "TDE＝データファイル全体を透過的に暗号化（アプリ改修不要・媒体の持ち出し対策）。列暗号化＝特定列のみ（DB管理者からも隠せる）。守る相手が違う。"}, {"cat": "問21 データベース", "q": "データベースへのアクセス内容を記録し、不正操作の追跡を可能にする仕組みはどれか。", "a": "データベース監査ログ", "abbr": "―", "note": "誰がいつどの表に何をしたかを残す。特権ユーザの操作こそ記録対象。", "plus": "DBA 自身がログを消せると証跡にならないため、別領域や別サーバへ転送する。専用製品が DAM（Database Activity Monitoring）。"}, {"cat": "問21 データベース", "q": "本番データを開発環境で使う際、個人を特定できないよう置き換える処理はどれか。", "a": "データマスキング（匿名化）", "abbr": "―", "note": "氏名や口座番号を、形式は保ったまま別の値に置き換える。テストはできるが本人は分からない。", "plus": "静的マスキング＝コピー時に書き換える。動的マスキング＝参照時に伏せる。個人情報保護法の 匿名加工情報・仮名加工情報とは法的な位置づけが別なので混同しない。"}, {"cat": "問21 データベース", "q": "SQL インジェクションの対策として、最も確実なものはどれか。", "a": "プレースホルダ（バインド機構）の利用", "abbr": "―", "note": "値を SQL 文の一部としてではなく「データ」として渡す。文字列を組み立てないので、何を入れられても構造が変わらない。", "plus": "エスケープ処理は実装漏れが起きやすく次善策。加えて DB 接続ユーザの権限最小化、エラーメッセージを返さない、WAF での緩和を多層で組む。"}, {"cat": "問21 データベース", "q": "複数のトランザクションが互いの資源を待ち合って停止する状態を、データベースが検出したときの一般的な処置はどれか。", "a": "一方のトランザクションをロールバックする", "abbr": "―", "note": "どちらかを犠牲にして止め、もう一方を進める。犠牲になったほうはアプリ側で再実行する。", "plus": "デッドロックの4条件（相互排除・保持と待機・横取り不可・循環待ち）。アプリ側の対策は 資源の取得順序を統一する、トランザクションを短くする。"}, {"cat": "問21 データベース", "q": "データベースのバックアップのうち、前回のフルバックアップ以降に変更された分だけを取得する方式はどれか。", "a": "差分バックアップ", "abbr": "―", "note": "毎回フルより速いが、日が経つほどサイズが増える。復旧は「フル＋最新の差分」の2つでよい。", "plus": "増分バックアップ＝前回のバックアップ（種類を問わない）以降の変更分。取得は最速だが、復旧に「フル＋すべての増分」が要る。取得時間と復旧時間のトレードオフ。"}, {"cat": "問21 データベース", "q": "データベースの可用性を高めるため、同一データを別サーバへ継続的に複製する仕組みはどれか。", "a": "レプリケーション", "abbr": "―", "note": "本番とは別にコピーを持つ。障害時に切り替えたり、参照を分散して負荷を下げたりできる。", "plus": "同期＝両方に書けてから完了（RPO ゼロだが遅い）。非同期＝先に完了を返す（速いが遅延分が失われうる）。RPO の設計がそのまま方式の選択になる。"}, {"cat": "問22 システム開発技術", "q": "設計や実装の段階から、セキュリティを作り込む考え方はどれか。", "a": "セキュリティ・バイ・デザイン", "abbr": "―", "note": "後から対策を足すより、最初から組み込むほうが安く確実。リリース直前に見つかると直せない。", "plus": "プライバシー・バイ・デザイン＝個人情報保護を最初から組み込む。シフトレフト＝テストやセキュリティ検証を開発の早い段階へ前倒しする考え方。"}, {"cat": "問22 システム開発技術", "q": "ソースコードを実行せずに解析し、脆弱性を検出する手法はどれか。", "a": "SAST（静的アプリケーションセキュリティテスト）", "abbr": "SAST = Static Application Security Testing", "note": "コードを読んで危険な書き方を見つける。開発中の早い段階で回せるが、誤検知が多い。", "plus": "DAST＝動かして外から攻撃を試す（実際に動く状態が必要・誤検知は少ない）。IAST＝両者の併用。SCA＝利用している OSS の既知脆弱性を洗い出す。"}, {"cat": "問22 システム開発技術", "q": "システムに実際に攻撃を試み、侵入可能かを検証するテストはどれか。", "a": "ペネトレーションテスト", "abbr": "―", "note": "「実際に破れるか」を試す。脆弱性の有無を網羅的に調べる脆弱性診断とは目的が違う。", "plus": "脆弱性診断＝広く浅く、既知の弱点を洗い出す。ペネトレーションテスト＝狭く深く、目的（情報の奪取など）を達成できるかを検証する。実施前に書面での許可が必須。"}, {"cat": "問22 システム開発技術", "q": "想定外の値や異常なデータを大量に入力し、異常終了や脆弱性を探す手法はどれか。", "a": "ファジング", "abbr": "―", "note": "でたらめな入力を機械的に浴びせて、落ちるところを探す。人が思いつかない入力を試せる。", "plus": "境界値分析が「設計された境界」を狙うのに対し、ファジングは「設計されていない入力」を狙う。バッファオーバフローや例外処理漏れの発見に強い。"}, {"cat": "問22 システム開発技術", "q": "想定される攻撃者の視点でシステムを分析し、対策を検討する手法はどれか。", "a": "脅威モデリング", "abbr": "STRIDE = Spoofing / Tampering / Repudiation / Information disclosure / Denial of service / Elevation of privilege", "note": "設計段階で「どこをどう攻められるか」を洗い出す。STRIDE は脅威を6分類する枠組み。", "plus": "攻撃の経路を木構造で表すのが アタックツリー。リスクの大きさを点数化する枠組みが DREAD。CVSS は個々の脆弱性の深刻度を測る別の指標。"}, {"cat": "問22 システム開発技術", "q": "ソフトウェアに含まれる部品（OSS やライブラリ）の一覧を機械可読な形で管理するものはどれか。", "a": "SBOM（ソフトウェア部品表）", "abbr": "SBOM = Software Bill Of Materials", "note": "「この製品は何でできているか」の部品表。脆弱性が公表されたとき、影響範囲を即座に特定できる。", "plus": "Log4Shell で「自社製品が Log4j を使っているか分からない」事態が多発したことが普及の契機。形式は SPDX、CycloneDX。サプライチェーン攻撃対策の基盤。"}, {"cat": "問23 開発管理", "q": "ソフトウェアの構成要素とその変更履歴を管理し、任意の時点の状態を再現できるようにする活動はどれか。", "a": "構成管理", "abbr": "―", "note": "「いつ誰が何を変えたか」を残し、過去に戻せる状態を保つ。改ざんの検知にもつながる。", "plus": "ベースライン＝正式に承認され、以後は変更管理を通さないと変えられない基準点。変更管理とセットで運用する。"}, {"cat": "問23 開発管理", "q": "開発工程に自動テストと脆弱性検査を組み込み、継続的に安全性を確認する取り組みはどれか。", "a": "DevSecOps", "abbr": "―", "note": "リリースのたびに人手で検査すると間に合わない。パイプラインに組み込んで自動で回す。", "plus": "CI/CD に組み込む検査は SAST・SCA・コンテナイメージスキャン・IaC スキャン。デプロイ後の実行時保護は RASP、CSPM（クラウド設定の継続的検査）。"}, {"cat": "問23 開発管理", "q": "外部に委託して開発したソフトウェアについて、発注者が品質やセキュリティを確認するために行うべきことはどれか。", "a": "成果物の受入れ検査とソースコードの権利・管理の取決め", "abbr": "―", "note": "「できたものを受け取る」だけでは、中身に何が入っているか分からない。契約段階で検査権と権利の帰属を決めておく。", "plus": "委託先管理のポイントは 再委託の可否、秘密保持、脆弱性対応の責任分界、監査権、契約終了時のデータ返却・消去。供給網を通じた攻撃がサプライチェーン攻撃。"}, {"cat": "問23 開発管理", "q": "OSS を製品に組み込む際、ライセンス条件の違反を避けるために最初に行うべきことはどれか。", "a": "利用する OSS とライセンス種別の洗い出し", "abbr": "―", "note": "何を使っているか分からないと、守るべき条件も分からない。まず棚卸しをする。", "plus": "GPL（派生物も GPL・強いコピーレフト）、LGPL／MPL（改変部分のみ）、MIT／BSD／Apache（制限がゆるい）。自動で検出するのが SCA ツール。SBOM と組み合わせる。"}, {"cat": "問23 開発管理", "q": "正規の開発元を装ったり、更新の仕組みを乗っ取ったりして、利用者に不正なプログラムを配布する攻撃はどれか。", "a": "サプライチェーン攻撃", "abbr": "―", "note": "本丸を直接狙わず、取引先や部品の供給経路を経由して侵入する。信頼されている経路なので気づきにくい。", "plus": "対策は コード署名の検証、SBOM による部品の把握、委託先のセキュリティ要求、更新サーバの保護。SolarWinds 事件が代表例。"}, {"cat": "問24 サービスマネジメント", "q": "情報セキュリティインシデントの発生時に、被害の拡大を防ぐため最初に行うべき活動はどれか。", "a": "封じ込め（影響範囲の限定）", "abbr": "―", "note": "まず広がりを止める。原因究明や復旧より先。ネットワークから切り離す、該当アカウントを無効化する、など。", "plus": "NIST の対応サイクルは 準備 → 検知と分析 → 封じ込め・根絶・復旧 → 事後活動。封じ込めの際は、証拠保全（フォレンジック）のために電源を落とす判断を慎重に行う。"}, {"cat": "問24 サービスマネジメント", "q": "インシデント発生後、原因究明や法的手続のために電子的証拠を保全・分析する活動はどれか。", "a": "ディジタルフォレンジックス", "abbr": "―", "note": "証拠が改ざんされていないことを示せる形で保全する。手順を誤ると証拠として使えなくなる。", "plus": "要点は 証拠保全の順序（揮発性の高いものから：メモリ → ネットワーク接続 → ディスク）と、Chain of Custody（誰がいつ扱ったかの記録）、ハッシュ値による同一性証明。"}, {"cat": "問24 サービスマネジメント", "q": "利用者の操作ログやシステムログを集約し、相関分析して脅威を検知する仕組みはどれか。", "a": "SIEM", "abbr": "SIEM = Security Information and Event Management", "note": "バラバラのログを1か所に集め、横断して分析する。単独では異常に見えない事象も、組み合わせると攻撃と分かる。", "plus": "SOC が SIEM を使って監視する。対応の自動化まで行うのが SOAR。端末側の挙動を記録・分析するのが EDR、それを横断したのが XDR。"}, {"cat": "問24 サービスマネジメント", "q": "サービス停止を伴う作業を、業務影響が小さい時間帯に計画的に実施するために定める枠はどれか。", "a": "変更可能時間帯（メンテナンスウィンドウ）", "abbr": "―", "note": "「この時間なら止めてよい」をあらかじめ決めておく。都度調整すると時間がかかり、対応が遅れる。", "plus": "SLA の稼働率計算では、計画停止を除外するかどうかを明記しておく。除外しないと、保守のたびに SLA 違反になる。"}, {"cat": "問24 サービスマネジメント", "q": "情報システムの運用を外部に委託する場合、委託元が果たすべき責任はどれか。", "a": "委託先の選定・監督と、セキュリティ要求事項の明示", "abbr": "―", "note": "委託しても責任はなくならない。個人情報保護法でも、委託先の監督は委託元の義務とされている。", "plus": "契約で決めるべきは 再委託の可否、監査権、インシデント時の報告義務と期限、終了時のデータ返却・消去。クラウドでは 責任共有モデルで分界点を確認する。"}, {"cat": "問25 システム監査", "q": "システム監査人に求められる、監査対象から独立した立場を何というか。", "a": "独立性（外観上の独立性と精神上の独立性）", "abbr": "―", "note": "自分が作ったものを自分で監査しては意味がない。実際に公正であること（精神上）と、第三者から見てもそう見えること（外観上）の両方が要る。", "plus": "内部監査でも、被監査部門から組織上独立していることが求められる。システム監査基準は 一般基準・実施基準・報告基準 の3部構成。"}, {"cat": "問25 システム監査", "q": "監査の結論を裏づけるために、コンピュータを利用して大量データを検証する技法はどれか。", "a": "CAAT（コンピュータ支援監査技法）", "abbr": "CAAT = Computer Assisted Audit Techniques", "note": "全件を人の目で見るのは無理なので、ツールで抽出・突合する。サンプリングではなく全数検査ができる。", "plus": "具体的技法は テストデータ法（検証用データを流す）、監査モジュール法（本番処理に監査用の仕掛けを組み込む）、並行シミュレーション法（別プログラムで再計算して比較）。"}, {"cat": "問25 システム監査", "q": "IT 全般統制に該当するものはどれか。", "a": "アクセス権限の管理、プログラム変更管理、運用管理", "abbr": "ITGC = IT General Controls", "note": "個々の業務処理ではなく、システム全体を支える土台の統制。ここが崩れると、業務処理統制も信頼できない。", "plus": "IT 業務処理統制＝入力チェック、自動計算、承認フローなど個別処理に組み込まれた統制。IT 全社的統制＝方針や体制。3層の関係を押さえる。"}, {"cat": "問25 システム監査", "q": "クラウドサービス事業者の内部統制を、第三者の監査人が評価して報告する仕組みはどれか。", "a": "SOC 報告書", "abbr": "SOC = Service Organization Control", "note": "利用者が自分で監査に行けないので、事業者が第三者の監査を受けて報告書を出す。利用者はそれを使って自社の監査を通す。", "plus": "SOC1＝財務報告に関する統制、SOC2＝セキュリティ等の5つの規準（トラストサービス基準）、SOC3＝SOC2 の一般公開版。Type1 は設計、Type2 は一定期間の運用状況まで評価。"}, {"cat": "問25 システム監査", "q": "監査手続のうち、対象の全体から一部を抽出して検証する方法はどれか。", "a": "サンプリング（試査）", "abbr": "―", "note": "全部は見きれないので一部を抜いて調べる。抜き方に偏りがあると結論を誤る。", "plus": "精査＝全件を調べる。統計的サンプリング＝確率論に基づき抽出し、結果を母集団へ推定できる。非統計的サンプリング＝監査人の判断で抽出する。"}, {"cat": "問25 システム監査", "q": "監査報告書で指摘した事項について、改善の実施状況を確認する活動はどれか。", "a": "フォローアップ", "abbr": "―", "note": "報告して終わりにしない。改善されたかを確かめるまでが監査人の役割。", "plus": "監査人には改善を「命令」する権限はなく、助言・勧告にとどまる。実施の責任は被監査部門にある。この区別が選択肢の引っかけになる。"}];
-const CATS = ["問18-20 ネットワーク", "問21 データベース", "問22 システム開発技術", "問23 開発管理", "問24 サービスマネジメント", "問25 システム監査"];
-const KEY = "a2-ok";
-let filter = null, todoOnly = false, hideAll = false;
+const DATA = [{"cat": "問18-20 ネットワーク", "ans": 2, "q": "スパニングツリープロトコル(STP)の機能を説明したものはどれか。", "opts": ["MACアドレスを見て、フレームを廃棄するか中継するかを決める", "一定時間通信が行われていないMACアドレスを、MACアドレステーブルから消去する", "複数のブリッジ間で情報を交換し合い、ループの検出や障害発生時の迂回ルートの決定を行う", "経路が複数存在する場合に、アドレスごとに経路を振り分けて負荷を分散する"], "abbr": "STP = Spanning Tree Protocol ／ BPDU = Bridge Protocol Data Unit", "note": "レイヤー2スイッチをループ状につなぐと、ブロードキャストフレームが回り続ける「ブロードキャストストーム」が起きて通信できなくなる。STP は一部のポートを論理的に塞いで木構造にし、ループを消す。障害時は塞いでいたポートを開いて迂回する。IEEE 802.1D。", "plus": "アは レイヤー2スイッチのフィルタリング、イは MACアドレステーブルのエージング、エは リンクアグリゲーションや負荷分散装置。STP はブリッジ間で BPDU を既定2秒ごとに交換する。収束に最大50秒かかる欠点を改善したのが RSTP（IEEE 802.1w）。★8回中3回出題の最頻出テーマ。"}, {"cat": "問18-20 ネットワーク", "ans": 0, "q": "スパニングツリープロトコルが適用されたネットワークで、あるリンクの両端のブリッジのうち、ルートブリッジまでの経路コストが小さい側のポートを何と呼ぶか。", "opts": ["代表ポート(Designated Port)", "ルートポート(Root Port)", "トランクポート(Trunk Port)", "アクセスポート(Access Port)"], "abbr": "ルートブリッジ = 木構造の根になるブリッジ（ブリッジIDが最小のもの）", "note": "STP はまずルートブリッジを1台選ぶ。各ブリッジはルートブリッジに最も近いポートを「ルートポート」にする。一方、リンクの両端で比べてルートに近い側が「代表ポート」。どちらにもならなかったポートが塞がれる（ブロッキングポート）。", "plus": "イのルートポートは「自分から見てルートに最も近い1つ」で、ブリッジごとに1つ。アの代表ポートは「そのリンクの担当」で、セグメントごとに1つ。ウのトランクポートとエのアクセスポートは VLAN の用語で STP とは無関係＝ここが引っかけ。"}, {"cat": "問18-20 ネットワーク", "ans": 3, "q": "IPネットワークにおいて、クライアントの設定を変えることなくデフォルトゲートウェイの障害を回避するために用いられるプロトコルはどれか。", "opts": ["RARP", "RSTP", "RTSP", "VRRP"], "abbr": "VRRP = Virtual Router Redundancy Protocol ／ RSTP = Rapid STP", "note": "ルータ2台で1つの仮想IPアドレスを共有し、普段はマスターが応答する。マスターが落ちるとバックアップが同じ仮想IPを引き継ぐ。クライアントはデフォルトゲートウェイのアドレスを変えなくてよいので、設定変更も再起動も要らない。", "plus": "アのRARPはMACアドレスからIPを求める旧方式。イのRSTPはSTPの高速版で、守る対象はレイヤー2のループでありゲートウェイではない。ウのRTSPはストリーミング制御。似た用途のプロトコルに HSRP（シスコ独自）がある。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "クラスCのネットワークを、50ノードずつ収容できる四つのサブネットに分割するときのサブネットマスクはどれか。", "opts": ["255.255.255.0", "255.255.255.192", "255.255.255.128", "255.255.255.224"], "abbr": "クラスC = 先頭24ビットがネットワーク部（/24）・ホスト部8ビット", "note": "4分割するにはネットワーク部を2ビット伸ばして /26 にする。ホスト部は残り6ビットで 2の6乗＝64、ネットワークアドレスとブロードキャストアドレスを除いて62台。50台を収容できる。/26 を10進で書くと 255.255.255.192。", "plus": "ウの /25 は2分割（126台）で足りない。エの /27 は8分割（30台）で50台が入らない。計算の型は「分割数→必要ビット数（4分割なら2ビット）」「残りホストビット→2のn乗−2」。★サブネット計算は8回中1回だが、アドレス関連は合計4回出ている。"}, {"cat": "問18-20 ネットワーク", "ans": 0, "q": "複数ノードから成るグループにマルチキャストでデータを送るとき、宛先として使用できるIPv4アドレスはどれか。", "opts": ["239.0.1.1", "10.0.1.1", "127.0.1.1", "192.168.1.1"], "abbr": "クラスD = 224.0.0.0〜239.255.255.255（先頭4ビットが1110）", "note": "IPv4 でマルチキャストに使うのはクラスD、つまり 224.0.0.0〜239.255.255.255。先頭の数字が 224〜239 かどうかだけ見れば判別できる。239 で始まる範囲は組織内限定のスコープで、プライベートアドレスに相当する使い方をする。", "plus": "イの10系とエの192.168系はプライベートアドレス（ユニキャスト）。ウの127系はループバックで自分自身を指す。覚え方は「224〜239 がマルチキャスト」。224.0.0.1 は同一セグメントの全ホスト、224.0.0.2 は全ルータ。"}, {"cat": "問18-20 ネットワーク", "ans": 3, "q": "サブネット192.168.10.0/24で使用できる二つのブロードキャストアドレス192.168.10.255と255.255.255.255に関する記述のうち、適切なものはどれか。", "opts": ["192.168.10.255はサブネットの外からのブロードキャストだけに使用される", "255.255.255.255は互換性のために残されているので、ブロードキャストには192.168.10.255を使用することが推奨される", "255.255.255.255はサブネットの外へのブロードキャストだけに使用される", "192.168.10.255と255.255.255.255は、ともにサブネット内のブロードキャストに使用される"], "abbr": "ディレクテッドブロードキャスト = 192.168.10.255 ／ リミテッドブロードキャスト = 255.255.255.255", "note": "どちらも最終的に届く先は同じサブネット内の全ホスト。違いは使う場面で、255.255.255.255 は自分のIPアドレスがまだ決まっていない段階（DHCP の要求など）でも使える。ルータはどちらも既定では外へ転送しない。", "plus": "「外向け」という選択肢はすべて誤り＝ルータがブロードキャストを転送すると増幅攻撃の踏み台になるため、既定で遮断する。ディレクテッドブロードキャストは宛先サブネットを指定できるので、Smurf攻撃に悪用された歴史がある。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "DHCPクライアントが、配布されたIPv4アドレスを自分のホストアドレスとして設定する際に、そのアドレスが他のホストに使われていないことを自分でも確認する。この確認に使用するプロトコルはどれか。", "opts": ["DNS", "ARP", "ICMP", "RARP"], "abbr": "ARP = Address Resolution Protocol ／ GARP = Gratuitous ARP（自分宛てのARP要求）", "note": "これから使おうとするIPアドレスを自分で ARP 要求してみる。誰も使っていなければ応答は返らない。もし応答があれば、そのアドレスは他のホストが使用中＝重複と分かる。自分宛てに投げるので GARP（Gratuitous ARP）と呼ぶ。", "plus": "アのDNSは名前とIPの対応、ウのICMPは到達性の確認や通知（ping はこれ）、エのRARPはMACからIPを求める旧方式。IPv6 では同じ役割を NDP の重複アドレス検出（DAD）が担う。ARP は IPv4 専用である点も押さえる。"}, {"cat": "問18-20 ネットワーク", "ans": 2, "q": "IPv4におけるICMPのメッセージに関する説明として、適切なものはどれか。", "opts": ["フラグメントの再組立て中にタイムアウトが発生した場合は、Parameter Problemを返す", "送信元が設定したTTLが0になった場合は、Destination Unreachableを返す", "最適なルータを送信元に通知して経路の変更を要請するには、Redirectを返す", "送信元が設定したソースルーティングが失敗した場合は、Echo Replyを返す"], "abbr": "ICMP = Internet Control Message Protocol（IPの補助として通知を行うプロトコル）", "note": "Redirect は「その宛先ならもっと近いルータがこちらにあります」とルータが送信元に知らせるメッセージ。経路表を直してもらうための通知で、攻撃者が偽装すると通信を横取りできるため、受け取らない設定にすることが多い。", "plus": "正しい対応は、再組立てタイムアウト→Time Exceeded、TTL=0→Time Exceeded、到達不能→Destination Unreachable、ヘッダー異常→Parameter Problem、ping の応答→Echo Reply。アとイは「Time Exceeded が正解」の位置に別の名前を置いた引っかけ。"}, {"cat": "問18-20 ネットワーク", "ans": 3, "q": "TCPヘッダーに含まれる情報はどれか。", "opts": ["送信元IPアドレス", "パケット生存時間(TTL)", "プロトコル番号", "宛先ポート番号"], "abbr": "TCP = Transmission Control Protocol（トランスポート層・OSI第4層）", "note": "IPアドレスは下の層（IPヘッダー）、ポート番号は上の層（TCP/UDPヘッダー）と分かれている。TCPヘッダーにあるのは 送信元/宛先ポート番号、シーケンス番号、確認応答番号、ウィンドウサイズ、各種フラグ（SYN・ACK・FIN など）。", "plus": "ア・イ・ウはいずれもIPヘッダーの項目。「どの層のヘッダーに何が入るか」を問う型で、層を1つずらした選択肢が誤りになる。TTL はルータを通るたびに1減り、0でパケットが破棄されて ICMP Time Exceeded が返る。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "TCPのサブミッションポート(ポート番号587)の説明として、適切なものはどれか。", "opts": ["FTPで、制御用のポート番号21とは別にデータ転送用に使用する", "電子メールサービスで、迷惑メール対策としてSMTPのポート番号25の代わりに使用する", "Webで、ポート番号80のHTTP要求とは別に入力フォームのデータ送信に使用する", "遠隔ログインで、通信内容を暗号化するためにTELNETのポート番号23の代わりに使用する"], "abbr": "サブミッションポート = メール送信専用のポート587 ／ OP25B = Outbound Port 25 Blocking", "note": "ウイルスに感染したPCが25番から直接迷惑メールを送るのを防ぐため、プロバイダが外向きの25番を塞ぐ（OP25B）。利用者の正規のメール送信は、認証（SMTP-AUTH）を必須にした587番に移す。587は「本人確認つきの送信口」。", "plus": "「サブミット（submit）ボタン」と結びつける選択肢ウが典型的な引っかけで、ポート名の由来はメールの投函（submission）。ほかに 465番（SMTPS）もある。SMTP 25 / POP3 110 / IMAP 143 / POP3S 995 / IMAPS 993 もあわせて。"}, {"cat": "問18-20 ネットワーク", "ans": 2, "q": "二つのルーティングプロトコルRIP-2とOSPFを比較したとき、OSPFだけに当てはまる特徴はどれか。", "opts": ["可変長サブネットマスクに対応している", "ルーティング情報の更新にマルチキャストを使用している", "リンク状態のデータベースを使用している", "ルーティング情報の更新を30秒ごとに行う"], "abbr": "OSPF = Open Shortest Path First（リンクステート型）／ RIP = Routing Information Protocol（距離ベクトル型）", "note": "OSPF はネットワーク全体の地図（リンクステートデータベース）を各ルータが持ち、ダイクストラ法で最短経路を計算する。RIP は「隣に聞いた距離（ホップ数）」だけを頼りに決める。地図を持つかどうかが本質的な違い。", "plus": "アとイは RIP-2 も対応しているので「OSPFだけ」にならない＝設問が「だけ」と限定している点が肝。エの30秒周期は RIP の特徴で、OSPF は変化があったときだけ更新を流す。RIP はホップ数16で到達不能とみなすため大規模網に使えず、OSPF はエリアに分割して規模に対応する。ともに内部ゲートウェイプロトコル(IGP)。"}, {"cat": "問18-20 ネットワーク", "ans": 0, "q": "IPv6の特徴として、適切なものはどれか。", "opts": ["基本ヘッダーは固定長であり、拡張ヘッダー長は8オクテットの整数倍である", "IPv6アドレスからMACアドレスを調べる際にARPを使う", "アドレス空間はIPv4の128倍である", "経路の途中にあるルータでパケットのフラグメンテーションを行うことが可能である"], "abbr": "IPv6 = 128ビットアドレス ／ 基本ヘッダーは40オクテット固定 ／ NDP = Neighbor Discovery Protocol", "note": "IPv4 のヘッダーは可変長でルータの処理が重かった。IPv6 は基本ヘッダーを40オクテット固定にし、必要な機能は拡張ヘッダーを数珠つなぎにして表す。拡張ヘッダーは8オクテットの倍数と決まっていて、処理が速い。", "plus": "イは誤りで、IPv6 に ARP はなく ICMPv6 を使う NDP が担当する。ウは2の128乗÷2の32乗＝2の96倍で「128倍」ではない。エも誤りで、IPv6 は途中のルータで分割せず、送信元が Path MTU Discovery で調整する。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "IEEE 802.11a/b/g/nの無線LANで採用されているアクセス制御方式はどれか。", "opts": ["CSMA/CD", "CSMA/CA", "トークンパッシング方式", "LAPB"], "abbr": "CSMA/CA = Carrier Sense Multiple Access with Collision Avoidance（衝突回避）", "note": "無線では自分の電波で相手の電波がかき消され、衝突が起きても検出できない。そこで衝突を「検出」するのではなく、送信前に一定時間待ってから送る「回避」の方式を採る。これが CSMA/CA。", "plus": "アの CSMA/CD は有線イーサネットの方式で、衝突を検出(Detection)してから再送する。混同が狙われる定番。ウのトークンパッシングはトークンリングやFDDIで、送信権を順番に回す。エのLAPBはX.25のデータリンク層。"}, {"cat": "問18-20 ネットワーク", "ans": 2, "q": "OSI基本参照モデルのデータリンク層で動作し、MACアドレスを見てフレームを中継するLAN間接続装置はどれか。", "opts": ["リピータ", "ルータ", "ブリッジ", "ゲートウェイ"], "abbr": "OSI基本参照モデル = 物理 / データリンク / ネットワーク / トランスポート / セション / プレゼンテーション / アプリケーション", "note": "接続装置は「どの層のアドレスを見るか」で決まる。リピータは信号をそのまま増幅するだけ（第1層）、ブリッジはMACアドレス（第2層）、ルータはIPアドレス（第3層）、ゲートウェイはそれより上位でプロトコル変換も行う。", "plus": "アのリピータやハブは全ポートへ流すのでコリジョンドメインが広がる。ウのブリッジはポートごとにコリジョンドメインを分けるが、ブロードキャストは通す。イのルータはブロードキャストも止める＝ブロードキャストドメインを分ける。"}, {"cat": "問18-20 ネットワーク", "ans": 0, "q": "イーサネットにおいて、ルータで接続された二つのセグメント間での、コリジョンの伝搬と、宛先MACアドレスの全ビットが1であるブロードキャストフレームの中継について、適切な組合せはどれか。", "opts": ["コリジョンは伝搬しない／ブロードキャストフレームは中継しない", "コリジョンは伝搬しない／ブロードキャストフレームは中継する", "コリジョンは伝搬する／ブロードキャストフレームは中継しない", "コリジョンは伝搬する／ブロードキャストフレームは中継する"], "abbr": "コリジョンドメイン = 衝突が伝わる範囲 ／ ブロードキャストドメイン = ブロードキャストが届く範囲", "note": "ルータは第3層の装置で、コリジョンドメインもブロードキャストドメインも両方分割する。つまりどちらも向こう側へは伝わらない。宛先MACが全ビット1（FF:FF:FF:FF:FF:FF）はブロードキャストだが、ルータはこれを転送しない。", "plus": "装置ごとの分割範囲は、リピータ／ハブ＝どちらも分割しない、ブリッジ／レイヤー2スイッチ＝コリジョンドメインのみ分割、ルータ／レイヤー3スイッチ＝両方分割。この3段階を表で覚えると、組合せ問題は機械的に解ける。なおVLANを使うとレイヤー2スイッチでもブロードキャストドメインを分けられるので、例外として押さえておく。"}, {"cat": "問18-20 ネットワーク", "ans": 3, "q": "ネットワーク機器間の光ファイバを使った通信を分岐させてトラフィックを取り出し、セキュリティ装置で監視したい。ネットワークから信号を光学的に分岐させて取り出す装置はどれか。", "opts": ["レイヤー2スイッチ", "ルータ", "波長分割多重装置", "ネットワークタップ"], "abbr": "TAP = Test Access Point ／ SPAN = Switched Port Analyzer（ミラーポート）", "note": "光を物理的に分けて取り出すので、通信に手を加えず、機器の負荷も増やさない。障害時も通信を止めない構造のものが多い。IDS/IPS やパケットキャプチャを「通信経路に割り込ませずに」つなぎたいときに使う。", "plus": "同じ目的でスイッチのミラーポート（SPAN）を使う方法もあるが、スイッチに負荷がかかり、高負荷時には取りこぼす。ウの波長分割多重(WDM)は1本の光ファイバに複数波長を通して多重化する装置で、監視のための分岐ではない。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "ネットワーク層のパケットを対象としてIPパケットでカプセル化し、トンネリングを行えるプロトコルはどれか。", "opts": ["L2TP", "IPsec", "PPTP", "RSTP"], "abbr": "トンネリング = あるプロトコルのパケットを別のプロトコルで包んで運ぶこと", "note": "IPsec のトンネルモードは、元のIPパケット全体を暗号化して新しいIPヘッダーを付け直す。つまりネットワーク層(第3層)のパケットをIPでカプセル化する。拠点間VPNの標準的な方式。", "plus": "アのL2TPとウのPPTPは データリンク層(第2層)のフレームを運ぶトンネリングで、対象の層が違う。L2TP は暗号化機能を持たないため IPsec と組み合わせて L2TP/IPsec として使う。エのRSTPはSTPの高速版でトンネリングではない。"}, {"cat": "問18-20 ネットワーク", "ans": 0, "q": "HTTPのステータスコードに関する説明のうち、適切なものはどれか。", "opts": ["300番台は、完了するためにリダイレクトなど更なる動作が必要なことを意味する", "100番台は、リクエストを受けたサーバ側でエラーが発生したことを意味する", "200番台は、リクエスト内容に不備があるのでエラーが発生したことを意味する", "400番台は、リクエストがサーバに正常に受信され、処理が完了したことを意味する"], "abbr": "1xx 情報 ／ 2xx 成功 ／ 3xx リダイレクト ／ 4xx クライアントエラー ／ 5xx サーバエラー", "note": "先頭の数字だけで分類が決まる。2xx が成功、3xx が転送（301 恒久的、302 一時的、304 未更新）、4xx は要求した側の誤り（403 禁止、404 不在）、5xx はサーバ側の障害（500 内部エラー、503 利用不可）。", "plus": "イ・ウ・エはいずれも番号帯と意味を入れ替えた誤り。4xx と 5xx の区別がとくに狙われる。セキュリティの文脈では、401（認証が必要）と403（認証済みだが権限なし）の違い、存在するIDと存在しないIDで応答を変えるとアカウントの有無が漏れること、エラー画面にスタックトレースなど内部情報を出さないことがよく問われる。"}, {"cat": "問18-20 ネットワーク", "ans": 2, "q": "HTMLフォームに入力されたデータをHTTP/1.1でWebサーバへ送る。GETメソッドとPOSTメソッドで、入力データが含まれる場所の組合せとして適切なものはどれか。", "opts": ["GETはヘッダー／POSTはメッセージボディ", "GETはメッセージボディ／POSTはリクエスト行", "GETはリクエスト行／POSTはメッセージボディ", "GETもPOSTもメッセージボディ"], "abbr": "リクエストメッセージ = リクエスト行 ＋ ヘッダー ＋ メッセージボディ", "note": "GET は URL の末尾に「?名前=値&…」の形で付けるので、リクエスト行に入る。POST はメッセージボディに入れて送る。GET はURLに出るため、アクセスログやブラウザ履歴、Referer に残る。", "plus": "この違いがそのままセキュリティ上の論点になる。パスワードや個人情報を GET で送ると、ログや履歴、プロキシのキャッシュに平文で残る。だから機微な値は POST で送り、さらに TLS で保護する。GET には長さ制限もある。"}, {"cat": "問18-20 ネットワーク", "ans": 3, "q": "Webサーバからの応答の内容を、Webブラウザやプロキシサーバなどのキャッシュに一切保持させないようにするHTTPヘッダーはどれか。", "opts": ["Cache-Control: no-cache", "Cache-Control: private", "Cache-Control: public", "Cache-Control: no-store"], "abbr": "no-store = 保存しない ／ no-cache = 保存するが毎回サーバに確認する", "note": "名前から受ける印象と実際の動きが逆になる、引っかけの定番。no-cache は「キャッシュしない」ではなく「キャッシュはするが、使う前に必ずサーバへ最新か確認する」。一切保存させないのは no-store のほう。", "plus": "イの private は「ブラウザには保存してよいが共有キャッシュ（プロキシ）には保存させない」、ウの public は誰でもキャッシュ可。ログイン後の個人情報ページは no-store を付け、共用PCの戻るボタンで内容が見えるのを防ぐ。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "JavaScriptなどのスクリプト言語を使い、Webブラウザに組み込まれたサーバとの非同期通信機能を利用する技術であって、地図の高速なスクロールや入力に合わせた検索候補の逐次表示を実現するものはどれか。", "opts": ["CSS", "Ajax", "DOM", "SAX"], "abbr": "Ajax = Asynchronous JavaScript + XML ／ DOM = Document Object Model", "note": "ページ全体を読み込み直さず、必要な部分だけをサーバと通信して差し替える。画面が切り替わらないまま内容が更新されるので、操作が途切れない。地図、検索候補、無限スクロールなどがこの仕組み。", "plus": "アのCSSは見た目の指定、ウのDOMは文書を木構造として扱うAPIでAjaxが書き換える対象、エのSAXはXMLを逐次読む方式。セキュリティでは、Ajax の通信先を限定する CORS の設定と、XSS 対策がセットで問われる。"}, {"cat": "問18-20 ネットワーク", "ans": 2, "q": "1台のサーバと複数台のクライアントが1Gビット/秒のLANで接続されている。ピーク時にクライアント1台につき1分当たり6Mバイトをダウンロードするとき、同時使用しても業務を遂行できるクライアント数は最大何台か。ここでLANの伝送効率は50%、1Gビット/秒＝10の9乗ビット/秒、1Mバイト＝10の6乗バイトとする。", "opts": ["10", "1,250", "625", "5,000"], "abbr": "伝送効率 = 実際に使える帯域の割合（50%なら半分しか使えない）", "note": "使える帯域は 10の9乗 × 0.5 ＝ 5×10の8乗 ビット/秒。クライアント1台の消費は 6×10の6乗 バイト ÷ 60秒 × 8ビット ＝ 8×10の5乗 ビット/秒。割ると 5×10の8乗 ÷ 8×10の5乗 ＝ 625台。", "plus": "手順は3つだけ。①バイトをビットに直す（×8）②分を秒に直す（÷60）③伝送効率を掛ける。単位をそろえ忘れると8倍または60倍ずれるので、選択肢には 5,000（×8し忘れ）や 1,250（伝送効率を掛け忘れ）が必ず用意されている。1Mバイト＝10の6乗という十進の定義が問題文で与えられる点にも注意（1,024ではない）。★8回中1回。"}, {"cat": "問18-20 ネットワーク", "ans": 0, "q": "利用者認証において、認証サーバが認証情報を一元管理し、ネットワーク機器からの問合せに応答する仕組みを提供するプロトコルはどれか。", "opts": ["RADIUS", "SNMP", "NTP", "SMTP"], "abbr": "RADIUS = Remote Authentication Dial In User Service（認証・認可・アカウンティングを担う）", "note": "スイッチや無線アクセスポイント、VPN装置は利用者情報を持たず、認証サーバへ問い合わせる。アカウントを1か所で管理できるので、退職者の無効化も1回で済む。IEEE 802.1X の認証サーバとして使われる。", "plus": "RADIUS が担う3つはよく AAA（Authentication 認証／Authorization 認可／Accounting 課金・記録）とまとめられる。UDP を使い、後継に TCP ベースの Diameter がある。イのSNMPは機器監視、ウのNTPは時刻同期、エのSMTPはメール送信。"}, {"cat": "問18-20 ネットワーク", "ans": 1, "q": "ネットワーク機器の状態を監視・管理するプロトコルSNMPに関する記述のうち、適切なものはどれか。", "opts": ["マネージャが情報を取りに行くことをトラップという", "管理対象の情報はMIBというツリー構造で定義される", "v1とv2cはコミュニティ名を暗号化して送信する", "エージェントは管理対象機器ではなく監視サーバ側に置く"], "abbr": "SNMP = Simple Network Management Protocol ／ MIB = Management Information Base", "note": "監視される機器側にエージェント、監視する側にマネージャを置く。やり取りする情報の定義が MIB で、機器の種類ごとに項目が木構造で決まっている。マネージャが取りに行くのがポーリング、機器から自発的に知らせるのがトラップ。", "plus": "アはポーリングとトラップが逆。ウは逆で、v1/v2c のコミュニティ名は平文で流れるため盗聴される。認証と暗号化に対応したのが v3 で、監視設計では v3 を使うのが原則。エも逆で、エージェントは管理対象機器側に常駐する。"}, {"cat": "問18-20 ネットワーク", "ans": 3, "q": "ネットワーク機器の制御機能とデータ転送機能を分離し、ソフトウェアによってネットワーク構成を柔軟に変更できるようにする技術はどれか。", "opts": ["VLAN", "VPN", "NAT", "SDN"], "abbr": "SDN = Software-Defined Networking ／ NFV = Network Functions Virtualisation", "note": "従来はスイッチ1台ごとに設定を入れていた。SDN は「どこへ流すか決める頭脳（コントロールプレーン）」を機器から切り離してコントローラに集約し、機器は転送だけに専念する。構成変更をソフトウェアから一括で行える。", "plus": "よく並べて出るのが NFV で、こちらはファイアウォールやロードバランサといった機能を専用機器から汎用サーバ上のソフトへ移す技術。SDN＝経路制御の集中化、NFV＝機能の仮想化、と役割が違う。ともに公式の知識項目例に明記。"}, {"cat": "問18-20 ネットワーク", "ans": 2, "q": "インターネットに接続されたPCの時刻合わせに使用されるプロトコルはどれか。", "opts": ["NNTP", "TFTP", "SNTP", "RTCP"], "abbr": "NTP = Network Time Protocol ／ SNTP = Simple NTP（NTPを簡略化したもの）", "note": "機器ごとに時刻がずれていると、複数のログを時系列で突き合わせられず証跡として成立しない。NTP は階層構造(Stratum)で時刻を配り、0が原子時計などの基準。SNTP はその簡易版で、PCや組込み機器が使う。", "plus": "アのNNTPはネットニュース、イのTFTPは認証のない簡易ファイル転送、エのRTCPはRTPの制御。NTPサーバを外部に開いたままにすると NTPリフレクション攻撃の踏み台にされるため、monlist の無効化とアクセス制限が要る。"}, {"cat": "問21 データベース", "ans": 0, "q": "\"人事\"表に対して次のSQL文を実行したとき、結果として得られる行の条件として正しいものはどれか。〔SQL文〕SELECT 社員番号 FROM 人事 WHERE (勤続年数 > 10 OR 年齢 > 28) AND 所属 = '総務部'", "opts": ["所属が総務部であり、かつ 勤続年数が10を超えるか年齢が28を超える行", "所属が総務部であるか、または 勤続年数が10を超えて年齢も28を超える行", "勤続年数が10を超え、かつ 年齢が28を超え、かつ 所属が総務部の行", "勤続年数が10を超えるか、年齢が28を超えるか、所属が総務部である行"], "abbr": "AND と OR の優先順位 = AND が先に評価される（算術の × と ＋ と同じ関係）", "note": "括弧の中の OR がひとかたまりになり、それと 所属＝総務部 が AND で結ばれる。つまり「総務部であること」は必須条件で、そのうえで勤続10年超か28歳超のどちらかを満たせばよい。括弧がなければ AND が先に評価される。", "plus": "この型は選択肢に実際の行番号（1,2,5 など）が並ぶ形で出るので、表を見て1行ずつ当てはめる。手順は①括弧の中を先に判定②AND を判定。NULL が絡むと比較結果が「不明」になり、NOT を付けても真にならない点も要注意。"}, {"cat": "問21 データベース", "ans": 1, "q": "表Rと表Sに対して SELECT ... FROM R LEFT OUTER JOIN S ON R.X = S.X を実行した結果の説明として、適切なものはどれか。", "opts": ["RとSの両方に一致する行だけが得られる", "Rの全ての行が得られ、Sに一致がない行のS側の列はNULLになる", "Sの全ての行が得られ、Rに一致がない行のR側の列はNULLになる", "RとSの全ての行の組合せが得られる"], "abbr": "LEFT OUTER JOIN = 左側(FROMの直後)の表を全部残す外部結合", "note": "LEFT とは「左の表＝FROM の直後に書いた表」のこと。左の行は一致相手がいなくても必ず残り、右側の列には値がないので NULL が入る。「どちらを全部残すか」だけを見れば判別できる。", "plus": "アは内部結合(INNER JOIN)、ウは RIGHT OUTER JOIN、エは交差結合(CROSS JOIN)の説明。FULL OUTER JOIN は両方を残す。実際の出題は結果の表そのものを4つ並べる形なので、NULL が入っている側がどちらかで絞り込める。"}, {"cat": "問21 データベース", "ans": 3, "q": "\"従業員\"表に対し SELECT 従業員コード FROM 従業員 X WHERE NOT EXISTS (SELECT * FROM 従業員 Y WHERE X.従業員コード = Y.上司) を実行して得られるものはどれか。", "opts": ["上司が登録されていない従業員", "最上位の役職に就いている従業員", "上司と部下の両方をもつ従業員", "部下が一人もいない従業員"], "abbr": "相関副問合せ = 外側の行の値を使って内側を評価する副問合せ ／ NOT EXISTS = 該当行が1件も無い", "note": "内側は「自分（X.従業員コード）を上司として指している行が Y にあるか」を調べている。それが1件も無い＝自分を上司に持つ人がいない＝部下がいない従業員。同じ表に別名を付けて自己結合している点がポイント。", "plus": "読み方の型は、①内側が何を探しているかを日本語にする ②EXISTS なら「いる人」、NOT EXISTS なら「いない人」と反転する。アの「上司が登録されていない」は X.上司 IS NULL の条件で、向きが逆＝典型的な引っかけ。"}, {"cat": "問21 データベース", "ans": 0, "q": "A表の所有者が GRANT ALL PRIVILEGES ON A TO B WITH GRANT OPTION を発行したときの、利用者BへのA表に関する権限の付与を説明したものはどれか。", "opts": ["SELECT・UPDATE・INSERT・DELETEなど全ての権限と、それらを他者へ与える権限を付与する", "SELECT・UPDATE・INSERT・DELETEなど全ての権限を付与するが、それらを他者へ与える権限は付与しない", "SELECT・UPDATE・INSERT・DELETEなどの権限は付与しないが、それらを他者へ与える権限だけを付与する", "SELECT権限及びその付与権だけを付与し、UPDATE・INSERT・DELETE権限は付与しない"], "abbr": "GRANT = 権限を与える ／ REVOKE = 取り消す ／ WITH GRANT OPTION = 再付与を許す", "note": "ALL PRIVILEGES で対象表に対する操作権限を全部渡す。さらに WITH GRANT OPTION が付くと、B は受け取った権限を第三者へ渡せるようになる。管理者の知らないところで権限が広がるため、最小権限の観点では原則として付けない。", "plus": "イは WITH GRANT OPTION を無視した読み。ウとエは ALL PRIVILEGES を狭めた誤り。取り消すときは REVOKE で、CASCADE を付けると B が配った先の権限も連鎖して消える。アクセス制御はセキュリティ分野とも直結する頻出テーマ。"}, {"cat": "問21 データベース", "ans": 1, "q": "関係モデルにおける外部キーに関する記述のうち、適切なものはどれか。", "opts": ["外部キーの値は、その関係の中で一意でなければならない", "一つの関係に外部キーが複数存在してもよい", "参照先の関係に、外部キーの値と一致する候補キーが存在しなくてもよい", "外部キーは、それが参照する候補キーと比較可能でなくてもよい"], "abbr": "外部キー = 他の表の主キー（候補キー）を参照する列 ／ 参照整合性制約", "note": "外部キーは「他の表の誰かを指す列」。受注表が顧客番号と商品番号の両方を持つように、1つの表に複数あって構わない。値は重複してよい（同じ顧客が何度も注文する）。一意でなければならないのは主キーのほう。", "plus": "ウは参照整合性制約そのものの否定で誤り＝存在しない相手を指すことはできない。エも誤りで、比較できなければ対応関係を確認できない。親の行を消すときの挙動（CASCADE・RESTRICT・SET NULL）もあわせて押さえる。"}, {"cat": "問21 データベース", "ans": 2, "q": "DBMSのデータディクショナリはどれか。", "opts": ["ソートデータや副問合せの展開結果など、一時的なデータを格納したもの", "障害時にバックアップ時点まで回復させるため、データベース自体の複製を格納したもの", "データベースに関する利用者情報やデータ構造など、データベース管理情報を格納したもの", "利用者の指示によるデータベースの読込み情報、書込み情報などを格納したもの"], "abbr": "データディクショナリ = データ辞書（メタデータの格納庫）／ メタデータ = データについてのデータ", "note": "表がいくつあるか、各列の型は何か、誰にどんな権限があるか──こうした「データについてのデータ」を DBMS 自身が表の形で持っている。利用者が作ったデータではなく、データベースを管理するための情報。", "plus": "アは一時表領域（ワーク領域）、イはバックアップ、エはログ（ジャーナル）の説明。4つとも「DBMSが内部に持つ何か」なので、用途で切り分ける。監査の文脈では、データディクショナリを見れば誰にどの権限が付いているかの実態が確認できるため、アクセス権限監査の証拠として使える点が問われる。リポジトリやカタログとも呼ばれる。"}, {"cat": "問21 データベース", "ans": 3, "q": "データウェアハウスのメタデータに関する記述のうち、データリネージはどれか。", "opts": ["誰がどのデータを見てよいかを示す情報であり、アクセス制御のために設定される", "データが誰によって作られ管理されているかを示す情報であり、問合せ先を表す", "データ構造がどのように定義されているかを示す情報であり、公開して検索できるようにする", "データがどこから発生し、どのような変換・加工を経て現在の形になったかを示す情報"], "abbr": "lineage = 血統・系譜 ／ データリネージ = データの出どころと加工の履歴", "note": "lineage は血統という意味。あるレポートの数字が、どのシステムのどの項目から来て、途中でどう集計・変換されたかをたどれるようにする。障害時に「どこまで影響するか」を調べたり、数字の根拠を説明したりするのに使う。", "plus": "アはアクセス制御の情報、イはデータスチュワードシップ（管理責任者の情報）、ウはデータカタログの説明。いずれもメタデータの一種なので、「出どころと加工の履歴」という一点で選ぶ。データガバナンスの文脈で近年よく出る語で、個人情報の削除依頼に応じるとき、どこまで複製が広がったかを追跡するためにも使われる。"}, {"cat": "問21 データベース", "ans": 1, "q": "DBMSがトランザクションのコミット処理を完了するタイミングはどれか。", "opts": ["アプリケーションプログラムによるデータ更新命令の完了時点", "ログファイルへのコミット情報の書込み完了時点", "ログバッファへのコミット情報の書込み完了時点", "チェックポイント処理の完了時点"], "abbr": "WAL = Write Ahead Log（ログ先行書込み）／ コミット = 更新を確定させること", "note": "メモリ上のログバッファは電源が落ちれば消えるので、確定の根拠にならない。ディスク上のログファイルへ書き終えて初めて「もう失われない」と言える。データ本体の書込みは後回しでよく、これがログ先行書込み(WAL)の考え方。", "plus": "ウはメモリ上なので不十分で、最も紛らわしい誤答。エのチェックポイントはメモリ上の更新をまとめてディスクへ反映する処理で、障害回復の起点にはなるがコミットとは別。回復時は、チェックポイント以降にコミット済みのものをログから REDO（再実行）し、未コミットのものを UNDO（取消し）する。この2語の向きもあわせて覚える。"}, {"cat": "問21 データベース", "ans": 2, "q": "複数のトランザクションが互いの資源をロックしたまま待ち合い、処理が進まなくなる状態を検出したとき、DBMSが行う一般的な処置はどれか。", "opts": ["両方のトランザクションをそのまま待たせ続ける", "後から来たトランザクションのロックを強制的に解除して続行させる", "一方のトランザクションをロールバックし、もう一方を進める", "両方のトランザクションをコミットして矛盾を後で修正する"], "abbr": "デッドロック = 相互に待ち合って動けない状態 ／ ロールバック = 更新を取り消して元に戻すこと", "note": "どちらかを犠牲にして止めないと永久に解けない。DBMS は待ちグラフの循環を検出し、片方を強制的にロールバックする。犠牲になった側はエラーを受け取るので、アプリケーション側で再実行する作りにしておく必要がある。", "plus": "デッドロックの4条件は 相互排除・保持と待機・横取り不可・循環待ち。アプリ側の予防策は「資源の取得順序を全プログラムで統一する」「トランザクションを短くする」。エは ACID 特性の一貫性と原子性に反するので即座に誤り。"}, {"cat": "問22 システム開発技術", "ans": 0, "q": "システムに規定外の無効なデータが入力されたとき、誤入力であることを伝えるメッセージを表示して正しい入力を促すことで、システムを異常終了させない設計を何というか。", "opts": ["フールプルーフ", "フェールセーフ", "フェールソフト", "フォールトトレランス"], "abbr": "fool proof = 愚か者にも耐える ／ fail safe = 故障しても安全に ／ fail soft = 故障しても柔らかく", "note": "フールプルーフは「そもそも誤った使い方をさせない」設計。入力チェック、押せないようにするボタン、ふたを閉めないと動かない電子レンジなどが例。壊れた後の話ではなく、壊す前に止める考え方。", "plus": "イのフェールセーフは故障時に安全な側へ倒す（信号機が赤で停止）。ウのフェールソフトは機能を落としてでも稼働を続ける（縮退運転）。エのフォールトトレランスは冗長化して故障しても性能を保つ。4つの違いは「誤操作前か／故障後か」「安全か／継続か」で整理できる。"}, {"cat": "問22 システム開発技術", "ans": 3, "q": "プログラムのテストケースを判定条件網羅(分岐網羅)によって設定する。この基準の説明として適切なものはどれか。", "opts": ["全ての命令が少なくとも1回は実行されるようにする", "個々の条件式が真と偽の両方を少なくとも1回ずつ取るようにする", "複数条件の全ての組合せを少なくとも1回ずつ実行する", "各分岐の真と偽の両方の経路を少なくとも1回ずつ通るようにする"], "abbr": "命令網羅 < 判定条件網羅(分岐網羅) < 条件網羅 ／ 複数条件網羅 が最も厳しい", "note": "分岐網羅は「if の真のときと偽のとき、両方を通す」基準。命令網羅より厳しく、真の側だけ通して満足してしまう抜けを防ぐ。ただし条件式が「A かつ B」のように複合だと、A と B 個々の真偽までは保証しない。", "plus": "アは命令網羅、イは条件網羅、ウは複数条件網羅。厳しさは 命令網羅 ＜ 判定条件網羅 ＜ 条件網羅 ＜ 複数条件網羅 の順で、下位は上位に含まれる。網羅基準はホワイトボックステストの話で、内部構造を見てテストケースを作る。対してブラックボックステストは仕様だけを見て作り、同値分割・境界値分析・原因結果グラフが代表的な技法。"}, {"cat": "問22 システム開発技術", "ans": 1, "q": "仕様書やソースコードについて、作成者を含めた複数人で、記述されたシステムの振る舞いを机上でシミュレートして問題点を発見する手法はどれか。", "opts": ["インスペクション", "ウォークスルー", "トップダウンテスト", "並行シミュレーション"], "abbr": "ウォークスルー = 作成者が主催する非公式なレビュー ／ インスペクション = モデレーターが仕切る公式なレビュー", "note": "ウォークスルーは作成者自身が仲間を集めて開く、形式ばらないレビュー。参加者で処理を順に追いかけ（walk through）、動きを頭の中で再現して誤りを探す。早く安く回せるのが利点。", "plus": "アのインスペクションは、進行役(モデレーター)・記録役など役割を決めて行う公式なレビューで、指摘の記録と是正確認まで行う。ウは結合テストの方式、エは監査技法(CAAT)で、どちらもレビュー技法ではない＝分野違いの引っかけ。"}, {"cat": "問22 システム開発技術", "ans": 2, "q": "ソフトウェアパターンのうち、GoFのデザインパターンの説明はどれか。", "opts": ["構造、分散システム、対話型システム、適合型システムの四つに分類される", "抽象度が異なる要素を階層化するLayers、コンポーネント分割のためのBrokerなどで構成される", "オブジェクト指向開発のためのパターンであり、生成・構造・振る舞いの三つに分類される", "Javaのパターンとして、引数オブジェクト、オブジェクトの可変性などで構成される"], "abbr": "GoF = Gang of Four（4人の著者）／ 23個のデザインパターンをまとめた書籍に由来", "note": "GoF のデザインパターンはクラス設計レベルの定石を23個に整理したもので、生成（Singleton、Factory Method など）・構造（Adapter、Facade など）・振る舞い（Observer、Strategy など）の3分類。", "plus": "イは POSA（アーキテクチャパターン）で、GoF よりも粒度が大きくシステム全体の構造を扱う。「3分類ならGoF、Layers/Brokerならアーキテクチャパターン」と覚えると即断できる。公式の知識項目例にも両方が明記されている。"}, {"cat": "問22 システム開発技術", "ans": 0, "q": "階層構造で設計された組込みシステムで、デバイスドライバ層の単体テストが未終了、アプリケーション層とミドルウェア層の単体テストが先に終了した。この段階で行える結合テストの方式はどれか。", "opts": ["トップダウンテスト", "ボトムアップテスト", "サンドイッチテスト", "ビッグバンテスト"], "abbr": "スタブ = 呼び出される側の仮モジュール ／ ドライバ = 呼び出す側の仮モジュール", "note": "上位（アプリケーション層）ができていて下位（デバイスドライバ層）が未完成なので、上から順に結合し、足りない下位モジュールはスタブで代用する。これがトップダウンテスト。「できている側がどちらか」で方式が決まる。", "plus": "イのボトムアップは下位から積み上げ、上位の代わりにドライバを使う＝今回は下位が未完成なので不可。ウのサンドイッチは両方から同時に進める折衷。エのビッグバンは全部そろえて一度に結合する方式で、不具合の切り分けが難しい。"}, {"cat": "問22 システム開発技術", "ans": 3, "q": "アジャイル開発のプロジェクトで、バグ、コードの重複、脆弱性につながるコードを自動で検出できるOSSの静的コード解析ツールとして、最も適切なものはどれか。", "opts": ["Git", "Jenkins", "Snort", "SonarQube"], "abbr": "静的解析(SAST) = プログラムを実行せずにソースコードを検査すること", "note": "SonarQube はソースコードを読んで、バグになりやすい書き方、重複したコード、脆弱性につながる処理を自動で指摘する。CI パイプラインに組み込んで、コミットのたびに回すのが一般的な使い方。", "plus": "アのGitはバージョン管理、イのJenkinsはCIサーバで、どちらも解析そのものは行わない（Jenkins から SonarQube を呼ぶ関係）。ウのSnort はネットワーク型IDSで、動いている通信を見る＝静的解析ではない。役割の層が全部違う。"}, {"cat": "問22 システム開発技術", "ans": 1, "q": "IoT機器のペネトレーションテストの説明として、適切なものはどれか。", "opts": ["最終段階で、機器とサーバ及びネットワーク全体の動作が仕様書どおりであることをテストする", "ネットワーク、バス、デバッグインタフェースなどの脆弱性を利用して、機器への攻撃と侵入を試みる", "回路図やソースコードなど内部構造を参照して、仕様確認のためのテストを行う", "恒温恒湿器を用いて、要求仕様で定められた温湿度条件で動作するかどうかをテストする"], "abbr": "penetration = 侵入・貫通 ／ 脆弱性診断とは目的が異なる", "note": "ペネトレーションテストは「実際に侵入できるか」を目的達成の観点で試す。IoT 機器では、ネットワークだけでなく基板上のバスや出荷時に塞ぎ忘れたデバッグ端子(JTAG/UART)も攻撃面になるのが特徴。", "plus": "脆弱性診断は「既知の弱点が無いかを広く浅く洗い出す」、ペネトレーションテストは「狭く深く、目的を達成できるかを検証する」。目的と深さが違う。ウは内部構造を見るのでホワイトボックステスト、エは環境試験で、どちらも攻撃を試みていない。実施前には必ず書面で範囲・期間・連絡体制・許可を取り交わす必要があり、これを欠くと不正アクセス禁止法に触れうる。"}, {"cat": "問22 システム開発技術", "ans": 2, "q": "プログラムの修正によって、修正していない箇所に新たな不具合が生じていないかを確認するテストはどれか。", "opts": ["負荷テスト", "受入れテスト", "回帰テスト", "ペネトレーションテスト"], "abbr": "regression = 後戻り・退行 ／ 回帰テスト = 直したことで前は動いていた所が壊れていないかの確認", "note": "ある不具合を直した結果、別の正常だった機能が壊れることがある（デグレード）。これを防ぐため、修正のたびに既存のテストをもう一度流す。自動化しておかないと回数に耐えられないので、CI での自動実行が前提になる。", "plus": "公式の知識項目例「テストの種類」には 機能テスト・非機能要件テスト・性能テスト・負荷テスト・セキュリティテスト・回帰テスト が並ぶ。アの負荷テストは限界性能の確認、イの受入れテストは発注者が検収のために行うもので、目的が異なる。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 3, "q": "アジャイル開発手法の説明のうち、スクラムのものはどれか。", "opts": ["コミュニケーション・シンプル・フィードバック・勇気・尊重の五つの価値を基礎とし、ペアプログラミングやリファクタリングを推奨する", "推測・協調・学習のライフサイクルをもつ", "モデルの全体像を作成した上で優先度を付けたフィーチャリストを作り、フィーチャ単位で設計と構築を繰り返す", "プロダクトオーナーなどの役割、スプリントレビューなどのイベント、プロダクトバックログなどの作成物及びルールから成る"], "abbr": "スクラムの3つの役割 = プロダクトオーナー / スクラムマスター / 開発者", "note": "スクラムは「役割・イベント・作成物」という枠組みで定義されるのが特徴。イベントはスプリントプランニング、デイリースクラム、スプリントレビュー、レトロスペクティブの4つ。作成物はプロダクトバックログ、スプリントバックログ、インクリメント。", "plus": "アは XP（エクストリームプログラミング）、イは ASD（適応型ソフトウェア開発）、ウは FDD（ユーザー機能駆動開発）。見分け方は固有名詞で、「5つの価値・ペアプロ」ならXP、「役割・イベント・作成物」ならスクラム。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 0, "q": "エクストリームプログラミング(XP)における“テスト駆動開発”の特徴はどれか。", "opts": ["プログラムを書く前にテストケースを作成する", "最初のテストで、なるべく多くのバグを摘出する", "テストケースの改善を繰り返す", "テストでのカバレージを高めることを重視する"], "abbr": "TDD = Test Driven Development ／ レッド（失敗）→ グリーン（成功）→ リファクタリング の繰り返し", "note": "先に「こう動いてほしい」をテストコードで書き、わざと失敗させてから、それを通す最小限の実装をする。最後に内部構造を整える。テストが仕様書の役割を果たすので、仕様の取り違えが早く分かる。", "plus": "イ・ウ・エはどれも一般的なテストの心がけであって、TDD を定義づける特徴ではない＝「もっともらしいが的外れ」な選択肢。XP の他のプラクティスは ペアプログラミング、リファクタリング、継続的インテグレーション、オンサイト顧客。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 1, "q": "スクラムを適用したプロジェクトで、KPT手法を用いてレトロスペクティブを行った。KPTにおける三つの視点の組みはどれか。", "opts": ["Kaizen、Persona、Try", "Keep、Problem、Try", "Knowledge、Practice、Team", "Knowledge、Persona、Test"], "abbr": "レトロスペクティブ = ふりかえり（スプリントの最後に行うイベント）", "note": "Keep は「うまくいったので続けること」、Problem は「困ったこと」、Try は「次に試すこと」。良かった点から始めるので発言しやすく、Problem を Try に変換して次のスプリントの改善項目にする。", "plus": "レトロスペクティブはスプリントレビューの後に行う。スプリントレビューが「成果物」を関係者に見せて次に何を作るかを決める場なのに対し、レトロスペクティブは「進め方」をチーム内で見直す場＝対象が違い、混同が問われやすい。アやエのように実在しない英単語を並べた選択肢が作られるので、Keep・Problem・Try の3語をそのまま覚えておけば一発で選べる。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 2, "q": "多数のサービスが連携する大規模な分散システムで、ステージング環境や本番環境で意図的に障害を引き起こして挙動を観察し、発見した問題の修正を継続して耐障害性を高めていく手法はどれか。", "opts": ["DevOps", "Infrastructure as Code", "カオスエンジニアリング", "テスト駆動開発"], "abbr": "カオスエンジニアリング = あえて壊して弱点を先に見つける実践（Netflix の Chaos Monkey が起源）", "note": "マイクロサービスのように部品が多いと、どこが落ちたら何が起きるかを机上で予測しきれない。そこで本番に近い環境でわざとインスタンスを落としたり遅延を注入したりして、実際の壊れ方を観測し、先に手を打つ。", "plus": "アのDevOpsは開発と運用の連携という文化・体制、イのIaCは構成をコードで管理する手法、エのTDDはテストを先に書く開発手法。どれも「意図的に壊す」要素がないので、その一点で切れる。可用性を高める取組みだが、本番で実施する以上は影響範囲を限定し、いつでも止められる状態で行うのが前提。近年の新語枠として出題された。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 1, "q": "JIS X 0160(ソフトウェアライフサイクルプロセス)によれば、ライフサイクルモデルの目的及び成果を達成するために、ライフサイクルプロセスを修正するか、又は新しいライフサイクルプロセスを定義することを何というか。", "opts": ["ベンチマーキング", "修整(Tailoring)", "統治(Governance)", "シミュレーション"], "abbr": "SLCP = Software Life Cycle Process ／ tailoring = 仕立て直し", "note": "SLCP は標準的な作業の並びを定めたものだが、すべての案件にそのまま当てはまるわけではない。小規模なら一部を省き、特殊な要件があれば工程を足す。この「自分たちの案件に合わせて仕立て直す」行為が修整。", "plus": "tailor は洋服の仕立て屋で、既製品を体に合わせて直すイメージ。共通フレーム(SLCP-JCF)でも中心的な考え方として出てくる。アのベンチマーキングは他社との比較、ウの統治はガバナンスで、いずれも工程の修正ではない。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 3, "q": "ソフトウェアの品質を確保するための検証に形式手法を用いる。このとき行う検証方法の説明として、適切なものはどれか。", "opts": ["進行役(モデレーター)や記録役などの役割を決めた複数人で、成果物に欠陥がないかどうかを検証する", "プログラムの内部構造とは無関係に、プログラムが仕様どおりに機能するかどうかを検証する", "プログラムの内部構造に着目し、プログラムが仕様どおりに動作するかどうかを検証する", "厳密な意味を定義できる言語で仕様を記述し、満たすべき性質と仕様が整合しているかを論理的に検証する"], "abbr": "形式手法 = 数学的に意味が一意に決まる記法で仕様を書き、論理で正しさを示す手法", "note": "自然言語の仕様書は読み手によって解釈が割れる。形式手法は数学的な記法で仕様を書くので解釈の幅がなく、「この性質が必ず成り立つ」を論理的に証明できる。テストは全パターンを試せないが、証明なら網羅できる。", "plus": "アはインスペクション、イはブラックボックステスト、ウはホワイトボックステスト。形式手法だけが「実行して確かめる」のではなく「論理で確かめる」点が違う。コストが高いため、鉄道や航空など安全性が最重要の分野で使われる。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 2, "q": "商用目的で開発するソフトウェアの開発請負契約書に取決めがない場合、ソフトウェアの著作権の帰属先に関する説明として適切なものはどれか。ここでソフトウェアは、注文者から委託された請負人が開発するものとする。", "opts": ["注文者に帰属する", "請負人と注文者の両方に帰属する", "請負人に帰属する", "請負人、注文者のどちらにも帰属しない"], "abbr": "著作権法 = 著作物を創作した者に著作権が発生する（創作者主義）", "note": "著作権は原則として「実際に作った側」に発生する。請負契約でお金を払ったとしても、契約書に譲渡の定めがなければ著作権は請負人に残ったままで、注文者は使用許諾を受けている状態になる。", "plus": "だから実務では契約書に「著作権は代金完済と同時に注文者へ移転する」と必ず書く。例外は従業者が職務上作成した場合（職務著作）で、こちらは勤務先の法人に帰属する。「お金を出した側のもの」と考えると間違える、が結論。なお著作者人格権は譲渡できないため、契約では「行使しない」と定めるのが一般的。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 0, "q": "プログラムの著作権管理上、不適切な行為はどれか。", "opts": ["複製権の許諾を受けていないが、プロテクトが掛かっていたのでそれを外し、バックアップのために複製した", "公開されたプロトコルに基づき、他社製品と同等の機能をもつソフトウェアを独自に開発して販売した", "使用・複製・改変の権利を付与する契約を締結した上で、許諾の範囲内で改変して製品に組み込み販売した", "他人のソフトウェアを正当な手段で入手し、試験又は研究のために逆コンパイルを行った"], "abbr": "技術的保護手段の回避 = プロテクト外しは著作権法上の例外（私的複製など）から除外される", "note": "バックアップ目的の複製は一定の範囲で認められるが、技術的保護手段（プロテクト）を外してまで行うことは認められていない。しかも本件は複製権の許諾を受けていない。「目的が正当なら手段も正当」とはならない。", "plus": "イは公開仕様に基づく独自開発で、表現そのものを複製していないので適法（著作権はアイデアではなく表現を保護する）。ウは使用許諾契約の範囲内の行為。エは試験・研究目的のリバースエンジニアリングで、著作権法30条の4により許容される。「許諾の範囲内か」「技術的保護手段を外していないか」の2点で判定すると切り分けやすい。"}, {"cat": "問23 ソフトウェア開発管理技術", "ans": 1, "q": "SDメモリカードに使用される著作権保護技術はどれか。", "opts": ["CPPM(Content Protection for Pre-Recorded Media)", "CPRM(Content Protection for Recordable Media)", "DTCP(Digital Transmission Content Protection)", "HDCP(High-bandwidth Digital Content Protection)"], "abbr": "Recordable = 記録可能 ／ Pre-Recorded = あらかじめ記録済み ／ Transmission = 伝送 ／ High-bandwidth = 高帯域（映像出力）", "note": "名前の真ん中の語が、そのまま守る対象を表している。SDカードやDVD-RAMのような「記録できる媒体」を守るのが CPRM。媒体ごとの固有IDと鍵を結び付けるので、別の媒体へコピーしても再生できない。", "plus": "アのCPPMは市販DVD-Audioなど記録済み媒体、ウのDTCPはIEEE1394やIP経由の伝送区間、エのHDCPはHDMIなどの映像出力区間を守る。公式の知識項目例「技術的保護（コピーガード、DRMほか）」に対応する枠。"}, {"cat": "問24 サービスマネジメント", "ans": 2, "q": "サービス提供時間帯が毎日6〜20時のシステムで、ある月の実績が次のとおりであった。この月のサービス可用性は何%か。稼働日数は30日、小数第2位を四捨五入する。〔実績〕サービス提供時間内の停止時間：7時間／提供時間外の修復時間：3時間／提供時間外のメンテナンス時間：8時間", "opts": ["95.7", "97.6", "98.3", "99.0"], "abbr": "サービス可用性(%) = (合意サービス時間 − 停止時間) ÷ 合意サービス時間 × 100", "note": "合意サービス時間は 14時間 × 30日 ＝ 420時間。数えるのは「提供時間帯の中で止まっていた時間」だけなので7時間。提供時間外の修復3時間とメンテナンス8時間は分子にも分母にも入れない。(420−7)÷420＝98.33…で98.3%。", "plus": "引っかけは「提供時間外の時間を足してしまう」こと。3時間や8時間を混ぜると 97.6 や 95.7 になり、ちゃんと選択肢に用意されている。手順は①合意サービス時間を出す ②提供時間帯内の停止だけ拾う。★8回中3回出題。"}, {"cat": "問24 サービスマネジメント", "ans": 3, "q": "サービス提供時間帯が毎日0〜24時のITサービスで、4月1日から6月30日(91日間)の停止時間が合計8時間あり、うち5時間はシステムバージョンアップに伴う計画停止で、サービス提供時間に含めないことが顧客と合意されている。この期間のサービス可用性は何%か。小数第3位を四捨五入する。", "opts": ["95.52", "95.70", "99.52", "99.86"], "abbr": "計画停止 = 顧客と合意のうえ、あらかじめ止めると決めてある時間（合意サービス時間から除く）", "note": "全体は 24時間 × 91日 ＝ 2,184時間。計画停止5時間は合意サービス時間から除くので分母は 2,184−5＝2,179時間。計上する停止は残りの3時間。(2,179−3)÷2,179＝99.862…で99.86%。", "plus": "ポイントは計画停止を「分母からも引く」こと。分母から引かずに分子だけ減らすと数字がずれ、用意された誤答に落ちる。逆に「計画停止もサービス提供時間に含める」と合意している場合は分母から引かないので、問題文のどちらの書き方かを必ず読む。この扱いを契約で明記しないと保守のたびにSLA違反になる＝実務でも必ず合意しておく論点。"}, {"cat": "問24 サービスマネジメント", "ans": 1, "q": "サービスマネジメントにおける問題管理において実施する活動はどれか。", "opts": ["インシデントの発生後に暫定的にサービスを復旧させ、業務を継続できるようにする", "インシデントの発生後に未知の根本原因を特定し、恒久的な解決策を策定する", "インシデントの発生に備えて、復旧のための設計をする", "インシデントの発生を記録し、関係する部署に状況を連絡する"], "abbr": "インシデント管理 = 早く復旧させる ／ 問題管理 = 二度と起こさないようにする", "note": "両者は目的が違う。インシデント管理のゴールは「とにかく早くサービスを戻すこと」で、原因が分からなくても回避策で構わない。問題管理のゴールは「根本原因を突き止めて再発をなくすこと」で、時間をかけてよい。", "plus": "アとエはインシデント管理、ウはサービス継続管理や可用性管理の活動。問題管理では、原因は分かったが恒久対策が未了の状態を「既知の誤り(Known Error)」として記録し、暫定回避策(ワークアラウンド)とあわせてサービスデスクへ共有する。同じインシデントが再発したとき即座に回避できるようにするためで、この連携が問われる。"}, {"cat": "問24 サービスマネジメント", "ans": 0, "q": "JIS Q 20000-1:2020(サービスマネジメントシステム要求事項)によれば、SMSにおける継続的改善の定義はどれか。", "opts": ["パフォーマンスを向上するために繰り返し行われる活動", "意図した結果を得るためにインプットを使用する、相互に関連する一連の活動", "サービスを中断なしに、又は合意した可用性を一貫して提供する能力", "価値を提供するため、サービスの計画立案から改善までの活動及び資源を指揮し管理する一連の能力及びプロセス"], "abbr": "JIS Q 20000-1 = ITサービスマネジメントの国際規格 ISO/IEC 20000-1 の日本語版", "note": "継続的改善は「繰り返し行われる」点が定義の核。一度きりの改善プロジェクトではなく、PDCA を回し続けることを指す。規格の用語定義をそのまま問う形なので、キーワード（繰り返し・パフォーマンス向上）で判別する。", "plus": "イはプロセスの定義、ウはサービス可用性（又は継続性）の定義、エはサービスマネジメントの定義。用語定義の問題は、選択肢それぞれが規格内の別の用語の定義そのものになっているのが特徴で、「どの用語の説明か」を当てる形。したがって消去法が効きにくく、キーワードを1語おさえるのが近道（継続的改善なら「繰り返し」）。"}, {"cat": "問24 サービスマネジメント", "ans": 2, "q": "JIS Q 20000-1:2020を適用している組織が、SMSが「組織自体が規定した要求事項」及び「規格の要求事項」に適合している状況にあるか否かの情報を提供するために、あらかじめ定めた間隔で実施するものはどれか。", "opts": ["監視、測定、分析及び評価", "サービスの報告", "内部監査", "マネジメントレビュー"], "abbr": "内部監査 = 自組織が自組織を監査すること（第一者監査）", "note": "「適合しているか否か」を判定するのが監査。あらかじめ定めた間隔で計画的に実施し、結果をトップマネジメントに報告する。ISMS(JIS Q 27001)でも同じ構造の要求事項があるので、対で覚えると得。", "plus": "エのマネジメントレビューは、監査結果などを受けてトップマネジメントが行う見直しで、実施者が違う（監査＝監査員、レビュー＝経営層）。アは日常的な監視・測定、イは顧客向けの報告で、いずれも適合性を判定する行為ではない。「あらかじめ定めた間隔で」「適合しているか否か」という2つの言い回しが内部監査の合図。ISMS でも同じ構造。"}, {"cat": "問24 サービスマネジメント", "ans": 1, "q": "ITサービスにおけるコンピュータシステムの利用に対する課金で、逓減課金方式の説明として適切なものはどれか。", "opts": ["利用量にかかわらず料金が一定である", "利用量が増えるほど、単位当たりの料金が安くなる", "利用量が増えるほど、単位当たりの料金が高くなる", "利用量に比例して料金が増える"], "abbr": "逓減(ていげん) = だんだん減る ／ 逓増(ていぞう) = だんだん増える", "note": "「逓」はだんだん、という意味。逓減課金は使うほど単価が下がる仕組みで、たくさん使う部門を優遇し、利用を促したいときに採る。グラフで出題されると、傾きがだんだん緩やかになる上に凸の曲線になる。", "plus": "ウが逓増課金で、使いすぎを抑えたいときに採る（傾きが急になる下に凸）。エは比例課金で直線、アは固定課金で水平。グラフで出題されたら「傾きが緩むか急になるか」だけ見れば判別できる。課金方式を定める狙いは、利用者にコスト意識をもたせて需要を調整することにあり、公式の知識項目例では「予算業務及び会計業務」に位置づけられる。"}, {"cat": "問24 サービスマネジメント", "ans": 3, "q": "システム化案A〜Dについて、利用期間5年間の削減される業務費と投資額(初期費用＋運用費)が示されている。投資利益率が最も高い案を選ぶとき、投資利益率の算出式として正しいものはどれか。ここで利益の増加額は、削減される業務費から投資額を減じたものとする。", "opts": ["削減される業務費 ÷ (初期費用 ＋ 運用費)", "投資額 ÷ (削減される業務費 − 投資額)", "(削減される業務費 − 投資額) ÷ 削減される業務費", "(削減される業務費 − 投資額) ÷ 投資額"], "abbr": "ROI = Return On Investment（投資利益率）＝ 利益の増加額 ÷ 投資額", "note": "ROI は「投じた額に対してどれだけ儲かったか」の比率。分子は利益の増加額で、これは削減される業務費から投資額を引いたもの。分母は投資額。問題文に定義が書いてあるので、素直に代入すれば解ける。", "plus": "アは分子が利益でなく効果額そのもの、イは分子と分母が逆、ウは分母が投資額でないので誤り。この種の設問は定義が本文に明記されるため、暗記より「本文の式を読み落とさない」ことが勝負になる。投資額は初期費用と運用費の合計で、運用費は利用期間の年数分を掛けること、削減される業務費も年数分であることを取り違えない。"}, {"cat": "問24 サービスマネジメント", "ans": 0, "q": "サービスレベル合意書(SLA)に関する記述のうち、適切なものはどれか。", "opts": ["サービス提供者と顧客の間で、提供するサービスの内容と目標値を合意した文書である", "サービス提供者が組織内部の供給者との間で結ぶ契約であり、顧客とは取り交わさないものである", "達成できなかった場合の措置を定めてはならない", "一度合意したら、サービス期間中は見直してはならない"], "abbr": "SLA = Service Level Agreement ／ OLA = Operational Level Agreement（内部の運用レベル合意）", "note": "SLA は「何を、どの水準で提供するか」を顧客と決めた約束。可用性、応答時間、復旧目標時間などを測定可能な数値で書き、測り方と報告の頻度まで決める。測れない目標は書いても意味がない。", "plus": "イは OLA（社内部門との合意）や UC（外部供給者との契約）の説明。ウは誤りで、未達時のペナルティや是正の取決めを含めるのが普通。エも誤りで、SLA はサービスレベル管理の中で定期的に見直す（継続的改善の対象）。"}, {"cat": "問25 システム監査", "ans": 2, "q": "金融庁\"財務報告に係る内部統制の評価及び監査に関する実施基準\"における、ITに係る全般統制に該当するものとして最も適切なものはどれか。", "opts": ["アプリケーションプログラムの例外処理(エラー)の修正と再処理", "業務別マスタデータの維持管理", "システムの開発、保守に係る管理", "入力情報の完全性、正確性、正当性等を確保する統制"], "abbr": "ITGC = IT全般統制（土台）／ ITAC = IT業務処理統制（個別の処理に組み込まれた統制）", "note": "全般統制は、個々の業務処理を下から支える土台のこと。具体的には システムの開発・保守の管理、運用・管理、内外からのアクセス管理、外部委託先の管理 の4つ。ここが崩れると、上に乗る業務処理統制も信頼できなくなる。", "plus": "ア・イ・エはいずれも個別の業務処理に組み込まれた統制＝IT業務処理統制。見分け方は「特定の業務にだけ効くか（業務処理統制）、全システム共通の土台か（全般統制）」。全般統制の4つは 開発・保守の管理／運用・管理／内外からのアクセス管理／外部委託先の管理 で、これを丸ごと覚えると即答できる。★あわせて8回中4回出題の最頻出。"}, {"cat": "問25 システム監査", "ans": 3, "q": "アクセス管理に関する内部統制のうち、ITに係る業務処理統制に該当するものはどれか。", "opts": ["組織としてアクセス管理規程を定め、全ての情報システムに対して統一的なアクセス管理を行う", "組織としてアクセス権限の設定方針及び承認手続を定め、関係する全部門へ周知徹底を図る", "組織内の全ての利用者に対して、アクセス管理の重要性と関連規程の内容についての教育を定期的に行う", "組織内のアプリケーションシステムに、業務内容に応じた権限を付与した利用者IDとパスワードによる認証機能を設ける"], "abbr": "業務処理統制 = 個々のアプリケーションに組み込まれた、処理の正確性を担保する仕組み", "note": "「アプリケーションシステムに機能を設ける」のが業務処理統制。規程を作る、方針を定める、教育をする、というのは全社的な取組みであって、特定の処理に組み込まれた仕組みではない。", "plus": "ア・イ・ウは全社的な内部統制ないしIT全般統制の領域で、いずれも「規程を定める」「方針を周知する」「教育する」という組織全体の活動。見分ける合図は「アプリケーションシステムに〜という機能を設ける」という文言で、これが出たら業務処理統制。同じ論点が令和4年春と令和6年秋でほぼ同じ文章で出ており、確実に取りたい。"}, {"cat": "問25 システム監査", "ans": 1, "q": "金融庁\"財務報告に係る内部統制の評価及び監査に関する実施基準\"によれば、\"記録した取引に漏れ、重複がないこと\"は、組織目標を達成するためのITの統制目標のうちどれに含まれるか。", "opts": ["可用性", "信頼性", "機密性", "準拠性"], "abbr": "ITの統制目標 = 有効性及び効率性 / 準拠性 / 資産の保全 / 信頼性 / 可用性 / 機密性 など", "note": "漏れや重複がないというのは、記録された情報が事実を正しく表しているかという話。つまり情報の正確性・完全性＝信頼性の領域。情報セキュリティの機密性・完全性・可用性とは分類の軸が違う点に注意。", "plus": "アの可用性は必要なときに使えること、ウの機密性は許可された者だけが見られること、エの準拠性は法令や社内規程に従っていること。「漏れ・重複」という言葉が出たら完全性＝信頼性、と結び付ける。情報セキュリティの3要素（機密性・完全性・可用性）とは分類の目的が違い、こちらは財務報告の正しさを担保する観点で整理されている点に注意する。"}, {"cat": "問25 システム監査", "ans": 0, "q": "情報システムに係るリスクの評価と対応について、統制自己評価(CSA)の説明として適切なものはどれか。", "opts": ["業務を実施している部門自身が、自部門の統制の有効性を評価する手法", "被監査部門から独立した監査人が、現場に立ち入って統制の有効性を評価する手法", "外部の第三者機関が、組織全体の統制を認証する制度", "経営者が財務諸表の適正性を宣言する制度"], "abbr": "CSA = Control Self Assessment（統制自己評価）", "note": "統制を一番よく知っているのは、その業務をしている当事者。CSA はワークショップやチェックリストで、現場が自分たちの統制を点検する。監査人が外から見つけるより早く、改善にも前向きになりやすい。", "plus": "ただし自己評価なので客観性には限界があり、内部監査を置き換えるものではなく補完する位置づけ。イは内部監査、ウは第三者認証(ISMS認証など)、エは経営者による確認書の話。公式の知識項目例に CSA が明記されている。"}, {"cat": "問25 システム監査", "ans": 3, "q": "システム監査基準(令和5年)に基づくシステム監査において、リスク評価に基づいた監査計画の策定で考慮すべき事項として適切なものはどれか。", "opts": ["監査対象の不備を見逃して監査の結論を誤る監査リスクについて、これを完全に回避できる監査計画を策定する", "システム監査におけるリスク・アプローチでは、各監査対象に対して均等に監査資源を配分する", "システム監査に係るリスクのうち、監査対象に対するリスクは統制リスクと残存リスクの二つに大別されることに留意する", "組織体内外の環境変化によってリスクが相当程度変化した場合には、監査計画の見直しを検討し、必要に応じて変更する"], "abbr": "リスクアプローチ = リスクの大きいところへ監査資源を重点配分する考え方", "note": "リスクは固定ではなく、組織や環境の変化で動く。だから監査計画も一度作って終わりではなく、変化があれば見直す。これがリスクアプローチの要点で、計画の硬直化を避けるための考え方。", "plus": "アは誤りで、監査リスクはゼロにできない（全数検査は不可能）ため、許容できる低い水準に抑えるのが目標。イはリスクアプローチの否定そのもので、均等配分ではなく重点配分が本質。ウは分類が不正確。選択肢に「完全に」「全ての」「均等に」といった極端な語が出たら、まず誤りを疑うのが定石。★同じ論点が8回中2回出題。"}, {"cat": "問25 システム監査", "ans": 2, "q": "システム監査基準(令和5年)において、監査人が監査対象から独立した立場を保つことに関する記述のうち、適切なものはどれか。", "opts": ["外観上の独立性さえ保たれていれば、監査人の精神上の独立性までは基準上は求められていない", "内部監査の場合は、被監査部門から組織上独立している必要はないとされている", "外観上の独立性と精神上の独立性の双方が求められ、客観性の保持とあわせて基準に定められている", "独立性は組織の外部の監査人にのみ求められ、組織内部の監査人には求められていない"], "abbr": "外観上の独立性 = 第三者から見ても公正に見えること ／ 精神上の独立性 = 実際に公正な判断ができること", "note": "自分が作ったものを自分で監査しては意味がない。実際に公正であること（精神上）に加えて、第三者から見てもそう見えること（外観上）の両方が要る。令和5年改訂版では基準4「監査の独立性と客観性の保持」に定められている。", "plus": "★平成30年版の「一般基準・実施基準・報告基準」という3区分は令和5年改訂で廃止された。現在は 監査の属性に係る基準(基準1〜5)・実施に係る基準(基準6〜10)・報告に係る基準(基準11〜12) の3区分・12基準。古い教材に注意。"}, {"cat": "問25 システム監査", "ans": 0, "q": "データベースの直接修正(アプリケーションの機能を経由せず特権IDでデータを追加・変更・削除すること)に関して、監査人がシステム監査報告書で報告すべき指摘事項はどれか。", "opts": ["更新ログ上は、アプリケーションソフトウェアの機能を経由したデータ更新として記録していた", "事前のデータ変更申請の承認、及び事後のデータ変更結果の承認を行っていた", "直接修正の作業終了時には、直接修正用の特権IDを無効にしていた", "利用部門からの正式なデータ変更依頼票に基づいて、システム部門の担当者が直接修正を実施していた"], "abbr": "指摘事項 = 統制上の問題があり、改善が必要と判断した事項", "note": "ログが実態と違う記録になっているのが問題。直接修正したのに通常の更新として残ると、後から追跡できず、証跡として成立しない。不正があっても気づけなくなるため、これは指摘すべき状態。", "plus": "イ・ウ・エはいずれも適切な統制が働いている状態＝指摘にならない。この型の設問は「4つのうち3つは良い運用、1つだけ問題」という作りなので消去法が効く。見る軸は「証跡が正しく残るか」「事前事後の承認があるか」「特権IDが使い終わりに無効化されるか」の3つ。特権IDの管理はIT全般統制のアクセス管理に当たる論点でもある。"}, {"cat": "問25 システム監査", "ans": 1, "q": "被監査企業がSaaSを利用して業務を実施している場合、被監査企業のシステム監査人が、SaaSの利用者環境からアクセスコントロールを評価できる対象のIDはどれか。", "opts": ["DBMSの管理者ID", "アプリケーションの利用者ID", "サーバのOSの利用者ID", "ストレージデバイスの管理者ID"], "abbr": "SaaS = Software as a Service ／ 責任共有モデル = 事業者と利用者で責任範囲を分ける考え方", "note": "SaaS では、OS やミドルウェア、ストレージは事業者の管理下にあり、利用者からは触れない。利用者が自分で管理できるのはアプリケーション上の利用者IDと権限だけ。したがって監査人が評価できるのもそこに限られる。", "plus": "ア・ウ・エは事業者側の責任範囲で、利用者環境からは確認できない。これらを確かめたい場合は、事業者が受けた第三者監査の報告書(SOC報告書など)を入手して代替する。IaaS なら OS まで利用者の責任範囲になる＝区分で変わる。"}];
+const CATS = ["問18-20 ネットワーク", "問21 データベース", "問22 システム開発技術", "問23 ソフトウェア開発管理技術", "問24 サービスマネジメント", "問25 システム監査"];
+const LB = ["ア","イ","ウ","エ"];
+const KEY = "a2-slots-v2";
+let filter=null, wrongOnly=false, todoOnly=false, showAll=false;
 const order = DATA.map((_,i)=>i);   // 出題順は固定（シャッフル機能は廃止）
-let ok = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
-
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify([...ok])); }catch(e){} }
+let res = {};
+// プライベートウィンドウやサイトデータを拒否した環境では localStorage の
+// 読み取り自体が例外を投げる。囲っていないとページ全体が真っ白になる。
+try{ res = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){ res = {}; }
+// 選択肢は原文（IPA 本番）の並びのまま表示する。
+// ★シャッフルすると、解説「あわせて覚える」の「アは〜」「エの内容は〜」が合わなくなる
+//   （2026-10-19 修正。55問で記号がズレていた）
+const perm = DATA.map(()=>[0,1,2,3]);
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(res)); }catch(e){} }
 function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-
 function chips(){
-  const el = document.getElementById("chips");
-  el.innerHTML = "";
-  const mk = (label, val) => {
-    const b = document.createElement("button");
-    b.className = "chip"; b.textContent = label;
-    b.setAttribute("aria-pressed", filter === val);
-    b.onclick = () => { filter = val; chips(); render(); el.scrollLeft = 0; };
-    el.appendChild(b);
-  };
-  mk("すべて", null);
-  CATS.forEach(c => mk(c, c));
+  const el=document.getElementById("chips"); el.innerHTML="";
+  const mk=(l,v)=>{const b=document.createElement("button");b.className="chip";b.textContent=l;
+    b.setAttribute("aria-pressed",filter===v);b.onclick=()=>{filter=v;chips();render();};el.appendChild(b);};
+  mk("すべて",null); CATS.forEach(c=>mk(c,c));
 }
-
 function render(){
-  const list = document.getElementById("list");
-  list.innerHTML = "";
-  let shown = 0;
-  order.forEach(i => {
-    const d = DATA[i];
-    if (filter && d.cat !== filter) return;
-    if (todoOnly && ok.has(i)) return;
-    shown++;
-    const folded = ok.has(i) || hideAll;
-    const card = document.createElement("div");
-    card.className = "card" + (ok.has(i) ? " ok" : "");
+  const list=document.getElementById("list"); list.innerHTML=""; let n=0;
+  order.forEach(i=>{
+    const d=DATA[i];
+    if(filter && d.cat!==filter) return;
+    if(wrongOnly && res[i]!==false) return;
+    if(todoOnly && (i in res)) return;
+    n++;
+    const idx=perm[i], answered=(i in res);
+    const open = answered || showAll;
+    const card=document.createElement("div");
+    card.className="card"+(answered&&res[i]?" ok":"");
+    const mk = !answered ? "" :
+      (res[i] ? '<span class="mk" style="color:#10b981">正解</span>'
+              : '<span class="mk" style="color:#ef4444">不正解</span>');
     card.innerHTML =
-      '<div class="q-header">' +
-        '<span class="q-num">Q' + String(i+1).padStart(3,"0") + '</span>' +
-        '<span class="q-cat">' + esc(d.cat) + '</span>' +
-        '<button class="q-chk">' + (ok.has(i) ? "覚えた" : "未チェック") + '</button>' +
-      '</div>' +
-      '<p class="q-text">' + esc(d.q) + '</p>' +
-      '<div class="body"' + (folded ? ' hidden' : '') + '>' +
-        '<p class="a">' + esc(d.a) + '</p>' +
-        (d.abbr !== "―" ? '<p class="abbr">' + esc(d.abbr) + '</p>' : '') +
-        '<div class="expl"><div class="expl-label">かんたん解説</div>' +
-        '<p class="expl-body">' + esc(d.note) + '</p></div>' +
-        (d.plus ? '<div class="plus"><div class="plus-label">あわせて覚える</div>' +
-                  '<p class="plus-body">' + esc(d.plus) + '</p></div>' : '') +
+      '<div class="qh"><span class="qn">Q'+String(i+1).padStart(3,"0")+'</span>'+
+      '<span class="qc">'+esc(d.cat)+'</span>'+mk+'</div>'+
+      '<p class="qt">'+esc(d.q)+'</p><div class="opts"></div>'+
+      '<div class="ans" hidden>'+
+        (d.abbr!=="―" ? '<p class="abbr">'+esc(d.abbr)+'</p>' : '')+
+        '<div class="expl"><div class="el">かんたん解説</div><p class="eb">'+esc(d.note)+'</p></div>'+
+        (d.plus ? '<div class="plus"><div class="pl">あわせて覚える</div><p class="pb">'+esc(d.plus)+'</p></div>' : '')+
       '</div>';
-
-    const body = card.querySelector(".body");
-    const chk = card.querySelector(".q-chk");
-    chk.onclick = () => {
-      if (ok.has(i)) {
-        ok.delete(i); card.classList.remove("ok");
-        chk.textContent = "未チェック"; body.hidden = hideAll;
-      } else {
-        ok.add(i); card.classList.add("ok");
-        chk.textContent = "覚えた"; body.hidden = true;
-      }
-      save(); progress();
-      if (todoOnly && ok.has(i)) render();
-    };
-
-    // 「答えを隠す」でたたまれているものは、設問をタップすると開く
-    if (folded && !ok.has(i)) {
-      const q = card.querySelector(".q-text");
-      q.style.cursor = "pointer";
-      q.title = "タップで答えを表示";
-      q.onclick = () => { body.hidden = false; };
-    }
+    const opts=card.querySelector(".opts"), ans=card.querySelector(".ans");
+    idx.forEach((oi,pos)=>{
+      const b=document.createElement("button"); b.className="opt"; b.disabled=open;
+      b.innerHTML='<span class="lb">'+LB[pos]+'</span><span>'+esc(d.opts[oi])+'</span>';
+      if(open && oi===d.ans) b.classList.add("correct");
+      b.onclick=()=>{
+        if(b.disabled) return;
+        const hit=(oi===d.ans);
+        card.querySelectorAll(".opt").forEach((x,p)=>{x.disabled=true; if(idx[p]===d.ans)x.classList.add("correct");});
+        if(!hit) b.classList.add("wrong");
+        ans.hidden=false; if(hit) card.classList.add("ok");
+        res[i]=hit; save();
+        const h=card.querySelector(".qh"); const o=h.querySelector(".mk"); if(o)o.remove();
+        const s=document.createElement("span"); s.className="mk";
+        s.style.color=hit?"#10b981":"#ef4444"; s.textContent=hit?"正解":"不正解"; h.appendChild(s);
+        score();
+      };
+      opts.appendChild(b);
+    });
+    if(open) ans.hidden=false;
     list.appendChild(card);
   });
-  document.getElementById("count").textContent = "表示 " + shown + " / 全 " + DATA.length + " 問";
-  progress();
+  document.getElementById("count").textContent="表示 "+n+" / 全 "+DATA.length+" 問";
+  score();
 }
-
-function progress(){
-  document.getElementById("prog").textContent =
-    "覚えた " + ok.size + " / " + DATA.length + "（" + Math.round(ok.size/DATA.length*100) + "%）";
+function score(){
+  const k=Object.keys(res), ok=k.filter(x=>res[x]).length;
+  const pct=k.length?Math.round(ok/k.length*100):0;
+  document.getElementById("score").textContent=
+    "正解 "+ok+" / "+k.length+"（"+pct+"%）　未解答 "+(DATA.length-k.length);
 }
-
-document.getElementById("hideAns").onclick = (e) => {
-  hideAll = !hideAll;
-  e.target.textContent = hideAll ? "答えを表示" : "答えを隠す";
-  e.target.classList.toggle("on", hideAll);
+document.getElementById("showAns").onclick=e=>{
+  showAll=!showAll;
+  e.target.textContent = showAll ? "答えを隠す" : "答えを表示";
+  e.target.classList.toggle("on",showAll);
   render();
 };
-document.getElementById("todo").onclick = (e) => {
-  todoOnly = !todoOnly;
-  e.target.classList.toggle("on", todoOnly);
-  render();
-};
-document.getElementById("reset").onclick = () => { ok = new Set(); save(); render(); };
-
+document.getElementById("wrongOnly").onclick=e=>{wrongOnly=!wrongOnly;todoOnly=false;
+  e.target.classList.toggle("on",wrongOnly);document.getElementById("todo").classList.remove("on");render();};
+document.getElementById("todo").onclick=e=>{todoOnly=!todoOnly;wrongOnly=false;
+  e.target.classList.toggle("on",todoOnly);document.getElementById("wrongOnly").classList.remove("on");render();};
+document.getElementById("reset").onclick=()=>{res={};save();render();};
 chips(); render();
 </script>
 </body>
